@@ -6,11 +6,10 @@
     "build": "next build",
     "start": "next start",
     "test": "jest",
-    "lint": "eslint .",
+    "lint": "eslint './**/*.{js,jsx}'",
     "madge": "madge -c pages/index.js",
     "storybook": "start-storybook -p 6006",
-    "storybook:build": "build-storybook -o dist-storybook",
-    "typecheck": "flow check"
+    "storybook:build": "build-storybook -o dist-storybook"
   },
   "dependencies": {
     "next": "^6.1.1",
@@ -32,6 +31,7 @@
     "eslint": "^5.1.0",
     "eslint-config-airbnb": "^17.0.0",
     "eslint-config-prettier": "^2.9.0",
+    "eslint-import-resolver-babel-module": "^5.0.0-beta.0",
     "eslint-plugin-flowtype": "^2.50.0",
     "eslint-plugin-fp": "^2.3.0",
     "eslint-plugin-import": "^2.13.0",
@@ -39,6 +39,7 @@
     "eslint-plugin-prettier": "^2.6.2",
     "eslint-plugin-react": "^7.10.0",
     "flow-bin": "^0.76.0",
+    "gulp": "^4.0.0",
     "jest": "^23.4.0",
     "jest-styled-components": "^5.0.1",
     "madge": "^3.2.0",
