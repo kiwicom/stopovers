@@ -1,5 +1,6 @@
-import React from 'react';
-import styled from 'styled-components';
+// @flow
+import * as React from "react";
+import styled from "styled-components";
 
 const Title = styled.h1`
   color: blue;
@@ -13,8 +14,10 @@ const Layout = styled.div`
   grid-template-rows: 1fr;
 `;
 
-export default () => (
+const Index = () => (
   <Layout>
     <Title>Stopovers</Title>
   </Layout>
 );
+
+export default Index;
