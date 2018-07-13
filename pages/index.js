@@ -1,6 +1,9 @@
 // @flow
+
 import * as React from "react";
 import styled from "styled-components";
+
+import SliderSection from "../components/sliderSection/SliderSection";
 
 const Title = styled.h1`
   color: blue;
@@ -17,6 +20,7 @@ const Layout = styled.div`
 const Index = () => (
   <Layout>
     <Title>Stopovers</Title>
+    <SliderSection />
   </Layout>
 );
 
