@@ -2,10 +2,7 @@
 import * as React from "react";
 import styled from "styled-components";
 
-const Title = styled.h1`
-  color: blue;
-  font-size: 50px;
-`;
+import Hero from "../components/hero/Hero";
 
 const Layout = styled.div`
   display: grid;
@@ -16,7 +13,7 @@ const Layout = styled.div`
 
 const Index = () => (
   <Layout>
-    <Title>Stopovers</Title>
+    <Hero />
   </Layout>
 );
 
