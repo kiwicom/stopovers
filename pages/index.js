@@ -3,6 +3,7 @@ import * as React from "react";
 import styled from "styled-components";
 
 import Hero from "../components/hero/Hero";
+import SliderSection from "../components/sliderSection/SliderSection";
 
 const Layout = styled.div`
   display: grid;
@@ -14,6 +15,7 @@ const Layout = styled.div`
 const Index = () => (
   <Layout>
     <Hero />
+    <SliderSection />
   </Layout>
 );
 
