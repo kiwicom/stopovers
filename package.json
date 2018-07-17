@@ -6,10 +6,11 @@
     "build": "next build",
     "start": "next start",
     "test": "jest",
-    "lint": "eslint './**/*.{js,jsx}'",
+    "lint": "eslint .",
     "madge": "madge -c pages/index.js",
     "storybook": "start-storybook -p 6006",
-    "storybook:build": "build-storybook -o dist-storybook"
+    "storybook:build": "build-storybook -o dist-storybook",
+    "typecheck": "flow check"
   },
   "dependencies": {
     "next": "^6.1.1",
