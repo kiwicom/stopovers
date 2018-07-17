@@ -8,18 +8,14 @@ import SearchAction from "./SearchAction";
 const Wrapper = styled.div`
   display: grid;
   height: 100%;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
   grid-template-rows: 700px 76px;
   grid-template-areas: "Content Image " "SearchAction SearchAction";
-  font-family: Roboto, sans-serif;
 `;
 
 const Image = styled.img`
   width: 720px;
   height: 700px;
-  position: relative;
-  right: 0px;
-  grid-area: Image;
   max-height: 100%;
 `;
 
