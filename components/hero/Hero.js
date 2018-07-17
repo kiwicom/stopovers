@@ -7,29 +7,25 @@ import SearchAction from "./SearchAction";
 
 const Wrapper = styled.div`
   display: grid;
-  padding: 0 0 0 152px;
-  height: 100%;
-  grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
-  grid-template-rows: 700px 76px;
-  grid-template-areas: "Content Image " "SearchAction SearchAction";
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: minmax(700px, 1fr) 76px;
+  grid-template-areas: "content image" "search-action search-action";
 `;
 
-const Image = styled.img`
-  width: 100%;
-  max-height: 100%;
-`;
-
-const ImageWrapper = styled.div`
-  grid-area: Image;
+const Image = styled.div`
+  grid-area: image;
+  background: url(/static/dubai-hero.jpg) center center no-repeat;
+  background-size: 100% 100%;
 `;
 
 const ContentWrapper = styled.div`
-  padding-top: 155px;
-  grid-area: Content;
+  padding-left: 152px;
+  grid-area: content;
+  align-self: center;
 `;
 
 const SearchActionWrapper = styled.div`
-  grid-area: SearchAction;
+  grid-area: search-action;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -40,9 +36,7 @@ const Hero = () => (
     <ContentWrapper>
       <Content />
     </ContentWrapper>
-    <ImageWrapper>
-      <Image src="/static/dubai-hero.jpg" alt="hero" />
-    </ImageWrapper>
+    <Image />
     <SearchActionWrapper>
       <SearchAction />
     </SearchActionWrapper>
