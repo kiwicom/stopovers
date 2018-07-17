@@ -27,6 +27,7 @@ const Image = styled.div`
 const ContentWrapper = styled.div`
   grid-area: content;
   align-self: center;
+  padding: 50px;
   @media (min-width: 770px) {
     padding: 0 0 0 152px;
   }

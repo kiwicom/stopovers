@@ -27,7 +27,7 @@ const SliderWrapper = styled.div`
   grid-area: slider;
 
   @media (min-width: 770px) {
-    padding-right: 50px;
+    padding-right: 30px;
   }
 `;
 
@@ -37,7 +37,7 @@ const DescriptionWrapper = styled.div`
   font-size: 30px;
 
   @media (min-width: 770px) {
-    padding-left: 50px;
+    padding-left: 35px;
   }
 `;
 
@@ -58,7 +58,7 @@ const SliderSection = () => (
         cultured, gramourous, adventurous or relaxing.<Br />How you experience it is up to you.
       </Description>
       <Button fontSize={16}>Search flights</Button>
-      <Button fontSize={20} secondary>
+      <Button fontSize={14} secondary>
         > Choose itinerary
       </Button>
     </DescriptionWrapper>

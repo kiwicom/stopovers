@@ -26,7 +26,7 @@ export default class MyDocument extends Document {
           <title>Stopovers</title>
           {this.props.styleTags}
           <link
-            href="https://fonts.googleapis.com/css?family=Roboto:300,400,500"
+            href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,600,700"
             rel="stylesheet"
           />
         </Head>

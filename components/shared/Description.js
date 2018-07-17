@@ -10,7 +10,7 @@ const Description = styled.p`
   margin-bottom: 50px;
 
   @media (min-width: 770px) {
-    font-size: 26px;
+    font-size: 20px;
     text-align: left;
   }
 `;
