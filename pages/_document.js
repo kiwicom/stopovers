@@ -1,7 +1,14 @@
 // @flow
 import * as React from "react";
 import Document, { Head, Main, NextScript } from "next/document";
-import { ServerStyleSheet } from "styled-components";
+import { ServerStyleSheet, injectGlobal } from "styled-components";
+
+injectGlobal`
+  html, body {
+    margin: 0;
+    font-family: 'Roboto', sans-serif;
+  }
+`;
 
 export default class MyDocument extends Document {
   // $FlowFixMe

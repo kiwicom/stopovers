@@ -2,18 +2,17 @@
 import styled from "styled-components";
 
 const Button = styled.button`
-  width: 127px;
-  height: 44px;
-  border-radius: 3px;
-  background-color: #00a991;
-  border: none;
-  cursor: pointer;
-  font-size: 14px;
-  font-weight: bold;
-  line-height: 1.43;
-  text-align: center;
-  color: #ffffff;
   font-family: Roboto, sans-serif;
+  font-size: ${({ fontSize }) => fontSize}px;
+  font-weight: ${({ secondary }) => (secondary ? 300 : 600)};
+  background: ${({ secondary }) => (secondary ? "transparent" : "#00a991")};
+  color: ${({ secondary }) => (secondary ? "#48505C" : "#ffffff")};
+  line-height: 1.43;
+  border: none;
+  border-radius: 3px;
+  padding: 20px 50px;
+  text-align: center;
+  cursor: pointer;
 `;
 
 export default Button;
