@@ -6,6 +6,7 @@ import { AirplaneDown } from "@kiwicom/orbit-components/lib/icons";
 
 import Action from "./Action";
 import Text from "../shared/Text";
+import Br from "../shared/Br";
 
 const MainTitle = styled.div`
   font-size: 40px;
@@ -49,7 +50,9 @@ const AirplaneWrapper = styled.div`
 
 const Content = () => (
   <>
-    <MainTitle>Start your vacation with a holiday</MainTitle>
+    <MainTitle>
+      Start your vacation <Br />with a holiday
+    </MainTitle>
     <TextWrapper>
       <Text>
         There’s a world of experiences <br /> waiting on a 24 hour stopover in Dubai

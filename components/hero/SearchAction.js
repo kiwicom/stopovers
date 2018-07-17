@@ -10,7 +10,7 @@ const SearchAction = () => (
   <>
     <AirplaneRight customColor="#bac7d5" />
     <ActionText>Search for flights with a one-day stopover in Dubai</ActionText>
-    <Button>Go to search</Button>
+    <Button fontSize={14}>Go to search</Button>
   </>
 );
 

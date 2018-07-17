@@ -52,13 +52,13 @@ const SliderSection = () => (
     </SliderLayout>
 
     <StopoverDescription>
-      <Title fontSize={50}>The Stopover</Title>
+      <Title fontSize={38}>The Stopover</Title>
       <Description>
         When you book your flight to Asia via Dubai, you unlock a city<Br /> that can be exciting,
         cultured, gramourous, adventurous or relaxing.<Br />How you experience it is up to you.
       </Description>
-      <Button fontSize={18}>Search flights</Button>
-      <Button fontSize={25} secondary>
+      <Button fontSize={16}>Search flights</Button>
+      <Button fontSize={20} secondary>
         > Choose itinerary
       </Button>
     </StopoverDescription>

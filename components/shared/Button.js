@@ -10,7 +10,7 @@ const Button = styled.button`
   line-height: 1.43;
   border: none;
   border-radius: 3px;
-  padding: 20px 50px;
+  padding: 14px 21px;
   text-align: center;
   cursor: pointer;
 `;
