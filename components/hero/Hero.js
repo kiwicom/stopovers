@@ -7,6 +7,7 @@ import SearchAction from "./SearchAction";
 
 const Wrapper = styled.div`
   display: grid;
+  padding: 0 0 0 152px;
   height: 100%;
   grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
   grid-template-rows: 700px 76px;
@@ -14,20 +15,16 @@ const Wrapper = styled.div`
 `;
 
 const Image = styled.img`
-  width: 720px;
-  height: 700px;
+  width: 100%;
   max-height: 100%;
 `;
 
 const ImageWrapper = styled.div`
   grid-area: Image;
-  display: flex;
-  justify-content: flex-end;
 `;
 
 const ContentWrapper = styled.div`
   padding-top: 155px;
-  margin-left: 87px;
   grid-area: Content;
 `;
 

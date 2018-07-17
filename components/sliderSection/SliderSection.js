@@ -8,7 +8,7 @@ import Title from "../shared/Title";
 import Description from "../shared/Description";
 import Br from "../shared/Br";
 
-const Layout = styled.div`
+const Wrapper = styled.div`
   display: grid;
   padding: 45px 35px;
   grid-template-columns: 1fr;
@@ -23,7 +23,7 @@ const Layout = styled.div`
   }
 `;
 
-const SliderLayout = styled.div`
+const SliderWrapper = styled.div`
   grid-area: slider;
 
   @media (min-width: 770px) {
@@ -31,7 +31,7 @@ const SliderLayout = styled.div`
   }
 `;
 
-const StopoverDescription = styled.div`
+const DescriptionWrapper = styled.div`
   grid-area: description;
   align-self: center;
   font-size: 30px;
@@ -46,12 +46,12 @@ const Image = styled.img`
 `;
 
 const SliderSection = () => (
-  <Layout>
-    <SliderLayout>
+  <Wrapper>
+    <SliderWrapper>
       <Image src="static/images/carousel/carousel-first.jpg" alt="Dubai" />
-    </SliderLayout>
+    </SliderWrapper>
 
-    <StopoverDescription>
+    <DescriptionWrapper>
       <Title fontSize={38}>The Stopover</Title>
       <Description>
         When you book your flight to Asia via Dubai, you unlock a city<Br /> that can be exciting,
@@ -61,8 +61,8 @@ const SliderSection = () => (
       <Button fontSize={20} secondary>
         > Choose itinerary
       </Button>
-    </StopoverDescription>
-  </Layout>
+    </DescriptionWrapper>
+  </Wrapper>
 );
 
 export default SliderSection;
