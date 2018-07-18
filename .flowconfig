@@ -12,6 +12,7 @@ all=error
 [ignore]
 .*/node_modules/*
 <PROJECT_ROOT>\/node_modules\/graphviz\/.*
+.*/node_modules/*
 
 [include]
 
