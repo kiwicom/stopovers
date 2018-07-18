@@ -2,6 +2,7 @@
 
 import * as React from "react";
 import styled from "styled-components";
+import Carousel from "nuka-carousel";
 
 import Button from "../shared/Button";
 import Title from "../shared/Title";
@@ -48,7 +49,12 @@ const Image = styled.img`
 const SliderSection = () => (
   <Wrapper>
     <SliderWrapper>
-      <Image src="static/images/carousel/carousel-first.jpg" alt="Dubai" />
+      <Carousel>
+        <img src="static/images/carousel/carousel-first.jpg" alt="Carousel Dubai" />
+        <img src="static/images/carousel/carousel-second.jpg" alt="Carousel Dubai" />
+        <img src="static/images/carousel/carousel-third.jpg" alt="Carousel Dubai" />
+        <img src="static/images/carousel/carousel-fourth.jpg" alt="Carousel Dubai" />
+      </Carousel>
     </SliderWrapper>
 
     <DescriptionWrapper>
