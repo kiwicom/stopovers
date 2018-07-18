@@ -10,6 +10,7 @@ sketchy-null
 all=error
 
 [ignore]
+.*/node_modules/*
 <PROJECT_ROOT>\/node_modules\/graphviz\/.*
 
 [include]
