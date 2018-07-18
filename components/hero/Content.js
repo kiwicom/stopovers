@@ -51,11 +51,11 @@ const AirplaneWrapper = styled.div`
 const Content = () => (
   <>
     <MainTitle>
-      Start your vacation <Br />with a holiday
+      Start your vacation <br />with a holiday
     </MainTitle>
     <TextWrapper>
       <Text>
-        There’s a world of experiences <br /> waiting on a 24 hour stopover in Dubai
+        There’s a world of experiences <Br />waiting on a 24 hour stopover in Dubai
       </Text>
     </TextWrapper>
     <AirplaneWrapper>

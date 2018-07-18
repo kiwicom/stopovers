@@ -7,9 +7,15 @@ import SearchAction from "./SearchAction";
 
 const Wrapper = styled.div`
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  grid-template-rows: minmax(700px, 1fr) 76px;
-  grid-template-areas: "content image" "search-action search-action";
+  grid-template-columns: 1fr;
+  grid-template-areas: "image" "content";
+  grid-template-rows: 1.3fr 1fr;
+
+  @media (min-width: 770px) {
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: minmax(700px, 1fr) 76px;
+    grid-template-areas: "content image" "search-action search-action";
+  }
 `;
 
 const Image = styled.div`
@@ -19,16 +25,22 @@ const Image = styled.div`
 `;
 
 const ContentWrapper = styled.div`
-  padding-left: 152px;
   grid-area: content;
   align-self: center;
+  padding: 50px;
+  @media (min-width: 770px) {
+    padding: 0 0 0 152px;
+  }
 `;
 
 const SearchActionWrapper = styled.div`
   grid-area: search-action;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  display: none;
+  @media (min-width: 770px) {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
 `;
 
 const Hero = () => (
