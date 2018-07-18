@@ -7,7 +7,7 @@
         ssr: true,
         displayName: true,
       },
-      "transform-flow-strip-types",
     ],
+    "transform-flow-strip-types",
   ],
 }
