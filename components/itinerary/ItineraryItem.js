@@ -62,8 +62,8 @@ const Circle = styled.div`
 
 const ItineraryItem = ({ item, order }: Props) => {
   const { imageUrl, time, title, description } = item;
-
   const isOdd = !(order % 2);
+
   return (
     <ItemWrapper>
       <Circle />

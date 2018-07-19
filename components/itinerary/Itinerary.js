@@ -18,9 +18,9 @@ const ItineraryWrapper = styled.div`
   &::before {
     content: "";
     position: absolute;
-    top: 200px;
+    top: 300px;
     left: 28px;
-    height: calc(100% - 200px);
+    height: calc(100% - 300px);
     width: 2px;
     background: #e8e8e8;
 
@@ -33,6 +33,7 @@ const ItineraryWrapper = styled.div`
 
 const DropdownWrapper = styled.div`
   text-align: center;
+  margin-bottom: 120px;
 `;
 
 const Itinerary = () => (
