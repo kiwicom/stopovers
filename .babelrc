@@ -1,13 +1,13 @@
 {
   presets: ["next/babel"],
   plugins: [
+    "transform-flow-strip-types",
     [
       "styled-components",
       {
         ssr: true,
-        displayName: true,
-      },
-    ],
-    "transform-flow-strip-types",
-  ],
+        displayName: true
+      }
+    ]
+  ]
 }
