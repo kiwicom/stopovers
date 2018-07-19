@@ -3,7 +3,7 @@ export const data = {
   shopping: [
     {
       id: 1,
-      imageUrl: "",
+      imageUrl: "static/images/itinerary/shopping/souks.jpeg",
       time: "8 AM",
       title: "Explore the souks",
       description:
@@ -11,42 +11,42 @@ export const data = {
     },
     {
       id: 2,
-      imageUrl: "",
+      imageUrl: "static/images/itinerary/shopping/souks.jpeg",
       time: "10 AM",
       title: "Visit the mall",
       description: "",
     },
     {
       id: 3,
-      imageUrl: "",
+      imageUrl: "static/images/itinerary/shopping/souks.jpeg",
       time: "11 AM",
       title: `Shop 'til you drop`,
       description: "",
     },
     {
       id: 4,
-      imageUrl: "",
+      imageUrl: "static/images/itinerary/shopping/souks.jpeg",
       time: "1 PM",
       title: "Mingle with the locals",
       description: "",
     },
     {
       id: 5,
-      imageUrl: "",
+      imageUrl: "static/images/itinerary/shopping/souks.jpeg",
       time: "3 PM",
       title: "Epic entertainment",
       description: "",
     },
     {
       id: 6,
-      imageUrl: "",
+      imageUrl: "static/images/itinerary/shopping/souks.jpeg",
       time: "4 PM",
       title: "Chill at The Beach",
       description: "",
     },
     {
       id: 7,
-      imageUrl: "",
+      imageUrl: "static/images/itinerary/shopping/souks.jpeg",
       time: "7 PM",
       title: "Finish with a thrill",
       description: "",
@@ -55,7 +55,7 @@ export const data = {
   flavours: [
     {
       id: 1,
-      imageUrl: "",
+      imageUrl: "static/images/itinerary/shopping/souks.jpeg",
       time: "8 AM",
       title: "Some new title",
       description: "Some new description",

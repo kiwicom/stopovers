@@ -3,7 +3,19 @@ import * as React from "react";
 import styled from "styled-components";
 
 import ItemContent from "./ItemContent";
-import type { ItineraryItem as ItemType } from "./types";
+
+type ItineraryItemType = {
+  imageUrl: string,
+  order: number,
+  time: string,
+  title: string,
+  description: string,
+};
+
+type Props = {
+  item: ItineraryItemType,
+  order: number,
+};
 
 const ItemWrapper = styled.div`
   position: relative;
@@ -48,7 +60,9 @@ const Circle = styled.div`
   }
 `;
 
-const Item = ({ imageUrl, order, time, title, description }: ItemType) => {
+const ItineraryItem = ({ item, order }: Props) => {
+  const { imageUrl, time, title, description } = item;
+
   const isOdd = !(order % 2);
   return (
     <ItemWrapper>
@@ -59,4 +73,4 @@ const Item = ({ imageUrl, order, time, title, description }: ItemType) => {
   );
 };
 
-export default Item;
+export default ItineraryItem;
