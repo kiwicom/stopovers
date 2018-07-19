@@ -42,10 +42,6 @@ const DescriptionWrapper = styled.div`
   }
 `;
 
-const Image = styled.img`
-  width: 100%;
-`;
-
 const SliderSection = () => (
   <Wrapper>
     <SliderWrapper>
@@ -65,7 +61,7 @@ const SliderSection = () => (
       </Description>
       <Button fontSize={16}>Search flights</Button>
       <Button fontSize={14} secondary>
-        > Choose itinerary
+        {"> Choose itinerary"}
       </Button>
     </DescriptionWrapper>
   </Wrapper>
