@@ -43,10 +43,10 @@ const Itinerary = () => (
       {({ state, changeDropdownValue }) => (
         <ItineraryWrapper>
           <DropdownWrapper>
-            <Title fontSize={38} center>
+            <Title fontSize={38} textAlign="center">
               Choose your traveller
             </Title>
-            <Title fontSize={28} center>
+            <Title fontSize={28} textAlign="center">
               to discover the perfect itinerary
             </Title>
             <Dropdown

@@ -15,4 +15,20 @@ const Button = styled.button`
   cursor: pointer;
 `;
 
+export const Link = styled.a`
+  font-family: Roboto, sans-serif;
+  font-size: ${({ fontSize }) => fontSize}px;
+  text-decoration: none;
+  font-weight: 500;
+  color: #48505c;
+  line-height: 1.5;
+  text-align: center;
+  cursor: pointer;
+
+  &:before {
+    content: ">";
+    margin-right: 10px;
+  }
+`;
+
 export default Button;
