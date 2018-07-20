@@ -74,10 +74,10 @@ const logos = [
 
 const Partners = () => (
   <>
-    <Title fontSize={38} center>
+    <Title fontSize={38} textAlign="center">
       Book your flight and get discounts
     </Title>
-    <Title fontSize={28} center>
+    <Title fontSize={28} textAlign="center">
       from our partners
     </Title>
     <PartnersWrapper>
