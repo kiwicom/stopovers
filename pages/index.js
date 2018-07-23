@@ -17,6 +17,7 @@ const Layout = styled.div`
 const Index = () => (
   <Layout>
     <Hero />
+    <SliderSection />
     <Itinerary />
     <Partners />
   </Layout>

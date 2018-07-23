@@ -14,12 +14,15 @@ const Wrapper = styled.div`
   padding: 45px 35px;
   grid-template-columns: 1fr;
   grid-template-areas: "slider" "description";
+  justify-items: center;
   background-color: #f6f7f9;
   box-shadow: inset 6px 180px 10px -182px rgba(0, 0, 0, 0.31);
 
   @media (min-width: 770px) {
+    justify-items: left;
     padding: 100px 65px;
     grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+    grid-template-rows: 1fr;
     grid-template-areas: "slider description";
   }
 `;
@@ -27,8 +30,10 @@ const Wrapper = styled.div`
 const SliderWrapper = styled.div`
   grid-area: slider;
 
+  width: 600px;
   @media (min-width: 770px) {
     padding-right: 30px;
+    width: 100%;
   }
 `;
 
@@ -39,6 +44,14 @@ const DescriptionWrapper = styled.div`
 
   @media (min-width: 770px) {
     padding-left: 35px;
+  }
+`;
+
+const ButtonsWrapper = styled.div`
+  display: flex;
+  justify-content: center;
+  @media (min-width: 770px) {
+    justify-content: start;
   }
 `;
 
@@ -59,10 +72,12 @@ const SliderSection = () => (
         When you book your flight to Asia via Dubai, you unlock a city<Br /> that can be exciting,
         cultured, gramourous, adventurous or relaxing.<Br />How you experience it is up to you.
       </Description>
-      <Button fontSize={16}>Search flights</Button>
-      <Button fontSize={14} secondary>
-        {"> Choose itinerary"}
-      </Button>
+      <ButtonsWrapper>
+        <Button fontSize={16}>Search flights</Button>
+        <Button fontSize={14} secondary>
+          {"> Choose itinerary"}
+        </Button>
+      </ButtonsWrapper>
     </DescriptionWrapper>
   </Wrapper>
 );
