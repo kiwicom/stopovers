@@ -8,6 +8,7 @@ import Itinerary from "../components/itinerary/Itinerary";
 import Partners from "../components/partners/Partners";
 import Articles from "../components/articles/Articles";
 import Video from "../components/video/Video";
+import Footer from "../components/footer/Footer";
 
 const Layout = styled.div`
   display: grid;
@@ -24,6 +25,7 @@ const Index = () => (
     <Partners />
     <Articles />
     <Video />
+    <Footer />
   </Layout>
 );
 
