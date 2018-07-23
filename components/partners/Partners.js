@@ -37,7 +37,7 @@ const Logos = styled.div`
   flex-direction: column;
   margin-left: 80px;
   margin-right: 80px;
-  margin-bottom: 40px;
+
   @media only screen and (min-width: 770px) {
     flex-direction: row;
     width: calc(50% - 70px);
@@ -48,9 +48,10 @@ const Logos = styled.div`
 
 const Logo = styled.img`
   height: 100%;
-
+  width: calc(100% - 30px);
+  margin-bottom: 40px;
   @media only screen and (min-width: 770px) {
-    height: 50px;
+    width: calc(33% - 30px);
   }
 `;
 
