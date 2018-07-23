@@ -6,6 +6,7 @@ import Hero from "../components/hero/Hero";
 import SliderSection from "../components/sliderSection/SliderSection";
 import Itinerary from "../components/itinerary/Itinerary";
 import Partners from "../components/partners/Partners";
+import Video from "../components/video/Video";
 
 const Layout = styled.div`
   display: grid;
@@ -20,6 +21,7 @@ const Index = () => (
     <SliderSection />
     <Itinerary />
     <Partners />
+    <Video />
   </Layout>
 );
 
