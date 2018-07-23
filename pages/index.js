@@ -5,6 +5,7 @@ import styled from "styled-components";
 import Hero from "../components/hero/Hero";
 import SliderSection from "../components/sliderSection/SliderSection";
 import Itinerary from "../components/itinerary/Itinerary";
+import Partners from "../components/partners/Partners";
 
 const Layout = styled.div`
   display: grid;
@@ -16,8 +17,8 @@ const Layout = styled.div`
 const Index = () => (
   <Layout>
     <Hero />
-    <SliderSection />
     <Itinerary />
+    <Partners />
   </Layout>
 );
 
