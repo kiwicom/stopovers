@@ -6,6 +6,7 @@ import styled from "styled-components";
 import { ChevronDown } from "@kiwicom/orbit-components/lib/icons";
 
 import ActionText from "../shared/ActionText";
+import { scrollToElement } from "../helpers";
 
 const ActionButton = styled.button`
   width: 52px;
@@ -21,7 +22,11 @@ const ActionButton = styled.button`
 
 const Action = () => (
   <>
-    <ActionButton>
+    <ActionButton
+      onClick={() => {
+        scrollToElement("search");
+      }}
+    >
       <ChevronDown customColor="#ffffff" size="medium" />
     </ActionButton>
     <ActionText>Save on your trip & see Dubai</ActionText>
