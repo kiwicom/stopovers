@@ -10,6 +10,7 @@ import Articles from "../components/articles/Articles";
 import Video from "../components/video/Video";
 import Search from "../components/search/Search";
 import Footer from "../components/footer/Footer";
+import Banner from "../components/banner/Banner";
 
 const Layout = styled.div`
   display: grid;
@@ -28,6 +29,7 @@ const Index = () => (
     <Video />
     <Search />
     <Footer />
+    <Banner />
   </Layout>
 );
 
