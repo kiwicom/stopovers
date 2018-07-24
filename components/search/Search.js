@@ -6,9 +6,7 @@ import Title from "../shared/Title";
 import Button from "../shared/Button";
 
 const Wrapper = styled.div`
-  margin-top: 100px;
   padding: 80px 65px;
-  background-color: #f6f7f9;
 `;
 
 const TitleWrapper = styled.div`
@@ -64,15 +62,17 @@ const ActionTitleWrapper = styled.div`
   }
 `;
 
-class Search extends React.Component {
+class Search extends React.Component<{}> {
   componentDidMount() {
     const script = document.createElement("script");
     script.src = "https://widget.kiwi.com/scripts/widget-search-iframe.js";
     script.setAttribute("data-width", "100%");
     script.setAttribute("data-to", "Dubai");
-    script.setAttribute("data-limit", 3);
+    script.setAttribute("data-limit", "3");
 
-    document.head.appendChild(script);
+    if (document.head) {
+      document.head.appendChild(script);
+    }
   }
 
   render() {

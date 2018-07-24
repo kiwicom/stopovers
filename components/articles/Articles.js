@@ -2,6 +2,7 @@
 import * as React from "react";
 import styled from "styled-components";
 
+import { scrollToElement } from "../helpers";
 import Title from "../shared/Title";
 import Button from "../shared/Button";
 import ArticleItem from "./ArticleItem";
@@ -62,7 +63,14 @@ const Articles = () => (
 
     <ActionWrapper>
       <Title fontSize={20}>Book your flight to Asia featuring a stopover in Dubai</Title>
-      <Button fontSize={16}>Search flight now</Button>
+      <Button
+        fontSize={16}
+        onClick={() => {
+          scrollToElement("search");
+        }}
+      >
+        Search flight now
+      </Button>
     </ActionWrapper>
   </Wrapper>
 );

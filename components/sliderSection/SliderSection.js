@@ -8,6 +8,7 @@ import Button from "../shared/Button";
 import Title from "../shared/Title";
 import Description from "../shared/Description";
 import Br from "../shared/Br";
+import { scrollToElement } from "../helpers";
 
 const Wrapper = styled.div`
   display: grid;
@@ -73,8 +74,10 @@ const SliderSection = () => (
         cultured, gramourous, adventurous or relaxing.<Br />How you experience it is up to you.
       </Description>
       <ButtonsWrapper>
-        <Button fontSize={16}>Search flights</Button>
-        <Button fontSize={14} secondary>
+        <Button fontSize={16} onClick={() => scrollToElement("search")}>
+          Search flights
+        </Button>
+        <Button fontSize={14} secondary onClick={() => scrollToElement("itinerary")}>
           {"> Choose itinerary"}
         </Button>
       </ButtonsWrapper>

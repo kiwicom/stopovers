@@ -1,6 +1,7 @@
 // @flow
 import * as React from "react";
 import styled from "styled-components";
+import { Element } from "react-scroll";
 
 import Hero from "../components/hero/Hero";
 import SliderSection from "../components/sliderSection/SliderSection";
@@ -23,11 +24,15 @@ const Index = () => (
   <Layout>
     <Hero />
     <SliderSection />
-    <Itinerary />
+    <Element name="itinerary">
+      <Itinerary />
+    </Element>
     <Partners />
     <Articles />
     <Video />
-    <Search />
+    <Element name="search">
+      <Search />
+    </Element>
     <Footer />
     <Banner />
   </Layout>
