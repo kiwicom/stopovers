@@ -6,9 +6,7 @@ import Title from "../shared/Title";
 import Button from "../shared/Button";
 
 const Wrapper = styled.div`
-  margin-top: 100px;
   padding: 80px 65px;
-  background-color: #f6f7f9;
 `;
 
 const TitleWrapper = styled.div`
