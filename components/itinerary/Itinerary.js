@@ -5,15 +5,22 @@ import styled from "styled-components";
 import ItineraryItem from "./ItineraryItem";
 import ItineraryProvider, { ItineraryContext } from "./ItineraryContext";
 import Title from "../shared/Title";
+import Button from "../shared/Button";
 import Dropdown, { renderDropdownItem } from "../shared/Dropdown";
 import { data, dropdownData } from "./mockedData";
 
 const ItineraryWrapper = styled.div`
+  display: grid;
   position: relative;
   padding-top: 40px;
-  padding-bottom: 40px;
+  padding-bottom: 0;
   max-width: 1400px;
   margin: 0 auto;
+  justify-items: center;
+
+  @media (min-width: 770px) {
+    padding-bottom: 60px;
+  }
 
   &::before {
     content: "";
@@ -31,7 +38,18 @@ const ItineraryWrapper = styled.div`
   }
 `;
 
+const StyledButton = styled(Button)`
+  margin-top: 40px;
+  justify-self: center;
+  @media (min-width: 770px) {
+    margin-top: 0;
+    margin-bottom: 40px;
+  }
+`;
+
 const DropdownWrapper = styled.div`
+  display: block;
+  position: relative;
   text-align: center;
   margin-bottom: 120px;
 `;
@@ -41,29 +59,30 @@ const Itinerary = () => (
     <ItineraryContext.Consumer>
       {/* $FlowFixMe: add context types */}
       {({ state, changeDropdownValue }) => (
-        <ItineraryWrapper>
-          <DropdownWrapper>
-            <Title fontSize={38} textAlign="center">
-              Choose your traveller
-            </Title>
-            <Title fontSize={28} textAlign="center">
-              to discover the perfect itinerary
-            </Title>
-            <Dropdown
-              onChange={(e: SyntheticEvent<HTMLSelectElement>) =>
-                changeDropdownValue(e.currentTarget.value)
-              }
-            >
-              {dropdownData.map(item => renderDropdownItem(item))}
-            </Dropdown>
-          </DropdownWrapper>
+        <>
+          <ItineraryWrapper>
+            <DropdownWrapper>
+              <Title fontSize={38} textAlign="center">
+                Choose your traveller
+              </Title>
+              <Title fontSize={28} textAlign="center">
+                to discover the perfect itinerary
+              </Title>
+              <Dropdown
+                onChange={(e: SyntheticEvent<HTMLSelectElement>) =>
+                  changeDropdownValue(e.currentTarget.value)
+                }
+              >
+                {dropdownData.map(item => renderDropdownItem(item))}
+              </Dropdown>
+            </DropdownWrapper>
 
-          <>
             {data[state.dropdownValue].map((itineraryItem, index) => (
               <ItineraryItem key={itineraryItem.id} item={itineraryItem} order={index} />
             ))}
-          </>
-        </ItineraryWrapper>
+          </ItineraryWrapper>
+          <StyledButton fontSize={16}>Start your trip now</StyledButton>
+        </>
       )}
     </ItineraryContext.Consumer>
   </ItineraryProvider>
