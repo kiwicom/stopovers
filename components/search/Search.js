@@ -62,15 +62,17 @@ const ActionTitleWrapper = styled.div`
   }
 `;
 
-class Search extends React.Component {
+class Search extends React.Component<{}> {
   componentDidMount() {
     const script = document.createElement("script");
     script.src = "https://widget.kiwi.com/scripts/widget-search-iframe.js";
     script.setAttribute("data-width", "100%");
     script.setAttribute("data-to", "Dubai");
-    script.setAttribute("data-limit", 3);
+    script.setAttribute("data-limit", "3");
 
-    document.head.appendChild(script);
+    if (document.head) {
+      document.head.appendChild(script);
+    }
   }
 
   render() {
