@@ -3,6 +3,7 @@ import * as React from "react";
 import styled from "styled-components";
 import { AirplaneRight, Search } from "@kiwicom/orbit-components/lib/icons";
 
+import { scrollToElement } from "../helpers";
 import Button from "../shared/Button";
 import Title from "../shared/Title";
 
@@ -26,14 +27,31 @@ const SquaredButton = styled(Button)`
   padding: 10px;
 `;
 
-const Banner = () => (
-  <Wrapper>
-    <AirplaneRight />
-    <Title fontSize={14}>Search for flights with a one-day stopover in Dubai</Title>
-    <SquaredButton>
-      <Search />
-    </SquaredButton>
-  </Wrapper>
-);
+type State = {
+  isHidden: boolean,
+};
+
+class Banner extends React.Component<{}, State> {
+  state = {
+    isHidden: false,
+  };
+
+  scrollToSearch = () => {
+    scrollToElement("search", this.setState({ isHidden: true }));
+  };
+
+  render() {
+    const { isHidden } = this.state;
+    return !isHidden ? (
+      <Wrapper>
+        <AirplaneRight />
+        <Title fontSize={14}>Search for flights with a one-day stopover in Dubai</Title>
+        <SquaredButton onClick={this.scrollToSearch}>
+          <Search />
+        </SquaredButton>
+      </Wrapper>
+    ) : null;
+  }
+}
 
 export default Banner;

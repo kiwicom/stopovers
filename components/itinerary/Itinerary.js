@@ -2,12 +2,17 @@
 import * as React from "react";
 import styled from "styled-components";
 
+import { scrollToElement } from "../helpers";
 import ItineraryItem from "./ItineraryItem";
 import ItineraryProvider, { ItineraryContext } from "./ItineraryContext";
 import Title from "../shared/Title";
 import Button from "../shared/Button";
 import Dropdown, { renderDropdownItem } from "../shared/Dropdown";
 import { data, dropdownData } from "./mockedData";
+
+const Wrapper = styled.div`
+  display: grid;
+`;
 
 const ItineraryWrapper = styled.div`
   display: grid;
@@ -59,7 +64,7 @@ const Itinerary = () => (
     <ItineraryContext.Consumer>
       {/* $FlowFixMe: add context types */}
       {({ state, changeDropdownValue }) => (
-        <>
+        <Wrapper>
           <ItineraryWrapper>
             <DropdownWrapper>
               <Title fontSize={38} textAlign="center">
@@ -81,8 +86,10 @@ const Itinerary = () => (
               <ItineraryItem key={itineraryItem.id} item={itineraryItem} order={index} />
             ))}
           </ItineraryWrapper>
-          <StyledButton fontSize={16}>Start your trip now</StyledButton>
-        </>
+          <StyledButton fontSize={16} onClick={() => scrollToElement("search")}>
+            Start your trip now
+          </StyledButton>
+        </Wrapper>
       )}
     </ItineraryContext.Consumer>
   </ItineraryProvider>
