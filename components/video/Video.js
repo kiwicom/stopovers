@@ -3,7 +3,7 @@ import * as React from "react";
 import styled from "styled-components";
 import YouTube from "react-youtube";
 
-import Title from "../shared/Title";
+import SectionTitle from "../shared/SectionTitle";
 
 const Wrapper = styled.div`
   display: flex;
@@ -12,21 +12,10 @@ const Wrapper = styled.div`
   margin-bottom: 40px;
 `;
 
-const VideoWrapper = styled.div`
-  margin-top: 57px;
-`;
-
 const Video = () => (
   <Wrapper>
-    <Title fontSize={38} center>
-      Still want more?
-    </Title>
-    <Title fontSize={28} center>
-      Checkout this video
-    </Title>
-    <VideoWrapper>
-      <YouTube videoId="-peUvHblzaQ" />
-    </VideoWrapper>
+    <SectionTitle title="Still want more?" subtitle="Checkout this video" />
+    <YouTube videoId="-peUvHblzaQ" />
   </Wrapper>
 );
 

@@ -2,7 +2,6 @@
 import styled from "styled-components";
 
 const Button = styled.button`
-  font-family: Roboto, sans-serif;
   font-size: ${({ fontSize }) => fontSize}px;
   font-weight: ${({ secondary }) => (secondary ? 500 : 700)};
   background: ${({ secondary }) => (secondary ? "transparent" : "#00a991")};
@@ -16,8 +15,7 @@ const Button = styled.button`
 `;
 
 export const Link = styled.a`
-  font-family: Roboto, sans-serif;
-  font-size: ${({ fontSize }) => fontSize}px;
+  font-size: 14px;
   text-decoration: none;
   font-weight: 500;
   color: #48505c;

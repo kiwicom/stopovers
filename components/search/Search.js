@@ -2,15 +2,19 @@
 import * as React from "react";
 import styled from "styled-components";
 
+import SectionTitle from "../shared/SectionTitle";
 import Title from "../shared/Title";
 import Button from "../shared/Button";
 
 const Wrapper = styled.div`
-  padding: 80px 65px;
-`;
+  padding: 0 16px;
 
-const TitleWrapper = styled.div`
-  text-align: center;
+  @media (min-width: 740px) {
+  }
+
+  @media (min-width: 1440px) {
+    padding: 0 65px;
+  }
 `;
 
 const WidgetWrapper = styled.div`
@@ -78,14 +82,10 @@ class Search extends React.Component<{}> {
   render() {
     return (
       <Wrapper>
-        <TitleWrapper>
-          <Title fontSize={38} textAlign="center">
-            Your experience starts here
-          </Title>
-          <Title fontSize={28} textAlign="center">
-            Search for flight with a one-day stopover in Dubai
-          </Title>
-        </TitleWrapper>
+        <SectionTitle
+          title="Your experience starts here"
+          subtitle="Search for flight with a one-day stopover in Dubai"
+        />
 
         <WidgetWrapper>
           <Widget id="widget-holder" />

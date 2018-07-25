@@ -5,7 +5,7 @@ import styled from "styled-components";
 import { scrollToElement } from "../helpers";
 import ItineraryItem from "./ItineraryItem";
 import ItineraryProvider, { ItineraryContext } from "./ItineraryContext";
-import Title from "../shared/Title";
+import SectionTitle from "../shared/SectionTitle";
 import Button from "../shared/Button";
 import Dropdown, { renderDropdownItem } from "../shared/Dropdown";
 import { data, dropdownData } from "./mockedData";
@@ -66,13 +66,12 @@ const Itinerary = () => (
       {({ state, changeDropdownValue }) => (
         <Wrapper>
           <ItineraryWrapper>
+            <SectionTitle
+              title="Choose your traveller"
+              subtitle="to discover the perfect itinerary"
+            />
+
             <DropdownWrapper>
-              <Title fontSize={38} textAlign="center">
-                Choose your traveller
-              </Title>
-              <Title fontSize={28} textAlign="center">
-                to discover the perfect itinerary
-              </Title>
               <Dropdown
                 onChange={(e: SyntheticEvent<HTMLSelectElement>) =>
                   changeDropdownValue(e.currentTarget.value)

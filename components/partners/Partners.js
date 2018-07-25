@@ -2,7 +2,7 @@
 import * as React from "react";
 import styled from "styled-components";
 
-import Title from "../shared/Title";
+import SectionTitle from "../shared/SectionTitle";
 import Text from "../shared/Text";
 
 const PartnersWrapper = styled.div`
@@ -74,12 +74,8 @@ const logos = [
 
 const Partners = () => (
   <>
-    <Title fontSize={38} textAlign="center">
-      Book your flight and get discounts
-    </Title>
-    <Title fontSize={28} textAlign="center">
-      from our partners
-    </Title>
+    <SectionTitle title="Book your flight and get discounts" subtitle="from our partners" />
+
     <PartnersWrapper>
       <Logos>{logos.map(logo => <Logo src={logo.url} alt={logo.name} key={logo.name} />)}</Logos>
       <Content>
