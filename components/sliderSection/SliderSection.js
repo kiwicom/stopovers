@@ -83,7 +83,7 @@ const SliderSection = () => (
     <DescriptionWrapper>
       <Title>The Stopover</Title>
       <Description>
-        When you book your flight to Asia via Dubai, you unlock a city<Br /> that can be exciting,
+        When you book your flights via Dubai, you unlock a city<Br /> that can be exciting,
         cultured, gramourous, adventurous or relaxing.<Br />How you experience it is up to you.
       </Description>
       <ButtonsWrapper>

@@ -9,28 +9,37 @@ const Wrapper = styled.div`
   display: grid;
   grid-template-columns: 1fr;
   grid-template-areas: "image" "content";
-  grid-template-rows: 1.3fr 1fr;
-
+  grid-template-rows: 0.8fr 1fr;
+  place-items: center;
+  @media (min-width: 500px) {
+    grid-template-rows: 1fr 1fr;
+  }
+  @media (min-width: 600px) {
+    grid-template-rows: 1.2fr 1fr;
+  }
   @media (min-width: 740px) {
     grid-template-columns: 1fr 1fr;
-    grid-template-rows: minmax(700px, 1fr) 76px;
+    grid-template-rows: 510px 86px;
     grid-template-areas: "content image" "search-action search-action";
+  }
+
+  @media (min-width: 1440px) {
+    grid-template-rows: 700px 86px;
   }
 `;
 
 const Image = styled.div`
   grid-area: image;
-  background: url(/static/dubai-hero.jpg) center center no-repeat;
+  background: url(/static/dubai-hero.jpg);
   background-size: 100% 100%;
+  height: 100%;
+  width: 100%;
 `;
 
 const ContentWrapper = styled.div`
+  margin-top: 24px;
+  display: grid;
   grid-area: content;
-  align-self: center;
-  padding: 50px;
-  @media (min-width: 740px) {
-    padding: 0 0 0 152px;
-  }
 `;
 
 const SearchActionWrapper = styled.div`
