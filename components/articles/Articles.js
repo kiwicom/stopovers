@@ -62,14 +62,14 @@ const Articles = () => (
     </ArticlesWrapper>
 
     <ActionWrapper>
-      <Title fontSize={20}>Book your flight to Asia featuring a stopover in Dubai</Title>
+      <Title fontSize={20}>Look for flights with a stopover in Dubai</Title>
       <Button
         fontSize={16}
         onClick={() => {
           scrollToElement("search");
         }}
       >
-        Search flight now
+        Search flights now
       </Button>
     </ActionWrapper>
   </Wrapper>
