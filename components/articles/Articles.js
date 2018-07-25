@@ -3,66 +3,77 @@ import * as React from "react";
 import styled from "styled-components";
 
 import { scrollToElement } from "../helpers";
-import Title from "../shared/Title";
+import SectionTitle from "../shared/SectionTitle";
 import Button from "../shared/Button";
 import ArticleItem from "./ArticleItem";
 import articles from "./mockedData";
 
 const Wrapper = styled.div`
   margin-top: 100px;
-  padding: 80px 65px;
+  padding: 0 16px;
   background-color: #f6f7f9;
+
+  @media (min-width: 740px) {
+  }
+
+  @media (min-width: 1440px) {
+    padding: 0 65px;
+  }
 `;
 
 const ArticlesWrapper = styled.div`
   display: grid;
   grid-template-columns: 1fr;
   grid-gap: 30px;
-  margin-top: 100px;
 
-  @media (min-width: 770px) {
+  @media (min-width: 740px) {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  @media (min-width: 1440px) {
     grid-template-columns: 1fr 1fr 1fr;
   }
 `;
 
-const TitleWrapper = styled.div`
-  text-align: center;
-`;
-
 const ActionWrapper = styled.div`
   display: grid;
-  grid-gap: 30px;
   grid-template-columns: 1fr;
-  padding: 50px 0;
   justify-items: center;
+  padding: 32px 0;
 
-  @media (min-width: 770px) {
+  @media (min-width: 740px) {
     grid-template-columns: 1fr;
+    padding: 60px 0 80px;
   }
 
   @media (min-width: 1440px) {
     justify-items: end;
     grid-template-columns: 1fr 190px 1fr;
+    padding: 60px 0 80px;
+    grid-gap: 30px;
   }
+`;
+
+const ActionTitle = styled.h4`
+  font-size: 16px;
+  font-weight: 300;
+  color: #46515e;
+  text-align: center;
+  margin-bottom: 24px;
 `;
 
 const Articles = () => (
   <Wrapper>
-    <TitleWrapper>
-      <Title fontSize={38} textAlign="center">
-        Dubai in detail
-      </Title>
-      <Title fontSize={28} textAlign="center">
-        More stories, more inspiration
-      </Title>
-    </TitleWrapper>
+    <SectionTitle title="Dubai in detail" subtitle="More stories, more inspiration" />
 
     <ArticlesWrapper>
       {articles.map(article => <ArticleItem article={article} key={article.id} />)}
     </ArticlesWrapper>
 
     <ActionWrapper>
-      <Title fontSize={20}>Look for flights with a stopover in Dubai</Title>
+      <ActionTitle fontSize={16}>
+        Book your flight to Asia featuring a stopover in Dubai
+      </ActionTitle>
       <Button
         fontSize={16}
         onClick={() => {

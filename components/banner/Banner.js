@@ -23,6 +23,12 @@ const Wrapper = styled.div`
   }
 `;
 
+const BannerTitle = styled.p`
+  font-size: 14px;
+  font-weight: 300;
+  color: #171b1e;
+`;
+
 const SquaredButton = styled(Button)`
   padding: 10px;
 `;
@@ -44,8 +50,8 @@ class Banner extends React.Component<{}, State> {
     const { isHidden } = this.state;
     return !isHidden ? (
       <Wrapper>
-        <AirplaneRight />
-        <Title fontSize={14}>Search for flights with a one-day stopover in Dubai</Title>
+        <AirplaneRight customColor="bac7d5" />
+        <BannerTitle>Search for flights with a one-day stopover in Dubai</BannerTitle>
         <SquaredButton onClick={this.scrollToSearch}>
           <Search />
         </SquaredButton>

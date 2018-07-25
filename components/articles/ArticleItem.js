@@ -2,7 +2,6 @@
 import * as React from "react";
 import styled from "styled-components";
 
-import Title from "../shared/Title";
 import { Link } from "../shared/Button";
 
 type ArticleType = {|
@@ -38,14 +37,26 @@ const LinkWrapper = styled.div`
   text-align: right;
 `;
 
+const Title = styled.h3`
+  font-size: 24px;
+  font-weight: 300;
+  color: #46515e;
+`;
+
+const Description = styled.p`
+  font-size: 16px;
+  font-weight: 300;
+  color: #46515e;
+`;
+
 const ArticleItem = ({ article }: Props) => (
   <Article>
     <ArticleThumbnail src={article.imageUrl} />
     <ArticleText>
       <Title fontSize={24}>{article.title}</Title>
-      <Title fontSize={16}>{article.description}</Title>
+      <Description>{article.description}</Description>
       <LinkWrapper>
-        <Link fontSize={14} href={article.linkUrl} target="_blank">
+        <Link href={article.linkUrl} target="_blank">
           {article.linkTitle}
         </Link>
       </LinkWrapper>
