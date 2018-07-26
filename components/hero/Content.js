@@ -12,6 +12,7 @@ const MainTitle = styled.h1`
   font-size: 30px;
   font-weight: 500;
   color: #171b1e;
+
   @media (min-width: 1440px) {
     font-size: 40px;
   }
@@ -26,9 +27,11 @@ const TextWrapper = styled.div`
   margin-top: 24px;
   padding: 0 0 8px 19px;
   width: 230px;
+
   @media (min-width: 740px) {
     margin-top: 35px;
   }
+
   @media (min-width: 1440px) {
     width: 378px;
     margin-top: 68px;
@@ -47,6 +50,7 @@ const TextWrapper = styled.div`
     width: 16px;
     top: 0.4em;
     left: -1.7em;
+
     @media (min-width: 1440px) {
       left: -2.9em;
       top: 0em;
@@ -61,10 +65,12 @@ const ActionWrapper = styled.div`
   justify-content: space-between;
   margin-left: -19px;
   width: 272px;
+
   @media (min-width: 740px) {
     grid-template-columns: 94px 1fr;
     margin-left: -40px;
   }
+
   @media (min-width: 1440px) {
     width: 400px;
   }
@@ -74,6 +80,7 @@ const AirplaneWrapper = styled.div`
   position: relative;
   top: -38px;
   left: -5px;
+
   @media (min-width: 1440px) {
     top: -102px;
   }
@@ -90,7 +97,7 @@ const Content = () => (
       </Text>
     </TextWrapper>
     <AirplaneWrapper>
-      <AirplaneDown customColor="#7f91a8" />
+      <AirplaneDown customColor="7f91a8" />
     </AirplaneWrapper>
     <ActionWrapper>
       <Action />
