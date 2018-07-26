@@ -3,7 +3,6 @@ import * as React from "react";
 import styled from "styled-components";
 
 import SectionTitle from "../shared/SectionTitle";
-import Title from "../shared/Title";
 import Button from "../shared/Button";
 
 const Wrapper = styled.div`
@@ -21,7 +20,7 @@ const WidgetWrapper = styled.div`
   display: grid;
   grid-template-columns: 1fr;
 
-  @media (min-width: 770px) {
+  @media (min-width: 740px) {
     grid-template-columns: 1fr 704px 1fr;
   }
 `;
@@ -29,40 +28,45 @@ const WidgetWrapper = styled.div`
 const Widget = styled.div`
   grid-column-start: 1;
 
-  @media (min-width: 770px) {
+  @media (min-width: 740px) {
     grid-column-start: 2;
   }
 `;
 
 const ActionWrapper = styled.div`
   display: grid;
-  grid-gap: 30px;
+  grid-gap: 16px;
   grid-template-columns: 1fr;
-  padding: 50px 0;
+  padding: 32px 0 40px;
 
-  @media (min-width: 770px) {
+  @media (min-width: 740px) {
     grid-template-columns: 1fr 154px 1fr;
   }
 
   @media (min-width: 1440px) {
+    grid-gap: 24px;
     grid-column-start: 2;
     grid-template-columns: 1fr 190px 1fr;
   }
 `;
 
 const ButtonWrapper = styled.div`
-  grid-column-start: 1;
+  justify-self: center;
 
-  @media (min-width: 770px) {
+  @media (min-width: 740px) {
     grid-column-start: 2;
   }
 `;
 
-const ActionTitleWrapper = styled.div`
-  justify-items: center;
+const ActionTitle = styled.p`
+  font-size: 16px;
+  text-align: center;
+  line-height: 33px;
+  color: #46515e;
 
-  @media (min-width: 770px) {
-    justify-items: left;
+  @media (min-width: 740px) {
+    text-align: left;
+    align-self: center;
   }
 `;
 
@@ -95,9 +99,8 @@ class Search extends React.Component<{}> {
           <ButtonWrapper>
             <Button fontSize={16}>Search flights</Button>
           </ButtonWrapper>
-          <ActionTitleWrapper>
-            <Title fontSize={20}>with a one-day stopover in Dubai</Title>
-          </ActionTitleWrapper>
+
+          <ActionTitle>with a one-day stopover in Dubai</ActionTitle>
         </ActionWrapper>
       </Wrapper>
     );

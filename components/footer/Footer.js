@@ -10,7 +10,7 @@ const Wrapper = styled.div`
   border-top: 2px solid #f5f7f9;
 
   place-items: center;
-  @media (min-width: 770px) {
+  @media (min-width: 740px) {
     grid-template-rows: 118px;
     grid-template-columns: 189px 1fr 220px;
     justify-items: start;
@@ -33,7 +33,7 @@ const Links = styled.div`
   flex-direction: column;
   align-items: center;
 
-  @media (min-width: 770px) {
+  @media (min-width: 740px) {
     flex-direction: row;
   }
 `;
@@ -44,7 +44,7 @@ const Link = styled.a`
   text-decoration: none;
   &:not(:last-child) {
     margin-bottom: 24px;
-    @media (min-width: 770px) {
+    @media (min-width: 740px) {
       margin-bottom: 0;
       margin-right: 24px;
     }

@@ -60,6 +60,12 @@ const ActionTitle = styled.h4`
   color: #46515e;
   text-align: center;
   margin-bottom: 24px;
+
+  @media (min-width: 1440px) {
+    font-size: 20px;
+    margin-bottom: 0;
+    align-self: center;
+  }
 `;
 
 const Articles = () => (
@@ -71,9 +77,7 @@ const Articles = () => (
     </ArticlesWrapper>
 
     <ActionWrapper>
-      <ActionTitle fontSize={16}>
-        Book your flight to Asia featuring a stopover in Dubai
-      </ActionTitle>
+      <ActionTitle>Book your flight to Asia featuring a stopover in Dubai</ActionTitle>
       <Button
         fontSize={16}
         onClick={() => {

@@ -9,7 +9,7 @@ const Button = styled.button`
   line-height: 1.5;
   border: none;
   border-radius: 3px;
-  padding: 14px 21px;
+  padding: 14px 20px;
   text-align: center;
   cursor: pointer;
 `;
@@ -20,12 +20,15 @@ export const Link = styled.a`
   font-weight: 500;
   color: #48505c;
   line-height: 1.5;
+  padding: 17px 25px;
   text-align: center;
   cursor: pointer;
+  display: block;
 
   &:before {
     content: ">";
-    margin-right: 10px;
+    margin-bottom: 8px;
+    padding: 4px 8px;
   }
 `;
 

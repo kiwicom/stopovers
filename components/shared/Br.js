@@ -4,7 +4,7 @@ import styled from "styled-components";
 const Br = styled.br`
   display: none;
 
-  @media (min-width: 770px) {
+  @media (min-width: 740px) {
     display: block;
   }
 `;

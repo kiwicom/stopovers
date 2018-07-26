@@ -11,7 +11,7 @@ const Wrapper = styled.div`
   grid-template-areas: "image" "content";
   grid-template-rows: 1.3fr 1fr;
 
-  @media (min-width: 770px) {
+  @media (min-width: 740px) {
     grid-template-columns: 1fr 1fr;
     grid-template-rows: minmax(700px, 1fr) 76px;
     grid-template-areas: "content image" "search-action search-action";
@@ -28,7 +28,7 @@ const ContentWrapper = styled.div`
   grid-area: content;
   align-self: center;
   padding: 50px;
-  @media (min-width: 770px) {
+  @media (min-width: 740px) {
     padding: 0 0 0 152px;
   }
 `;
@@ -36,7 +36,7 @@ const ContentWrapper = styled.div`
 const SearchActionWrapper = styled.div`
   grid-area: search-action;
   display: none;
-  @media (min-width: 770px) {
+  @media (min-width: 740px) {
     display: flex;
     justify-content: center;
     align-items: center;
