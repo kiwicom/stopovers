@@ -40,7 +40,7 @@ const ActionWrapper = styled.div`
   padding: 32px 0 40px;
 
   @media (min-width: 740px) {
-    grid-template-columns: 1fr 154px 1fr;
+    grid-template-columns: 1fr 165px 1fr;
   }
 
   @media (min-width: 1440px) {
