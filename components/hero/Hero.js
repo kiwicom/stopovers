@@ -11,6 +11,7 @@ const Wrapper = styled.div`
   grid-template-areas: "image" "content";
   grid-template-rows: 0.8fr 1fr;
   place-items: center;
+  margin-bottom: 35px;
   @media (min-width: 500px) {
     grid-template-rows: 1fr 1fr;
   }
@@ -21,6 +22,7 @@ const Wrapper = styled.div`
     grid-template-columns: 1fr 1fr;
     grid-template-rows: 510px 86px;
     grid-template-areas: "content image" "search-action search-action";
+    margin-bottom: 0px;
   }
 
   @media (min-width: 1440px) {
