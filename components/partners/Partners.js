@@ -1,6 +1,7 @@
 // @flow
 import * as React from "react";
 import styled from "styled-components";
+import { AirplaneDown } from "@kiwicom/orbit-components/lib/icons";
 
 import SectionTitle from "../shared/SectionTitle";
 import Text from "../shared/Text";
@@ -19,9 +20,10 @@ const Wrapper = styled.div`
 
   @media only screen and (min-width: 1440px) {
     grid-template-columns: 1fr 1fr;
-    grid-gap: 120px;
+    grid-template-rows: 1.2fr 0;
+    grid-column-gap: 120px;
     margin-bottom: 80px;
-    padding: 30px 136px 30px;
+    padding: 30px 136px 0;
 
     &::before {
       content: "";
@@ -50,6 +52,7 @@ const Logos = styled.div`
   @media only screen and (min-width: 1440px) {
     grid-gap: 80px;
     order: 0;
+    padding: 30px 0;
   }
 `;
 
@@ -69,6 +72,21 @@ const Content = styled.div`
   @media only screen and (min-width: 1440px) {
     padding: 0 16px;
     text-align: left;
+    padding: 30px 0;
+  }
+`;
+
+const AirplaneWrapper = styled.div`
+  display: none;
+
+  @media only screen and (min-width: 1440px) {
+    grid-column: 1 /3;
+    justify-self: center;
+    align-self: end;
+
+    position: relative;
+    bottom: -10px;
+    display: block;
   }
 `;
 
@@ -89,6 +107,9 @@ const Partners = () => (
           companies via email after your flight has been confirmed.
         </Text>
       </Content>
+      <AirplaneWrapper>
+        <AirplaneDown customColor="7f91a8" />
+      </AirplaneWrapper>
     </Wrapper>
   </>
 );
