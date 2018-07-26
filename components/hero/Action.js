@@ -17,7 +17,12 @@ const ActionButton = styled.button`
   border: 0;
   cursor: pointer;
   background: #00a991;
-  margin-right: 20px;
+  order: 1;
+  justify-self: end;
+  @media (min-width: 740px) {
+    margin-right: 20px;
+    order: 0;
+  }
 `;
 
 const Action = () => (
