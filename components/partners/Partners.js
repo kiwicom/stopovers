@@ -5,16 +5,24 @@ import styled from "styled-components";
 import SectionTitle from "../shared/SectionTitle";
 import Text from "../shared/Text";
 
-const PartnersWrapper = styled.div`
+const Wrapper = styled.div`
   position: relative;
-  max-width: 1400px;
-  margin: 0 auto;
-  display: flex;
-  padding-top: 30px;
-  padding-bottom: 30px;
-  flex-direction: column;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-gap: 37px;
+  align-items: center;
+  padding: 0 16px 32px;
 
-  @media (min-width: 740px) {
+  @media only screen and (min-width: 740px) {
+    padding: 0 136px 80px;
+  }
+
+  @media only screen and (min-width: 1440px) {
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 120px;
+    margin-bottom: 80px;
+    padding: 30px 136px 30px;
+
     &::before {
       content: "";
       position: absolute;
@@ -25,66 +33,63 @@ const PartnersWrapper = styled.div`
       background: #e8e8e8;
       margin-left: -2px;
     }
-    flex-direction: row;
-    align-items: center;
-    justify-content: space-between;
   }
 `;
 
 const Logos = styled.div`
-  width: calc(100% - 160px);
-  display: flex;
-  flex-direction: column;
-  margin-left: 80px;
-  margin-right: 80px;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-gap: 24px;
 
   @media only screen and (min-width: 740px) {
-    flex-direction: row;
-    width: calc(50% - 70px);
-    margin: 0;
-    justify-content: space-evenly;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 80px;
+    order: 1;
+  }
+
+  @media only screen and (min-width: 1440px) {
+    grid-gap: 80px;
+    order: 0;
   }
 `;
 
 const Logo = styled.img`
-  height: 100%;
-  width: calc(100% - 30px);
-  margin-bottom: 40px;
-  @media only screen and (min-width: 740px) {
-    width: calc(33% - 30px);
+  width: 225px;
+  justify-self: center;
+
+  @media only screen and (min-width: 1440px) {
+    width: 225px;
   }
 `;
 
 const Content = styled.div`
-  width: calc(100% - 160px);
-  margin-left: 80px;
-  margin-right: 80px;
-  display: flex;
-  flex-direction: row;
-  @media only screen and (min-width: 740px) {
-    width: calc(50% - 70px);
-    margin: 0;
+  padding: 0 16px;
+  text-align: center;
+
+  @media only screen and (min-width: 1440px) {
+    padding: 0 16px;
+    text-align: left;
   }
 `;
 
 const logos = [
-  { name: "renralcars.com", url: "static/images/partners/rentalcars.png" },
-  { name: "Get your guide", url: "static/images/partners/get-your-guide.png" },
+  { id: 1, name: "renralcars.com", url: "static/images/partners/rentalcars.png" },
+  { id: 2, name: "Get your guide", url: "static/images/partners/get-your-guide.png" },
 ];
 
 const Partners = () => (
   <>
     <SectionTitle title="Book your flight and get discounts" subtitle="from our partners" />
 
-    <PartnersWrapper>
-      <Logos>{logos.map(logo => <Logo src={logo.url} alt={logo.name} key={logo.name} />)}</Logos>
+    <Wrapper>
+      <Logos>{logos.map(logo => <Logo src={logo.url} alt={logo.name} key={logo.id} />)}</Logos>
       <Content>
         <Text>
           Book your flight with a Dubai stopover and receive discount codes for our partner
           companies via email after your flight has been confirmed.
         </Text>
       </Content>
-    </PartnersWrapper>
+    </Wrapper>
   </>
 );
 

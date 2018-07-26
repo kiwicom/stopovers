@@ -18,6 +18,7 @@ const TitleWrapper = styled.div`
 const Title = styled.h2`
   font-size: 30px;
   text-align: ${({ textAlign }) => textAlign || "center"};
+  line-height: 1.2;
   color: #46515e;
   font-weight: 300;
   margin: 0 0 4px;
@@ -32,6 +33,7 @@ const Title = styled.h2`
 const SubTitle = styled.h3`
   font-size: 16px;
   text-align: ${({ textAlign }) => textAlign || "center"};
+  line-height: 1.2;
   color: #46515e;
   font-weight: 300;
   margin: 0;

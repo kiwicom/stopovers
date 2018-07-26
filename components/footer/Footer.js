@@ -62,28 +62,33 @@ const Icons = styled.div`
 
 const links = [
   {
+    id: 1,
     title: "Terms & Conditions",
     url: "https://www.kiwi.com/en/pages/content/legal",
   },
-  { title: "Terms of Use", url: "https://www.kiwi.com/en/pages/content/terms" },
-  { title: "Privacy Policy", url: "https://www.kiwi.com/en/content/privacy" },
-  { title: "Security", url: "https://www.kiwi.com/en/pages/security" },
+  { id: 2, title: "Terms of Use", url: "https://www.kiwi.com/en/pages/content/terms" },
+  { id: 3, title: "Privacy Policy", url: "https://www.kiwi.com/en/content/privacy" },
+  { id: 4, title: "Security", url: "https://www.kiwi.com/en/pages/security" },
 ];
 
 const icons = [
   {
+    id: 1,
     component: <Instagram />,
     url: "https://www.instagram.com/kiwicom247/",
   },
   {
+    id: 2,
     component: <Twitter />,
     url: "https://twitter.com/kiwicom247",
   },
   {
+    id: 3,
     component: <Linkedin />,
     url: "https://www.linkedin.com/company/Kiwi.com",
   },
   {
+    id: 4,
     component: <Facebook />,
     url: "https://www.facebook.com/kiwicom247",
   },
@@ -96,14 +101,14 @@ const Footer = () => (
     </LogoWrapper>
     <Links>
       {links.map(link => (
-        <Link href={link.url} target="_blank" rel="noopener noreferrer">
+        <Link href={link.url} key={link.id} target="_blank" rel="noopener noreferrer">
           {link.title}
         </Link>
       ))}
     </Links>
     <Icons>
       {icons.map(icon => (
-        <a href={icon.url} target="_blank" rel="noopener noreferrer">
+        <a href={icon.url} key={icon.id} target="_blank" rel="noopener noreferrer">
           {icon.component}
         </a>
       ))}

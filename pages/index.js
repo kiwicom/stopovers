@@ -23,7 +23,6 @@ const Layout = styled.div`
 const Index = () => (
   <Layout>
     <Hero />
-    <SliderSection />
     <Element name="itinerary">
       <Itinerary />
     </Element>

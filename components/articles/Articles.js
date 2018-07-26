@@ -9,7 +9,6 @@ import ArticleItem from "./ArticleItem";
 import articles from "./mockedData";
 
 const Wrapper = styled.div`
-  margin-top: 100px;
   padding: 0 16px;
   background-color: #f6f7f9;
 

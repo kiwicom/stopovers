@@ -46,9 +46,9 @@ const ItineraryWrapper = styled.div`
 const StyledButton = styled(Button)`
   margin-top: 40px;
   justify-self: center;
+
   @media (min-width: 740px) {
     margin-top: 0;
-    margin-bottom: 40px;
   }
 `;
 
