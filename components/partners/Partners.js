@@ -14,7 +14,7 @@ const PartnersWrapper = styled.div`
   padding-bottom: 30px;
   flex-direction: column;
 
-  @media (min-width: 770px) {
+  @media (min-width: 740px) {
     &::before {
       content: "";
       position: absolute;
@@ -38,7 +38,7 @@ const Logos = styled.div`
   margin-left: 80px;
   margin-right: 80px;
 
-  @media only screen and (min-width: 770px) {
+  @media only screen and (min-width: 740px) {
     flex-direction: row;
     width: calc(50% - 70px);
     margin: 0;
@@ -50,7 +50,7 @@ const Logo = styled.img`
   height: 100%;
   width: calc(100% - 30px);
   margin-bottom: 40px;
-  @media only screen and (min-width: 770px) {
+  @media only screen and (min-width: 740px) {
     width: calc(33% - 30px);
   }
 `;
@@ -61,7 +61,7 @@ const Content = styled.div`
   margin-right: 80px;
   display: flex;
   flex-direction: row;
-  @media only screen and (min-width: 770px) {
+  @media only screen and (min-width: 740px) {
     width: calc(50% - 70px);
     margin: 0;
   }

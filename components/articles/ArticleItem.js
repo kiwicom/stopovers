@@ -25,42 +25,47 @@ const Article = styled.div`
 const ArticleThumbnail = styled.div`
   background: url(${({ src }) => src}) no-repeat 0 0;
   background-size: cover;
-  height: 250px;
+  height: 200px;
 `;
 
-const ArticleText = styled.div`
-  padding: 20px;
-`;
-
-const LinkWrapper = styled.div`
-  padding: 20px 0 10px;
-  text-align: right;
+const ArticleTextWrapper = styled.div`
+  padding: 26px 16px 10px;
 `;
 
 const Title = styled.h3`
   font-size: 24px;
+  line-height: 1.2;
   font-weight: 300;
   color: #46515e;
+  margin-bottom: 16px;
 `;
 
 const Description = styled.p`
   font-size: 16px;
   font-weight: 300;
   color: #46515e;
+  line-height: 1.2;
+`;
+
+const LinkWrapper = styled.div`
+  display: grid;
+  justify-items: right;
+  margin-bottom: 10px;
 `;
 
 const ArticleItem = ({ article }: Props) => (
   <Article>
     <ArticleThumbnail src={article.imageUrl} />
-    <ArticleText>
-      <Title fontSize={24}>{article.title}</Title>
+    <ArticleTextWrapper>
+      <Title>{article.title}</Title>
       <Description>{article.description}</Description>
-      <LinkWrapper>
-        <Link href={article.linkUrl} target="_blank">
-          {article.linkTitle}
-        </Link>
-      </LinkWrapper>
-    </ArticleText>
+    </ArticleTextWrapper>
+
+    <LinkWrapper>
+      <Link href={article.linkUrl} target="_blank">
+        {article.linkTitle}
+      </Link>
+    </LinkWrapper>
   </Article>
 );
 

@@ -22,14 +22,14 @@ const Layout = styled.div`
 
 const Index = () => (
   <Layout>
-    {/* <Hero />
-    <SliderSection /> */}
+    <Hero />
+    <SliderSection />
     <Element name="itinerary">
       <Itinerary />
     </Element>
     <Partners />
     <Articles />
-    {/* <Video /> */}
+    <Video />
     <Element name="search">
       <Search />
     </Element>

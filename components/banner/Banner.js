@@ -5,7 +5,6 @@ import { AirplaneRight, Search } from "@kiwicom/orbit-components/lib/icons";
 
 import { scrollToElement } from "../helpers";
 import Button from "../shared/Button";
-import Title from "../shared/Title";
 
 const Wrapper = styled.div`
   display: grid;
@@ -18,7 +17,7 @@ const Wrapper = styled.div`
   width: 100%;
   background-color: white;
   box-shadow: 0 -2px 4px 0 rgba(23, 27, 30, 0.1);
-  @media (min-width: 770px) {
+  @media (min-width: 740px) {
     display: none;
   }
 `;

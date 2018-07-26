@@ -23,7 +23,7 @@ const ItineraryWrapper = styled.div`
   margin: 0 auto;
   justify-items: center;
 
-  @media (min-width: 770px) {
+  @media (min-width: 740px) {
     padding-bottom: 60px;
   }
 
@@ -36,7 +36,7 @@ const ItineraryWrapper = styled.div`
     width: 2px;
     background: #e8e8e8;
 
-    @media (min-width: 770px) {
+    @media (min-width: 740px) {
       left: 50%;
       margin-left: -2px;
     }
@@ -46,7 +46,7 @@ const ItineraryWrapper = styled.div`
 const StyledButton = styled(Button)`
   margin-top: 40px;
   justify-self: center;
-  @media (min-width: 770px) {
+  @media (min-width: 740px) {
     margin-top: 0;
     margin-bottom: 40px;
   }

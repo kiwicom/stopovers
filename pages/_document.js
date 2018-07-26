@@ -32,9 +32,9 @@ injectGlobal`
   body {
     line-height: 1;
   }
-    html, body {
-      font-family: 'Roboto', sans-serif;
-    }
+  html, body {
+    font-family: 'Roboto', sans-serif;
+  }
   ol, ul {
     list-style: none;
   }

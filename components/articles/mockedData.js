@@ -2,12 +2,12 @@
 const articles = [
   {
     id: 1,
-    title: "Nightlife in Dubai",
+    title: "These are the best things to do in Dubai",
     description:
-      "Visitors to Dubai now have the opportunity to see the Las Vegas of the Middle East from a completely new perspective.",
-    linkTitle: "Explore Dubai nightlife",
-    linkUrl: "",
-    imageUrl: "static/images/articles/nightlife.jpg",
+      "Here’s our favourite things to do in the UAE’s resort city, as well as some things you may not have thought about.",
+    linkTitle: "Explore Dubai",
+    linkUrl: "https://www.kiwi.com/stories/these-are-the-best-things-to-do-in-dubai/",
+    imageUrl: "static/images/articles/best-things-in-dubai.jpg",
   },
   {
     id: 2,
@@ -20,12 +20,12 @@ const articles = [
   },
   {
     id: 3,
-    title: "Luxury shopping in Dubai",
+    title: "​​UAE to introduce free visa for 48-hour trips",
     description:
-      "Visitors to Dubai now have the opportunity to see the Las Vegas of the Middle East from a completely new perspective.",
-    linkTitle: "Shop till you drop",
-    linkUrl: "",
-    imageUrl: "static/images/articles/shopping.jpg",
+      "In what could be a boon for tourism to Dubai, UAE to introduce free visa for 48-hour trips. The transit visa can be extended to 96 hours for a small fee.",
+    linkTitle: "Extend your trip",
+    linkUrl: "https://www.kiwi.com/stories/uae-to-introduce-free-visa-for-48-hour-trips/",
+    imageUrl: "static/images/articles/a-view-like-no-other.jpg",
   },
 ];
 
