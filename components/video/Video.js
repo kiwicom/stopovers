@@ -9,13 +9,17 @@ const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin-bottom: 40px;
+  padding: 0 17px;
+
+  @media (min-width: 740px) {
+    padding: 0 20px;
+  }
 `;
 
 const Video = () => (
   <Wrapper>
     <SectionTitle title="Still want more?" subtitle="Checkout this video" />
-    <YouTube videoId="-peUvHblzaQ" />
+    <YouTube videoId="-peUvHblzaQ" className="youtube-embed" />
   </Wrapper>
 );
 

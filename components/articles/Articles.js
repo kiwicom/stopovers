@@ -13,9 +13,6 @@ const Wrapper = styled.div`
   padding: 0 16px;
   background-color: #f6f7f9;
 
-  @media (min-width: 740px) {
-  }
-
   @media (min-width: 1440px) {
     padding: 0 65px;
   }
@@ -48,7 +45,7 @@ const ActionWrapper = styled.div`
 
   @media (min-width: 1440px) {
     justify-items: end;
-    grid-template-columns: 1fr 190px 1fr;
+    grid-template-columns: 1fr 200px 1fr;
     padding: 60px 0 80px;
     grid-gap: 30px;
   }

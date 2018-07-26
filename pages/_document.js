@@ -50,6 +50,23 @@ injectGlobal`
     border-collapse: collapse;
     border-spacing: 0;
   }
+  iframe.youtube-embed {
+    max-width: 100%;
+    height: 162px;
+  }
+  
+  @media only screen and (min-width: 740px) {
+    iframe.youtube-embed {
+      max-width: none;
+      height: 394px;
+    }
+  }
+ 
+  @media only screen and (min-width: 1440px) {
+    iframe.youtube-embed {
+      height: 455px;
+    }
+  }
 `;
 
 export default class MyDocument extends Document {
