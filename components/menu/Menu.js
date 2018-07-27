@@ -51,7 +51,9 @@ const links = [
 const Menu = () => (
   <Wrapper>
     <LogoWrapper>
-      <Logo src="static/images/logo-menu.svg" alt="kiwicom logo" />
+      <a href="https://www.kiwi.com">
+        <Logo src="static/images/logo-menu.svg" alt="kiwicom logo" />
+      </a>
     </LogoWrapper>
     <Links>
       {links.map(link => (
