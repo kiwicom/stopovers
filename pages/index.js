@@ -3,6 +3,7 @@ import * as React from "react";
 import styled from "styled-components";
 import { Element } from "react-scroll";
 
+import Menu from "../components/menu/Menu";
 import Hero from "../components/hero/Hero";
 import SliderSection from "../components/sliderSection/SliderSection";
 import Itinerary from "../components/itinerary/Itinerary";
@@ -22,7 +23,9 @@ const Layout = styled.div`
 
 const Index = () => (
   <Layout>
+    <Menu />
     <Hero />
+    <SliderSection />
     <Element name="itinerary">
       <Itinerary />
     </Element>

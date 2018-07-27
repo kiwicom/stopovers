@@ -21,7 +21,6 @@ const LogoWrapper = styled.div`
   margin: 0;
   padding: 0;
   place-self: center;
-  vertical-align: middle;
 `;
 
 const Logo = styled.img`
