@@ -13,7 +13,7 @@ const ActionButton = styled.button`
   height: 52px;
   border-radius: 50%;
   padding: 0;
-  box-shadow: 0px 0px 0px 6px rgba(0, 169, 145, 0.63);
+  box-shadow: 0px 0px 0px 6px rgba(178, 229, 222, 1);
   border: 0;
   cursor: pointer;
   background: #00a991;
