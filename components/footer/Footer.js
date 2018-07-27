@@ -27,7 +27,6 @@ const Wrapper = styled.div`
 
 const LogoWrapper = styled.div`
   place-self: center;
-  vertical-align: middle;
 
   @media (min-width: 740px) {
     justify-self: start;
@@ -35,6 +34,7 @@ const LogoWrapper = styled.div`
     grid-row: 1 / 3;
   }
 `;
+
 
 const Logo = styled.img`
   vertical-align: middle;

@@ -30,7 +30,7 @@ const Wrapper = styled.div`
 
 const Image = styled.div`
   grid-area: image;
-  background: url(/static/dubai-hero.jpg);
+  background: url(/static/images/dubai-hero.jpg);
   background-size: 100% 100%;
   height: 100%;
   width: 100%;
