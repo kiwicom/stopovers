@@ -18,8 +18,25 @@ type Props = {|
 |};
 
 const Article = styled.div`
+  flex: 1;
   box-shadow: 0 4px 12px 0 rgba(23, 27, 30, 0.15);
   background-color: #ffffff;
+  margin-bottom: 12px;
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+
+  @media (min-width: 740px) {
+    flex-direction: row;
+    min-width: 288px;
+    margin-bottom: 0;
+    margin-right: 30px;
+
+    &:last-child {
+      margin-right: 0;
+    }
+  }
 `;
 
 const ArticleThumbnail = styled.div`

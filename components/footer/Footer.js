@@ -35,7 +35,6 @@ const LogoWrapper = styled.div`
   }
 `;
 
-
 const Logo = styled.img`
   vertical-align: middle;
 `;

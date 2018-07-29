@@ -9,8 +9,12 @@ import ArticleItem from "./ArticleItem";
 import articles from "./mockedData";
 
 const Wrapper = styled.div`
-  padding: 0 16px;
   background-color: #f6f7f9;
+  padding: 0 16px;
+
+  @media (min-width: 740px) {
+    padding: 0;
+  }
 
   @media (min-width: 1440px) {
     padding: 0 65px;
@@ -18,16 +22,21 @@ const Wrapper = styled.div`
 `;
 
 const ArticlesWrapper = styled.div`
-  display: grid;
-  grid-template-columns: 1fr;
-  grid-gap: 30px;
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
 
   @media (min-width: 740px) {
-    grid-template-columns: 1fr 1fr;
+    flex-direction: row;
+    padding: 0 16px;
+    min-width: 95%;
+    padding-bottom: 20px;
+    overflow-x: auto;
   }
 
   @media (min-width: 1440px) {
-    grid-template-columns: 1fr 1fr 1fr;
+    overflow-x: visible;
+    padding-bottom: 0;
   }
 `;
 
