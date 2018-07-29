@@ -1,6 +1,5 @@
 // @flow
 import * as React from "react";
-import styled from "styled-components";
 import { Element } from "react-scroll";
 
 import Menu from "../components/menu/Menu";
@@ -14,15 +13,8 @@ import Search from "../components/search/Search";
 import Footer from "../components/footer/Footer";
 import Banner from "../components/banner/Banner";
 
-const Layout = styled.div`
-  display: grid;
-  height: 100%;
-  grid-template-columns: 1fr;
-  grid-template-rows: 1fr;
-`;
-
 const Index = () => (
-  <Layout>
+  <>
     <Menu />
     <Hero />
     <SliderSection />
@@ -37,7 +29,7 @@ const Index = () => (
     </Element>
     <Footer />
     <Banner />
-  </Layout>
+  </>
 );
 
 export default Index;
