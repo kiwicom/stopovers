@@ -20,6 +20,7 @@ const Wrapper = styled.div`
   @media (min-width: 740px) {
     display: none;
   }
+  z-index: 5;
 `;
 
 const BannerTitle = styled.p`

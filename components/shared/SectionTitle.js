@@ -5,13 +5,14 @@ import styled from "styled-components";
 type Props = {
   title: string,
   subtitle?: string,
+  resetPadding?: boolean,
 };
 
 const TitleWrapper = styled.div`
   padding: 32px 0;
 
   @media (min-width: 1440px) {
-    padding: 80px 0;
+    padding: ${({ resetPadding }) => (resetPadding ? 0 : 80)}px 0;
   }
 `;
 
@@ -44,8 +45,8 @@ const SubTitle = styled.h3`
   }
 `;
 
-const SectionTitle = ({ title, subtitle }: Props) => (
-  <TitleWrapper>
+const SectionTitle = ({ title, subtitle, resetPadding }: Props) => (
+  <TitleWrapper resetPadding={resetPadding}>
     <Title>{title}</Title>
     {subtitle && <SubTitle>{subtitle}</SubTitle>}
   </TitleWrapper>

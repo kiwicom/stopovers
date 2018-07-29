@@ -29,7 +29,6 @@ const Index = () => (
     <Element name="itinerary">
       <Itinerary />
     </Element>
-    <Partners />
     <Articles />
     <Video />
     <Element name="search">
