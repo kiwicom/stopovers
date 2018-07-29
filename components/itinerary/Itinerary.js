@@ -22,9 +22,12 @@ const ItineraryWrapper = styled.div`
   max-width: 1400px;
   margin: 0 auto;
   justify-items: center;
-
   @media (min-width: 740px) {
+    margin: 0 20%;
+  }
+  @media (min-width: 1440px) {
     padding-bottom: 60px;
+    margin: 0 auto;
   }
 
   &::before {
@@ -36,7 +39,7 @@ const ItineraryWrapper = styled.div`
     width: 2px;
     background: #e8e8e8;
 
-    @media (min-width: 740px) {
+    @media (min-width: 1440px) {
       left: 50%;
       margin-left: -2px;
     }
@@ -47,7 +50,7 @@ const StyledButton = styled(Button)`
   margin-top: 40px;
   justify-self: center;
 
-  @media (min-width: 740px) {
+  @media (min-width: 1440px) {
     margin-top: 0;
   }
 `;
@@ -56,7 +59,7 @@ const DropdownWrapper = styled.div`
   display: block;
   position: relative;
   text-align: center;
-  margin-bottom: 120px;
+  margin-bottom: 46px;
 `;
 
 const Itinerary = () => (

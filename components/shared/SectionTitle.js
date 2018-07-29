@@ -9,7 +9,7 @@ type Props = {
 };
 
 const TitleWrapper = styled.div`
-  padding: 32px 0;
+  padding: 32px 20px;
 
   @media (min-width: 1440px) {
     padding: ${({ resetPadding }) => (resetPadding ? 0 : 80)}px 0;
