@@ -14,36 +14,55 @@ import {
 // $FlowFixMe
 import { ChevronRight, ChevronLeft } from "@kiwicom/orbit-components/lib/icons";
 
-import Button from "../shared/Button";
+import Button, { Link } from "../shared/Button";
+import SectionTitle from "../shared/SectionTitle";
 import Description from "../shared/Description";
-import Br from "../shared/Br";
 import { scrollToElement } from "../helpers";
 
 const Wrapper = styled.div`
   display: grid;
-  padding: 45px 35px;
+  padding: 0 0 22px 0;
   grid-template-columns: 1fr;
   grid-template-rows: repeat(auto-fit, 1fr);
-  justify-items: center;
   background-color: #f6f7f9;
   box-shadow: inset 6px 180px 10px -182px rgba(0, 0, 0, 0.31);
 
   @media (min-width: 740px) {
+    padding: 0 25px 10px;
+    grid-template-rows: 100px 1fr 1fr;
+    grid-template-columns: 1fr 1fr;
+    grid-column-gap: 25px;
+  }
+
+  @media (min-width: 1440px) {
+    grid-template-rows: 0.7fr 0.55fr 1fr;
     justify-items: left;
-    padding: 100px 65px;
-    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
-    grid-template-rows: 1fr;
+    padding: 100px 65px 42px;
+    grid-column-gap: 65px;
+    align-items: center;
   }
 `;
 
 const SliderWrapper = styled.div`
   width: 100%;
+  @media (min-width: 740px) {
+    grid-row: 2 / 4;
+  }
+  @media (min-width: 1440px) {
+    grid-row: 1 / 4;
+  }
   .provider {
-    margin-bottom: 26px;
+    display: grid;
+    grid-template-columns: 0 1fr 0;
+    grid-template-rows: 1fr 58px;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
   }
   .slider {
     position: relative;
     overflow: hidden;
+    border-radius: 3px;
   }
   .next {
     cursor: pointer;
@@ -56,8 +75,10 @@ const SliderWrapper = styled.div`
     padding: 0;
     margin: 0;
     position: relative;
-    right: 2.5em;
+    right: 38px;
     z-index: 1;
+    margin-right: -40px;
+    padding: 4px;
   }
   .back {
     cursor: pointer;
@@ -69,24 +90,24 @@ const SliderWrapper = styled.div`
     padding: 0;
     margin: 0;
     position: relative;
-    left: 2.5em;
+    left: 38px;
     z-index: 1;
+    margin-left: -40px;
+    padding: 4px;
   }
   .dots {
-    margin-top: 21px;
+    grid-column: 1/3;
     display: flex;
     flex-direction: row;
+    place-self: center;
     align-items: center;
-    justify-content: center;
   }
   .carousel__dot {
     cursor: pointer;
-    width: 12px;
-    height: 12px;
     border-radius: 50%;
     background-color: #bac7d5;
     border: none;
-    padding: 0;
+    padding: 6px;
     margin: 0;
     &:not(:last-child) {
       margin-right: 16px;
@@ -94,8 +115,7 @@ const SliderWrapper = styled.div`
   }
   .carousel__dot--selected {
     background-color: #00a991;
-    width: 16px;
-    height: 16px;
+    padding: 8px;
   }
   .carousel__image {
     display: block;
@@ -137,41 +157,51 @@ const SliderWrapper = styled.div`
     border-left-color: #a9a9a9;
     border-radius: 30px;
   }
-`;
-
-const SliderGroup = styled.div`
-  display: flex;
-  flex-direction: row;
-  align-items: center;
+  @keyframes a {
+    0% {
+      transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(1turn);
+    }
+  }
 `;
 
 const DescriptionWrapper = styled.div`
   align-self: center;
-  font-size: 30px;
-
+  justify-self: center;
+  padding: 5px 30px 0;
+  max-width: 520px;
   @media (min-width: 740px) {
-    padding-left: 35px;
+    justify-self: start;
+    padding: 0;
+  }
+  @media (min-width: 1440px) {
+    order: 2;
+    align-self: center;
+  }
+  > * {
+    margin: 0;
   }
 `;
 
 const ButtonsWrapper = styled.div`
-  display: flex;
-  justify-content: center;
+  display: grid;
+  grid-template-columns: 1fr;
+  margin-top: 24px;
+  grid-row-gap: 10px;
+  align-items: center;
+  justify-items: center;
   @media (min-width: 740px) {
-    justify-content: start;
+    grid-row-gap: 20px;
+    margin-top: 0;
+    place-items: start;
+    grid-template-columns: 145px 1fr;
   }
-`;
-
-const Title = styled.h2`
-  font-size: 48px;
-  line-height: 1.2;
-  font-weight: 300;
-  color: #46515e;
-  margin-bottom: 16px;
-  text-align: center;
-
-  @media (min-width: 740px) {
-    text-align: left;
+  @media (min-width: 1440px) {
+    order: 3;
+    place-self: start;
+    margin-top: 20px;
   }
 `;
 
@@ -194,8 +224,26 @@ const images = [
   },
 ];
 
+const TitleWrapper = styled.div`
+  @media (min-width: 740px) {
+    grid-column: 1 / 3;
+  }
+  @media (min-width: 1440px) {
+    grid-column: 2 / 3;
+    order: 1;
+    align-self: end;
+  }
+`;
+
+const ButtonSrinked = styled(Button)`
+  padding: 14px 16px;
+`;
+
 const SliderSection = () => (
   <Wrapper>
+    <TitleWrapper>
+      <SectionTitle title="The Stopover" resetPadding />
+    </TitleWrapper>
     <SliderWrapper>
       <CarouselProvider
         naturalSlideWidth={606}
@@ -204,40 +252,35 @@ const SliderSection = () => (
         hasMasterSpinner
         className="provider"
       >
-        <SliderGroup>
-          <ButtonBack className="back">
-            <ChevronLeft size="large" />
-          </ButtonBack>
-          <Slider className="slider">
-            {images.map((image, index) => (
-              <Slide index={index} key={image.title}>
-                <Image src={image.url} alt={image.title} />
-              </Slide>
-            ))}
-          </Slider>
+        <ButtonBack className="back">
+          <ChevronLeft size="large" />
+        </ButtonBack>
+        <Slider className="slider">
+          {images.map((image, index) => (
+            <Slide index={index} key={image.title}>
+              <Image src={image.url} alt={image.title} />
+            </Slide>
+          ))}
+        </Slider>
+        <ButtonNext className="next">
+          <ChevronRight size="large" />
+        </ButtonNext>
 
-          <ButtonNext className="next">
-            <ChevronRight size="large" />
-          </ButtonNext>
-        </SliderGroup>
         <DotGroup className="dots" />
       </CarouselProvider>
     </SliderWrapper>
     <DescriptionWrapper>
-      <Title>The Stopover</Title>
       <Description>
-        When you book your flights via Dubai, you unlock a city<Br /> that can be exciting,
-        cultured, gramourous, adventurous or relaxing.<Br />How you experience it is up to you.
+        When you book your flights via Dubai, you unlock a city that can be exciting, cultured,
+        gramourous, adventurous or relaxing.How you experience it is up to you.
       </Description>
-      <ButtonsWrapper>
-        <Button fontSize={16} onClick={() => scrollToElement("search")}>
-          Search flights
-        </Button>
-        <Button fontSize={14} secondary onClick={() => scrollToElement("itinerary")}>
-          {"> Choose itinerary"}
-        </Button>
-      </ButtonsWrapper>
     </DescriptionWrapper>
+    <ButtonsWrapper>
+      <ButtonSrinked fontSize={16} onClick={() => scrollToElement("search")}>
+        Search flights
+      </ButtonSrinked>
+      <Link onClick={() => scrollToElement("itinerary")}>Choose itinerary</Link>
+    </ButtonsWrapper>
   </Wrapper>
 );
 

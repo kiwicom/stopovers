@@ -28,7 +28,10 @@ export const Link = styled.a`
   &:before {
     content: ">";
     margin-bottom: 8px;
-    padding: 4px 8px;
+    padding: 4px 8px 4px 0;
+    @media (min-width: 740px) {
+      padding: 4px 8px;
+    }
   }
 `;
 
