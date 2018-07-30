@@ -3,7 +3,8 @@ import * as React from "react";
 import Document, { Head, Main, NextScript } from "next/document";
 import { ServerStyleSheet, injectGlobal } from "styled-components";
 
-injectGlobal`
+injectGlobal([
+  `
   html, body, div, span, applet, object, iframe,
   h1, h2, h3, h4, h5, h6, p, blockquote, pre,
   a, abbr, acronym, address, big, cite, code,
@@ -67,7 +68,8 @@ injectGlobal`
       height: 455px;
     }
   }
-`;
+`,
+]);
 
 export default class MyDocument extends Document {
   // $FlowFixMe

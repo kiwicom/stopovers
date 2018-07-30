@@ -61,7 +61,7 @@ const Description = styled.p`
   font-size: 16px;
   font-weight: 300;
   color: #46515e;
-  line-height: 1.2;
+  line-height: 1.5;
 `;
 
 const LinkWrapper = styled.div`
