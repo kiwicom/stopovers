@@ -15,12 +15,14 @@ export const renderDropdownItem = ({ value, id, title }: DropdownItem) => (
 );
 
 const Dropdown = styled.select`
-  background: #ffffff;
-  border: none;
-  font-size: 14px;
-  height: 29px;
-  padding: 5px; /* If you add too much padding here, the options won't show in IE */
-  width: 268px;
+  border-radius: 3px;
+  background-color: #ffffff;
+  border: solid 1px #bac7d5;
+  font-size: 16px;
+  font-weight: 500;
+  appearance: none;
+  padding: 11px 16px;
+  font-family: Roboto;
 
   &:focus {
     outline: none;
