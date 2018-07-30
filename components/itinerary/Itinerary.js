@@ -7,7 +7,8 @@ import ItineraryItem from "./ItineraryItem";
 import ItineraryProvider, { ItineraryContext } from "./ItineraryContext";
 import SectionTitle from "../shared/SectionTitle";
 import Button from "../shared/Button";
-import Dropdown, { renderDropdownItem } from "../shared/Dropdown";
+import DropdownMobile, { renderDropdownItem } from "../shared/DropdownMobile";
+import Dropdown from "../shared/Dropdown";
 import { data, dropdownData } from "./mockedData";
 
 const Wrapper = styled.div`
@@ -17,8 +18,8 @@ const Wrapper = styled.div`
 const ItineraryWrapper = styled.div`
   display: grid;
   position: relative;
-  padding-top: 40px;
   padding-bottom: 0;
+  padding-top: 40px;
   max-width: 1400px;
   margin: 0 auto;
   justify-items: center;
@@ -28,6 +29,7 @@ const ItineraryWrapper = styled.div`
   @media (min-width: 1440px) {
     padding-bottom: 60px;
     margin: 0 auto;
+    padding-top: 0;
   }
 
   &::before {
@@ -56,15 +58,22 @@ const StyledButton = styled(Button)`
 `;
 
 const DropdownWrapper = styled.div`
-  display: block;
-  position: relative;
-  text-align: center;
-  margin-bottom: 46px;
+  display: none;
 
+  @media (min-width: 1440px) {
+    position: relative;
+    display: block;
+    width: 100%;
+  }
+`;
+
+const DropdownWrapperMobile = styled.div`
+  position: relative;
+  margin-bottom: 46px;
   &:after {
     content: "";
     position: absolute;
-    top: 15px;
+    top: 20px;
     right: 20px;
     z-index: 5;
     transform: rotate(45deg);
@@ -72,6 +81,36 @@ const DropdownWrapper = styled.div`
     border-width: 0 3px 3px 0;
     display: inline-block;
     padding: 3px;
+  }
+  @media (min-width: 1440px) {
+    display: none;
+  }
+`;
+
+const DropdownGroup = styled.div`
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1fr;
+  place-items: center;
+  grid-gap: 10px;
+  @media (min-width: 1440px) {
+    grid-gap: 25px;
+    grid-template-columns: 1fr 20% 1fr;
+    margin-top: -50px;
+    margin-bottom: 46px;
+  }
+`;
+
+const DropdownTitle = styled.div`
+  font-size: 16px;
+  font-weight: 300;
+  line-height: 1.5;
+  color: #46515e;
+
+  @media (min-width: 1440px) {
+    margin-bottom: 0;
+    width: 100%;
+    text-align: right;
   }
 `;
 
@@ -86,17 +125,21 @@ const Itinerary = () => (
               title="Choose your traveller"
               subtitle="to discover the perfect itinerary"
             />
-
-            <DropdownWrapper>
-              <Dropdown
-                onChange={(e: SyntheticEvent<HTMLSelectElement>) =>
-                  changeDropdownValue(e.currentTarget.value)
-                }
-              >
-                {dropdownData.map(item => renderDropdownItem(item))}
-              </Dropdown>
-            </DropdownWrapper>
-
+            <DropdownGroup>
+              <DropdownTitle>Select itinerary</DropdownTitle>
+              <DropdownWrapperMobile>
+                <DropdownMobile
+                  onChange={(e: SyntheticEvent<HTMLSelectElement>) =>
+                    changeDropdownValue(e.currentTarget.value)
+                  }
+                >
+                  {dropdownData.map(item => renderDropdownItem(item))}
+                </DropdownMobile>
+              </DropdownWrapperMobile>
+              <DropdownWrapper>
+                <Dropdown onChange={changeDropdownValue} options={dropdownData} />
+              </DropdownWrapper>
+            </DropdownGroup>
             {data[state.dropdownValue].map((itineraryItem, index) => (
               <ItineraryItem key={itineraryItem.id} item={itineraryItem} order={index} />
             ))}

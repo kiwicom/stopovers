@@ -296,26 +296,26 @@ export const dropdownData = [
   {
     id: 1,
     value: "shopping",
-    title: "Shopping on the go",
+    label: "Shopping on the go",
   },
   {
     id: 2,
     value: "flavours",
-    title: "Colours, sounds and flavours",
+    label: "Colours, sounds and flavours",
   },
   {
     id: 3,
     value: "family",
-    title: "Family fun",
+    label: "Family fun",
   },
   {
     id: 4,
     value: "celebrity",
-    title: "Live like a celebrity",
+    label: "Live like a celebrity",
   },
   {
     id: 5,
     value: "size",
-    title: "Size is everything",
+    label: "Size is everything",
   },
 ];
