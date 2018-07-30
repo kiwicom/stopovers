@@ -72,6 +72,7 @@ const Dropdown = ({ options, onChange }: Props) => (
     components={{ DropdownIndicator, IndicatorSeparator }}
     hideSelectedOptions
     classNamePrefix="react-select"
+    instanceId="desktop"
   />
 );
 
