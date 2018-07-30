@@ -8,24 +8,26 @@
     "plugin:flowtype/recommended",
     "plugin:fp/recommended"
   ],
-  "plugins": [
-    "prettier",
-    "flowtype",
-    "fp"
-  ],
+  "plugins": ["prettier", "flowtype", "fp"],
   "env": {
     "browser": true,
     "jest": true
   },
   "rules": {
     "prettier/prettier": "error",
-    "import/order": ["error", {
-      "groups": [["builtin", "external"], ["internal", "parent", "sibling", "index"]],
-      "newlines-between": "always"
-    }],
-    "import/no-extraneous-dependencies": ["error", {
-      "devDependencies": ["etc/**", "stories/**", "**/__tests__/*"]
-    }],
+    "import/order": [
+      "error",
+      {
+        "groups": [["builtin", "external"], ["internal", "parent", "sibling", "index"]],
+        "newlines-between": "always"
+      }
+    ],
+    "import/no-extraneous-dependencies": [
+      "error",
+      {
+        "devDependencies": ["etc/**", "stories/**", "**/__tests__/*"]
+      }
+    ],
     "flowtype/require-valid-file-annotation": ["error", "always", { "annotationStyle": "line" }],
     "react/display-name": "error",
     // OFF
@@ -37,6 +39,7 @@
     "react/default-props-match-prop-types": "off", // Flow/ESlint conflict
     "react/require-default-props": "off", // Somehow semantically wrong
     "react/jsx-filename-extension": "off", // Prague guys being hip,
+    "react/destructuring-assignment": "off", // Prague guys being hip,
     "react/no-unused-state": "off",
     "jsx-a11y/anchor-is-valid": "off" // Relative paths bullshit
   }
