@@ -1,6 +1,5 @@
 // @flow
 import * as React from "react";
-// $FlowFixMe
 import { AirplaneRight } from "@kiwicom/orbit-components/lib/icons";
 
 import { scrollToElement } from "../helpers";

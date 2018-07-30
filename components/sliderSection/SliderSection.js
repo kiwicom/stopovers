@@ -11,7 +11,6 @@ import {
   DotGroup,
   Image,
 } from "pure-react-carousel";
-// $FlowFixMe
 import { ChevronRight, ChevronLeft } from "@kiwicom/orbit-components/lib/icons";
 
 import Button, { Link } from "../shared/Button";

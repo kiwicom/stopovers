@@ -2,7 +2,6 @@
 
 import * as React from "react";
 import styled from "styled-components";
-// $FlowFixMe
 import { ChevronDown } from "@kiwicom/orbit-components/lib/icons";
 
 import ActionText from "../shared/ActionText";

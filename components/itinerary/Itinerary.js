@@ -60,6 +60,19 @@ const DropdownWrapper = styled.div`
   position: relative;
   text-align: center;
   margin-bottom: 46px;
+
+  &:after {
+    content: "";
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    z-index: 5;
+    transform: rotate(45deg);
+    border: solid #7f91a8;
+    border-width: 0 3px 3px 0;
+    display: inline-block;
+    padding: 3px;
+  }
 `;
 
 const Itinerary = () => (
