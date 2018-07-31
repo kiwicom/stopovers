@@ -1,4 +1,5 @@
 // @flow
+
 import * as React from "react";
 import Select, { components } from "react-select";
 import { ChevronDown, ChevronUp } from "@kiwicom/orbit-components/lib/icons";

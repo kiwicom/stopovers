@@ -1,4 +1,5 @@
 // @flow
+
 export const data = {
   shopping: [
     {

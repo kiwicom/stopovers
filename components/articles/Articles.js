@@ -1,4 +1,5 @@
 // @flow
+
 import * as React from "react";
 import styled from "styled-components";
 
@@ -78,7 +79,9 @@ const Articles = () => (
     <SectionTitle title="Dubai in detail" subtitle="More stories, more inspiration" />
 
     <ArticlesWrapper>
-      {articles.map(article => <ArticleItem article={article} key={article.id} />)}
+      {articles.map(article => (
+        <ArticleItem article={article} key={article.id} />
+      ))}
     </ArticlesWrapper>
 
     <ActionWrapper>
