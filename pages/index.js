@@ -1,4 +1,5 @@
 // @flow
+
 import * as React from "react";
 import { Element } from "react-scroll";
 import { Provider } from "@kiwicom/nitro/lib/services/intl/context";

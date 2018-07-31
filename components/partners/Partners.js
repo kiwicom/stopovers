@@ -1,4 +1,5 @@
 // @flow
+
 import * as React from "react";
 import styled from "styled-components";
 import { AirplaneDown } from "@kiwicom/orbit-components/lib/icons";
@@ -100,7 +101,11 @@ const Partners = () => (
     <SectionTitle title="Book your flight and get discounts" subtitle="from our partners" />
 
     <Wrapper>
-      <Logos>{logos.map(logo => <Logo src={logo.url} alt={logo.name} key={logo.id} />)}</Logos>
+      <Logos>
+        {logos.map(logo => (
+          <Logo src={logo.url} alt={logo.name} key={logo.id} />
+        ))}
+      </Logos>
       <Content>
         <Text>
           Book your flight with a Dubai stopover and receive discount codes for our partner

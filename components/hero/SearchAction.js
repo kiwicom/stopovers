@@ -1,4 +1,5 @@
 // @flow
+
 import * as React from "react";
 import { AirplaneRight } from "@kiwicom/orbit-components/lib/icons";
 

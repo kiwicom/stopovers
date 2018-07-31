@@ -29,6 +29,7 @@
       }
     ],
     "flowtype/require-valid-file-annotation": ["error", "always", { "annotationStyle": "line" }],
+    "flowtype/newline-after-flow-annotation": [2, "always"],
     "react/display-name": "error",
     // OFF
     "fp/no-nil": "off", // Side effects
