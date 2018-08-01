@@ -14,8 +14,8 @@ injectGlobal([
   dl, dt, dd, ol, ul, li,
   fieldset, form, label, legend,
   table, caption, tbody, tfoot, thead, tr, th, td,
-  article, aside, canvas, details, embed, 
-  figure, figcaption, footer, header, hgroup, 
+  article, aside, canvas, details, embed,
+  figure, figcaption, footer, header, hgroup,
   menu, nav, output, ruby, section, summary,
   time, mark, audio, video {
     margin: 0;
@@ -26,7 +26,7 @@ injectGlobal([
     vertical-align: baseline;
   }
   /* HTML5 display-role reset for older browsers */
-  article, aside, details, figcaption, figure, 
+  article, aside, details, figcaption, figure,
   footer, header, hgroup, menu, nav, section {
     display: block;
   }
@@ -55,14 +55,14 @@ injectGlobal([
     max-width: 100%;
     height: 162px;
   }
-  
+
   @media only screen and (min-width: 740px) {
     iframe.youtube-embed {
       max-width: none;
       height: 394px;
     }
   }
- 
+
   @media only screen and (min-width: 1440px) {
     iframe.youtube-embed {
       height: 455px;
@@ -77,6 +77,7 @@ export default class MyDocument extends Document {
     const sheet = new ServerStyleSheet();
     const page = renderPage(App => props => sheet.collectStyles(<App {...props} />));
     const styleTags = sheet.getStyleElement();
+
     return { ...page, styleTags };
   }
 

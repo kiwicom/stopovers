@@ -13,9 +13,12 @@
     "typecheck": "flow check"
   },
   "dependencies": {
-    "@kiwicom/orbit-components": "^0.1.1",
+    "@kiwicom/orbit-components": "^0.3.0",
+    "isomorphic-unfetch": "^2.1.1",
+    "@kiwicom/nitro": "^0.7.1",
     "next": "^6.1.1",
     "pure-react-carousel": "^1.13.2",
+    "ramda": "^0.25.0",
     "react": "^16.4.1",
     "react-dom": "^16.4.1",
     "react-scroll": "^1.7.10",
