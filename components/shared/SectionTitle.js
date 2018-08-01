@@ -2,6 +2,7 @@
 
 import * as React from "react";
 import styled from "styled-components";
+import Text from "@kiwicom/nitro/lib/components/Text";
 
 type Props = {
   title: string,
@@ -48,8 +49,14 @@ const SubTitle = styled.h3`
 
 const SectionTitle = ({ title, subtitle, resetPadding }: Props) => (
   <TitleWrapper resetPadding={resetPadding}>
-    <Title>{title}</Title>
-    {subtitle && <SubTitle>{subtitle}</SubTitle>}
+    <Title>
+      <Text t={title} />
+    </Title>
+    {subtitle && (
+      <SubTitle>
+        <Text t={subtitle} />
+      </SubTitle>
+    )}
   </TitleWrapper>
 );
 
