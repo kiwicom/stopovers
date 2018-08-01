@@ -115,5 +115,12 @@
   "termsAndConditions": "Terms & Conditions",
   "termsOfUse": "Terms of Use",
   "privacyPolicy": "Privacy Policy",
-  "security": "Security"
+  "security": "Security",
+
+  "bannerTitle": "Search for flights with a one-day stopover in Dubai",
+
+  "travel": "Travel",
+  "rooms": "Rooms",
+  "cars": "Cars",
+  "holidays": "Holidays"
 }
