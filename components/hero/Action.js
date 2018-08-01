@@ -3,6 +3,7 @@
 import * as React from "react";
 import styled from "styled-components";
 import { ChevronDown } from "@kiwicom/orbit-components/lib/icons";
+import Text from "@kiwicom/nitro/lib/components/Text";
 
 import ActionText from "../shared/ActionText";
 import { scrollToElement } from "../helpers";
@@ -18,6 +19,7 @@ const ActionButton = styled.button`
   background: #00a991;
   order: 1;
   justify-self: end;
+
   @media (min-width: 740px) {
     margin-right: 20px;
     order: 0;
@@ -33,7 +35,9 @@ const Action = () => (
     >
       <ChevronDown customColor="#ffffff" size="medium" />
     </ActionButton>
-    <ActionText>Save on your trip & see Dubai</ActionText>
+    <ActionText>
+      <Text t="saveOnTrip" />
+    </ActionText>
   </>
 );
 

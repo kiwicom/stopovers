@@ -13,12 +13,15 @@ const Wrapper = styled.div`
   grid-template-rows: 0.8fr 1fr;
   place-items: center;
   margin-bottom: 35px;
+
   @media (min-width: 500px) {
     grid-template-rows: 1fr 1fr;
   }
+
   @media (min-width: 600px) {
     grid-template-rows: 1.2fr 1fr;
   }
+
   @media (min-width: 740px) {
     grid-template-columns: 1fr 1fr;
     grid-template-rows: 510px 86px;
@@ -51,6 +54,7 @@ const ContentWrapper = styled.div`
 const SearchActionWrapper = styled.div`
   grid-area: search-action;
   display: none;
+
   @media (min-width: 740px) {
     display: flex;
     justify-content: center;
