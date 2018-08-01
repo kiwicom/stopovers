@@ -3,6 +3,7 @@
 import * as React from "react";
 import styled from "styled-components";
 import { AirplaneDown } from "@kiwicom/orbit-components/lib/icons";
+import NitroText from "@kiwicom/nitro/lib/components/Text";
 
 import SectionTitle from "../shared/SectionTitle";
 import Text from "../shared/Text";
@@ -84,7 +85,6 @@ const AirplaneWrapper = styled.div`
     grid-column: 1 /3;
     justify-self: center;
     align-self: end;
-
     position: relative;
     bottom: -10px;
     display: block;
@@ -98,7 +98,7 @@ const logos = [
 
 const Partners = () => (
   <>
-    <SectionTitle title="Book your flight and get discounts" subtitle="from our partners" />
+    <SectionTitle title="partnersTitle" subtitle="partnersSubTitle" />
 
     <Wrapper>
       <Logos>
@@ -108,8 +108,7 @@ const Partners = () => (
       </Logos>
       <Content>
         <Text>
-          Book your flight with a Dubai stopover and receive discount codes for our partner
-          companies via email after your flight has been confirmed.
+          <NitroText t="partnersDescription" />
         </Text>
       </Content>
       <AirplaneWrapper>
