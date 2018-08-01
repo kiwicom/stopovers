@@ -42,6 +42,7 @@
     "react/jsx-filename-extension": "off", // Prague guys being hip,
     "react/destructuring-assignment": "off", // Prague guys being hip,
     "react/no-unused-state": "off",
+    "react/prop-types": "ignore",
     "jsx-a11y/anchor-is-valid": "off" // Relative paths bullshit
   }
 }

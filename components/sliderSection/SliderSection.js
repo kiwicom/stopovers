@@ -54,6 +54,7 @@ const SliderWrapper = styled.div`
   @media (min-width: 1440px) {
     grid-row: 1 / 4;
   }
+
   .provider {
     display: grid;
     grid-template-columns: 0 1fr 0;
@@ -62,14 +63,15 @@ const SliderWrapper = styled.div`
     justify-content: center;
     overflow: hidden;
   }
+
   .slider {
     position: relative;
     overflow: hidden;
     border-radius: 3px;
   }
+
   .next {
     cursor: pointer;
-
     color: #46515e;
     background-color: #f5f7f9;
     border: none;
@@ -83,6 +85,7 @@ const SliderWrapper = styled.div`
     margin-right: -40px;
     padding: 4px;
   }
+
   .back {
     cursor: pointer;
     color: #46515e;
@@ -98,6 +101,7 @@ const SliderWrapper = styled.div`
     margin-left: -40px;
     padding: 4px;
   }
+
   .dots {
     grid-column: 1/3;
     display: flex;
@@ -105,6 +109,7 @@ const SliderWrapper = styled.div`
     place-self: center;
     align-items: center;
   }
+
   .carousel__dot {
     cursor: pointer;
     border-radius: 50%;
@@ -117,10 +122,12 @@ const SliderWrapper = styled.div`
       margin-right: 16px;
     }
   }
+
   .carousel__dot--selected {
     background-color: #00a991;
     padding: 8px;
   }
+
   .carousel__image {
     display: block;
     width: 100%;
@@ -166,6 +173,7 @@ const SliderWrapper = styled.div`
     0% {
       transform: rotate(0deg);
     }
+
     to {
       transform: rotate(1turn);
     }
