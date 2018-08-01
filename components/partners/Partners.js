@@ -3,10 +3,9 @@
 import * as React from "react";
 import styled from "styled-components";
 import { AirplaneDown } from "@kiwicom/orbit-components/lib/icons";
-import NitroText from "@kiwicom/nitro/lib/components/Text";
 
 import SectionTitle from "../shared/SectionTitle";
-import Text from "../shared/Text";
+import StyledText from "../shared/StyledText";
 
 const Wrapper = styled.div`
   position: relative;
@@ -107,9 +106,7 @@ const Partners = () => (
         ))}
       </Logos>
       <Content>
-        <Text>
-          <NitroText t="partnersDescription" />
-        </Text>
+        <StyledText t="partnersDescription" />
       </Content>
       <AirplaneWrapper>
         <AirplaneDown customColor="7f91a8" />
