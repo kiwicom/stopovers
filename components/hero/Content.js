@@ -5,7 +5,6 @@ import { AirplaneDown } from "@kiwicom/orbit-components/lib/icons";
 
 import Action from "./Action";
 import Text from "../shared/Text";
-import Br from "../shared/Br";
 
 const MainTitle = styled.h1`
   font-size: 30px;
