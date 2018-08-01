@@ -2,6 +2,7 @@
 
 import * as React from "react";
 import styled from "styled-components";
+import Text from "@kiwicom/nitro/lib/components/Text";
 
 import SectionTitle from "../shared/SectionTitle";
 import Button from "../shared/Button";
@@ -87,10 +88,7 @@ class Search extends React.Component<{}> {
   render() {
     return (
       <Wrapper>
-        <SectionTitle
-          title="Your experience starts here"
-          subtitle="Search for flight with a one-day stopover in Dubai"
-        />
+        <SectionTitle title="widgetTitle" subtitle="widgetSubTitle" />
 
         <WidgetWrapper>
           <Widget id="widget-holder" />
@@ -98,10 +96,14 @@ class Search extends React.Component<{}> {
 
         <ActionWrapper>
           <ButtonWrapper>
-            <Button fontSize={16}>Search flights</Button>
+            <Button fontSize={16}>
+              <Text t="searchFlights" />
+            </Button>
           </ButtonWrapper>
 
-          <ActionTitle>with a one-day stopover in Dubai</ActionTitle>
+          <ActionTitle>
+            <Text t="withOneDayStopover" />
+          </ActionTitle>
         </ActionWrapper>
       </Wrapper>
     );
