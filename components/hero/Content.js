@@ -1,10 +1,12 @@
 // @flow
+
 import * as React from "react";
 import styled from "styled-components";
 import { AirplaneDown } from "@kiwicom/orbit-components/lib/icons";
+import Text from "@kiwicom/nitro/lib/components/Text";
 
 import Action from "./Action";
-import Text from "../shared/Text";
+import StyledText from "../shared/StyledText";
 
 const MainTitle = styled.h1`
   font-size: 30px;
@@ -95,9 +97,11 @@ const AirplaneWrapper = styled.div`
 
 const Content = () => (
   <>
-    <MainTitle>Start your vacation with a holiday</MainTitle>
+    <MainTitle>
+      <Text t="startYourVacation" />
+    </MainTitle>
     <TextWrapper>
-      <Text>There’s a world of experiences waiting on a 24 hour stopover in Dubai</Text>
+      <StyledText t="worldOfExperiences" />
     </TextWrapper>
     <AirplaneWrapper>
       <AirplaneDown customColor="7f91a8" />
