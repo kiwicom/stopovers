@@ -42,6 +42,9 @@ const ContentWrapper = styled.div`
   margin-top: 24px;
   display: grid;
   grid-area: content;
+  justify-self: center;
+  width: auto;
+  justify-items: center;
 `;
 
 const SearchActionWrapper = styled.div`

@@ -11,9 +11,12 @@ const MainTitle = styled.h1`
   font-size: 30px;
   font-weight: 500;
   color: #171b1e;
+  width: 260px;
+  line-height: 1.2;
 
   @media (min-width: 1440px) {
     font-size: 40px;
+    width: 60%;
   }
 `;
 
@@ -35,7 +38,9 @@ const TextWrapper = styled.div`
     width: 378px;
     margin-top: 68px;
     margin-bottom: 100px;
-    padding: 0 0 0 38px;
+    padding: 5px 0 5px 20px;
+
+    width: 54%;
   }
 
   &::before {
@@ -48,10 +53,12 @@ const TextWrapper = styled.div`
     height: 16px;
     width: 16px;
     top: 0.4em;
-    left: -1.7em;
-
+    left: -28px;
+    @media (min-width: 740px) {
+      left: -28px;
+    }
     @media (min-width: 1440px) {
-      left: -2.9em;
+      left: -29px;
       top: 0em;
     }
   }
@@ -67,33 +74,31 @@ const ActionWrapper = styled.div`
 
   @media (min-width: 740px) {
     grid-template-columns: 94px 1fr;
-    margin-left: -40px;
+    margin-left: -66px;
   }
 
   @media (min-width: 1440px) {
     width: 400px;
+    margin-left: -60px;
   }
 `;
 
 const AirplaneWrapper = styled.div`
   position: relative;
   top: -38px;
-  left: -5px;
+  left: -121px;
 
   @media (min-width: 1440px) {
     top: -102px;
+    left: -181px;
   }
 `;
 
 const Content = () => (
   <>
-    <MainTitle>
-      Start your vacation<br /> with a holiday
-    </MainTitle>
+    <MainTitle>Start your vacation with a holiday</MainTitle>
     <TextWrapper>
-      <Text>
-        There’s a world of experiences <Br />waiting on a 24 hour stopover in Dubai
-      </Text>
+      <Text>There’s a world of experiences waiting on a 24 hour stopover in Dubai</Text>
     </TextWrapper>
     <AirplaneWrapper>
       <AirplaneDown customColor="7f91a8" />
