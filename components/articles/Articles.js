@@ -2,6 +2,7 @@
 
 import * as React from "react";
 import styled from "styled-components";
+import Text from "@kiwicom/nitro/lib/components/Text";
 
 import { scrollToElement } from "../helpers";
 import SectionTitle from "../shared/SectionTitle";
@@ -76,7 +77,7 @@ const ActionTitle = styled.h4`
 
 const Articles = () => (
   <Wrapper>
-    <SectionTitle title="Dubai in detail" subtitle="More stories, more inspiration" />
+    <SectionTitle title="articlesTitle" subtitle="articlesSubTitle" />
 
     <ArticlesWrapper>
       {articles.map(article => (
@@ -85,14 +86,16 @@ const Articles = () => (
     </ArticlesWrapper>
 
     <ActionWrapper>
-      <ActionTitle>Book your flight to Asia featuring a stopover in Dubai</ActionTitle>
+      <ActionTitle>
+        <Text t="bookYourFlight" />
+      </ActionTitle>
       <Button
         fontSize={16}
         onClick={() => {
           scrollToElement("search");
         }}
       >
-        Search flights now
+        <Text t="searchFlightsNow" />
       </Button>
     </ActionWrapper>
   </Wrapper>
