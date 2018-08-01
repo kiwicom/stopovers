@@ -19,7 +19,7 @@ const Wrapper = styled.div`
 
 const Video = () => (
   <Wrapper>
-    <SectionTitle title="Still want more?" subtitle="Checkout this video" />
+    <SectionTitle title="videoTitle" subtitle="videoSubTitle" />
     <YouTube videoId="-peUvHblzaQ" className="youtube-embed" />
   </Wrapper>
 );
