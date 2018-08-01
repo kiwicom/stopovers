@@ -2,9 +2,9 @@
 
 import * as React from "react";
 import styled from "styled-components";
-import NitroText from "@kiwicom/nitro/lib/components/Text";
+import Text from "@kiwicom/nitro/lib/components/Text";
 
-import Text from "../shared/Text";
+import StyledText from "../shared/StyledText";
 
 const Wrapper = styled.div`
   width: calc(100% - 96px);
@@ -69,11 +69,9 @@ const ItemContent = ({ isOdd, title, time, description }: Props) => (
       <Circle />
       <Time>{time}</Time>
       <ItineraryTitle fontSize={20}>
-        <NitroText t={title} />
+        <Text t={title} />
       </ItineraryTitle>
-      <Text>
-        <NitroText t={description} />
-      </Text>
+      <StyledText t={description} />
     </Wrapper>
   </>
 );
