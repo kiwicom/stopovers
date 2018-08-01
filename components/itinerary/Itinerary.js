@@ -2,6 +2,7 @@
 
 import * as React from "react";
 import styled from "styled-components";
+import Text from "@kiwicom/nitro/lib/components/Text";
 
 import { scrollToElement } from "../helpers";
 import ItineraryItem from "./ItineraryItem";
@@ -24,16 +25,18 @@ const ItineraryWrapper = styled.div`
   max-width: 1400px;
   margin: 0 auto;
   justify-items: center;
+
   @media (min-width: 740px) {
     margin: 0 20%;
   }
+
   @media (min-width: 1440px) {
     padding-bottom: 60px;
     margin: 0 auto;
     padding-top: 0;
   }
 
-  &::before {
+  &:before {
     content: "";
     position: absolute;
     top: 300px;
@@ -71,6 +74,7 @@ const DropdownWrapper = styled.div`
 const DropdownWrapperMobile = styled.div`
   position: relative;
   margin-bottom: 46px;
+
   &:after {
     content: "";
     position: absolute;
@@ -83,6 +87,7 @@ const DropdownWrapperMobile = styled.div`
     display: inline-block;
     padding: 3px;
   }
+
   @media (min-width: 1440px) {
     display: none;
   }
@@ -94,6 +99,7 @@ const DropdownGroup = styled.div`
   grid-template-columns: 1fr;
   place-items: center;
   grid-gap: 10px;
+
   @media (min-width: 1440px) {
     grid-gap: 25px;
     grid-template-columns: 1fr 20% 1fr;
@@ -122,12 +128,11 @@ const Itinerary = () => (
       {({ state, changeDropdownValue }) => (
         <Wrapper>
           <ItineraryWrapper>
-            <SectionTitle
-              title="Choose your traveller"
-              subtitle="to discover the perfect itinerary"
-            />
+            <SectionTitle title="itineraryTitle" subtitle="itinerarySubTitle" />
             <DropdownGroup>
-              <DropdownTitle>Select itinerary</DropdownTitle>
+              <DropdownTitle>
+                <Text t="selectItinerary" />
+              </DropdownTitle>
               <DropdownWrapperMobile>
                 <DropdownMobile
                   onChange={(e: SyntheticEvent<HTMLSelectElement>) =>
@@ -146,7 +151,7 @@ const Itinerary = () => (
             ))}
           </ItineraryWrapper>
           <StyledButton fontSize={16} onClick={() => scrollToElement("search")}>
-            Start your trip now
+            <Text t="startYourTripNow" />
           </StyledButton>
         </Wrapper>
       )}

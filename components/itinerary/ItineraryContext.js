@@ -14,7 +14,7 @@ export const ItineraryContext = React.createContext();
 
 class ItineraryProvider extends React.Component<Props, State> {
   state = {
-    dropdownValue: "shopping",
+    dropdownValue: "shoppingOnTheGo",
   };
 
   render() {

@@ -7,6 +7,7 @@ const Text = styled.div`
   font-size: 16px;
   font-weight: 300;
   line-height: 1.5;
+
   @media (min-width: 1440px) {
     font-size: 20px;
   }

@@ -36,8 +36,8 @@ const Image = styled.img`
   width: 100%;
   height: 100%;
   border-radius: 5px;
-
   box-shadow: 0 4px 12px rgba(23, 37, 30, 0.15);
+
   @media (min-width: 1440px) {
     width: calc(50% - 70px);
     margin: 0;

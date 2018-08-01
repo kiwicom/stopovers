@@ -3,6 +3,12 @@
 import * as React from "react";
 import Select, { components } from "react-select";
 import { ChevronDown, ChevronUp } from "@kiwicom/orbit-components/lib/icons";
+import Text from "@kiwicom/nitro/lib/components/Text";
+
+type Props = {
+  options: Array<{ value: string, label: string }>,
+  onChange: (optionValue: string) => void,
+};
 
 const customStyles = {
   dropdownIndicator: base => ({
@@ -24,7 +30,6 @@ const customStyles = {
     border: state.isFocused ? "solid 1px #fff !important" : "solid 1px #bac7d5",
     fontSize: "16px",
     fontWeight: 500,
-
     background: "#fff",
     fontFamily: "Roboto",
     padding: "6px 6px",
@@ -48,8 +53,6 @@ const customStyles = {
   }),
 };
 
-const IndicatorSeparator = () => <div />;
-
 const DropdownIndicator = props =>
   components.DropdownIndicator && (
     <components.DropdownIndicator {...props}>
@@ -57,10 +60,17 @@ const DropdownIndicator = props =>
     </components.DropdownIndicator>
   );
 
-type Props = {
-  options: Array<{ value: string, label: string }>,
-  onChange: (optionValue: string) => void,
-};
+const SingleValue = ({ children, ...props }) => (
+  <components.SingleValue {...props}>
+    <Text t={children} />
+  </components.SingleValue>
+);
+
+const Option = ({ children, ...props }) => (
+  <components.Option {...props}>
+    <Text t={children} />
+  </components.Option>
+);
 
 const Dropdown = ({ options, onChange }: Props) => (
   <Select
@@ -70,7 +80,7 @@ const Dropdown = ({ options, onChange }: Props) => (
     defaultValue={options[0]}
     blurInputOnSelect
     onChange={option => onChange(option.value)}
-    components={{ DropdownIndicator, IndicatorSeparator }}
+    components={{ DropdownIndicator, IndicatorSeparator: null, SingleValue, Option }}
     hideSelectedOptions
     classNamePrefix="react-select"
     instanceId="desktop"

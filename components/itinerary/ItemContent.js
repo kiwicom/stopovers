@@ -2,6 +2,7 @@
 
 import * as React from "react";
 import styled from "styled-components";
+import NitroText from "@kiwicom/nitro/lib/components/Text";
 
 import Text from "../shared/Text";
 
@@ -12,6 +13,7 @@ const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
   padding-top: 20px;
+
   @media only screen and (min-width: 1440px) {
     margin: 0 80px;
     width: calc(50% - 70px);
@@ -52,6 +54,7 @@ const Circle = styled.div`
   background: #00a991;
   box-shadow: 0px 0px 0px 6px #b2e5de;
   margin-left: 20px;
+
   @media (min-width: 1440px) {
     margin-top: 0;
     left: 50%;
@@ -64,9 +67,13 @@ const ItemContent = ({ isOdd, title, time, description }: Props) => (
   <>
     <Wrapper isOdd={isOdd}>
       <Circle />
-      <Time> {time}</Time>
-      <ItineraryTitle fontSize={20}>{title}</ItineraryTitle>
-      <Text>{description}</Text>
+      <Time>{time}</Time>
+      <ItineraryTitle fontSize={20}>
+        <NitroText t={title} />
+      </ItineraryTitle>
+      <Text>
+        <NitroText t={description} />
+      </Text>
     </Wrapper>
   </>
 );

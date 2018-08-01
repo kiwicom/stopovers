@@ -2,6 +2,7 @@
 
 import * as React from "react";
 import styled from "styled-components";
+import Text from "@kiwicom/nitro/lib/components/Text";
 
 type DropdownItem = {
   id: number,
@@ -11,7 +12,7 @@ type DropdownItem = {
 
 export const renderDropdownItem = ({ value, id, label }: DropdownItem) => (
   <option value={value} key={id}>
-    {label}
+    <Text t={label} />
   </option>
 );
 
