@@ -12,11 +12,13 @@ import {
   Image,
 } from "pure-react-carousel";
 import { ChevronRight, ChevronLeft } from "@kiwicom/orbit-components/lib/icons";
+import Text from "@kiwicom/nitro/lib/components/Text";
 
 import Button, { Link } from "../shared/Button";
 import SectionTitle from "../shared/SectionTitle";
 import Description from "../shared/Description";
 import { scrollToElement } from "../helpers";
+import sliderImages from "./mockedData";
 
 const Wrapper = styled.div`
   display: grid;
@@ -44,9 +46,11 @@ const Wrapper = styled.div`
 
 const SliderWrapper = styled.div`
   width: 100%;
+
   @media (min-width: 740px) {
     grid-row: 2 / 4;
   }
+
   @media (min-width: 1440px) {
     grid-row: 1 / 4;
   }
@@ -108,6 +112,7 @@ const SliderWrapper = styled.div`
     border: none;
     padding: 6px;
     margin: 0;
+
     &:not(:last-child) {
       margin-right: 16px;
     }
@@ -156,6 +161,7 @@ const SliderWrapper = styled.div`
     border-left-color: #a9a9a9;
     border-radius: 30px;
   }
+
   @keyframes a {
     0% {
       transform: rotate(0deg);
@@ -171,14 +177,17 @@ const DescriptionWrapper = styled.div`
   justify-self: center;
   padding: 5px 30px 0;
   max-width: 520px;
+
   @media (min-width: 740px) {
     justify-self: start;
     padding: 0;
   }
+
   @media (min-width: 1440px) {
     order: 2;
     align-self: center;
   }
+
   > * {
     margin: 0;
   }
@@ -191,12 +200,14 @@ const ButtonsWrapper = styled.div`
   grid-row-gap: 10px;
   align-items: center;
   justify-items: center;
+
   @media (min-width: 740px) {
     grid-row-gap: 20px;
     margin-top: 0;
     place-items: start;
     grid-template-columns: 145px 1fr;
   }
+
   @media (min-width: 1440px) {
     order: 3;
     place-self: start;
@@ -204,29 +215,11 @@ const ButtonsWrapper = styled.div`
   }
 `;
 
-const images = [
-  {
-    url: "static/images/carousel/carousel-first.jpg",
-    title: "Slide Dubai 1",
-  },
-  {
-    url: "static/images/carousel/carousel-second.jpg",
-    title: "Slide Dubai 2",
-  },
-  {
-    url: "static/images/carousel/carousel-third.jpg",
-    title: "Slide Dubai 3",
-  },
-  {
-    url: "static/images/carousel/carousel-fourth.jpg",
-    title: "Slide Dubai 4",
-  },
-];
-
 const TitleWrapper = styled.div`
   @media (min-width: 740px) {
     grid-column: 1 / 3;
   }
+
   @media (min-width: 1440px) {
     grid-column: 2 / 3;
     order: 1;
@@ -241,13 +234,13 @@ const ButtonSrinked = styled(Button)`
 const SliderSection = () => (
   <Wrapper>
     <TitleWrapper>
-      <SectionTitle title="The Stopover" resetPadding />
+      <SectionTitle title="stopoverTitle" resetPadding />
     </TitleWrapper>
     <SliderWrapper>
       <CarouselProvider
         naturalSlideWidth={606}
         naturalSlideHeight={400}
-        totalSlides={images.length}
+        totalSlides={sliderImages.length}
         hasMasterSpinner
         className="provider"
       >
@@ -255,7 +248,7 @@ const SliderSection = () => (
           <ChevronLeft size="large" />
         </ButtonBack>
         <Slider className="slider">
-          {images.map((image, index) => (
+          {sliderImages.map((image, index) => (
             <Slide index={index} key={image.title}>
               <Image src={image.url} alt={image.title} />
             </Slide>
@@ -270,15 +263,16 @@ const SliderSection = () => (
     </SliderWrapper>
     <DescriptionWrapper>
       <Description>
-        When you book your flights via Dubai, you unlock a city that can be exciting, cultured,
-        gramourous, adventurous or relaxing.How you experience it is up to you.
+        <Text t="stopoverDescription" />
       </Description>
     </DescriptionWrapper>
     <ButtonsWrapper>
       <ButtonSrinked fontSize={16} onClick={() => scrollToElement("search")}>
-        Search flights
+        <Text t="searchFlights" />
       </ButtonSrinked>
-      <Link onClick={() => scrollToElement("itinerary")}>Choose itinerary</Link>
+      <Link onClick={() => scrollToElement("itinerary")}>
+        <Text t="chooseItinerary" />
+      </Link>
     </ButtonsWrapper>
   </Wrapper>
 );
