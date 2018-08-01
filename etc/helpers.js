@@ -1,4 +1,5 @@
-/* global fetch */
+// @flow
+
 import "isomorphic-unfetch";
 
 /**
@@ -9,9 +10,9 @@ import "isomorphic-unfetch";
  * @return {object} Fetched translations.
  */
 
-export default async function getTranslations(baseUrl, lang) {
+export async function getTranslations(url: string, lang: string) {
   try {
-    const response = await fetch(`${baseUrl}/${lang}.json`);
+    const response = await fetch(`${url}${lang}.json`);
     if (!response.ok) {
       return response.statusText;
     }
@@ -19,4 +20,9 @@ export default async function getTranslations(baseUrl, lang) {
   } catch (error) {
     return error;
   }
+}
+
+export async function getLanguages(url: string) {
+  const response = await fetch(`${url}languages.json`);
+  return response.json();
 }

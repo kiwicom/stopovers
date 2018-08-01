@@ -3,14 +3,10 @@
 import * as React from "react";
 import { Element } from "react-scroll";
 import { Provider } from "@kiwicom/nitro/lib/services/intl/context";
-import {
-  type LangInfo,
-  type LangInfos,
-  langInfoDefault,
-} from "@kiwicom/nitro/lib/records/LangInfo";
+import { type LangInfo, type LangInfos } from "@kiwicom/nitro/lib/records/LangInfo";
 import { type Translations } from "@kiwicom/nitro/lib/services/intl/translate";
 
-import getTranslations from "../etc/getTranslations";
+import { getTranslations, getLanguages } from "../etc/helpers";
 import Menu from "../components/menu/Menu";
 import Hero from "../components/hero/Hero";
 import SliderSection from "../components/sliderSection/SliderSection";
@@ -30,8 +26,8 @@ type Props = {
 export default class Index extends React.Component<Props> {
   static async getInitialProps({ query }) {
     const langId = (query && query.lang) || "en";
-    const translations = await getTranslations("http://localhost:3000/static/locales", langId);
-    const langInfos: LangInfos = { en: langInfoDefault };
+    const translations = await getTranslations("http://localhost:3000/static/locales/", langId);
+    const langInfos: LangInfos = await getLanguages("http://localhost:3000/static/");
     const language = langInfos[langId];
 
     return { translations, language };
