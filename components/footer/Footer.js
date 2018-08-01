@@ -3,6 +3,7 @@
 import * as React from "react";
 import styled from "styled-components";
 import { Linkedin, Twitter, Instagram, Facebook } from "@kiwicom/orbit-components/lib/icons";
+import Text from "@kiwicom/nitro/lib/components/Text";
 
 const Wrapper = styled.div`
   display: grid;
@@ -95,12 +96,12 @@ const Icons = styled.div`
 const links = [
   {
     id: 1,
-    title: "Terms & Conditions",
+    title: "termsAndConditions",
     url: "https://www.kiwi.com/en/pages/content/legal",
   },
-  { id: 2, title: "Terms of Use", url: "https://www.kiwi.com/en/pages/content/terms" },
-  { id: 3, title: "Privacy Policy", url: "https://www.kiwi.com/en/content/privacy" },
-  { id: 4, title: "Security", url: "https://www.kiwi.com/en/pages/security" },
+  { id: 2, title: "termsOfUse", url: "https://www.kiwi.com/en/pages/content/terms" },
+  { id: 3, title: "privacyPolicy", url: "https://www.kiwi.com/en/content/privacy" },
+  { id: 4, title: "security", url: "https://www.kiwi.com/en/pages/security" },
 ];
 
 const icons = [
@@ -136,7 +137,7 @@ const Footer = () => (
     <LinkWrapper>
       {links.map(link => (
         <Link href={link.url} key={link.id} target="_blank" rel="noopener noreferrer">
-          {link.title}
+          <Text t={link.title} />
         </Link>
       ))}
     </LinkWrapper>
