@@ -2,6 +2,7 @@
 
 import * as React from "react";
 import styled from "styled-components";
+import Text from "@kiwicom/nitro/lib/components/Text";
 
 const Wrapper = styled.div`
   display: grid;
@@ -37,14 +38,14 @@ const Link = styled.a`
 const links = [
   {
     id: 1,
-    title: "Travel",
+    title: "travel",
     url: "https://www.kiwi.com/search",
   },
-  { id: 2, title: "Rooms", url: "https://rooms.kiwi.com" },
-  { id: 3, title: "Cars", url: "https://cars.kiwi.com" },
+  { id: 2, title: "rooms", url: "https://rooms.kiwi.com" },
+  { id: 3, title: "cars", url: "https://cars.kiwi.com" },
   {
     id: 4,
-    title: "Holidays",
+    title: "holidays",
     url: "https://kiwicom.lastminute.com/flight-hotel",
   },
 ];
@@ -59,7 +60,7 @@ const Menu = () => (
     <Links>
       {links.map(link => (
         <Link href={link.url} key={link.id} target="_blank" rel="noopener noreferrer">
-          {link.title}
+          <Text t={link.title} />
         </Link>
       ))}
     </Links>
