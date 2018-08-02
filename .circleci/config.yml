@@ -15,7 +15,9 @@ jobs:
           - v1-dependencies-{{ checksum "yarn.lock" }}
           # Fallback to using the latest cache if no exact match is found
           - v1-dependencies-
+
       - run: yarn install
+
       - save_cache:
           paths:
             - node_modules
@@ -23,11 +25,6 @@ jobs:
 
       # Run tests!
       - run: yarn run test-ci
-
-      - persist_to_workspace:
-          root: .
-          paths:
-            - '*'
 
 workflows:
   version: 2
