@@ -3,10 +3,13 @@
 import * as React from "react";
 import { Element } from "react-scroll";
 import { Provider } from "@kiwicom/nitro/lib/services/intl/context";
-import { type LangInfo, type LangInfos } from "@kiwicom/nitro/lib/records/LangInfo";
+import { type LangInfos } from "@kiwicom/nitro/lib/records/LangInfo";
+import { type BrandLanguage } from "@kiwicom/nitro/lib/records/BrandLanguage";
+import { type Fetched, fetchedDefault } from "@kiwicom/nitro/lib/records/Fetched";
 import { type Translations } from "@kiwicom/nitro/lib/services/intl/translate";
+import { Provider as FetchedProvider } from "@kiwicom/nitro/lib/services/fetched/context";
 
-import { getTranslations, getLanguages } from "../etc/helpers";
+import { getTranslations, getLanguages, getBrandLanguage } from "../etc/helpers";
 import Menu from "../components/menu/Menu";
 import Hero from "../components/hero/Hero";
 import SliderSection from "../components/sliderSection/SliderSection";
@@ -20,8 +23,12 @@ import Banner from "../components/banner/Banner";
 
 type Props = {
   translations: Translations,
-  language: LangInfo,
+  langId: string,
+  languages: LangInfos,
+  fetched: Fetched,
 };
+
+const baseUrl = "http://localhost:3000/static/";
 
 type State = {
   areKeysShown: boolean,
@@ -40,10 +47,14 @@ export default class Index extends React.Component<Props, State> {
 
   static async getInitialProps({ query }: any) {
     const langId = (query && query.lang) || "en";
-    const translations = await getTranslations("http://localhost:3000/static/locales/", langId);
-    const langInfos: LangInfos = await getLanguages("http://localhost:3000/static/");
-    const language = langInfos[langId];
-    return { translations, language };
+    const translations = await getTranslations(`${baseUrl}locales/`, langId);
+    const langInfos: LangInfos = await getLanguages(baseUrl);
+    const brandLanguage: BrandLanguage = await getBrandLanguage(baseUrl, langId);
+    const fetched = {
+      ...fetchedDefault,
+      brandLanguage,
+    };
+    return { translations, langId, languages: langInfos, fetched };
   }
 
   handleKeyDown(event: SyntheticKeyboardEvent<>) {
@@ -56,10 +67,15 @@ export default class Index extends React.Component<Props, State> {
   }
 
   render() {
-    const { translations, language } = this.props;
+    const { translations, langId, languages, fetched } = this.props;
     return (
-      <Provider translations={this.state.areKeysShown ? {} : translations} language={language}>
-        <Menu />
+      <Provider
+        translations={this.state.areKeysShown ? {} : translations}
+        language={languages[langId]}
+      >
+        <FetchedProvider value={fetched}>
+          <Menu />
+        </FetchedProvider>
         <Hero />
         <SliderSection />
         <Element name="itinerary">

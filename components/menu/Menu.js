@@ -3,10 +3,12 @@
 import * as React from "react";
 import styled from "styled-components";
 import Text from "@kiwicom/nitro/lib/components/Text";
+import Language from "@kiwicom/nitro/lib/components/Language";
+import Router from "next/router";
 
 const Wrapper = styled.div`
   display: grid;
-  grid-template-columns: 99px 1fr;
+  grid-template-columns: 99px 1fr 200px;
   height: 50px;
   align-items: center;
   padding-left: 10px;
@@ -64,6 +66,14 @@ const Menu = () => (
         </Link>
       ))}
     </Links>
+    <Language
+      onChange={lang =>
+        Router.push({
+          pathname: "/",
+          query: { lang },
+        })
+      }
+    />
   </Wrapper>
 );
 

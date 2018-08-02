@@ -43,3 +43,11 @@ export async function getLanguages(baseUrl: string) {
 
   return pick(allLangs, usedLangIds);
 }
+
+export async function getBrandLanguage(baseUrl: string, langId: string) {
+  const response = await fetch(`${baseUrl}brandLanguages.json`);
+  const allBrandLangs = await response.json();
+  const brandLanguage = allBrandLangs.kiwicom[langId];
+  const languages = pick(brandLanguage.languages, usedLangIds);
+  return { ...brandLanguage, languages };
+}
