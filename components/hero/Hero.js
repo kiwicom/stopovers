@@ -52,10 +52,20 @@ const ImageWrapper = styled.div`
 
 const Image = styled.img`
   object-fit: cover;
+  object-position: 50% 40%;
   width: 100%;
   height: 100%;
   display: block;
   margin: 0 auto;
+  @media (min-width: 740px) {
+    object-position: 50% 10%;
+  }
+  @media (min-width: 1200px) {
+    object-position: 50% 20%;
+  }
+  @media (min-width: 1440px) {
+    object-position: 50% 20%;
+  }
 `;
 
 const ContentWrapper = styled.div`
