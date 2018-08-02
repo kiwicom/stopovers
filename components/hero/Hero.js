@@ -10,16 +10,16 @@ const Wrapper = styled.div`
   display: grid;
   grid-template-columns: 1fr;
   grid-template-areas: "image" "content";
-  grid-template-rows: 0.8fr 1fr;
+  grid-template-rows: 250px 1fr;
   place-items: center;
   margin-bottom: 35px;
 
   @media (min-width: 500px) {
-    grid-template-rows: 1fr 1fr;
+    grid-template-rows: 320px 1fr;
   }
 
   @media (min-width: 600px) {
-    grid-template-rows: 1.2fr 1fr;
+    grid-template-rows: 400px 1fr;
   }
 
   @media (min-width: 740px) {
@@ -29,17 +29,33 @@ const Wrapper = styled.div`
     margin-bottom: 0px;
   }
 
+  @media (min-width: 1000px) {
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 560px 86px;
+    grid-template-areas: "content image" "search-action search-action";
+    margin-bottom: 0px;
+  }
+
   @media (min-width: 1440px) {
     grid-template-rows: 700px 86px;
   }
 `;
 
-const Image = styled.div`
+const ImageWrapper = styled.div`
   grid-area: image;
-  background: url(/static/images/dubai-hero.jpg);
-  background-size: 100% 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
   height: 100%;
+`;
+
+const Image = styled.img`
+  object-fit: cover;
   width: 100%;
+  height: 100%;
+  display: block;
+  margin: 0 auto;
 `;
 
 const ContentWrapper = styled.div`
@@ -47,7 +63,6 @@ const ContentWrapper = styled.div`
   display: grid;
   grid-area: content;
   justify-self: center;
-  width: auto;
   justify-items: center;
 `;
 
@@ -67,7 +82,9 @@ const Hero = () => (
     <ContentWrapper>
       <Content />
     </ContentWrapper>
-    <Image />
+    <ImageWrapper>
+      <Image src="/static/images/dubai-hero.jpg" />
+    </ImageWrapper>
     <SearchActionWrapper>
       <SearchAction />
     </SearchActionWrapper>
