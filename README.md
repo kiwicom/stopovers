@@ -1,6 +1,6 @@
-[![Deploy to now](https://deploy.now.sh/static/button.svg)](https://deploy.now.sh/?repo=https://github.com/kiwicom/stopovers)
+# Landing page for Kiwi.com Stopover
 
-# Landing pages for stopover cities
+[![CircleCI](https://circleci.com/gh/kiwicom/stopovers.svg?style=svg)](https://circleci.com/gh/kiwicom/stopovers)
 
 ## Install it and run:
 

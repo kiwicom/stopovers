@@ -7,6 +7,7 @@
     "start": "next start",
     "test": "jest",
     "lint": "eslint .",
+    "test-ci": "yarn lint",
     "madge": "madge -c pages/index.js",
     "storybook": "start-storybook -p 6006",
     "storybook:build": "build-storybook -o dist-storybook",
