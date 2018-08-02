@@ -42,11 +42,10 @@ const Wrapper = styled.div`
 `;
 
 const ImageWrapper = styled.div`
+  place-self: end;
   grid-area: image;
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  align-items: center;
   height: 100%;
 `;
 
