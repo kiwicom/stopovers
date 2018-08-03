@@ -39,12 +39,22 @@ const headers = {
     const responses = await Promise.all(promises);
 
     responses.map(({ code, translation }: { code: string, translation: string }) => {
-      fs.writeFileSync(`static/locales/${code}.json`, JSON.stringify(translation, null, 2));
-      console.log(chalk.green.bold("\nCongratulations! Translations were updated\n")); // eslint-disable-line no-console
+      fs.writeFile(
+        `static/locales/${code}.json`,
+        JSON.stringify(translation, null, 2),
+        "utf8",
+        err => {
+          if (err) {
+            return console.error(err); // eslint-disable-line no-console
+          }
+
+          return console.log(chalk.green.bold("\nCongratulations! Translations were updated\n")); // eslint-disable-line no-console
+        },
+      );
       return true;
     });
   } catch (error) {
-    console.error(`Something happened: ${error}`); // eslint-disable-line no-console
+    console.error(error); // eslint-disable-line no-console
     process.exit(1);
   }
 })();
