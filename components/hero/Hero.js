@@ -57,13 +57,13 @@ const Image = styled.img`
   display: block;
   margin: 0 auto;
   @media (min-width: 740px) {
-    object-position: 50% 10%;
+    object-position: 30% 10%;
   }
   @media (min-width: 1200px) {
-    object-position: 50% 20%;
+    object-position: 30% 20%;
   }
   @media (min-width: 1440px) {
-    object-position: 50% 20%;
+    object-position: 30% 20%;
   }
 `;
 
