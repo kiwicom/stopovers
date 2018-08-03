@@ -1,6 +1,7 @@
 // @flow
 
 import "isomorphic-unfetch";
+import pick from "lodash.pick";
 
 /**
  * Fetch translation file(s).
@@ -10,9 +11,23 @@ import "isomorphic-unfetch";
  * @return {object} Fetched translations.
  */
 
-export async function getTranslations(url: string, lang: string) {
+const usedLangIds = ["en", "cz", "ro", "hu", "es", "fr", "de", "ru", "it"];
+
+const langSources = {
+  en: "en-GB",
+  cz: "cs-CZ",
+  ro: "ro-RO",
+  hu: "hu-HU",
+  es: "es-ES",
+  fr: "fr-FR",
+  de: "de-DE",
+  ru: "ru-RU",
+  it: "it-IT",
+};
+
+export async function getTranslations(baseUrl: string, langId: string) {
   try {
-    const response = await fetch(`${url}${lang}.json`);
+    const response = await fetch(`${baseUrl}${langSources[langId]}.json`);
     if (!response.ok) {
       return response.statusText;
     }
@@ -22,7 +37,9 @@ export async function getTranslations(url: string, lang: string) {
   }
 }
 
-export async function getLanguages(url: string) {
-  const response = await fetch(`${url}languages.json`);
-  return response.json();
+export async function getLanguages(baseUrl: string) {
+  const response = await fetch(`${baseUrl}languages.json`);
+  const allLangs = await response.json();
+
+  return pick(allLangs, usedLangIds);
 }
