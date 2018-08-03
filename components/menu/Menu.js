@@ -67,6 +67,7 @@ const Menu = () => (
       ))}
     </Links>
     <Language
+      flat
       onChange={lang =>
         Router.push({
           pathname: "/",
