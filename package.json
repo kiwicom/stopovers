@@ -13,17 +13,19 @@
     "storybook:build": "build-storybook -o dist-storybook",
     "typecheck": "flow check",
     "update-translations": "node dist/updateTranslations.js",
-    "update-translations:build": "babel phraseapp --ignore __tests__,__test__,__mocks__ --out-dir dist/",
-    "update-translations:dev": "nodemon phraseapp/updateTranslations.js --exec babel-node"
+    "update-translations:build": "babel scripts --ignore __tests__,__test__,__mocks__ --out-dir dist/",
+    "update-translations:dev": "nodemon scripts/updateTranslations.js --exec babel-node",
+    "deploy": "now -t ${NOW_TOKEN}"
   },
   "dependencies": {
     "@kiwicom/nitro": "^0.8.3",
-    "@kiwicom/orbit-components": "^0.3.1",
+    "@kiwicom/orbit-components": "^0.4.0",
     "chalk": "^2.4.1",
     "dotenv": "^6.0.0",
     "isomorphic-unfetch": "^2.1.1",
     "luxon": "^1.3.3",
     "next": "^6.1.1",
+    "now": "^11.3.6",
     "pure-react-carousel": "^1.13.2",
     "ramda": "^0.25.0",
     "react": "^16.4.2",
