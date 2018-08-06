@@ -44,8 +44,6 @@ const Wrapper = styled.div`
 const ImageWrapper = styled.div`
   place-self: end;
   grid-area: image;
-  display: flex;
-  flex-direction: column;
   height: 100%;
 `;
 
@@ -65,6 +63,22 @@ const Image = styled.img`
   @media (min-width: 1440px) {
     object-position: 30% 20%;
   }
+`;
+
+const DubaiLogoWrapper = styled.div`
+  position: relative;
+  display: flex;
+  top: -98px;
+  flex-direction: column;
+  align-items: flex-end;
+  justify-items: flex-end;
+  background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0), rgba(1, 1, 1, 0.6));
+  padding: 9px 33px 26px;
+`;
+
+const DubaiLogo = styled.img`
+  vertical-align: middle;
+  opacity: 1;
 `;
 
 const ContentWrapper = styled.div`
@@ -93,6 +107,9 @@ const Hero = () => (
     </ContentWrapper>
     <ImageWrapper>
       <Image src="/static/images/dubai-hero.jpg" />
+      <DubaiLogoWrapper>
+        <DubaiLogo src="static/images/dubai-logo.svg" alt="dubai logo" />
+      </DubaiLogoWrapper>
     </ImageWrapper>
     <SearchActionWrapper>
       <SearchAction />
