@@ -23,7 +23,13 @@ type Props = {
   language: LangInfo,
 };
 
-export default class Index extends React.Component<Props> {
+type State = {
+  areKeysShown: boolean,
+};
+
+export default class Index extends React.Component<Props, State> {
+  state = { areKeysShown: false };
+
   componentDidMount() {
     window.document.addEventListener("keydown", this.handleKeyDown.bind(this));
   }
@@ -32,24 +38,28 @@ export default class Index extends React.Component<Props> {
     window.document.removeEventListener("keydown", this.handleKeyDown.bind(this));
   }
 
-  static async getInitialProps({ query }) {
+  static async getInitialProps({ query }: any) {
     const langId = (query && query.lang) || "en";
     const translations = await getTranslations("http://localhost:3000/static/locales/", langId);
     const langInfos: LangInfos = await getLanguages("http://localhost:3000/static/");
     const language = langInfos[langId];
-
     return { translations, language };
   }
 
-  handleKeyDown(event) {
-    console.log(event);
+  handleKeyDown(event: SyntheticKeyboardEvent<>) {
+    const keyCode = "which" in event ? event.which : event.keyCode;
+    if (event.altKey && event.ctrlKey && keyCode === 84) {
+      this.setState(prevState => ({
+        areKeysShown: !prevState.areKeysShown,
+      }));
+    }
   }
 
   render() {
     const { translations, language } = this.props;
     return (
-      <Provider translations={translations} language={language}>
-        <Menu onKeyDown={event => console.log(event)} />
+      <Provider translations={this.state.areKeysShown ? {} : translations} language={language}>
+        <Menu />
         <Hero />
         <SliderSection />
         <Element name="itinerary">

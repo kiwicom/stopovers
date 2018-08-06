@@ -4,6 +4,7 @@ import * as React from "react";
 import Document, { Head, Main, NextScript } from "next/document";
 import { ServerStyleSheet, injectGlobal } from "styled-components";
 
+// $FlowFixMe
 injectGlobal([
   `
   html, body, div, span, applet, object, iframe,
