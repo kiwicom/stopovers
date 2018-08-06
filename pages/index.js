@@ -24,6 +24,14 @@ type Props = {
 };
 
 export default class Index extends React.Component<Props> {
+  componentDidMount() {
+    window.document.addEventListener("keydown", this.handleKeyDown.bind(this));
+  }
+
+  componentWillUnmount() {
+    window.document.removeEventListener("keydown", this.handleKeyDown.bind(this));
+  }
+
   static async getInitialProps({ query }) {
     const langId = (query && query.lang) || "en";
     const translations = await getTranslations("http://localhost:3000/static/locales/", langId);
@@ -33,11 +41,15 @@ export default class Index extends React.Component<Props> {
     return { translations, language };
   }
 
+  handleKeyDown(event) {
+    console.log(event);
+  }
+
   render() {
     const { translations, language } = this.props;
     return (
       <Provider translations={translations} language={language}>
-        <Menu />
+        <Menu onKeyDown={event => console.log(event)} />
         <Hero />
         <SliderSection />
         <Element name="itinerary">
