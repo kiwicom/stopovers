@@ -82,10 +82,12 @@ const ItemContent = ({ isOdd, title, time, description }: Props) => (
     {intl => (
       <Wrapper isOdd={isOdd}>
         <Circle />
-        <Time>{getIntlTime(time, intl.language ? intl.language.id : "en")}</Time>
-        <ItineraryTitle fontSize={20}>
-          <Text t={title} />
-        </ItineraryTitle>
+        <div>
+          <Time>{getIntlTime(time, intl.language ? intl.language.id : "en")}</Time>
+          <ItineraryTitle fontSize={20}>
+            <Text t={title} />
+          </ItineraryTitle>
+        </div>
         <StyledText t={description} />
       </Wrapper>
     )}

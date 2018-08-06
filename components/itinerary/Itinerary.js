@@ -32,7 +32,7 @@ const ItineraryWrapper = styled.div`
 
   @media (min-width: 1440px) {
     padding-bottom: 60px;
-    margin: 0 auto;
+    margin: 0 15%;
     padding-top: 0;
   }
 
