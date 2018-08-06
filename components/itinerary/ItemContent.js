@@ -2,7 +2,9 @@
 
 import * as React from "react";
 import styled from "styled-components";
+import { DateTime } from "luxon";
 import Text from "@kiwicom/nitro/lib/components/Text";
+import { Consumer } from "@kiwicom/nitro/lib/services/intl/context";
 
 import StyledText from "../shared/StyledText";
 
@@ -63,17 +65,31 @@ const Circle = styled.div`
   }
 `;
 
+const getIntlTime = (time: string, langId: string) => {
+  const intlTime = DateTime.fromString(time, "h a", { zone: "utc" })
+    .setLocale(langId)
+    .toLocaleString({
+      hour: "numeric",
+      minute: "2-digit",
+    });
+  // now we need to remove :00 from time in 12h format
+  const pattern = /:00(?= [AP]M)/i;
+  return intlTime.replace(pattern, "");
+};
+
 const ItemContent = ({ isOdd, title, time, description }: Props) => (
-  <>
-    <Wrapper isOdd={isOdd}>
-      <Circle />
-      <Time>{time}</Time>
-      <ItineraryTitle fontSize={20}>
-        <Text t={title} />
-      </ItineraryTitle>
-      <StyledText t={description} />
-    </Wrapper>
-  </>
+  <Consumer>
+    {intl => (
+      <Wrapper isOdd={isOdd}>
+        <Circle />
+        <Time>{getIntlTime(time, intl.language.id)}</Time>
+        <ItineraryTitle fontSize={20}>
+          <Text t={title} />
+        </ItineraryTitle>
+        <StyledText t={description} />
+      </Wrapper>
+    )}
+  </Consumer>
 );
 
 export default ItemContent;
