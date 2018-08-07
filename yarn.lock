@@ -843,10 +843,11 @@
   version "0.8.0"
   resolved "https://registry.yarnpkg.com/@emotion/utils/-/utils-0.8.0.tgz#08ef599fe8c41e6184fa0b5a6ca460d318d3abb1"
 
-"@kiwicom/nitro@^0.8.3":
-  version "0.8.3"
-  resolved "https://registry.yarnpkg.com/@kiwicom/nitro/-/nitro-0.8.3.tgz#b62761c6b42a835e9b8c66a56f9378dab196756b"
+"@kiwicom/nitro@^0.9.2":
+  version "0.9.2"
+  resolved "https://registry.yarnpkg.com/@kiwicom/nitro/-/nitro-0.9.2.tgz#12b4cf105c12cd24789cbc1a5b5de8e536ecd48a"
   dependencies:
+    "@kiwicom/orbit-design-tokens" "^0.1.2"
     chalk "^2.4.1"
     date-fns "^2.0.0-alpha.7"
     fs-extra "^6.0.1"
@@ -855,9 +856,9 @@
     node-fetch "^2.1.2"
     prop-types "^15.6.2"
 
-"@kiwicom/orbit-components@^0.4.0":
-  version "0.4.0"
-  resolved "https://registry.yarnpkg.com/@kiwicom/orbit-components/-/orbit-components-0.4.0.tgz#a84ca4a5bf8d4f71007d3aeb1bf1b480944f4816"
+"@kiwicom/orbit-components@^0.4.1":
+  version "0.4.1"
+  resolved "https://registry.yarnpkg.com/@kiwicom/orbit-components/-/orbit-components-0.4.1.tgz#0ae529696d67950b9239aeeb463c6e220e6c024c"
   dependencies:
     "@kiwicom/orbit-design-tokens" "^0.1.2"
     "@sambego/storybook-styles" "^1.0.0"
@@ -4467,9 +4468,9 @@ eslint-visitor-keys@^1.0.0:
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/eslint-visitor-keys/-/eslint-visitor-keys-1.0.0.tgz#3f3180fb2e291017716acb4c9d6d5b5c34a6a81d"
 
-eslint@^5.1.0:
-  version "5.2.0"
-  resolved "https://registry.yarnpkg.com/eslint/-/eslint-5.2.0.tgz#3901ae249195d473e633c4acbc370068b1c964dc"
+eslint@^5.3.0:
+  version "5.3.0"
+  resolved "https://registry.yarnpkg.com/eslint/-/eslint-5.3.0.tgz#53695aca5213968aacdf970ccb231e42a2b285f8"
   dependencies:
     ajv "^6.5.0"
     babel-code-frame "^6.26.0"
@@ -4502,7 +4503,7 @@ eslint@^5.1.0:
     path-is-inside "^1.0.2"
     pluralize "^7.0.0"
     progress "^2.0.0"
-    regexpp "^1.1.0"
+    regexpp "^2.0.0"
     require-uncached "^1.0.3"
     semver "^5.5.0"
     string.prototype.matchall "^2.0.0"
@@ -4962,9 +4963,9 @@ flatten@^1.0.2:
   version "1.0.2"
   resolved "https://registry.yarnpkg.com/flatten/-/flatten-1.0.2.tgz#dae46a9d78fbe25292258cc1e780a41d95c03782"
 
-flow-bin@^0.77.0:
-  version "0.77.0"
-  resolved "https://registry.yarnpkg.com/flow-bin/-/flow-bin-0.77.0.tgz#4e5c93929f289a0c28e08fb361a9734944a11297"
+flow-bin@^0.78.0:
+  version "0.78.0"
+  resolved "https://registry.yarnpkg.com/flow-bin/-/flow-bin-0.78.0.tgz#df9fe7f9c9a2dfaff39083949fe2d831b41627b7"
 
 flush-write-stream@^1.0.0:
   version "1.0.3"
@@ -7504,9 +7505,9 @@ normalize-url@^1.4.0:
     query-string "^4.1.0"
     sort-keys "^1.0.0"
 
-now@^11.3.6:
-  version "11.3.6"
-  resolved "https://registry.yarnpkg.com/now/-/now-11.3.6.tgz#eddc34a05b201ff696aae91e41d5feb4e2e81cfc"
+now@^11.3.8:
+  version "11.3.8"
+  resolved "https://registry.yarnpkg.com/now/-/now-11.3.8.tgz#8a92eda141c665b5a909579bdfe56e97ce64ed24"
 
 npm-bundled@^1.0.1:
   version "1.0.3"
@@ -8994,9 +8995,9 @@ regexp.prototype.flags@^1.2.0:
   dependencies:
     define-properties "^1.1.2"
 
-regexpp@^1.1.0:
-  version "1.1.0"
-  resolved "https://registry.yarnpkg.com/regexpp/-/regexpp-1.1.0.tgz#0e3516dd0b7904f413d2d4193dce4618c3a689ab"
+regexpp@^2.0.0:
+  version "2.0.0"
+  resolved "https://registry.yarnpkg.com/regexpp/-/regexpp-2.0.0.tgz#b2a7534a85ca1b033bcf5ce9ff8e56d4e0755365"
 
 regexpu-core@^1.0.0:
   version "1.0.0"
@@ -9849,9 +9850,9 @@ style-loader@^0.20.3:
     loader-utils "^1.1.0"
     schema-utils "^0.4.5"
 
-styled-components@^3.4.0:
-  version "3.4.0"
-  resolved "https://registry.yarnpkg.com/styled-components/-/styled-components-3.4.0.tgz#d256fb4667e6c115a7ed61ab78f120283b43dd00"
+styled-components@^3.4.1:
+  version "3.4.1"
+  resolved "https://registry.yarnpkg.com/styled-components/-/styled-components-3.4.1.tgz#a550783bba3a5bb9a41bf10d0e993c47d19a9125"
   dependencies:
     buffer "^5.0.3"
     css-to-react-native "^2.0.3"
