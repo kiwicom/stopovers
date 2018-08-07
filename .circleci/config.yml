@@ -38,7 +38,15 @@ jobs:
           # Fallback to using the latest cache if no exact match is found
           - v1-dependencies-
 
-      - run: yarn && yarn update-translations:build && yarn update-translations && yarn build
+      - run: yarn && yarn update-translations:build && yarn update-translations
+
+      - save_cache:
+          paths:
+            - node_modules
+            - static/locales
+          key: v1-dependencies-{{ .Environment.CIRCLE_SHA1 }}
+
+      - run: yarn build
 
   deploy:
     <<: *defaults
@@ -52,13 +60,28 @@ jobs:
           # Fallback to using the latest cache if no exact match is found
           - v1-dependencies-
 
-      - run: yarn && yarn deploy
+      - run: yarn
+
+      - restore_cache:
+          keys:
+          - v1-dependencies-{{ .Environment.CIRCLE_SHA1 }}
+          # Fallback to using the latest cache if no exact match is found
+          - v1-dependencies-
+
+      - run: yarn deploy
 
 workflows:
   version: 2
   test-build-deploy:
     jobs:
-      - build
+      - test
+      - build:
+          requires:
+            - test
       - deploy:
           requires:
             - build
+          filters:
+            branches:
+              only:
+              - master
