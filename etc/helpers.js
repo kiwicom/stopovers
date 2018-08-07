@@ -2,14 +2,8 @@
 
 import "isomorphic-unfetch";
 import pick from "lodash.pick";
-
-/**
- * Fetch translation file(s).
- * @function getTranslations
- * @param {string} lang - Language to fetch.
- * @param {string} baseUrl - Locale location.
- * @return {object} Fetched translations.
- */
+import { type LangInfo } from "@kiwicom/nitro/lib/records/LangInfo";
+import { type Language } from "@kiwicom/nitro/lib/records/Languages";
 
 const usedLangIds = ["en", "cz", "ro", "hu", "es", "fr", "de", "ru", "it"];
 
@@ -50,4 +44,13 @@ export async function getBrandLanguage(baseUrl: string, langId: string) {
   const brandLanguage = allBrandLangs.kiwicom[langId];
   const languages = pick(brandLanguage.languages, usedLangIds);
   return { ...brandLanguage, languages };
+}
+
+export function mapLanguage(lang: Language, langInfo: LangInfo) {
+  return {
+    ...langInfo,
+    name: langInfo.displayName,
+    flag: lang.flag || langInfo.id,
+    defaultCountry: lang.defaultCountry,
+  };
 }
