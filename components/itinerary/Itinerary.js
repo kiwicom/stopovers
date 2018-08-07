@@ -102,7 +102,7 @@ const DropdownGroup = styled.div`
 
   @media (min-width: 1440px) {
     grid-gap: 25px;
-    grid-template-columns: 1fr 20% 1fr;
+    grid-template-columns: 1fr 26% 1fr;
     margin-top: -50px;
     margin-bottom: 46px;
   }
