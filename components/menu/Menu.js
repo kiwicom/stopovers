@@ -8,7 +8,7 @@ import Router from "next/router";
 
 const Wrapper = styled.div`
   display: grid;
-  grid-template-columns: 99px 1fr 200px;
+  grid-template-columns: 99px 1fr auto;
   height: 50px;
   align-items: center;
   padding-left: 10px;
@@ -22,6 +22,14 @@ const LogoWrapper = styled.div`
 
 const Logo = styled.img`
   vertical-align: middle;
+`;
+
+const LanguageWrapper = styled.div`
+  justify-self: end;
+
+  @media (min-width: 740px) {
+    padding-right: 40px;
+  }
 `;
 
 const Links = styled.div`
@@ -66,15 +74,18 @@ const Menu = () => (
         </Link>
       ))}
     </Links>
-    <Language
-      flat
-      onChange={lang =>
-        Router.push({
-          pathname: "/",
-          query: { lang },
-        })
-      }
-    />
+    <LanguageWrapper>
+      <Language
+        flat
+        onChange={lang => {
+          // eslint-disable-next-line fp/no-mutating-methods
+          Router.push({
+            pathname: "/",
+            query: { lang },
+          });
+        }}
+      />
+    </LanguageWrapper>
   </Wrapper>
 );
 
