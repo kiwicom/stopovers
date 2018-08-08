@@ -4,9 +4,11 @@ import * as React from "react";
 import Document, { Head, Main, NextScript } from "next/document";
 import { ServerStyleSheet, injectGlobal } from "styled-components";
 
-// $FlowFixMe
-injectGlobal([
-  `
+type Props = {
+  renderPage(cb: Function): void,
+};
+
+const globalStyles = () => injectGlobal`
   html, body, div, span, applet, object, iframe,
   h1, h2, h3, h4, h5, h6, p, blockquote, pre,
   a, abbr, acronym, address, big, cite, code,
@@ -70,12 +72,12 @@ injectGlobal([
       height: 455px;
     }
   }
-`,
-]);
+`;
+
+globalStyles();
 
 export default class MyDocument extends Document {
-  // $FlowFixMe
-  static getInitialProps({ renderPage }) {
+  static getInitialProps({ renderPage }: Props) {
     const sheet = new ServerStyleSheet();
     const page = renderPage(App => props => sheet.collectStyles(<App {...props} />));
     const styleTags = sheet.getStyleElement();

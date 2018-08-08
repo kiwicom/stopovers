@@ -6,7 +6,7 @@ import Text from "@kiwicom/nitro/lib/components/Text";
 
 import { scrollToElement } from "../helpers";
 import ItineraryItem from "./ItineraryItem";
-import ItineraryProvider, { ItineraryContext } from "./ItineraryContext";
+import ItineraryProvider, { ItineraryContext, type Context } from "./ItineraryContext";
 import SectionTitle from "../shared/SectionTitle";
 import Button from "../shared/Button";
 import DropdownMobile, { renderDropdownItem } from "../shared/DropdownMobile";
@@ -128,8 +128,7 @@ const DropdownTitle = styled.div`
 const Itinerary = () => (
   <ItineraryProvider>
     <ItineraryContext.Consumer>
-      {/* $FlowFixMe: add context types */}
-      {({ state, changeDropdownValue }) => (
+      {({ state, changeDropdownValue }: Context) => (
         <Wrapper>
           <ItineraryWrapper>
             <SectionTitle title="itineraryTitle" subtitle="itinerarySubTitle" />
