@@ -9,7 +9,7 @@ import { type Fetched, fetchedDefault } from "@kiwicom/nitro/lib/records/Fetched
 import { type Translations } from "@kiwicom/nitro/lib/services/intl/translate";
 import { Provider as FetchedProvider } from "@kiwicom/nitro/lib/services/fetched/context";
 
-import { getTranslations, getLanguages, getBrandLanguage, mapLanguage } from "../etc/helpers";
+import { filterLanguages, filterBrandLanguage, mapLanguage } from "../etc/helpers";
 import Menu from "../components/menu/Menu";
 import Hero from "../components/hero/Hero";
 import SliderSection from "../components/sliderSection/SliderSection";
@@ -20,6 +20,8 @@ import Video from "../components/video/Video";
 import Search from "../components/search/Search";
 import Footer from "../components/footer/Footer";
 import Banner from "../components/banner/Banner";
+import langsData from "../static/languages.json";
+import brandLangsData from "../static/brandLanguages.json";
 
 type Props = {
   translations: Translations,
@@ -27,7 +29,17 @@ type Props = {
   fetched: Fetched,
 };
 
-const baseUrl = "http://localhost:3000/static/";
+const Locales = {
+  en: import("../static/locales/en-GB.json"),
+  cz: import("../static/locales/cs-CZ.json"),
+  ro: import("../static/locales/ro-RO.json"),
+  hu: import("../static/locales/hu-HU.json"),
+  es: import("../static/locales/es-ES.json"),
+  fr: import("../static/locales/fr-FR.json"),
+  de: import("../static/locales/de-DE.json"),
+  ru: import("../static/locales/ru-RU.json"),
+  it: import("../static/locales/it-IT.json"),
+};
 
 type State = {
   areKeysShown: boolean,
@@ -46,14 +58,14 @@ export default class Index extends React.Component<Props, State> {
 
   static async getInitialProps({ query }: any) {
     const langId = (query && query.lang) || "en";
-    const translations = await getTranslations(`${baseUrl}locales/`, langId);
-    const langInfos: LangInfos = await getLanguages(baseUrl);
-    const brandLanguage: BrandLanguage = await getBrandLanguage(baseUrl, langId);
+    const langInfos: LangInfos = filterLanguages(langsData);
+    const brandLanguage: BrandLanguage = filterBrandLanguage(brandLangsData, langId);
+    const language = mapLanguage(brandLanguage.languages[langId], langInfos[langId]);
+    const translations = await Locales[langId];
     const fetched = {
       ...fetchedDefault,
       brandLanguage,
     };
-    const language = mapLanguage(brandLanguage.languages[langId], langInfos[langId]);
     return {
       translations,
       language,

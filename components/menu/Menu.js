@@ -42,7 +42,11 @@ const Link = styled.a`
   font-size: 12px;
   color: #46515e;
   text-decoration: none;
-  margin-left: 20px;
+  margin-right: 10px;
+  @media (min-width: 740px) {
+    margin-right: 0;
+    margin-left: 20px;
+  }
 `;
 
 const links = [
