@@ -55,7 +55,7 @@ const ActionWrapper = styled.div`
 
   @media (min-width: 1440px) {
     justify-items: end;
-    grid-template-columns: 1fr 200px 1fr;
+    grid-template-columns: 1fr auto 1fr;
     padding: 60px 0 80px;
     grid-gap: 30px;
   }

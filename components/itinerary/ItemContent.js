@@ -16,6 +16,10 @@ const Wrapper = styled.div`
   flex-direction: column;
   padding-top: 20px;
 
+  @media (min-width: 740px) {
+    margin-top: 20px;
+  }
+
   @media only screen and (min-width: 1440px) {
     margin: 0 80px;
     width: calc(50% - 70px);

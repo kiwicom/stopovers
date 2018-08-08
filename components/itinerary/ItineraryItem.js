@@ -25,6 +25,10 @@ const ItemWrapper = styled.div`
   flex-wrap: wrap;
   margin-bottom: 20px;
 
+  @media (min-width: 740px) {
+    margin-bottom: 40px;
+  }
+
   @media (min-width: 1440px) {
     flex-wrap: nowrap;
     align-items: flex-start;
