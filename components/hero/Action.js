@@ -44,7 +44,7 @@ const Action = () => (
   <>
     <ActionButton
       onClick={() => {
-        scrollToElement("search");
+        scrollToElement("slider");
       }}
     >
       <ChevronDown customColor="#ffffff" size="medium" />

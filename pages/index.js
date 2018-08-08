@@ -90,7 +90,9 @@ export default class Index extends React.Component<Props, State> {
           <Menu />
         </FetchedProvider>
         <Hero />
-        <SliderSection />
+        <Element name="slider">
+          <SliderSection />
+        </Element>
         <Element name="itinerary">
           <Itinerary />
         </Element>
