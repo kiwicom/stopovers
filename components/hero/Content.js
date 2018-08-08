@@ -17,7 +17,7 @@ const MainTitle = styled.h1`
 
   @media (min-width: 1440px) {
     font-size: 40px;
-    width: 60%;
+    width: 400px;
   }
 `;
 
@@ -36,12 +36,8 @@ const TextWrapper = styled.div`
   }
 
   @media (min-width: 1440px) {
-    width: 378px;
-    margin-top: 68px;
-    margin-bottom: 100px;
-    padding: 5px 0 5px 20px;
-
-    width: 54%;
+    width: 350px;
+    margin-left: -15px;
   }
 
   &::before {
@@ -57,10 +53,6 @@ const TextWrapper = styled.div`
     left: -28px;
     @media (min-width: 740px) {
       left: -28px;
-    }
-    @media (min-width: 1440px) {
-      left: -29px;
-      top: 0em;
     }
   }
 `;
@@ -79,8 +71,8 @@ const ActionWrapper = styled.div`
   }
 
   @media (min-width: 1440px) {
-    width: 400px;
-    margin-left: -60px;
+    width: 300px;
+    margin-left: -180px;
   }
 `;
 
@@ -88,10 +80,9 @@ const AirplaneWrapper = styled.div`
   position: relative;
   top: -38px;
   left: -121px;
-
   @media (min-width: 1440px) {
-    top: -102px;
-    left: -181px;
+    top: -38px;
+    left: -191px;
   }
 `;
 
