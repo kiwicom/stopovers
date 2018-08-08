@@ -865,9 +865,9 @@
   version "0.8.0"
   resolved "https://registry.yarnpkg.com/@emotion/utils/-/utils-0.8.0.tgz#08ef599fe8c41e6184fa0b5a6ca460d318d3abb1"
 
-"@kiwicom/nitro@^0.10.0":
-  version "0.10.0"
-  resolved "https://registry.yarnpkg.com/@kiwicom/nitro/-/nitro-0.10.0.tgz#59c5f809f0f9a495c072b308ac7bbaf8e67e6bff"
+"@kiwicom/nitro@^0.12.1":
+  version "0.12.1"
+  resolved "https://registry.yarnpkg.com/@kiwicom/nitro/-/nitro-0.12.1.tgz#286e5c4da452969b926369ce662fe8edf7ba5491"
   dependencies:
     "@kiwicom/orbit-design-tokens" "^0.1.2"
     chalk "^2.4.1"

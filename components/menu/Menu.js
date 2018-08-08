@@ -26,7 +26,7 @@ const Logo = styled.img`
 
 const LanguageWrapper = styled.div`
   justify-self: end;
-
+  padding-right: 10px;
   @media (min-width: 740px) {
     padding-right: 40px;
   }

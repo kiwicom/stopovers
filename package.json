@@ -18,7 +18,7 @@
     "deploy": "now -t ${NOW_TOKEN}"
   },
   "dependencies": {
-    "@kiwicom/nitro": "^0.10.0",
+    "@kiwicom/nitro": "^0.12.1",
     "@kiwicom/orbit-components": "^0.4.1",
     "chalk": "^2.4.1",
     "dotenv": "^6.0.0",
