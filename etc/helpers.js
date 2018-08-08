@@ -2,44 +2,27 @@
 
 import "isomorphic-unfetch";
 import pick from "lodash.pick";
-
-/**
- * Fetch translation file(s).
- * @function getTranslations
- * @param {string} lang - Language to fetch.
- * @param {string} baseUrl - Locale location.
- * @return {object} Fetched translations.
- */
+import { type LangInfos, type LangInfo } from "@kiwicom/nitro/lib/records/LangInfo";
+import { type Language } from "@kiwicom/nitro/lib/records/Languages";
+import { type BrandLanguages } from "@kiwicom/nitro/lib/records/BrandLanguage";
 
 const usedLangIds = ["en", "cz", "ro", "hu", "es", "fr", "de", "ru", "it"];
 
-const langSources = {
-  en: "en-GB",
-  cz: "cs-CZ",
-  ro: "ro-RO",
-  hu: "hu-HU",
-  es: "es-ES",
-  fr: "fr-FR",
-  de: "de-DE",
-  ru: "ru-RU",
-  it: "it-IT",
-};
-
-export async function getTranslations(baseUrl: string, langId: string) {
-  try {
-    const response = await fetch(`${baseUrl}${langSources[langId]}.json`);
-    if (!response.ok) {
-      return response.statusText;
-    }
-    return response.json();
-  } catch (error) {
-    return error;
-  }
+export function filterLanguages(langsData: LangInfos) {
+  return pick(langsData, usedLangIds);
 }
 
-export async function getLanguages(baseUrl: string) {
-  const response = await fetch(`${baseUrl}languages.json`);
-  const allLangs = await response.json();
+export function filterBrandLanguage(brandLangsData: BrandLanguages, langId: string) {
+  const brandLanguage = brandLangsData.kiwicom[langId];
+  const languages = pick(brandLanguage.languages, usedLangIds);
+  return { ...brandLanguage, languages };
+}
 
-  return pick(allLangs, usedLangIds);
+export function mapLanguage(lang: Language, langInfo: LangInfo) {
+  return {
+    ...langInfo,
+    name: langInfo.displayName,
+    flag: lang.flag || langInfo.id,
+    defaultCountry: lang.defaultCountry,
+  };
 }

@@ -3,10 +3,12 @@
 import * as React from "react";
 import styled from "styled-components";
 import Text from "@kiwicom/nitro/lib/components/Text";
+import Language from "@kiwicom/nitro/lib/components/Language";
+import Router from "next/router";
 
 const Wrapper = styled.div`
   display: grid;
-  grid-template-columns: 99px 1fr;
+  grid-template-columns: 99px 1fr auto;
   height: 50px;
   align-items: center;
   padding-left: 10px;
@@ -22,6 +24,14 @@ const Logo = styled.img`
   vertical-align: middle;
 `;
 
+const LanguageWrapper = styled.div`
+  justify-self: end;
+  padding-right: 10px;
+  @media (min-width: 740px) {
+    padding-right: 40px;
+  }
+`;
+
 const Links = styled.div`
   display: flex;
   flex-direction: row;
@@ -32,7 +42,11 @@ const Link = styled.a`
   font-size: 12px;
   color: #46515e;
   text-decoration: none;
-  margin-left: 20px;
+  margin-right: 10px;
+  @media (min-width: 740px) {
+    margin-right: 0;
+    margin-left: 20px;
+  }
 `;
 
 const links = [
@@ -64,6 +78,18 @@ const Menu = () => (
         </Link>
       ))}
     </Links>
+    <LanguageWrapper>
+      <Language
+        flat
+        onChange={lang => {
+          // eslint-disable-next-line fp/no-mutating-methods
+          Router.push({
+            pathname: "/",
+            query: { lang },
+          });
+        }}
+      />
+    </LanguageWrapper>
   </Wrapper>
 );
 
