@@ -10,7 +10,12 @@ type State = {
   dropdownValue: string,
 };
 
-export const ItineraryContext = React.createContext();
+export type Context = {
+  state: State,
+  changeDropdownValue: (value: string) => void,
+};
+
+export const ItineraryContext: Object = React.createContext();
 
 class ItineraryProvider extends React.Component<Props, State> {
   state = {
