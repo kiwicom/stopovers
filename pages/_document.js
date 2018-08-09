@@ -4,7 +4,7 @@ import * as React from "react";
 import Document, { Head, Main, NextScript } from "next/document";
 import { ServerStyleSheet, injectGlobal } from "styled-components";
 
-type Props = {
+type Context = {
   renderPage(cb: Function): void,
 };
 
@@ -77,7 +77,7 @@ const globalStyles = () => injectGlobal`
 globalStyles();
 
 export default class MyDocument extends Document {
-  static getInitialProps({ renderPage }: Props) {
+  static getInitialProps({ renderPage }: Context) {
     const sheet = new ServerStyleSheet();
     const page = renderPage(App => props => sheet.collectStyles(<App {...props} />));
     const styleTags = sheet.getStyleElement();
