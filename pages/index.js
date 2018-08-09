@@ -96,9 +96,13 @@ export default class Index extends React.Component<Props, State> {
         <Element name="itinerary">
           <Itinerary />
         </Element>
-        <Partners />
+        <Element name="partners">
+          <Partners />
+        </Element>
         <Articles />
-        <Video />
+        <Element name="video">
+          <Video />
+        </Element>
         <Element name="search">
           <Search />
         </Element>
