@@ -43,27 +43,33 @@ const Logos = styled.div`
   display: grid;
   grid-template-columns: 1fr;
   grid-gap: 24px;
+  place-items: center;
 
   @media only screen and (min-width: 740px) {
     grid-template-columns: 1fr 1fr;
-    grid-gap: 80px;
+    grid-column-gap: 80px;
+    grid-row-gap: 30px;
     order: 1;
+    > :last-child {
+      ${({ isOdd }) => isOdd && "grid-column: 1/3;"};
+    }
   }
 
   @media only screen and (min-width: 1440px) {
-    grid-gap: 80px;
     order: 0;
     padding: 30px 0;
   }
 `;
 
-const Logo = styled.img`
-  width: 225px;
-  justify-self: center;
+type LogoType = {
+  id: number,
+  url: string,
+  name: string,
+  width?: string,
+};
 
-  @media only screen and (min-width: 1440px) {
-    width: 225px;
-  }
+const Logo = styled.img`
+  width: ${({ width }: LogoType) => width || "225"}px;
 `;
 
 const Content = styled.div`
@@ -93,6 +99,7 @@ const AirplaneWrapper = styled.div`
 const logos = [
   { id: 1, name: "renralcars.com", url: "static/images/partners/rentalcars.png" },
   { id: 2, name: "Get your guide", url: "static/images/partners/get-your-guide.png" },
+  { id: 3, name: "Mozio", url: "static/images/partners/mozio.png", width: "160" },
 ];
 
 const Partners = () => (
@@ -100,9 +107,9 @@ const Partners = () => (
     <SectionTitle title="partnersTitle" subtitle="partnersSubTitle" />
 
     <Wrapper>
-      <Logos>
-        {logos.map(logo => (
-          <Logo src={logo.url} alt={logo.name} key={logo.id} />
+      <Logos isOdd={logos.length % 2}>
+        {logos.map((logo: LogoType) => (
+          <Logo src={logo.url} alt={logo.name} key={logo.id} width={logo.width} />
         ))}
       </Logos>
       <Content>
