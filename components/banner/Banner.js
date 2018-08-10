@@ -4,9 +4,9 @@ import * as React from "react";
 import styled from "styled-components";
 import { AirplaneRight, Search } from "@kiwicom/orbit-components/lib/icons";
 import Text from "@kiwicom/nitro/lib/components/Text";
+import { Button } from "@kiwicom/orbit-components";
 
 import { scrollToElement } from "../helpers";
-import Button from "../shared/Button";
 
 const Wrapper = styled.div`
   display: grid;
@@ -31,10 +31,6 @@ const BannerTitle = styled.p`
   color: #171b1e;
 `;
 
-const SquaredButton = styled(Button)`
-  padding: 10px;
-`;
-
 type State = {
   isHidden: boolean,
 };
@@ -56,9 +52,7 @@ class Banner extends React.Component<{}, State> {
         <BannerTitle>
           <Text t="bannerTitle" />
         </BannerTitle>
-        <SquaredButton onClick={this.scrollToSearch}>
-          <Search />
-        </SquaredButton>
+        <Button icon={<Search />} onClick={this.scrollToSearch} />
       </Wrapper>
     ) : null;
   }

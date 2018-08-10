@@ -13,8 +13,8 @@ import {
 } from "pure-react-carousel";
 import { ChevronRight, ChevronLeft } from "@kiwicom/orbit-components/lib/icons";
 import Text from "@kiwicom/nitro/lib/components/Text";
+import { Button, ButtonLink } from "@kiwicom/orbit-components";
 
-import Button, { Link } from "../shared/Button";
 import SectionTitle from "../shared/SectionTitle";
 import Description from "../shared/Description";
 import { scrollToElement } from "../helpers";
@@ -210,13 +210,14 @@ const ButtonsWrapper = styled.div`
   justify-items: center;
 
   @media (min-width: 740px) {
-    grid-row-gap: 20px;
+    grid-gap: 20px;
     margin-top: 0;
     place-items: start;
-    grid-template-columns: 145px 1fr;
+    grid-template-columns: 170px 1fr;
   }
 
   @media (min-width: 1440px) {
+    grid-template-columns: 1fr 1fr;
     order: 3;
     place-self: start;
     margin-top: 20px;
@@ -233,10 +234,6 @@ const TitleWrapper = styled.div`
     order: 1;
     align-self: end;
   }
-`;
-
-const ButtonSrinked = styled(Button)`
-  padding: 14px 16px;
 `;
 
 const SliderSection = () => (
@@ -275,12 +272,17 @@ const SliderSection = () => (
       </Description>
     </DescriptionWrapper>
     <ButtonsWrapper>
-      <ButtonSrinked fontSize={16} onClick={() => scrollToElement("search")}>
+      <Button size="large" onClick={() => scrollToElement("search")}>
         <Text t="searchFlights" />
-      </ButtonSrinked>
-      <Link onClick={() => scrollToElement("itinerary")}>
+      </Button>
+      <ButtonLink
+        type="secondary"
+        size="large"
+        icon={<ChevronRight />}
+        onClick={() => scrollToElement("itinerary")}
+      >
         <Text t="chooseItinerary" />
-      </Link>
+      </ButtonLink>
     </ButtonsWrapper>
   </Wrapper>
 );

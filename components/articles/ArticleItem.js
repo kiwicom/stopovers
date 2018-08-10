@@ -2,8 +2,8 @@
 
 import * as React from "react";
 import styled from "styled-components";
-
-import { Link } from "../shared/Button";
+import { ButtonLink } from "@kiwicom/orbit-components";
+import { ChevronRight } from "@kiwicom/orbit-components/lib/icons";
 
 type ArticleType = {|
   id: number,
@@ -69,6 +69,7 @@ const LinkWrapper = styled.div`
   display: grid;
   justify-items: right;
   margin-bottom: 10px;
+  padding-right: 10px;
 `;
 
 const ArticleItem = ({ article }: Props) => (
@@ -80,9 +81,9 @@ const ArticleItem = ({ article }: Props) => (
     </ArticleTextWrapper>
 
     <LinkWrapper>
-      <Link href={article.linkUrl} target="_blank">
+      <ButtonLink href={article.linkUrl} external type="secondary" icon={<ChevronRight />}>
         {article.linkTitle}
-      </Link>
+      </ButtonLink>
     </LinkWrapper>
   </Article>
 );

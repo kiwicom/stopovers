@@ -3,12 +3,12 @@
 import * as React from "react";
 import styled from "styled-components";
 import Text from "@kiwicom/nitro/lib/components/Text";
+import { Button } from "@kiwicom/orbit-components";
 
 import { scrollToElement } from "../helpers";
 import ItineraryItem from "./ItineraryItem";
 import ItineraryProvider, { ItineraryContext, type Context } from "./ItineraryContext";
 import SectionTitle from "../shared/SectionTitle";
-import Button from "../shared/Button";
 import DropdownMobile, { renderDropdownItem } from "../shared/DropdownMobile";
 import Dropdown from "../shared/Dropdown";
 import { data, dropdownData } from "./mockedData";
@@ -153,7 +153,7 @@ const Itinerary = () => (
               <ItineraryItem key={itineraryItem.id} item={itineraryItem} order={index} />
             ))}
           </ItineraryWrapper>
-          <StyledButton fontSize={16} onClick={() => scrollToElement("search")}>
+          <StyledButton size="large" onClick={() => scrollToElement("search")}>
             <Text t="startYourTripNow" />
           </StyledButton>
         </Wrapper>

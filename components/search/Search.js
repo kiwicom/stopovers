@@ -3,9 +3,9 @@
 import * as React from "react";
 import styled from "styled-components";
 import Text from "@kiwicom/nitro/lib/components/Text";
+import { Button } from "@kiwicom/orbit-components";
 
 import SectionTitle from "../shared/SectionTitle";
-import Button from "../shared/Button";
 
 const Wrapper = styled.div`
   padding: 0 16px;
@@ -96,7 +96,7 @@ class Search extends React.Component<{}> {
 
         <ActionWrapper>
           <ButtonWrapper>
-            <Button fontSize={16}>
+            <Button size="large">
               <Text t="searchFlights" />
             </Button>
           </ButtonWrapper>
