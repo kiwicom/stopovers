@@ -108,7 +108,7 @@ export default class Index extends React.Component<Props, State> {
           <Video />
         </Element>
         <Element name="search">
-          <Search />
+          <Search langId={language.id || "en"} />
         </Element>
         <Footer />
         <Banner />
