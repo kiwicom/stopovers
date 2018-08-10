@@ -4,7 +4,6 @@ import * as React from "react";
 import styled from "styled-components";
 
 import Content from "./Content";
-import SearchAction from "./SearchAction";
 
 const Wrapper = styled.div`
   display: grid;
@@ -24,20 +23,18 @@ const Wrapper = styled.div`
 
   @media (min-width: 740px) {
     grid-template-columns: 1fr 1fr;
-    grid-template-rows: 510px 86px;
-    grid-template-areas: "content image" "search-action search-action";
-    margin-bottom: 0px;
+    grid-template-rows: 510px;
+    grid-template-areas: "content image";
+    margin-bottom: 9.5px;
   }
 
   @media (min-width: 1000px) {
-    grid-template-columns: 1fr 1fr;
-    grid-template-rows: 560px 86px;
-    grid-template-areas: "content image" "search-action search-action";
-    margin-bottom: 0px;
+    grid-template-rows: 560px;
   }
 
   @media (min-width: 1440px) {
-    grid-template-rows: 700px 86px;
+    margin-bottom: 0;
+    grid-template-rows: 700px;
   }
 `;
 
@@ -89,17 +86,6 @@ const ContentWrapper = styled.div`
   justify-items: center;
 `;
 
-const SearchActionWrapper = styled.div`
-  grid-area: search-action;
-  display: none;
-
-  @media (min-width: 740px) {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-`;
-
 const Hero = () => (
   <Wrapper>
     <ContentWrapper>
@@ -111,9 +97,6 @@ const Hero = () => (
         <DubaiLogo src="static/images/dubai-logo.svg" alt="dubai logo" />
       </DubaiLogoWrapper>
     </ImageWrapper>
-    <SearchActionWrapper>
-      <SearchAction />
-    </SearchActionWrapper>
   </Wrapper>
 );
 

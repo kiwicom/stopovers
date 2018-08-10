@@ -26,7 +26,6 @@ const Wrapper = styled.div`
   grid-template-columns: 1fr;
   grid-template-rows: repeat(auto-fit, 1fr);
   background-color: #f6f7f9;
-  box-shadow: inset 6px 180px 10px -182px rgba(0, 0, 0, 0.31);
 
   @media (min-width: 740px) {
     padding: 0 25px 10px;
