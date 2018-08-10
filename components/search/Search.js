@@ -2,19 +2,20 @@
 
 import * as React from "react";
 import styled from "styled-components";
-import Text from "@kiwicom/nitro/lib/components/Text";
-import { Button } from "@kiwicom/orbit-components";
 
 import SectionTitle from "../shared/SectionTitle";
 
 const Wrapper = styled.div`
   padding: 0 16px;
+  margin-bottom: 20px;
 
   @media (min-width: 740px) {
+    margin-bottom: 30px;
   }
 
   @media (min-width: 1440px) {
     padding: 0 65px;
+    margin-bottom: 100px;
   }
 `;
 
@@ -35,51 +36,17 @@ const Widget = styled.div`
   }
 `;
 
-const ActionWrapper = styled.div`
-  display: grid;
-  grid-gap: 16px;
-  grid-template-columns: 1fr;
-  padding: 32px 0 40px;
+type Props = {
+  langId: string,
+};
 
-  @media (min-width: 740px) {
-    grid-template-columns: 1fr 165px 1fr;
-  }
-
-  @media (min-width: 1440px) {
-    grid-gap: 24px;
-    grid-column-start: 2;
-    grid-template-columns: 1fr 190px 1fr;
-  }
-`;
-
-const ButtonWrapper = styled.div`
-  justify-self: center;
-
-  @media (min-width: 740px) {
-    grid-column-start: 2;
-  }
-`;
-
-const ActionTitle = styled.p`
-  font-size: 16px;
-  text-align: center;
-  line-height: 33px;
-  color: #46515e;
-
-  @media (min-width: 740px) {
-    text-align: left;
-    align-self: center;
-  }
-`;
-
-class Search extends React.Component<{}> {
+class Search extends React.Component<Props> {
   componentDidMount() {
     const script = document.createElement("script");
-    script.src = "https://widget.kiwi.com/scripts/widget-search-iframe.js";
+    script.src = "https://widget-multi-ui.fe.staging.kiwi.com/scripts/widget-stopover-iframe.js";
     script.setAttribute("data-width", "100%");
-    script.setAttribute("data-to", "Dubai");
-    script.setAttribute("data-limit", "3");
-
+    script.setAttribute("data-stopover-location", "dubai_ae,DWC,DXB,SHJ");
+    script.setAttribute("data-lang", this.props.langId);
     if (document.head) {
       document.head.appendChild(script);
     }
@@ -93,18 +60,6 @@ class Search extends React.Component<{}> {
         <WidgetWrapper>
           <Widget id="widget-holder" />
         </WidgetWrapper>
-
-        <ActionWrapper>
-          <ButtonWrapper>
-            <Button size="large">
-              <Text t="searchFlights" />
-            </Button>
-          </ButtonWrapper>
-
-          <ActionTitle>
-            <Text t="withOneDayStopover" />
-          </ActionTitle>
-        </ActionWrapper>
       </Wrapper>
     );
   }
