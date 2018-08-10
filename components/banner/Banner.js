@@ -5,11 +5,12 @@ import styled from "styled-components";
 import { AirplaneRight, Search } from "@kiwicom/orbit-components/lib/icons";
 import Text from "@kiwicom/nitro/lib/components/Text";
 import { Button } from "@kiwicom/orbit-components";
+import { Link } from "react-scroll";
 
 import { scrollToElement } from "../helpers";
 
 const Wrapper = styled.div`
-  display: grid;
+  display: ${({ isHidden }) => (isHidden ? "none" : "grid")};
   grid-template-columns: 55px 1fr 76px;
   place-items: center;
   position: fixed;
@@ -44,17 +45,27 @@ class Banner extends React.Component<{}, State> {
     scrollToElement("search", this.setState({ isHidden: true }));
   };
 
+  hide = () => {
+    this.setState({ isHidden: true });
+  };
+
+  show = () => {
+    this.setState({ isHidden: false });
+  };
+
   render() {
     const { isHidden } = this.state;
-    return !isHidden ? (
-      <Wrapper>
+    return (
+      <Wrapper isHidden={isHidden}>
         <AirplaneRight customColor="bac7d5" />
         <BannerTitle>
           <Text t="bannerTitle" />
         </BannerTitle>
         <Button icon={<Search />} onClick={this.scrollToSearch} />
+        <Link style={{ display: "none" }} to="partners" onSetActive={this.show} spy />
+        <Link style={{ display: "none" }} to="video" onSetActive={this.hide} spy />
       </Wrapper>
-    ) : null;
+    );
   }
 }
 
