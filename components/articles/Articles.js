@@ -3,10 +3,10 @@
 import * as React from "react";
 import styled from "styled-components";
 import Text from "@kiwicom/nitro/lib/components/Text";
+import { Button } from "@kiwicom/orbit-components";
 
 import { scrollToElement } from "../helpers";
 import SectionTitle from "../shared/SectionTitle";
-import Button from "../shared/Button";
 import ArticleItem from "./ArticleItem";
 import articles from "./mockedData";
 
@@ -90,7 +90,7 @@ const Articles = () => (
         <Text t="bookYourFlight" />
       </ActionTitle>
       <Button
-        fontSize={16}
+        size="large"
         onClick={() => {
           scrollToElement("search");
         }}
