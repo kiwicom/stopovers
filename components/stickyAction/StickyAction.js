@@ -2,6 +2,7 @@
 
 import * as React from "react";
 import styled from "styled-components";
+import { Link } from "react-scroll";
 
 import SearchAction from "./SearchAction";
 
@@ -9,7 +10,7 @@ const SearchActionWrapper = styled.div`
   display: none;
 
   @media (min-width: 740px) {
-    display: flex;
+    display: ${({ isHidden }) => (isHidden ? "none" : "flex")};
     position: sticky;
     top: 0;
     justify-content: center;
@@ -21,10 +22,33 @@ const SearchActionWrapper = styled.div`
   }
 `;
 
-const StickyAction = () => (
-  <SearchActionWrapper>
-    <SearchAction />
-  </SearchActionWrapper>
-);
+type State = {
+  isHidden: boolean,
+};
+
+class StickyAction extends React.Component<{}, State> {
+  state = {
+    isHidden: false,
+  };
+
+  hide = () => {
+    this.setState({ isHidden: true });
+  };
+
+  show = () => {
+    this.setState({ isHidden: false });
+  };
+
+  render() {
+    const { isHidden } = this.state;
+    return (
+      <SearchActionWrapper isHidden={isHidden}>
+        <SearchAction />
+        <Link style={{ display: "none" }} to="articles" onSetActive={this.show} spy />
+        <Link style={{ display: "none" }} to="video" onSetActive={this.hide} spy />
+      </SearchActionWrapper>
+    );
+  }
+}
 
 export default StickyAction;
