@@ -20,6 +20,7 @@ import Video from "../components/video/Video";
 import Search from "../components/search/Search";
 import Footer from "../components/footer/Footer";
 import Banner from "../components/banner/Banner";
+import StickyAction from "../components/stickyAction/StickyAction";
 import langsData from "../static/languages.json";
 import brandLangsData from "../static/brandLanguages.json";
 
@@ -90,6 +91,7 @@ export default class Index extends React.Component<Props, State> {
           <Menu />
         </FetchedProvider>
         <Hero />
+        <StickyAction />
         <Element name="slider">
           <SliderSection />
         </Element>
@@ -99,7 +101,9 @@ export default class Index extends React.Component<Props, State> {
         <Element name="partners">
           <Partners />
         </Element>
-        <Articles />
+        <Element name="articles">
+          <Articles />
+        </Element>
         <Element name="video">
           <Video />
         </Element>
