@@ -2,6 +2,7 @@
 
 import * as React from "react";
 import styled from "styled-components";
+import Fade from "react-reveal/Fade";
 import Text from "@kiwicom/nitro/lib/components/Text";
 import { Button } from "@kiwicom/orbit-components";
 
@@ -149,9 +150,11 @@ const Itinerary = () => (
                 <Dropdown onChange={changeDropdownValue} options={dropdownData} />
               </DropdownWrapper>
             </DropdownGroup>
-            {data[state.dropdownValue].map((itineraryItem, index) => (
-              <ItineraryItem key={itineraryItem.id} item={itineraryItem} order={index} />
-            ))}
+            <Fade>
+              {data[state.dropdownValue].map((itineraryItem, index) => (
+                <ItineraryItem key={itineraryItem.id} item={itineraryItem} order={index} />
+              ))}
+            </Fade>
           </ItineraryWrapper>
           <StyledButton size="large" onClick={() => scrollToElement("search")}>
             <Text t="startYourTripNow" />
