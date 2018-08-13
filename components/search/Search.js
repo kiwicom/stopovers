@@ -37,16 +37,25 @@ const Widget = styled.div`
 `;
 
 type Props = {
-  langId: string,
+  widgetParams: {
+    langId?: string,
+    from?: string,
+    to?: string,
+  },
 };
 
 class Search extends React.Component<Props> {
   componentDidMount() {
+    const {
+      widgetParams: { from, to, langId },
+    } = this.props;
     const script = document.createElement("script");
     script.src = "https://widget-multi-ui.fe.staging.kiwi.com/scripts/widget-stopover-iframe.js";
     script.setAttribute("data-width", "100%");
     script.setAttribute("data-stopover-location", "dubai_ae,DWC,DXB,SHJ");
-    script.setAttribute("data-lang", this.props.langId);
+    script.setAttribute("data-lang", langId || "en");
+    script.setAttribute("data-from", from || "");
+    script.setAttribute("data-to", to || "");
     if (document.head) {
       document.head.appendChild(script);
     }

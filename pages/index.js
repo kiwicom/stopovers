@@ -24,12 +24,6 @@ import StickyAction from "../components/stickyAction/StickyAction";
 import langsData from "../static/languages.json";
 import brandLangsData from "../static/brandLanguages.json";
 
-type Props = {
-  translations: Translations,
-  language: LangInfo,
-  fetched: Fetched,
-};
-
 const Locales = {
   en: import("../static/locales/en-GB.json"),
   cz: import("../static/locales/cs-CZ.json"),
@@ -40,6 +34,23 @@ const Locales = {
   de: import("../static/locales/de-DE.json"),
   ru: import("../static/locales/ru-RU.json"),
   it: import("../static/locales/it-IT.json"),
+};
+
+type Query = {
+  lang?: string,
+  from?: string,
+  to?: string,
+};
+
+type Props = {
+  translations: Translations,
+  language: LangInfo,
+  fetched: Fetched,
+  widgetParams: {
+    langId?: string,
+    from?: string,
+    to?: string,
+  },
 };
 
 type State = {
@@ -57,8 +68,10 @@ export default class Index extends React.Component<Props, State> {
     window.document.removeEventListener("keydown", this.handleKeyDown.bind(this));
   }
 
-  static async getInitialProps({ query }: any) {
-    const langId = (query && query.lang) || "en";
+  static async getInitialProps({ query }: { query: Query }) {
+    const { lang, from, to } = query;
+    const langId = lang || "en";
+    const widgetParams = { from, to, langId };
     const langInfos: LangInfos = filterLanguages(langsData);
     const brandLanguage: BrandLanguage = filterBrandLanguage(brandLangsData, langId);
     const language = mapLanguage(brandLanguage.languages[langId], langInfos[langId]);
@@ -71,6 +84,7 @@ export default class Index extends React.Component<Props, State> {
       translations,
       language,
       fetched,
+      widgetParams,
     };
   }
 
@@ -84,7 +98,7 @@ export default class Index extends React.Component<Props, State> {
   }
 
   render() {
-    const { translations, language, fetched } = this.props;
+    const { translations, language, fetched, widgetParams } = this.props;
     return (
       <Provider translations={this.state.areKeysShown ? {} : translations} language={language}>
         <FetchedProvider value={fetched}>
@@ -108,7 +122,7 @@ export default class Index extends React.Component<Props, State> {
           <Video />
         </Element>
         <Element name="search">
-          <Search langId={language.id || "en"} />
+          <Search widgetParams={widgetParams} />
         </Element>
         <Footer />
         <Banner />
