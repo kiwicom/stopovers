@@ -1,0 +1,38 @@
+stages:
+  #- test
+  - build
+  - deploy dev
+
+image: node:10.8
+
+.install_frontend: &install_frontend |
+    yarn
+
+# Build stage
+frontend:build:
+  stage: build
+  script:
+    - *install_frontend
+    - yarn update-translations:build
+    - yarn update-translations
+    - yarn export
+  cache:
+    key: ${CI_COMMIT_REF_SLUG}-stopovers
+    paths:
+    - out/
+    policy: pull
+
+# Deploy stage
+frontend dev:deploy:
+  stage: deploy dev
+  image: kiwicom/s3cmd-plus-docker
+  script:
+    - s3cmd sync --recursive out/* s3://kw-stopovers-dev/
+  cache:
+    key: ${CI_COMMIT_REF_SLUG}-stopovers
+  #only:
+  #  - master
+
+
+
+
