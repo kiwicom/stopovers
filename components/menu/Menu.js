@@ -68,7 +68,7 @@ const Menu = () => (
   <Wrapper>
     <LogoWrapper>
       <a href="https://www.kiwi.com">
-        <Logo src="static/images/logo-menu.svg" alt="kiwicom logo" />
+        <Logo src="/static/images/logo-menu.svg" alt="kiwicom logo" />
       </a>
     </LogoWrapper>
     <Links>
@@ -84,8 +84,7 @@ const Menu = () => (
         onChange={lang => {
           // eslint-disable-next-line fp/no-mutating-methods
           Router.push({
-            pathname: "/",
-            query: { lang },
+            pathname: `/${lang}/dubai/`,
           });
         }}
       />

@@ -97,9 +97,9 @@ const AirplaneWrapper = styled.div`
 `;
 
 const logos = [
-  { id: 1, name: "renralcars.com", url: "static/images/partners/rentalcars.png" },
-  { id: 2, name: "Get your guide", url: "static/images/partners/get-your-guide.png" },
-  { id: 3, name: "Mozio", url: "static/images/partners/mozio.png", width: "160" },
+  { id: 1, name: "renralcars.com", url: "/static/images/partners/rentalcars.png" },
+  { id: 2, name: "Get your guide", url: "/static/images/partners/get-your-guide.png" },
+  { id: 3, name: "Mozio", url: "/static/images/partners/mozio.png", width: "160" },
 ];
 
 const Partners = () => (
