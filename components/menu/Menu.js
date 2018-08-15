@@ -64,6 +64,8 @@ const links = [
   },
 ];
 
+const isProd = process.env.NODE_ENV === "production";
+
 const Menu = () => (
   <Wrapper>
     <LogoWrapper>
@@ -84,7 +86,8 @@ const Menu = () => (
         onChange={lang => {
           // eslint-disable-next-line fp/no-mutating-methods
           Router.push({
-            pathname: `/${lang}/dubai/`,
+            pathname: isProd ? `/${lang}/dubai/` : "/",
+            query: isProd ? {} : { lang },
           });
         }}
       />
