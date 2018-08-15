@@ -51,7 +51,7 @@ const headers = {
           // eslint-disable-next-line no-console
           return console.log(
             chalk.green.bold(`\nCongratulations! ${code} translations were updated\n`),
-          ); // eslint-disable-line no-console
+          );
         },
       );
       return true;

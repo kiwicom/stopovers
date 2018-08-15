@@ -1,12 +1,40 @@
 stages:
-  #- test
+  - install
+  - test
   - build
   - deploy dev
+  - deploy production
 
 image: node:10.8
 
 .install_frontend: &install_frontend |
     yarn
+
+# Install stage
+frontend install:
+  stage: install
+  script:
+    - *install_frontend
+  cache:
+    key: ${CI_COMMIT_REF_SLUG}-stopovers
+    paths:
+    - node_modules/
+    policy: pull-push
+  retry: 2
+
+# Test stage
+frontend:test:
+  stage: test
+  script:
+    - *install_frontend
+    - yarn test-ci
+  coverage: '/^Statements\s*:\s*([^%]+)/'
+  cache:
+    key: ${CI_COMMIT_REF_SLUG}-stopovers
+    paths:
+    - node_modules/
+    policy: pull
+  retry: 2
 
 # Build stage
 frontend:build:
@@ -20,19 +48,29 @@ frontend:build:
     key: ${CI_COMMIT_REF_SLUG}-stopovers
     paths:
     - out/
-    policy: pull
 
-# Deploy stage
+# Deploy dev stage
 frontend dev:deploy:
   stage: deploy dev
   image: kiwicom/s3cmd-plus-docker
   script:
-    - s3cmd sync --recursive out/* s3://kw-stopovers-dev/
+    - s3cmd sync --no-mime-magic --guess-mime-type --recursive out/* s3://kw-stopovers-dev/
   cache:
     key: ${CI_COMMIT_REF_SLUG}-stopovers
-  #only:
-  #  - master
+    paths:
+    - out/
+  only:
+    - master
 
-
-
-
+# Deploy prod stage
+frontend prod:deploy:
+  stage: deploy production
+  image: kiwicom/s3cmd-plus-docker
+  script:
+    - s3cmd sync --no-mime-magic --guess-mime-type --recursive out/* s3://kw-stopovers/
+  cache:
+    key: ${CI_COMMIT_REF_SLUG}-stopovers
+    paths:
+    - out/
+  only:
+    - tags
