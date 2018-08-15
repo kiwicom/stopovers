@@ -6,7 +6,7 @@ import { type LangInfos, type LangInfo } from "@kiwicom/nitro/lib/records/LangIn
 import { type Language } from "@kiwicom/nitro/lib/records/Languages";
 import { type BrandLanguages } from "@kiwicom/nitro/lib/records/BrandLanguage";
 
-const usedLangIds = ["en", "cz", "ro", "hu", "es", "fr", "de", "ru", "it"];
+export const usedLangIds = ["en", "cz", "ro", "hu", "es", "fr", "de", "ru", "it"];
 
 export function filterLanguages(langsData: LangInfos) {
   return pick(langsData, usedLangIds);

@@ -9,7 +9,7 @@ import { type Fetched, fetchedDefault } from "@kiwicom/nitro/lib/records/Fetched
 import { type Translations } from "@kiwicom/nitro/lib/services/intl/translate";
 import { Provider as FetchedProvider } from "@kiwicom/nitro/lib/services/fetched/context";
 
-import { filterLanguages, filterBrandLanguage, mapLanguage } from "../etc/helpers";
+import { filterLanguages, filterBrandLanguage, mapLanguage, usedLangIds } from "../etc/helpers";
 import Menu from "../components/menu/Menu";
 import Hero from "../components/hero/Hero";
 import SliderSection from "../components/sliderSection/SliderSection";
@@ -70,12 +70,12 @@ export default class Index extends React.Component<Props, State> {
 
   static async getInitialProps({ query }: { query: Query }) {
     const { lang, from, to } = query;
-    const langId = lang || "en";
+    const langId = lang && usedLangIds.includes(lang) ? lang : "en";
     const widgetParams = { from, to, langId };
     const langInfos: LangInfos = filterLanguages(langsData);
     const brandLanguage: BrandLanguage = filterBrandLanguage(brandLangsData, langId);
     const language = mapLanguage(brandLanguage.languages[langId], langInfos[langId]);
-    const translations = await Locales[langId];
+    const translations = Locales[langId] ? await Locales[langId] : await Locales.en;
     const fetched = {
       ...fetchedDefault,
       brandLanguage,
