@@ -131,7 +131,7 @@ const Footer = () => (
   <Wrapper>
     <LogoWrapper>
       <a href="https://kiwi.com">
-        <Logo src="static/images/logo.svg" alt="Kiwi.com" />
+        <Logo src="/static/images/logo.svg" alt="Kiwi.com" />
       </a>
     </LogoWrapper>
     <LinkWrapper>

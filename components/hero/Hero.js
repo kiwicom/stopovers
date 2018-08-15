@@ -94,7 +94,7 @@ const Hero = () => (
     <ImageWrapper>
       <Image src="/static/images/dubai-hero.jpg" />
       <DubaiLogoWrapper>
-        <DubaiLogo src="static/images/dubai-logo.svg" alt="dubai logo" />
+        <DubaiLogo src="/static/images/dubai-logo.svg" alt="dubai logo" />
       </DubaiLogoWrapper>
     </ImageWrapper>
   </Wrapper>
