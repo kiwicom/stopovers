@@ -3,6 +3,7 @@
 import * as React from "react";
 import styled from "styled-components";
 
+import { getUserId } from "../../etc/helpers";
 import SectionTitle from "../shared/SectionTitle";
 
 const Wrapper = styled.div`
@@ -49,6 +50,7 @@ class Search extends React.Component<Props> {
     const {
       widgetParams: { from, to, langId },
     } = this.props;
+    const userId = getUserId();
     const script = document.createElement("script");
     script.src = "https://widget-multi-ui.fe.staging.kiwi.com/scripts/widget-stopover-iframe.js";
     script.setAttribute("data-width", "100%");
@@ -56,6 +58,7 @@ class Search extends React.Component<Props> {
     script.setAttribute("data-lang", langId || "en");
     script.setAttribute("data-from", from || "");
     script.setAttribute("data-to", to || "");
+    script.setAttribute("data-userid", userId);
     if (document.head) {
       document.head.appendChild(script);
     }
