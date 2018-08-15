@@ -1,15 +1,18 @@
 // @flow
 
+const langsData = require("./static/languages.json");
+
+const allLangIds = Object.keys(langsData);
 const usedLangIds = ["en", "cz", "ro", "hu", "es", "fr", "de", "ru", "it"];
 
 module.exports = {
   exportPathMap() {
-    return usedLangIds.reduce(
-      (mapping, lang) => ({
+    return allLangIds.reduce((mapping, lang) => {
+      const translateTo = usedLangIds.includes(lang) ? lang : "en";
+      return {
         ...mapping,
-        [`/${lang}/dubai/index.html`]: { page: "/", query: { lang } },
-      }),
-      {},
-    );
+        [`/${lang}/stopovers/dubai/index.html`]: { page: "/", query: { lang: translateTo } },
+      };
+    }, {});
   },
 };

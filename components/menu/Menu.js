@@ -86,7 +86,7 @@ const Menu = () => (
         onChange={lang => {
           // eslint-disable-next-line fp/no-mutating-methods
           Router.push({
-            pathname: isProd ? `/${lang}/dubai/` : "/",
+            pathname: isProd ? `/${lang}/stopovers/dubai/` : "/",
             query: isProd ? {} : { lang },
           });
         }}
