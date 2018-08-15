@@ -19,6 +19,7 @@ import {
   getUserId,
   parseQuery,
 } from "../etc/helpers";
+import { saveToSession } from "../etc/marketingHelpers";
 import Menu from "../components/menu/Menu";
 import Hero from "../components/hero/Hero";
 import SliderSection from "../components/sliderSection/SliderSection";
@@ -73,10 +74,11 @@ export default class Index extends React.Component<Props, State> {
 
   componentDidMount() {
     window.document.addEventListener("keydown", this.handleKeyDown.bind(this));
-    const { affilid } = parseQuery(window.location.search);
+    const { affilid, from, to, ...marketingParams } = parseQuery(window.location.search);
     if (affilid) {
       cookies.set("SKYPICKER_AFFILIATE", affilid, { expires: 30 });
     }
+    saveToSession(marketingParams);
     window.gtag("config", GA_TRACKING_ID, {
       client_id: getUserId(),
       dimension1: "stopovers",
