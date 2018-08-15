@@ -6,6 +6,8 @@ import Text from "@kiwicom/nitro/lib/components/Text";
 import Language from "@kiwicom/nitro/lib/components/Language";
 import Router from "next/router";
 
+import { getCurrentUrlParams } from "../../etc/helpers";
+
 const Wrapper = styled.div`
   display: grid;
   grid-template-columns: 99px 1fr auto;
@@ -84,10 +86,11 @@ const Menu = () => (
       <Language
         flat
         onChange={lang => {
+          const currentParams = getCurrentUrlParams();
           // eslint-disable-next-line fp/no-mutating-methods
           Router.push({
             pathname: isProd ? `/${lang}/stopovers/dubai/` : "/",
-            query: isProd ? {} : { lang },
+            query: isProd ? currentParams : { ...currentParams, lang },
           });
         }}
       />

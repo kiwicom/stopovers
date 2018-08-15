@@ -32,8 +32,15 @@ export function parseQuery(queryString: string): Object {
   const pairs = (queryString[0] === "?" ? queryString.substr(1) : queryString).split("&");
   return pairs.reduce((query, pair) => {
     const parts = pair.split("=");
-    return { ...query, [decodeURIComponent(parts[0])]: decodeURIComponent(parts[1] || "") };
+    if (parts[0] !== "") {
+      return { ...query, [decodeURIComponent(parts[0])]: decodeURIComponent(parts[1] || "") };
+    }
+    return query;
   }, {});
+}
+
+export function getCurrentUrlParams() {
+  return parseQuery(window.location.search);
 }
 
 export function generateUserId() {
