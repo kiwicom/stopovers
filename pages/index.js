@@ -74,7 +74,7 @@ export default class Index extends React.Component<Props, State> {
 
   componentDidMount() {
     window.document.addEventListener("keydown", this.handleKeyDown.bind(this));
-    const { affilid, ...marketingParams } = getCurrentUrlParams();
+    const { affilid, from, to, ...marketingParams } = getCurrentUrlParams();
     if (affilid) {
       cookies.set("SKYPICKER_AFFILIATE", affilid, { expires: 30 });
     }
