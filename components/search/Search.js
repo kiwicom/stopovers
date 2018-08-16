@@ -3,7 +3,7 @@
 import * as React from "react";
 import styled from "styled-components";
 
-import { getUserId } from "../../etc/helpers";
+import { getUserId, getCurrentUrlParams } from "../../etc/helpers";
 import SectionTitle from "../shared/SectionTitle";
 
 const Wrapper = styled.div`
@@ -38,18 +38,13 @@ const Widget = styled.div`
 `;
 
 type Props = {
-  widgetParams: {
-    langId?: string,
-    from?: string,
-    to?: string,
-  },
+  langId: ?string,
 };
 
 class Search extends React.Component<Props> {
   componentDidMount() {
-    const {
-      widgetParams: { from, to, langId },
-    } = this.props;
+    const { langId } = this.props;
+    const { from, to } = getCurrentUrlParams();
     const userId = getUserId();
     const script = document.createElement("script");
     script.src = "https://widget-multi-ui.fe.staging.kiwi.com/scripts/widget-stopover-iframe.js";
