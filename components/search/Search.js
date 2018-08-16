@@ -53,7 +53,8 @@ class Search extends React.Component<Props> {
     script.setAttribute("data-lang", langId || "en");
     script.setAttribute("data-from", from || "");
     script.setAttribute("data-to", to || "");
-    script.setAttribute("data-userid", userId);
+    script.setAttribute("data-hide-cookie-banner", "true");
+    script.setAttribute("data-user-id", userId);
     if (document.head) {
       document.head.appendChild(script);
     }
