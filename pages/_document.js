@@ -40,6 +40,10 @@ const globalStyles = () => injectGlobal`
   body {
     line-height: 1;
   }
+  button,
+  select {
+    font-family: inherit;
+  }
   ol, ul {
     list-style: none;
   }
