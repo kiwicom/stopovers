@@ -6,6 +6,7 @@ import Fade from "react-reveal/Fade";
 import Text from "@kiwicom/nitro/lib/components/Text";
 import { Button } from "@kiwicom/orbit-components";
 
+import { sendEvent } from "../../etc/logLady";
 import { scrollToElement } from "../helpers";
 import ItineraryItem from "./ItineraryItem";
 import ItineraryProvider, { ItineraryContext, type Context } from "./ItineraryContext";
@@ -139,9 +140,11 @@ const Itinerary = () => (
               </DropdownTitle>
               <DropdownWrapperMobile>
                 <DropdownMobile
-                  onChange={(e: SyntheticEvent<HTMLSelectElement>) =>
-                    changeDropdownValue(e.currentTarget.value)
-                  }
+                  onChange={(e: SyntheticEvent<HTMLSelectElement>) => {
+                    const { value } = e.currentTarget;
+                    changeDropdownValue(value);
+                    sendEvent("discoverTips", value);
+                  }}
                 >
                   {dropdownData.map(item => renderDropdownItem(item))}
                 </DropdownMobile>
@@ -156,7 +159,13 @@ const Itinerary = () => (
               ))}
             </Fade>
           </ItineraryWrapper>
-          <StyledButton size="large" onClick={() => scrollToElement("search")}>
+          <StyledButton
+            size="large"
+            onClick={() => {
+              scrollToElement("search");
+              sendEvent("startYourTrip");
+            }}
+          >
             <Text t="startYourTripNow" />
           </StyledButton>
         </Wrapper>

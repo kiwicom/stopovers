@@ -19,6 +19,7 @@ import {
   getUserId,
   getCurrentUrlParams,
 } from "../etc/helpers";
+import { sendEvent } from "../etc/logLady";
 import { saveToSession } from "../etc/marketingHelpers";
 import Menu from "../components/menu/Menu";
 import Hero from "../components/hero/Hero";
@@ -79,6 +80,7 @@ export default class Index extends React.Component<Props, State> {
       dimension1: "stopovers",
       send_page_view: isProd,
     });
+    sendEvent("pageLoaded");
   }
 
   componentWillUnmount() {

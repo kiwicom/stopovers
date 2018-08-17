@@ -2,6 +2,8 @@
 
 import * as React from "react";
 
+import { sendEvent } from "../../etc/logLady";
+
 type Props = {
   children: React.Node,
 };
@@ -28,10 +30,12 @@ class ItineraryProvider extends React.Component<Props, State> {
       <ItineraryContext.Provider
         value={{
           state: this.state,
-          changeDropdownValue: (value: string) =>
+          changeDropdownValue: (value: string) => {
             this.setState({
               dropdownValue: value,
-            }),
+            });
+            sendEvent("discoverTips", value);
+          },
         }}
       >
         {children}

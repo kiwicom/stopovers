@@ -5,6 +5,7 @@ import styled from "styled-components";
 import { ChevronDown } from "@kiwicom/orbit-components/lib/icons";
 import Text from "@kiwicom/nitro/lib/components/Text";
 
+import { sendEvent } from "../../etc/logLady";
 import ActionText from "../shared/ActionText";
 import { scrollToElement } from "../helpers";
 
@@ -45,6 +46,7 @@ const Action = () => (
     <ActionButton
       onClick={() => {
         scrollToElement("slider");
+        sendEvent("saveAndSee");
       }}
     >
       <ChevronDown customColor="#ffffff" size="medium" />

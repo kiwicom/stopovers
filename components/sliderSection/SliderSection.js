@@ -15,6 +15,7 @@ import { ChevronRight, ChevronLeft } from "@kiwicom/orbit-components/lib/icons";
 import Text from "@kiwicom/nitro/lib/components/Text";
 import { Button, ButtonLink } from "@kiwicom/orbit-components";
 
+import { sendEvent } from "../../etc/logLady";
 import SectionTitle from "../shared/SectionTitle";
 import Description from "../shared/Description";
 import { scrollToElement } from "../helpers";
@@ -271,14 +272,23 @@ const SliderSection = () => (
       </Description>
     </DescriptionWrapper>
     <ButtonsWrapper>
-      <Button size="large" onClick={() => scrollToElement("search")}>
+      <Button
+        size="large"
+        onClick={() => {
+          scrollToElement("search");
+          sendEvent("searchFlights");
+        }}
+      >
         <Text t="searchFlights" />
       </Button>
       <ButtonLink
         type="secondary"
         size="large"
         icon={<ChevronRight />}
-        onClick={() => scrollToElement("itinerary")}
+        onClick={() => {
+          scrollToElement("itinerary");
+          sendEvent("discoverTips");
+        }}
       >
         <Text t="chooseItinerary" />
       </ButtonLink>
