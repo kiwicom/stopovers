@@ -8,6 +8,7 @@ import { Button } from "@kiwicom/orbit-components";
 import { Link } from "react-scroll";
 
 import { scrollToElement } from "../helpers";
+import { sendEvent } from "../../etc/logLady";
 
 const Wrapper = styled.div`
   display: ${({ isHidden }) => (isHidden ? "none" : "grid")};
@@ -43,6 +44,7 @@ class Banner extends React.Component<{}, State> {
 
   scrollToSearch = () => {
     scrollToElement("search", this.setState({ isHidden: true }));
+    sendEvent("mobileBannerSearch");
   };
 
   hide = () => {

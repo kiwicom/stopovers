@@ -5,6 +5,7 @@ import styled from "styled-components";
 import YouTube from "react-youtube";
 
 import SectionTitle from "../shared/SectionTitle";
+import { sendEvent } from "../../etc/logLady";
 
 const Wrapper = styled.div`
   display: flex;
@@ -20,7 +21,13 @@ const Wrapper = styled.div`
 const Video = () => (
   <Wrapper>
     <SectionTitle title="videoTitle" subtitle="videoSubTitle" />
-    <YouTube videoId="euqPNQ199Mw" className="youtube-embed" />
+    <YouTube
+      videoId="euqPNQ199Mw"
+      className="youtube-embed"
+      onPlay={() => {
+        sendEvent("watchVideo");
+      }}
+    />
   </Wrapper>
 );
 

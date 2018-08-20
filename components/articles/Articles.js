@@ -9,6 +9,7 @@ import { scrollToElement } from "../helpers";
 import SectionTitle from "../shared/SectionTitle";
 import ArticleItem from "./ArticleItem";
 import articles from "./mockedData";
+import { sendEvent } from "../../etc/logLady";
 
 const Wrapper = styled.div`
   background-color: #f6f7f9;
@@ -93,6 +94,7 @@ const Articles = () => (
         size="large"
         onClick={() => {
           scrollToElement("search");
+          sendEvent("bookNow");
         }}
       >
         <Text t="searchFlightsNow" />

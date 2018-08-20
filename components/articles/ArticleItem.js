@@ -5,6 +5,8 @@ import styled from "styled-components";
 import { ButtonLink } from "@kiwicom/orbit-components";
 import { ChevronRight } from "@kiwicom/orbit-components/lib/icons";
 
+import { sendEvent } from "../../etc/logLady";
+
 type ArticleType = {|
   id: number,
   title: string,
@@ -81,7 +83,15 @@ const ArticleItem = ({ article }: Props) => (
     </ArticleTextWrapper>
 
     <LinkWrapper>
-      <ButtonLink href={article.linkUrl} external type="secondary" icon={<ChevronRight />}>
+      <ButtonLink
+        onClick={() => {
+          sendEvent("goToStories", article.linkUrl);
+        }}
+        href={article.linkUrl}
+        external
+        type="secondary"
+        icon={<ChevronRight />}
+      >
         {article.linkTitle}
       </ButtonLink>
     </LinkWrapper>
