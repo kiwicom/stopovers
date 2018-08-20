@@ -5,6 +5,7 @@ import pick from "lodash.pick";
 import { type LangInfos, type LangInfo } from "@kiwicom/nitro/lib/records/LangInfo";
 import { type Language } from "@kiwicom/nitro/lib/records/Languages";
 import { type BrandLanguages } from "@kiwicom/nitro/lib/records/BrandLanguage";
+import cookies from "js-cookie";
 
 export const usedLangIds = ["en", "cz", "ro", "hu", "es", "fr", "de", "ru", "it"];
 
@@ -26,3 +27,30 @@ export function mapLanguage(lang: Language, langInfo: LangInfo) {
     defaultCountry: lang.defaultCountry,
   };
 }
+
+export function parseQuery(queryString: string): Object {
+  const pairs = (queryString[0] === "?" ? queryString.substr(1) : queryString).split("&");
+  return pairs.reduce((query, pair) => {
+    const parts = pair.split("=");
+    return { ...query, [decodeURIComponent(parts[0])]: decodeURIComponent(parts[1] || "") };
+  }, {});
+}
+
+export function generateUserId() {
+  function s4() {
+    return Math.floor((1 + Math.random()) * 0x10000)
+      .toString(16)
+      .substring(1);
+  }
+  return `${s4() + s4()}-${s4()}-${s4()}-${s4()}-${s4()}${s4()}${s4()}`;
+}
+
+export const getUserId = () => {
+  const userId = cookies.get("SKYPICKER_VISITOR_UNIQID");
+  if (!userId) {
+    const newId = generateUserId();
+    cookies.set("SKYPICKER_VISITOR_UNIQID", newId, { expires: 365 * 4 });
+    return newId;
+  }
+  return userId;
+};

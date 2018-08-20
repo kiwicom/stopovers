@@ -8,8 +8,16 @@ import { type BrandLanguage } from "@kiwicom/nitro/lib/records/BrandLanguage";
 import { type Fetched, fetchedDefault } from "@kiwicom/nitro/lib/records/Fetched";
 import { type Translations } from "@kiwicom/nitro/lib/services/intl/translate";
 import { Provider as FetchedProvider } from "@kiwicom/nitro/lib/services/fetched/context";
+import cookies from "js-cookie";
 
-import { filterLanguages, filterBrandLanguage, mapLanguage, usedLangIds } from "../etc/helpers";
+import {
+  filterLanguages,
+  filterBrandLanguage,
+  mapLanguage,
+  usedLangIds,
+  getUserId,
+  parseQuery,
+} from "../etc/helpers";
 import Menu from "../components/menu/Menu";
 import Hero from "../components/hero/Hero";
 import SliderSection from "../components/sliderSection/SliderSection";
@@ -62,6 +70,13 @@ export default class Index extends React.Component<Props, State> {
 
   componentDidMount() {
     window.document.addEventListener("keydown", this.handleKeyDown.bind(this));
+    const { affilid } = parseQuery(window.location.search);
+    if (affilid) {
+      cookies.set("SKYPICKER_AFFILIATE", affilid, { expires: 30 });
+    }
+    window.gtag("set", {
+      clientId: getUserId(),
+    });
   }
 
   componentWillUnmount() {
