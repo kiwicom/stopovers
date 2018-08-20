@@ -1,6 +1,6 @@
 // @flow
 
-import axios from "axios";
+import fetch from "isomorphic-unfetch";
 import cookies from "js-cookie";
 
 import { loadFromSession } from "./marketingHelpers";
@@ -35,6 +35,8 @@ type Payload = {
   },
 };
 
+export const LOG_LADY_URL = process.env.LOG_LADY_URL || "";
+
 export function preparePayload(action: string, detail?: string): Payload {
   const pathParts = window.location.pathname.split("/").filter(val => val);
   return {
@@ -65,5 +67,15 @@ export function preparePayload(action: string, detail?: string): Payload {
 
 export function sendEvent(action: string, detail?: string) {
   const payload = preparePayload(action, detail);
-  axios.post("https://cgp250bo1k.execute-api.us-east-1.amazonaws.com/default/frontend", payload);
+  try {
+    fetch(LOG_LADY_URL, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(payload),
+    });
+  } catch (e) {
+    console.error(e); // eslint-disable-line no-console
+  }
 }
