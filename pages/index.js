@@ -17,7 +17,7 @@ import {
   mapLanguage,
   usedLangIds,
   getUserId,
-  parseQuery,
+  getCurrentUrlParams,
 } from "../etc/helpers";
 import { saveToSession } from "../etc/marketingHelpers";
 import Menu from "../components/menu/Menu";
@@ -74,7 +74,7 @@ export default class Index extends React.Component<Props, State> {
 
   componentDidMount() {
     window.document.addEventListener("keydown", this.handleKeyDown.bind(this));
-    const { affilid, ...marketingParams } = parseQuery(window.location.search);
+    const { affilid, ...marketingParams } = getCurrentUrlParams();
     if (affilid) {
       cookies.set("SKYPICKER_AFFILIATE", affilid, { expires: 30 });
     }
