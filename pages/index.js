@@ -10,6 +10,7 @@ import { type Translations } from "@kiwicom/nitro/lib/services/intl/translate";
 import { Provider as FetchedProvider } from "@kiwicom/nitro/lib/services/fetched/context";
 import cookies from "js-cookie";
 
+import { GA_TRACKING_ID } from "../etc/gtag";
 import {
   filterLanguages,
   filterBrandLanguage,
@@ -44,6 +45,8 @@ const Locales = {
   it: import("../static/locales/it-IT.json"),
 };
 
+const isProd = process.env.NODE_ENV === "production";
+
 type Query = {
   lang?: string,
   from?: string,
@@ -74,8 +77,10 @@ export default class Index extends React.Component<Props, State> {
     if (affilid) {
       cookies.set("SKYPICKER_AFFILIATE", affilid, { expires: 30 });
     }
-    window.gtag("set", {
-      clientId: getUserId(),
+    window.gtag("config", GA_TRACKING_ID, {
+      client_id: getUserId(),
+      dimension1: "stopovers",
+      send_page_view: isProd,
     });
   }
 
