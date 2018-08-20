@@ -6,3 +6,4 @@ flow-typed
 public/lib
 types
 *.graphql.js
+next.config.js
