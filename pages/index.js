@@ -58,11 +58,6 @@ type Props = {
   translations: Translations,
   language: LangInfo,
   fetched: Fetched,
-  widgetParams: {
-    langId?: string,
-    from?: string,
-    to?: string,
-  },
 };
 
 type State = {
@@ -91,9 +86,8 @@ export default class Index extends React.Component<Props, State> {
   }
 
   static async getInitialProps({ query }: { query: Query }) {
-    const { lang, from, to } = query;
+    const { lang } = query;
     const langId = lang && usedLangIds.includes(lang) ? lang : "en";
-    const widgetParams = { from, to, langId };
     const langInfos: LangInfos = filterLanguages(langsData);
     const brandLanguage: BrandLanguage = filterBrandLanguage(brandLangsData, langId);
     const language = mapLanguage(brandLanguage.languages[langId], langInfos[langId]);
@@ -106,7 +100,6 @@ export default class Index extends React.Component<Props, State> {
       translations,
       language,
       fetched,
-      widgetParams,
     };
   }
 
@@ -120,7 +113,7 @@ export default class Index extends React.Component<Props, State> {
   }
 
   render() {
-    const { translations, language, fetched, widgetParams } = this.props;
+    const { translations, language, fetched } = this.props;
     return (
       <Provider translations={this.state.areKeysShown ? {} : translations} language={language}>
         <FetchedProvider value={fetched}>
@@ -144,7 +137,7 @@ export default class Index extends React.Component<Props, State> {
           <Video />
         </Element>
         <Element name="search">
-          <Search widgetParams={widgetParams} />
+          <Search langId={language && language.id} />
         </Element>
         <Footer />
         <Banner />
