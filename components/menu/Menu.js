@@ -89,9 +89,9 @@ const Menu = () => (
           const currentParams = getCurrentUrlParams();
           // eslint-disable-next-line fp/no-mutating-methods
           Router.push({
-            pathname: isProd ? `/${lang}/stopovers/dubai/` : "/",
-            query: isProd ? currentParams : { ...currentParams, lang },
-          });
+            pathname: "/",
+            query: { ...currentParams, lang },
+          }, isProd && `/${lang}/stopovers/dubai/`);
         }}
       />
     </LanguageWrapper>
