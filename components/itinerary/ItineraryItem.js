@@ -16,6 +16,7 @@ type ItineraryItemType = {
 type Props = {
   item: ItineraryItemType,
   order: number,
+  hasNoMargin: boolean,
 };
 
 const ItemWrapper = styled.div`
@@ -23,10 +24,10 @@ const ItemWrapper = styled.div`
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  margin-bottom: 20px;
+  margin-bottom: ${({ hasNoMargin }) => (hasNoMargin ? 0 : 20)}px;
 
   @media (min-width: 740px) {
-    margin-bottom: 40px;
+    margin-bottom: ${({ hasNoMargin }) => (hasNoMargin ? 0 : 40)}px;
   }
 
   @media (min-width: 1440px) {
@@ -48,12 +49,12 @@ const Image = styled.img`
   }
 `;
 
-const ItineraryItem = ({ item, order }: Props) => {
+const ItineraryItem = ({ item, order, hasNoMargin }: Props) => {
   const { imageUrl, time, title, description } = item;
   const isOdd = !(order % 2);
 
   return (
-    <ItemWrapper>
+    <ItemWrapper hasNoMargin={hasNoMargin}>
       <Image src={imageUrl} />
 
       <ItemContent isOdd={isOdd} time={time} description={description} title={title} />
