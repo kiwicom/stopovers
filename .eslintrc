@@ -37,6 +37,10 @@
     "fp/no-this": "off", // React
     "fp/no-mutation": "off", // React
     "fp/no-unused-expression": "off", // 'fs' calls, for example
+    "fp/no-loops": "off",
+    "fp/no-mutating-methods": "off",
+    "no-await-in-loop": "off",
+    "eslint/fp/no-mutating-methods": "off",
     "react/default-props-match-prop-types": "off", // Flow/ESlint conflict
     "react/require-default-props": "off", // Somehow semantically wrong
     "react/jsx-filename-extension": "off", // Prague guys being hip,
