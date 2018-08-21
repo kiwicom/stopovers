@@ -31,7 +31,7 @@ module.exports = {
       const translateTo = usedLangIds.includes(lang) ? lang : "en";
       return {
         ...mapping,
-        [`/${lang}/stopovers/dubai/index.html`]: { page: "/", query: { lang: translateTo } },
+        [`/${lang}/stopovers/dubai`]: { page: "/", query: { lang: translateTo } },
       };
     }, {});
   },
