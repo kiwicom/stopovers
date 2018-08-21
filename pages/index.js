@@ -9,6 +9,7 @@ import { type Fetched, fetchedDefault } from "@kiwicom/nitro/lib/records/Fetched
 import { type Translations } from "@kiwicom/nitro/lib/services/intl/translate";
 import { Provider as FetchedProvider } from "@kiwicom/nitro/lib/services/fetched/context";
 import cookies from "js-cookie";
+import "isomorphic-unfetch";
 
 import { GA_TRACKING_ID } from "../etc/gtag";
 import {
@@ -34,18 +35,6 @@ import Banner from "../components/banner/Banner";
 import StickyAction from "../components/stickyAction/StickyAction";
 import langsData from "../static/languages.json";
 import brandLangsData from "../static/brandLanguages.json";
-
-const Locales = {
-  en: import("../static/locales/en-GB.json"),
-  cz: import("../static/locales/cs-CZ.json"),
-  ro: import("../static/locales/ro-RO.json"),
-  hu: import("../static/locales/hu-HU.json"),
-  es: import("../static/locales/es-ES.json"),
-  fr: import("../static/locales/fr-FR.json"),
-  de: import("../static/locales/de-DE.json"),
-  ru: import("../static/locales/ru-RU.json"),
-  it: import("../static/locales/it-IT.json"),
-};
 
 const isProd = process.env.NODE_ENV === "production";
 
@@ -87,13 +76,16 @@ export default class Index extends React.Component<Props, State> {
     window.document.removeEventListener("keydown", this.handleKeyDown.bind(this));
   }
 
-  static async getInitialProps({ query }: { query: Query }) {
-    const { lang } = query;
+  static async getInitialProps({ query: { lang }, req }: { query: Query, req: any }) {
     const langId = lang && usedLangIds.includes(lang) ? lang : "en";
     const langInfos: LangInfos = filterLanguages(langsData);
     const brandLanguage: BrandLanguage = filterBrandLanguage(brandLangsData, langId);
     const language = mapLanguage(brandLanguage.languages[langId], langInfos[langId]);
-    const translations = Locales[langId] ? await Locales[langId] : await Locales.en;
+    const isServer = !!req;
+    const translationsUrl = `${isServer ? `http://localhost:3000` : ""}/static/locales/${
+      language.iso
+    }.json`;
+    const translations = await fetch(translationsUrl).then(x => x.json());
     const fetched = {
       ...fetchedDefault,
       brandLanguage,
@@ -117,7 +109,10 @@ export default class Index extends React.Component<Props, State> {
   render() {
     const { translations, language, fetched } = this.props;
     return (
-      <Provider translations={this.state.areKeysShown ? {} : translations} language={language}>
+      <Provider
+        translations={this.state.areKeysShown ? {} : translations || window.translations}
+        language={language}
+      >
         <FetchedProvider value={fetched}>
           <Menu />
         </FetchedProvider>
