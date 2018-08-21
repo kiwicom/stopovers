@@ -28,6 +28,8 @@ const ArticlesWrapper = styled.div`
   display: flex;
   justify-content: space-between;
   flex-direction: column;
+  align-items: flex-start;
+  align-content: flex-start;
 
   @media (min-width: 740px) {
     flex-direction: row;
