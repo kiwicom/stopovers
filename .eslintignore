@@ -4,6 +4,8 @@ dist
 dist-storybook
 flow-typed
 public/lib
+out
+node_modules
 types
 *.graphql.js
 next.config.js
