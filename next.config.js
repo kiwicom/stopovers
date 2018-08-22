@@ -26,13 +26,13 @@ module.exports = {
 
     return config;
   },
-  useFileSystemPublicRoutes: false,
+  useFileSystemPublicRoutes: (process.env.NODE_ENV !== "production"),
   exportPathMap() {
     return allLangIds.reduce((mapping, lang) => {
       const translateTo = usedLangIds.includes(lang) ? lang : "en";
       return {
         ...mapping,
-        [`/${lang}/stopovers/dubai`]: { page: "/index", query: { lang: translateTo } },
+        [`/${lang}/stopovers/dubai`]: { page: "/", query: { lang: translateTo } },
       };
     }, {});
   },
