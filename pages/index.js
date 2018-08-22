@@ -82,7 +82,7 @@ export default class Index extends React.Component<Props, State> {
     const brandLanguage: BrandLanguage = filterBrandLanguage(brandLangsData, langId);
     const language = mapLanguage(brandLanguage.languages[langId], langInfos[langId]);
     const isServer = !!req;
-    const translationsUrl = `${isServer ? `http://localhost:3000` : ""}/static/locales/${
+    const translationsUrl = `${isServer ? `http://localhost:3002` : ""}/static/locales/${
       language.iso
     }.json`;
     const translations = await fetch(translationsUrl).then(x => x.json());
