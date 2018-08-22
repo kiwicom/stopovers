@@ -42,6 +42,8 @@ type Props = {
 };
 
 class Search extends React.Component<Props> {
+  script: HTMLScriptElement;
+
   componentDidMount() {
     const { langId } = this.props;
     const { from, to } = getCurrentUrlParams();
@@ -57,6 +59,13 @@ class Search extends React.Component<Props> {
     script.setAttribute("data-user-id", userId);
     if (document.head) {
       document.head.appendChild(script);
+    }
+    this.script = script;
+  }
+
+  componentWillUnmount() {
+    if (document.head) {
+      document.head.removeChild(this.script);
     }
   }
 
