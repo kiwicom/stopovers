@@ -94,6 +94,7 @@ export default class Index extends React.Component<Props, State> {
       translations,
       language,
       fetched,
+      lang,
     };
   }
 
@@ -107,7 +108,7 @@ export default class Index extends React.Component<Props, State> {
   }
 
   render() {
-    const { translations, language, fetched } = this.props;
+    const { translations, language, fetched, lang } = this.props;
     return (
       <Provider
         translations={this.state.areKeysShown ? {} : translations || window.translations}
@@ -134,7 +135,7 @@ export default class Index extends React.Component<Props, State> {
           <Video />
         </Element>
         <Element name="search">
-          <Search langId={language && language.id} />
+          <Search langId={language && language.id} key={lang} />
         </Element>
         <Footer />
         <Banner />
