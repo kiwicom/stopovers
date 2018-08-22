@@ -80,6 +80,56 @@ const globalStyles = () => injectGlobal`
       height: 455px;
     }
   }
+
+  .react-select__control {
+    align-items : center;
+    background-color : #fff;
+    border-color: #bac7d5;
+    border-radius: 3px;
+    border-width: 1px;
+    border-style: solid;
+    box-shadow : none;
+    font-family: "Roboto";
+    display: flex;
+    flex-wrap: wrap;
+    font-size: 16px;
+    cursor: default;
+    box-sizing: border-box;
+    font-weight: 500;
+    justify-content: space-between;
+    min-height: 38;
+    outline: 0 !important;
+    padding: 6px 6px;
+    position: relative;
+    transition: all 100ms;
+    &:hover {
+      border-color :hsl(0, 0%, 70%);
+    }
+  }
+  .react-select__dropdown-indicator {
+    display: flex;
+    padding: 8px;
+    transition: color 150ms;
+    box-sizing: border-box;
+    color: grey;
+  }
+  .react-select__single-value {
+    color: #46515e;
+    margin-left: 2px;
+    margin-right: 2px;
+    max-width: calc(100% - 8px);
+    overflow: hidden;
+    position: absolute;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    top: 50%;
+    transform: translateY(-50%);
+    box-sizing: border-box;
+    opacity: 1;
+    transition: opacity 300ms;
+    background-color: #fffff;
+    font-weight: 700;
+  }
 `;
 
 globalStyles();
