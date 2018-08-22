@@ -109,10 +109,7 @@ export default class Index extends React.Component<Props, State> {
   render() {
     const { translations, language, fetched } = this.props;
     return (
-      <Provider
-        translations={this.state.areKeysShown ? {} : translations || window.translations}
-        language={language}
-      >
+      <Provider translations={this.state.areKeysShown ? {} : translations} language={language}>
         <FetchedProvider value={fetched}>
           <Menu />
         </FetchedProvider>
