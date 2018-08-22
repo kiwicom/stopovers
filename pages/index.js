@@ -48,6 +48,7 @@ type Props = {
   translations: Translations,
   language: LangInfo,
   fetched: Fetched,
+  langId: string,
 };
 
 type State = {
@@ -132,7 +133,7 @@ export default class Index extends React.Component<Props, State> {
           <Video />
         </Element>
         <Element name="search">
-          <Search langId={langId} />
+          <Search langId={langId} key={langId} />
         </Element>
         <Footer />
         <Banner />
