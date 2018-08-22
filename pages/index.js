@@ -85,7 +85,6 @@ export default class Index extends React.Component<Props, State> {
     const translationsUrl = `${isServer ? `http://localhost:3000` : ""}/static/locales/${
       language.iso
     }.json`;
-    console.log("get", language);
     const translations = await fetch(translationsUrl).then(x => x.json());
     const fetched = {
       ...fetchedDefault,
@@ -110,7 +109,6 @@ export default class Index extends React.Component<Props, State> {
 
   render() {
     const { translations, language, fetched, langId } = this.props;
-    console.log(langId);
     return (
       <Provider translations={this.state.areKeysShown ? {} : translations} language={language}>
         <FetchedProvider value={fetched}>
