@@ -17,5 +17,5 @@ now
 
 ```bash
 yarn export:full
-yarn start:exported
+yarn start
 ```
