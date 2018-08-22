@@ -7,9 +7,6 @@ const Dotenv = require("dotenv-webpack");
 
 const langsData = require("./static/languages.json");
 
-const allLangIds = Object.keys(langsData);
-const usedLangIds = ["en", "cz", "ro", "hu", "es", "fr", "de", "ru", "it"];
-
 module.exports = {
   webpack: config => {
     config.plugins = config.plugins || [];
@@ -28,11 +25,14 @@ module.exports = {
   },
   useFileSystemPublicRoutes: (process.env.NODE_ENV !== "production"),
   exportPathMap() {
-    return allLangIds.reduce((mapping, lang) => {
-      const translateTo = usedLangIds.includes(lang) ? lang : "en";
+    const usedLangIds = ["en", "cz", "ro", "hu", "es", "fr", "de", "ru", "it"];
+    const allLangs = Object.values(langsData).map(({ id, fallback }) => ({ id, fallback }));
+    return allLangs.reduce((mapping, lang) => {
+      const fallback = lang.fallback === "es-ES" ? "es" : "en";
+      const translateTo = usedLangIds.includes(lang.id) ? lang.id : fallback;
       return {
         ...mapping,
-        [`/${lang}/stopovers/dubai`]: { page: "/", query: { lang: translateTo } },
+        [`/${lang.id}/stopovers/dubai`]: { page: "/", query: { lang: translateTo } },
       };
     }, {});
   },

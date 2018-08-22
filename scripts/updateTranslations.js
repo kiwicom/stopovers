@@ -22,21 +22,29 @@ const headers = {
   },
 };
 
+// PhraseApp has limits on parallel requests
+// that's why we process requests in sequence
+async function processResponses(allLocalesJson) {
+  const results = [];
+
+  // eslint-disable-next-line no-restricted-syntax
+  for (const locale of allLocalesJson) {
+    const response = await fetch(getLocaleUrl(locale.id), headers);
+
+    results.push({
+      code: locale.code,
+      translation: await response.json(),
+    });
+  }
+  return results;
+}
+
 (async () => {
   try {
     const getAllLocales = await fetch(url, headers);
     const allLocalesJson = await getAllLocales.json();
 
-    const promises = allLocalesJson.map(async ({ id, code }) => {
-      const response = await fetch(getLocaleUrl(id), headers);
-
-      return {
-        code,
-        translation: await response.json(),
-      };
-    });
-
-    const responses = await Promise.all(promises);
+    const responses = await processResponses(allLocalesJson);
 
     responses.map(({ code, translation }: { code: string, translation: string }) => {
       fs.writeFile(

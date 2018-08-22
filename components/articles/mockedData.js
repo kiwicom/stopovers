@@ -7,7 +7,8 @@ const articles = [
     description:
       "Here’s our favourite things to do in the UAE’s resort city, as well as some things you may not have thought about.",
     linkTitle: "Explore Dubai",
-    linkUrl: "https://www.kiwi.com/stories/these-are-the-best-things-to-do-in-dubai/",
+    linkUrl:
+      "https://www.kiwi.com/stories/these-are-the-best-things-to-do-in-dubai/?utm_source=kiwicom&utm_medium=website&utm_campaign=these-are-the-best-things-to-do-in-dubai",
     imageUrl: "/static/images/articles/best-things-in-dubai.jpg",
   },
   {
@@ -16,7 +17,7 @@ const articles = [
     description: `One kilometre long and two people sliding simultaneosly - there's a new zipline over Dubai Marina.`,
     linkTitle: "One - Two - GO!",
     linkUrl:
-      "https://www.kiwi.com/stories/adrenaline-in-the-desert-dubai-unveils-worlds-longest-urban-zipline/",
+      "https://www.kiwi.com/stories/adrenaline-in-the-desert-dubai-unveils-worlds-longest-urban-zipline/?utm_source=kiwicom&utm_medium=website&utm_campaign=adrenaline-in-the-desert-dubai-unveils-worlds-longest-urban-zipline",
     imageUrl: "/static/images/articles/zipline.jpg",
   },
   {
@@ -25,7 +26,8 @@ const articles = [
     description:
       "In what could be a boon for tourism to Dubai, UAE to introduce free visa for 48-hour trips. The transit visa can be extended to 96 hours for a small fee.",
     linkTitle: "Extend your trip",
-    linkUrl: "https://www.kiwi.com/stories/uae-to-introduce-free-visa-for-48-hour-trips/",
+    linkUrl:
+      "https://www.kiwi.com/stories/uae-to-introduce-free-visa-for-48-hour-trips/?utm_source=kiwicom&utm_medium=website&utm_campaign=uae-to-introduce-free-visa-for-48-hour-trips",
     imageUrl: "/static/images/articles/a-view-like-no-other.jpg",
   },
 ];

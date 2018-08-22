@@ -52,7 +52,7 @@ const ItineraryTitle = styled.h2`
 
 const Circle = styled.div`
   position: absolute;
-  left: 0;
+  left: 1px;
   margin-top: 10px;
   border-radius: 50%;
   height: 16px;
@@ -64,7 +64,7 @@ const Circle = styled.div`
   @media (min-width: 1440px) {
     margin-top: 0;
     left: 50%;
-    margin-left: -8px;
+    margin-left: -9px;
     top: 50px;
   }
 `;

@@ -4,7 +4,8 @@ import * as React from "react";
 import styled from "styled-components";
 import Fade from "react-reveal/Fade";
 import Text from "@kiwicom/nitro/lib/components/Text";
-import { Button } from "@kiwicom/orbit-components";
+import { Button, ButtonLink } from "@kiwicom/orbit-components";
+import { ArrowDown } from "@kiwicom/orbit-components/lib/icons";
 
 import { sendEvent } from "../../etc/logLady";
 import { scrollToElement } from "../helpers";
@@ -17,17 +18,8 @@ import { data, dropdownData } from "./mockedData";
 
 const Wrapper = styled.div`
   display: grid;
-`;
-
-const ItineraryWrapper = styled.div`
-  display: grid;
-  position: relative;
-  padding-bottom: 0;
-  padding-top: 40px;
   max-width: 1400px;
   margin: 0 auto;
-  justify-items: center;
-
   @media (min-width: 740px) {
     margin: 0 20%;
   }
@@ -35,11 +27,24 @@ const ItineraryWrapper = styled.div`
   @media (min-width: 1050px) {
     margin: 0 25%;
   }
+  @media (min-width: 1440px) {
+    margin: 0 15%;
+  }
+`;
+
+const ItineraryWrapper = styled.div`
+  display: grid;
+  position: relative;
+  padding-bottom: 0;
+  padding-top: 40px;
+
+  justify-items: center;
 
   @media (min-width: 1440px) {
     padding-bottom: 60px;
-    margin: 0 15%;
+
     padding-top: 0;
+    background-image: none;
   }
 
   &:before {
@@ -56,6 +61,16 @@ const ItineraryWrapper = styled.div`
       margin-left: -2px;
     }
   }
+  ${({ isCutBottom }) =>
+    isCutBottom &&
+    `&:after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    height: 120px;
+    width: 100%;
+    background-image: linear-gradient(to top, #ffffff, rgba(255, 255, 255, 0));
+  }`};
 `;
 
 const StyledButton = styled(Button)`
@@ -65,6 +80,12 @@ const StyledButton = styled(Button)`
   @media (min-width: 1440px) {
     margin-top: 0;
   }
+`;
+
+const StyledLink = styled(ButtonLink)`
+  justify-self: start;
+  margin-left: 9px;
+  margin-top: 10px;
 `;
 
 const DropdownWrapper = styled.div`
@@ -130,46 +151,71 @@ const DropdownTitle = styled.div`
 const Itinerary = () => (
   <ItineraryProvider>
     <ItineraryContext.Consumer>
-      {({ state, changeDropdownValue }: Context) => (
-        <Wrapper>
-          <ItineraryWrapper>
-            <SectionTitle title="itineraryTitle" subtitle="itinerarySubTitle" />
-            <DropdownGroup>
-              <DropdownTitle>
-                <Text t="selectItinerary" />
-              </DropdownTitle>
-              <DropdownWrapperMobile>
-                <DropdownMobile
-                  onChange={(e: SyntheticEvent<HTMLSelectElement>) => {
-                    const { value } = e.currentTarget;
-                    changeDropdownValue(value);
-                    sendEvent("discoverTips", value);
-                  }}
+      {({
+        state: { dropdownValue, isCollapsed, isMobile },
+        changeDropdownValue,
+        showMore,
+      }: Context) => {
+        const isMobileCollapsed = isMobile && isCollapsed;
+        const items = data[dropdownValue];
+        const itemsDisplayed = isMobileCollapsed ? items.slice(0, 2) : items;
+        return (
+          <Wrapper>
+            <ItineraryWrapper isCutBottom={isMobileCollapsed}>
+              <SectionTitle title="itineraryTitle" subtitle="itinerarySubTitle" />
+              <DropdownGroup>
+                <DropdownTitle>
+                  <Text t="selectItinerary" />
+                </DropdownTitle>
+                <DropdownWrapperMobile>
+                  <DropdownMobile
+                    onChange={(e: SyntheticEvent<HTMLSelectElement>) => {
+                      const { value } = e.currentTarget;
+                      changeDropdownValue(value);
+                      sendEvent("discoverTips", value);
+                    }}
+                  >
+                    {dropdownData.map(item => renderDropdownItem(item))}
+                  </DropdownMobile>
+                </DropdownWrapperMobile>
+                <DropdownWrapper>
+                  <Dropdown onChange={changeDropdownValue} options={dropdownData} />
+                </DropdownWrapper>
+              </DropdownGroup>
+
+              <Fade>
+                {itemsDisplayed.map((itineraryItem, index) => (
+                  <ItineraryItem
+                    key={itineraryItem.id}
+                    item={itineraryItem}
+                    order={index}
+                    hasNoMargin={isMobileCollapsed && itemsDisplayed.length === index + 1}
+                  />
+                ))}
+              </Fade>
+            </ItineraryWrapper>
+            {isMobile &&
+              isCollapsed && (
+                <StyledLink
+                  type="secondary"
+                  icon={<ArrowDown color="secondary" />}
+                  onClick={() => showMore()}
                 >
-                  {dropdownData.map(item => renderDropdownItem(item))}
-                </DropdownMobile>
-              </DropdownWrapperMobile>
-              <DropdownWrapper>
-                <Dropdown onChange={changeDropdownValue} options={dropdownData} />
-              </DropdownWrapper>
-            </DropdownGroup>
-            <Fade>
-              {data[state.dropdownValue].map((itineraryItem, index) => (
-                <ItineraryItem key={itineraryItem.id} item={itineraryItem} order={index} />
-              ))}
-            </Fade>
-          </ItineraryWrapper>
-          <StyledButton
-            size="large"
-            onClick={() => {
-              scrollToElement("search");
-              sendEvent("startYourTrip");
-            }}
-          >
-            <Text t="startYourTripNow" />
-          </StyledButton>
-        </Wrapper>
-      )}
+                  <Text t="showMore" />
+                </StyledLink>
+              )}
+            <StyledButton
+              size="large"
+              onClick={() => {
+                scrollToElement("search");
+                sendEvent("startYourTrip");
+              }}
+            >
+              <Text t="startYourTripNow" />
+            </StyledButton>
+          </Wrapper>
+        );
+      }}
     </ItineraryContext.Consumer>
   </ItineraryProvider>
 );
