@@ -43,7 +43,7 @@ frontend:build:
     - *install_frontend
     - yarn update-translations:build
     - yarn update-translations
-    - yarn export
+    - yarn export:full
   cache:
     key: ${CI_COMMIT_REF_SLUG}-stopovers
     paths:
