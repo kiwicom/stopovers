@@ -82,9 +82,10 @@ export default class Index extends React.Component<Props, State> {
     const brandLanguage: BrandLanguage = filterBrandLanguage(brandLangsData, langId);
     const language = mapLanguage(brandLanguage.languages[langId], langInfos[langId]);
     const isServer = !!req;
-    const translationsUrl = `${isServer ? `http://localhost:3002` : ""}/static/locales/${
+    const translationsUrl = `${isServer ? `http://localhost:3000` : ""}/static/locales/${
       language.iso
     }.json`;
+    console.log("get", language);
     const translations = await fetch(translationsUrl).then(x => x.json());
     const fetched = {
       ...fetchedDefault,
@@ -94,6 +95,7 @@ export default class Index extends React.Component<Props, State> {
       translations,
       language,
       fetched,
+      langId,
     };
   }
 
@@ -107,7 +109,8 @@ export default class Index extends React.Component<Props, State> {
   }
 
   render() {
-    const { translations, language, fetched } = this.props;
+    const { translations, language, fetched, langId } = this.props;
+    console.log(langId);
     return (
       <Provider translations={this.state.areKeysShown ? {} : translations} language={language}>
         <FetchedProvider value={fetched}>
@@ -131,7 +134,7 @@ export default class Index extends React.Component<Props, State> {
           <Video />
         </Element>
         <Element name="search">
-          <Search langId={language && language.id} />
+          <Search langId={langId} />
         </Element>
         <Footer />
         <Banner />

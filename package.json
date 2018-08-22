@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "scripts": {
     "dev": "next",
-    "export": "yarn serve -p 3002 & next build && next export && kill $!",
+    "export": "yarn serve -p 3000 & next build && next export && kill $!",
     "start": "yarn serve out -p 3000",
     "test": "jest",
     "lint": "eslint .",
