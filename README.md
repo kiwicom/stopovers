@@ -16,6 +16,6 @@ now
 ## Export and run exported version
 
 ```bash
-yarn export:full
+yarn export
 yarn start
 ```

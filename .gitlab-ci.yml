@@ -8,7 +8,7 @@ stages:
 image: node:10.8
 
 .install_frontend: &install_frontend |
-    yarn
+  yarn
 
 # Install stage
 frontend install:
@@ -18,7 +18,7 @@ frontend install:
   cache:
     key: ${CI_COMMIT_REF_SLUG}-stopovers
     paths:
-    - node_modules/
+      - node_modules/
     policy: pull-push
   retry: 2
 
@@ -32,7 +32,7 @@ frontend:test:
   cache:
     key: ${CI_COMMIT_REF_SLUG}-stopovers
     paths:
-    - node_modules/
+      - node_modules/
     policy: pull
   retry: 2
 
@@ -43,11 +43,11 @@ frontend:build:
     - *install_frontend
     - yarn update-translations:build
     - yarn update-translations
-    - yarn export:full
+    - yarn export
   cache:
     key: ${CI_COMMIT_REF_SLUG}-stopovers
     paths:
-    - out/
+      - out/
 
 # Deploy dev stage
 frontend dev:deploy:
@@ -58,7 +58,7 @@ frontend dev:deploy:
   cache:
     key: ${CI_COMMIT_REF_SLUG}-stopovers
     paths:
-    - out/
+      - out/
   only:
     - master
 
@@ -71,6 +71,6 @@ frontend prod:deploy:
   cache:
     key: ${CI_COMMIT_REF_SLUG}-stopovers
     paths:
-    - out/
+      - out/
   only:
     - tags

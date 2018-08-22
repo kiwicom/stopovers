@@ -3,11 +3,8 @@
   "version": "1.0.0",
   "scripts": {
     "dev": "next",
-    "build": "next build",
-    "start:next": "next start",
+    "export": "yarn serve -p 3000 & next build && next export && kill $!",
     "start": "yarn serve out -p 3000",
-    "export": "next build && next export",
-    "export:full": "yarn serve -p 3000 & npm run export && kill $!",
     "test": "jest",
     "lint": "eslint .",
     "test-ci": "yarn lint && yarn typecheck",
