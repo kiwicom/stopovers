@@ -21,14 +21,10 @@ const Wrapper = styled.div`
   max-width: 1400px;
   margin: 0 auto;
   @media (min-width: 740px) {
-    margin: 0 20%;
-  }
-
-  @media (min-width: 1050px) {
-    margin: 0 25%;
+    width: 60%;
   }
   @media (min-width: 1440px) {
-    margin: 0 15%;
+    width: 70%;
   }
 `;
 
