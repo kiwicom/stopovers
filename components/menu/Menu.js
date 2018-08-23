@@ -8,6 +8,10 @@ import Router from "next/router";
 
 import { getCurrentUrlParams } from "../../etc/helpers";
 
+type Props = {
+  langId: ?string,
+};
+
 const Wrapper = styled.div`
   display: grid;
   grid-template-columns: 99px auto auto;
@@ -54,22 +58,7 @@ const Link = styled.a`
   }
 `;
 
-const links = [
-  {
-    id: 1,
-    title: "travel",
-    url: "https://www.kiwi.com/search",
-  },
-  { id: 2, title: "rooms", url: "https://rooms.kiwi.com" },
-  { id: 3, title: "cars", url: "https://cars.kiwi.com" },
-  {
-    id: 4,
-    title: "holidays",
-    url: "https://kiwicom.lastminute.com/flight-hotel",
-  },
-];
-
-const Menu = () => (
+const Menu = ({ langId }: Props) => (
   <Wrapper>
     <LogoWrapper>
       <a href="https://www.kiwi.com">
@@ -77,11 +66,33 @@ const Menu = () => (
       </a>
     </LogoWrapper>
     <Links>
-      {links.map(link => (
-        <Link href={link.url} key={link.id} target="_blank" rel="noopener noreferrer">
-          <Text t={link.title} />
-        </Link>
-      ))}
+      <Link href="https://www.kiwi.com/search" target="_blank" rel="noopener noreferrer">
+        <Text t="travel" />
+      </Link>
+
+      <Link
+        href={`https://rooms.kiwi.com?preflang=${langId}&adplat=headerlinks`}
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        <Text t="rooms" />
+      </Link>
+
+      <Link
+        href={`https://cars.kiwi.com?preflang=${langId}&adplat=headerlinks`}
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        <Text t="cars" />
+      </Link>
+
+      <Link
+        href="https://kiwicom.lastminute.com/flight-hotel"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        <Text t="holidays" />
+      </Link>
     </Links>
     <LanguageWrapper>
       <Language

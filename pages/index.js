@@ -113,7 +113,7 @@ export default class Index extends React.Component<Props, State> {
     return (
       <Provider translations={this.state.areKeysShown ? {} : translations} language={language}>
         <FetchedProvider value={fetched}>
-          <Menu />
+          <Menu langId={langId} />
         </FetchedProvider>
         <Hero />
         <StickyAction />
