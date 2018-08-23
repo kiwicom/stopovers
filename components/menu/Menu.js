@@ -10,7 +10,7 @@ import { getCurrentUrlParams } from "../../etc/helpers";
 
 const Wrapper = styled.div`
   display: grid;
-  grid-template-columns: 99px 1fr auto;
+  grid-template-columns: 99px auto auto;
   height: 50px;
   align-items: center;
   padding-left: 10px;
@@ -28,7 +28,8 @@ const Logo = styled.img`
 
 const LanguageWrapper = styled.div`
   justify-self: end;
-  padding-right: 10px;
+  padding-right: 5px;
+  padding-left: 5px;
   @media (min-width: 740px) {
     padding-right: 40px;
   }
@@ -38,6 +39,8 @@ const Links = styled.div`
   display: flex;
   flex-direction: row;
   align-items: center;
+  overflow-x: scroll;
+  height: 100%;
 `;
 
 const Link = styled.a`
