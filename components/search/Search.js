@@ -45,7 +45,7 @@ const generateScript = (langId: ?string) => {
   const { from, to } = getCurrentUrlParams();
   const userId = getUserId();
   const script = document.createElement("script");
-  script.src = "https://widget-multi-ui.fe.staging.kiwi.com/scripts/widget-stopover-iframe.js";
+  script.src = "https://widget.kiwi.com/scripts/widget-stopover-iframe.js";
   script.setAttribute("data-width", "100%");
   script.setAttribute("data-stopover-location", "dubai_ae,DWC,DXB,SHJ");
   script.setAttribute("data-lang", langId || "en");
