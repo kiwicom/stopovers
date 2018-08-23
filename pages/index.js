@@ -133,7 +133,7 @@ export default class Index extends React.Component<Props, State> {
           <Video />
         </Element>
         <Element name="search">
-          <Search langId={langId} key={langId} />
+          <Search langId={langId} />
         </Element>
         <Footer />
         <Banner />
