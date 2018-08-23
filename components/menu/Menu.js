@@ -71,7 +71,7 @@ const Menu = ({ langId }: Props) => (
       </Link>
 
       <Link
-        href={`https://rooms.kiwi.com?preflang=${langId}&adplat=headerlinks`}
+        href={`https://rooms.kiwi.com?${langId ? `preflang=${langId}&` : ""}adplat=headerlinks`}
         target="_blank"
         rel="noopener noreferrer"
       >
@@ -79,7 +79,7 @@ const Menu = ({ langId }: Props) => (
       </Link>
 
       <Link
-        href={`https://cars.kiwi.com?preflang=${langId}&adplat=headerlinks`}
+        href={`https://cars.kiwi.com?${langId ? `preflang=${langId}&` : ""}adplat=headerlinks`}
         target="_blank"
         rel="noopener noreferrer"
       >
