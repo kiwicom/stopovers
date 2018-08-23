@@ -41,22 +41,39 @@ type Props = {
   langId: ?string,
 };
 
+const generateScript = (langId: ?string) => {
+  const { from, to } = getCurrentUrlParams();
+  const userId = getUserId();
+  const script = document.createElement("script");
+  script.src = "https://widget-multi-ui.fe.staging.kiwi.com/scripts/widget-stopover-iframe.js";
+  script.setAttribute("data-width", "100%");
+  script.setAttribute("data-stopover-location", "dubai_ae,DWC,DXB,SHJ");
+  script.setAttribute("data-lang", langId || "en");
+  script.setAttribute("data-from", from || "");
+  script.setAttribute("data-to", to || "");
+  script.setAttribute("data-hide-cookie-banner", "true");
+  script.setAttribute("data-user-id", userId);
+  return script;
+};
+
 class Search extends React.Component<Props> {
   script: HTMLScriptElement;
 
   componentDidMount() {
     const { langId } = this.props;
-    const { from, to } = getCurrentUrlParams();
-    const userId = getUserId();
-    const script = document.createElement("script");
-    script.src = "https://widget-multi-ui.fe.staging.kiwi.com/scripts/widget-stopover-iframe.js";
-    script.setAttribute("data-width", "100%");
-    script.setAttribute("data-stopover-location", "dubai_ae,DWC,DXB,SHJ");
-    script.setAttribute("data-lang", langId || "en");
-    script.setAttribute("data-from", from || "");
-    script.setAttribute("data-to", to || "");
-    script.setAttribute("data-hide-cookie-banner", "true");
-    script.setAttribute("data-user-id", userId);
+    const script = generateScript(langId);
+    if (document.head) {
+      document.head.appendChild(script);
+    }
+    this.script = script;
+  }
+
+  componentDidUpdate() {
+    if (document.head) {
+      document.head.removeChild(this.script);
+    }
+    const { langId } = this.props;
+    const script = generateScript(langId);
     if (document.head) {
       document.head.appendChild(script);
     }
