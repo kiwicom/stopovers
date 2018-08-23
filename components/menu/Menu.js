@@ -39,8 +39,8 @@ const Links = styled.div`
   display: flex;
   flex-direction: row;
   align-items: center;
-  overflow-x: scroll;
   height: 100%;
+  overflow-x: auto;
 `;
 
 const Link = styled.a`
