@@ -70,11 +70,14 @@ const ItineraryWrapper = styled.div`
 `;
 
 const StyledButton = styled(Button)`
-  margin-top: 40px;
   justify-self: center;
-
+  margin-top: 35px;
+  @media (min-width: 740px) {
+    margin-bottom: 40px;
+  }
   @media (min-width: 1440px) {
     margin-top: 0;
+    margin-bottom: 0;
   }
 `;
 
@@ -185,7 +188,7 @@ const Itinerary = () => (
                     key={itineraryItem.id}
                     item={itineraryItem}
                     order={index}
-                    hasNoMargin={isMobileCollapsed && itemsDisplayed.length === index + 1}
+                    hasNoMargin={isMobile && itemsDisplayed.length === index + 1}
                   />
                 ))}
               </Fade>
