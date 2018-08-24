@@ -26,10 +26,15 @@ module.exports = {
   useFileSystemPublicRoutes: process.env.NODE_ENV !== "production",
   exportPathMap() {
     const usedLangIds = ["en", "cz", "ro", "hu", "es", "fr", "de", "ru", "it"];
-    const allLangs = Object.values(langsData).map(({ id, fallback }) => ({ id, fallback }));
+    const allLangs = Object.values(langsData).map(({ id, phraseApp, iso }) => ({
+      id,
+      phraseApp,
+      iso,
+    }));
     return allLangs.reduce((mapping, lang) => {
-      const fallback = lang.fallback === "es-ES" ? "es" : "en";
-      const translateTo = usedLangIds.includes(lang.id) ? lang.id : fallback;
+      const fallbackLang = allLangs.find(fb => fb.iso === lang.phraseApp);
+      const fallbackId = (fallbackLang && fallbackLang.id) || "en";
+      const translateTo = usedLangIds.includes(lang.id) ? lang.id : fallbackId;
       return {
         ...mapping,
         [`/${lang.id}/stopovers/dubai`]: { page: "/", query: { lang: translateTo } },
