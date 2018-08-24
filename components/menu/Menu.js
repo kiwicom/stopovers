@@ -2,9 +2,9 @@
 
 import * as React from "react";
 import styled from "styled-components";
-import Text from "@kiwicom/nitro/lib/components/Text";
 import Language from "@kiwicom/nitro/lib/components/Language";
 import Router from "next/router";
+import HeaderLinks from "@kiwicom/nitro/lib/components/HeaderLinks";
 
 import { getCurrentUrlParams, UTM_PARAMS } from "../../etc/helpers";
 
@@ -39,25 +39,6 @@ const LanguageWrapper = styled.div`
   }
 `;
 
-const Links = styled.div`
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  height: 100%;
-  overflow-x: auto;
-`;
-
-const Link = styled.a`
-  font-size: 12px;
-  color: #46515e;
-  text-decoration: none;
-  margin-right: 10px;
-  @media (min-width: 740px) {
-    margin-right: 0;
-    margin-left: 20px;
-  }
-`;
-
 const Menu = ({ langId }: Props) => (
   <Wrapper>
     <LogoWrapper>
@@ -65,39 +46,17 @@ const Menu = ({ langId }: Props) => (
         <Logo src="/static/images/logo-menu.svg" alt="kiwicom logo" />
       </a>
     </LogoWrapper>
-    <Links>
-      <Link
-        href={`https://www.kiwi.com/${langId || "en"}/searchDeep${UTM_PARAMS}&pageName=search`}
-        target="_blank"
-        rel="noopener noreferrer"
-      >
-        <Text t="travel" />
-      </Link>
+    <HeaderLinks
+      linkFlights={`https://www.kiwi.com/${langId || "en"}/searchDeep${UTM_PARAMS}&pageName=search`}
+      linkRooms={`https://rooms.kiwi.com/${UTM_PARAMS}${
+        langId ? `&preflang=${langId}` : ""
+      }&adplat=headerlinks`}
+      linkCars={`https://cars.kiwi.com/${UTM_PARAMS}${
+        langId ? `&preflang=${langId}` : ""
+      }&adplat=headerlinks`}
+      linkHolidays={`https://kiwicom.lastminute.com/flight-hotel/${UTM_PARAMS}`}
+    />
 
-      <Link
-        href={`https://rooms.kiwi.com/?${langId ? `preflang=${langId}&` : ""}adplat=headerlinks`}
-        target="_blank"
-        rel="noopener noreferrer"
-      >
-        <Text t="rooms" />
-      </Link>
-
-      <Link
-        href={`https://cars.kiwi.com/?${langId ? `preflang=${langId}&` : ""}adplat=headerlinks`}
-        target="_blank"
-        rel="noopener noreferrer"
-      >
-        <Text t="cars" />
-      </Link>
-
-      <Link
-        href={`https://kiwicom.lastminute.com/flight-hotel/${UTM_PARAMS}`}
-        target="_blank"
-        rel="noopener noreferrer"
-      >
-        <Text t="holidays" />
-      </Link>
-    </Links>
     <LanguageWrapper>
       <Language
         flat
