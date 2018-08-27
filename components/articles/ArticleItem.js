@@ -56,8 +56,12 @@ const Title = styled.h3`
   font-size: 24px;
   line-height: 1.2;
   font-weight: 300;
-  color: #46515e;
   margin-bottom: 16px;
+`;
+
+const TitleLink = styled.a`
+  color: #46515e;
+  text-decoration: none;
 `;
 
 const Description = styled.p`
@@ -78,7 +82,18 @@ const ArticleItem = ({ article }: Props) => (
   <Article>
     <ArticleThumbnail src={article.imageUrl} />
     <ArticleTextWrapper>
-      <Title>{article.title}</Title>
+      <Title>
+        <TitleLink
+          onClick={() => {
+            sendEvent("goToStories", article.linkUrl);
+          }}
+          href={article.linkUrl}
+          target="_blank"
+          rel="noopener"
+        >
+          {article.title}
+        </TitleLink>
+      </Title>
       <Description>{article.description}</Description>
     </ArticleTextWrapper>
 
