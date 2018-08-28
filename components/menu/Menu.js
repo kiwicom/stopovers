@@ -60,6 +60,7 @@ const Menu = ({ langId }: Props) => (
     <LanguageWrapper>
       <Language
         flat
+        native
         onChange={lang => {
           const currentParams = getCurrentUrlParams();
           // eslint-disable-next-line fp/no-mutating-methods
