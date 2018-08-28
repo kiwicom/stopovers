@@ -10,6 +10,7 @@ import { getCurrentUrlParams, UTM_PARAMS } from "../../etc/helpers";
 
 type Props = {
   langId: ?string,
+  isMobile: boolean,
 };
 
 const Wrapper = styled.div`
@@ -39,7 +40,7 @@ const LanguageWrapper = styled.div`
   }
 `;
 
-const Menu = ({ langId }: Props) => (
+const Menu = ({ langId, isMobile }: Props) => (
   <Wrapper>
     <LogoWrapper>
       <a href={`https://www.kiwi.com/${langId || "en"}/${UTM_PARAMS}`}>
@@ -60,7 +61,7 @@ const Menu = ({ langId }: Props) => (
     <LanguageWrapper>
       <Language
         flat
-        native
+        native={isMobile}
         onChange={lang => {
           const currentParams = getCurrentUrlParams();
           // eslint-disable-next-line fp/no-mutating-methods
