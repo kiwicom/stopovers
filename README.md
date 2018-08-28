@@ -2,20 +2,14 @@
 
 ## Install it and run:
 
-```bash
-yarn
-yarn dev
 ```
-
-Deploy it to the cloud with [now](https://zeit.co/now)
-
-```bash
-now
+$ yarn
+$ yarn dev
 ```
 
 ## Export and run exported version
 
-```bash
-yarn export
-yarn start
+```
+$ yarn export
+$ yarn start
 ```

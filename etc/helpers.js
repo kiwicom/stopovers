@@ -9,6 +9,8 @@ import cookies from "js-cookie";
 
 export const usedLangIds = ["en", "cz", "ro", "hu", "es", "fr", "de", "ru", "it"];
 
+export const UTM_PARAMS = process.env.UTM_PARAMS ? `?${process.env.UTM_PARAMS}` : "";
+
 export function filterLanguages(langsData: LangInfos) {
   return pick(langsData, usedLangIds);
 }

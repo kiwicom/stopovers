@@ -14,8 +14,7 @@
     "typecheck": "flow check",
     "update-translations": "node dist/updateTranslations.js",
     "update-translations:build": "babel scripts --ignore __tests__,__test__,__mocks__ --out-dir dist/",
-    "update-translations:dev": "nodemon scripts/updateTranslations.js --exec babel-node",
-    "deploy": "now -t ${NOW_TOKEN}"
+    "update-translations:dev": "nodemon scripts/updateTranslations.js --exec babel-node"
   },
   "dependencies": {
     "@kiwicom/nitro": "^0.12.1",

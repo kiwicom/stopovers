@@ -5,6 +5,8 @@ import styled from "styled-components";
 import { Linkedin, Twitter, Instagram, Facebook } from "@kiwicom/orbit-components/lib/icons";
 import Text from "@kiwicom/nitro/lib/components/Text";
 
+import { UTM_PARAMS } from "../../etc/helpers";
+
 const Wrapper = styled.div`
   display: grid;
   grid-template-rows: 120px 1fr 90px;
@@ -97,40 +99,52 @@ const links = [
   {
     id: 1,
     title: "termsAndConditions",
-    url: "https://www.kiwi.com/en/pages/content/legal",
+    url: `https://www.kiwi.com/en/pages/content/legal/${UTM_PARAMS}`,
   },
-  { id: 2, title: "termsOfUse", url: "https://www.kiwi.com/en/pages/content/terms" },
-  { id: 3, title: "privacyPolicy", url: "https://www.kiwi.com/en/content/privacy" },
-  { id: 4, title: "security", url: "https://www.kiwi.com/en/pages/security" },
+  {
+    id: 2,
+    title: "termsOfUse",
+    url: `https://www.kiwi.com/en/pages/content/terms/${UTM_PARAMS}`,
+  },
+  {
+    id: 3,
+    title: "privacyPolicy",
+    url: `https://www.kiwi.com/en/content/privacy/${UTM_PARAMS}`,
+  },
+  {
+    id: 4,
+    title: "security",
+    url: `https://www.kiwi.com/en/pages/security/${UTM_PARAMS}`,
+  },
 ];
 
 const icons = [
   {
     id: 1,
     component: <Instagram />,
-    url: "https://www.instagram.com/kiwicom247/",
+    url: `https://www.instagram.com/kiwicom247/${UTM_PARAMS}`,
   },
   {
     id: 2,
     component: <Twitter />,
-    url: "https://twitter.com/kiwicom247",
+    url: `htts://twitter.com/kiwipcom247/${UTM_PARAMS}`,
   },
   {
     id: 3,
     component: <Linkedin />,
-    url: "https://www.linkedin.com/company/Kiwi.com",
+    url: `https://www.linkedin.com/company/Kiwi.com/${UTM_PARAMS}`,
   },
   {
     id: 4,
     component: <Facebook />,
-    url: "https://www.facebook.com/kiwicom247",
+    url: `https://www.facebook.com/kiwicom247/${UTM_PARAMS}`,
   },
 ];
 
 const Footer = () => (
   <Wrapper>
     <LogoWrapper>
-      <a href="https://kiwi.com">
+      <a href={`https://kiwi.com/${UTM_PARAMS}`}>
         <Logo src="/static/images/logo.svg" alt="Kiwi.com" />
       </a>
     </LogoWrapper>
