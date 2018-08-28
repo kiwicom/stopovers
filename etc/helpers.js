@@ -35,7 +35,12 @@ export function parseQuery(queryString: string): Object {
   return pairs.reduce((query, pair) => {
     const parts = pair.split("=");
     if (parts[0] !== "") {
-      return { ...query, [decodeURIComponent(parts[0])]: decodeURIComponent(parts[1] || "") };
+      const key = decodeURIComponent(parts[0]);
+
+      return {
+        ...query,
+        [key === "return" ? "returnDate" : key]: decodeURIComponent(parts[1] || ""),
+      };
     }
     return query;
   }, {});

@@ -42,7 +42,7 @@ type Props = {
 };
 
 const generateScript = (langId: ?string) => {
-  const { from, to } = getCurrentUrlParams();
+  const { from, to, passengers, departure, returnDate } = getCurrentUrlParams();
   const userId = getUserId();
   const script = document.createElement("script");
   script.src = "https://widget.kiwi.com/scripts/widget-stopover-iframe.js";
@@ -51,8 +51,12 @@ const generateScript = (langId: ?string) => {
   script.setAttribute("data-lang", langId || "en");
   script.setAttribute("data-from", from || "");
   script.setAttribute("data-to", to || "");
+  script.setAttribute("data-passengers", passengers || "1");
+  script.setAttribute("data-departure", departure || "anytime");
+  script.setAttribute("data-return", returnDate || "anytime");
   script.setAttribute("data-hide-cookie-banner", "true");
   script.setAttribute("data-user-id", userId);
+
   return script;
 };
 
