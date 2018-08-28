@@ -6,7 +6,7 @@ import Text from "@kiwicom/nitro/lib/components/Text";
 import Language from "@kiwicom/nitro/lib/components/Language";
 import Router from "next/router";
 
-import { getCurrentUrlParams } from "../../etc/helpers";
+import { getCurrentUrlParams, UTM_PARAMS } from "../../etc/helpers";
 
 type Props = {
   langId: ?string,
@@ -61,17 +61,21 @@ const Link = styled.a`
 const Menu = ({ langId }: Props) => (
   <Wrapper>
     <LogoWrapper>
-      <a href="https://www.kiwi.com">
+      <a href={`https://www.kiwi.com/${UTM_PARAMS}`}>
         <Logo src="/static/images/logo-menu.svg" alt="kiwicom logo" />
       </a>
     </LogoWrapper>
     <Links>
-      <Link href="https://www.kiwi.com/search" target="_blank" rel="noopener noreferrer">
+      <Link
+        href={`https://www.kiwi.com/search/${UTM_PARAMS}`}
+        target="_blank"
+        rel="noopener noreferrer"
+      >
         <Text t="travel" />
       </Link>
 
       <Link
-        href={`https://rooms.kiwi.com?${langId ? `preflang=${langId}&` : ""}adplat=headerlinks`}
+        href={`https://rooms.kiwi.com/?${langId ? `preflang=${langId}&` : ""}adplat=headerlinks`}
         target="_blank"
         rel="noopener noreferrer"
       >
@@ -79,7 +83,7 @@ const Menu = ({ langId }: Props) => (
       </Link>
 
       <Link
-        href={`https://cars.kiwi.com?${langId ? `preflang=${langId}&` : ""}adplat=headerlinks`}
+        href={`https://cars.kiwi.com/?${langId ? `preflang=${langId}&` : ""}adplat=headerlinks`}
         target="_blank"
         rel="noopener noreferrer"
       >
@@ -87,7 +91,7 @@ const Menu = ({ langId }: Props) => (
       </Link>
 
       <Link
-        href="https://kiwicom.lastminute.com/flight-hotel"
+        href={`https://kiwicom.lastminute.com/flight-hotel/${UTM_PARAMS}`}
         target="_blank"
         rel="noopener noreferrer"
       >
