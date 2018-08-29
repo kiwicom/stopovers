@@ -49,6 +49,7 @@ const Menu = ({ langId, isMobile }: Props) => (
     </LogoWrapper>
     <HeaderLinks
       linkFlights={`https://www.kiwi.com/${langId || "en"}/searchDeep${UTM_PARAMS}&pageName=search`}
+      forceNewWindow
       linkRooms={`https://rooms.kiwi.com/${UTM_PARAMS}${
         langId ? `&preflang=${langId}` : ""
       }&adplat=headerlinks`}
