@@ -95,28 +95,31 @@ const Icons = styled.div`
   }
 `;
 
-const links = [
-  {
-    id: 1,
-    title: "termsAndConditions",
-    url: `https://www.kiwi.com/en/pages/content/legal/${UTM_PARAMS}`,
-  },
-  {
-    id: 2,
-    title: "termsOfUse",
-    url: `https://www.kiwi.com/en/pages/content/terms/${UTM_PARAMS}`,
-  },
-  {
-    id: 3,
-    title: "privacyPolicy",
-    url: `https://www.kiwi.com/en/content/privacy/${UTM_PARAMS}`,
-  },
-  {
-    id: 4,
-    title: "security",
-    url: `https://www.kiwi.com/en/pages/security/${UTM_PARAMS}`,
-  },
-];
+const prepareLinks = (langId: ?string) => {
+  const lang = langId || "en";
+  return [
+    {
+      id: 1,
+      title: "termsAndConditions",
+      url: `https://www.kiwi.com/${lang}/pages/content/legal/${UTM_PARAMS}`,
+    },
+    {
+      id: 2,
+      title: "termsOfUse",
+      url: `https://www.kiwi.com/${lang}/pages/content/terms/${UTM_PARAMS}`,
+    },
+    {
+      id: 3,
+      title: "privacyPolicy",
+      url: `https://www.kiwi.com/${lang}/content/privacy/${UTM_PARAMS}`,
+    },
+    {
+      id: 4,
+      title: "security",
+      url: `https://www.kiwi.com/${lang}/pages/security/${UTM_PARAMS}`,
+    },
+  ];
+};
 
 const icons = [
   {
@@ -141,15 +144,19 @@ const icons = [
   },
 ];
 
-const Footer = () => (
+type Props = {
+  langId: ?string,
+};
+
+const Footer = ({ langId }: Props) => (
   <Wrapper>
     <LogoWrapper>
-      <a href={`https://kiwi.com/${UTM_PARAMS}`}>
+      <a href={`https://www.kiwi.com/${langId || "en"}/${UTM_PARAMS}`}>
         <Logo src="/static/images/logo.svg" alt="Kiwi.com" />
       </a>
     </LogoWrapper>
     <LinkWrapper>
-      {links.map(link => (
+      {prepareLinks(langId).map(link => (
         <Link href={link.url} key={link.id} target="_blank" rel="noopener noreferrer">
           <Text t={link.title} />
         </Link>
