@@ -42,7 +42,7 @@ const ActionButton = styled.button`
 `;
 
 const Action = () => (
-  <>
+  <React.Fragment>
     <ActionButton
       onClick={() => {
         scrollToElement("slider");
@@ -54,7 +54,7 @@ const Action = () => (
     <ActionText>
       <Text t="saveOnTrip" />
     </ActionText>
-  </>
+  </React.Fragment>
 );
 
 export default Action;
