@@ -61,13 +61,13 @@ const Link = styled.a`
 const Menu = ({ langId }: Props) => (
   <Wrapper>
     <LogoWrapper>
-      <a href={`https://www.kiwi.com/${UTM_PARAMS}`}>
+      <a href={`https://www.kiwi.com/${langId || "en"}/${UTM_PARAMS}`}>
         <Logo src="/static/images/logo-menu.svg" alt="kiwicom logo" />
       </a>
     </LogoWrapper>
     <Links>
       <Link
-        href={`https://www.kiwi.com/search/${UTM_PARAMS}`}
+        href={`https://www.kiwi.com/${langId || "en"}/${UTM_PARAMS}`}
         target="_blank"
         rel="noopener noreferrer"
       >

@@ -135,7 +135,7 @@ export default class Index extends React.Component<Props, State> {
         <Element name="search">
           <Search langId={langId} />
         </Element>
-        <Footer />
+        <Footer langId={langId} />
         <Banner />
       </Provider>
     );
