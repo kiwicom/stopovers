@@ -67,7 +67,7 @@ const Menu = ({ langId }: Props) => (
     </LogoWrapper>
     <Links>
       <Link
-        href={`https://www.kiwi.com/${langId || "en"}/${UTM_PARAMS}`}
+        href={`https://www.kiwi.com/${langId || "en"}/searchDeep${UTM_PARAMS}&pageName=search`}
         target="_blank"
         rel="noopener noreferrer"
       >
