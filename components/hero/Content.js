@@ -84,7 +84,7 @@ const AirplaneWrapper = styled.div`
 `;
 
 const Content = () => (
-  <>
+  <React.Fragment>
     <MainTitle>
       <Text t="startYourVacation" />
     </MainTitle>
@@ -97,7 +97,7 @@ const Content = () => (
     <ActionWrapper>
       <Action />
     </ActionWrapper>
-  </>
+  </React.Fragment>
 );
 
 export default Content;
