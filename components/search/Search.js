@@ -52,8 +52,8 @@ const generateScript = (langId: ?string) => {
   script.setAttribute("data-from", from || "");
   script.setAttribute("data-to", to || "");
   script.setAttribute("data-passengers", passengers || "1");
-  script.setAttribute("data-departure", departure || "anytime");
-  script.setAttribute("data-return", returnDate || "anytime");
+  script.setAttribute("data-departure", departure || "");
+  script.setAttribute("data-return", returnDate || "");
   script.setAttribute("data-hide-cookie-banner", "true");
   script.setAttribute("data-user-id", userId);
 
