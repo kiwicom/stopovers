@@ -457,6 +457,1186 @@ exports[`Storyshots Hero full render 1`] = `
 </div>
 `;
 
+exports[`Storyshots Itinerary full render 1`] = `
+.c16 {
+  color: #46515e;
+  font-size: 16px;
+  font-weight: 300;
+  line-height: 1.5;
+}
+
+.c21 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  margin-right: 12px;
+}
+
+.c21 > * {
+  width: 24px;
+  height: 24px;
+}
+
+.c20 {
+  font-family: "Roboto",-apple-system,".SFNSText-Regular","San Francisco","Segoe UI","Helvetica Neue","Lucida Grande",sans-serif;
+  box-sizing: border-box;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  display: -webkit-inline-box;
+  display: -webkit-inline-flex;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  width: auto;
+  height: 44px;
+  background: transparent;
+  color: #46515e!important;
+  border: 0;
+  border-radius: 3px;
+  padding: 0 16px 0 8px;
+  font-weight: 700!important;
+  font-size: 14px;
+  cursor: pointer;
+  opacity: 1;
+  -webkit-transition: all 0.15s ease-in-out !important;
+  transition: all 0.15s ease-in-out !important;
+  outline: 0;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+}
+
+.c20:enabled:hover {
+  background: #e5eaef;
+  color: #3f4854!important;
+}
+
+.c20:enabled:active {
+  -webkit-transform: scale(0.95);
+  -ms-transform: scale(0.95);
+  transform: scale(0.95);
+  background: #e5eaef;
+  color: #38404b!important;
+}
+
+.c23 {
+  box-sizing: border-box;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  width: auto;
+  height: 52px;
+  background: #00a991;
+  color: #fff!important;
+  border: 0;
+  border-radius: 3px;
+  padding: 0 28px 0 28px;
+  font-weight: 700!important;
+  font-size: 16px;
+  cursor: pointer;
+  -webkit-transition: all 0.15s ease-in-out !important;
+  transition: all 0.15s ease-in-out !important;
+  outline: 0;
+}
+
+.c23:hover {
+  background: #009882;
+  color: #fff!important;
+}
+
+.c23:hover .c24 {
+  color: #fff;
+}
+
+.c23:active {
+  -webkit-transform: scale(0.95);
+  -ms-transform: scale(0.95);
+  transform: scale(0.95);
+  background: #008f7b;
+  color: #fff!important;
+}
+
+.c23:active .c24 {
+  color: #fff;
+}
+
+.c12 {
+  width: calc(100% - 96px);
+  margin-left: 64px;
+  margin-right: 16px;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  padding-top: 20px;
+}
+
+.c18 {
+  width: calc(100% - 96px);
+  margin-left: 64px;
+  margin-right: 16px;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  padding-top: 20px;
+}
+
+.c14 {
+  color: #7f91a8;
+  font-size: 16px;
+  margin-bottom: 3px;
+}
+
+.c15 {
+  font-size: 20px;
+  color: #7f91a8;
+  font-weight: 500;
+  margin-bottom: 16px;
+}
+
+.c13 {
+  position: absolute;
+  left: 1px;
+  margin-top: 10px;
+  border-radius: 50%;
+  height: 16px;
+  width: 16px;
+  background: #00a991;
+  box-shadow: 0px 0px 0px 6px #b2e5de;
+  margin-left: 20px;
+}
+
+.c10 {
+  position: relative;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  -webkit-flex-wrap: wrap;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+  margin-bottom: 20px;
+}
+
+.c17 {
+  position: relative;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  -webkit-flex-wrap: wrap;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+  margin-bottom: 0px;
+}
+
+.c11 {
+  width: 100%;
+  height: 100%;
+  border-radius: 5px;
+  box-shadow: 0 4px 12px rgba(23,37,30,0.15);
+}
+
+.c2 {
+  padding: 32px 20px;
+}
+
+.c3 {
+  font-size: 30px;
+  text-align: center;
+  line-height: 1.2;
+  color: #46515e;
+  font-weight: 300;
+  margin: 0 0 4px;
+}
+
+.c4 {
+  font-size: 16px;
+  text-align: center;
+  line-height: 1.2;
+  color: #46515e;
+  font-weight: 300;
+  margin: 0;
+  padding: 3px 0;
+}
+
+.c8 {
+  border-radius: 3px;
+  background-color: #ffffff;
+  border: solid 1px #bac7d5;
+  font-size: 16px;
+  font-weight: 500;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  padding: 15px 50px 15px 20px;
+  font-family: Roboto;
+}
+
+.c8:focus {
+  outline: none;
+}
+
+.c0 {
+  display: grid;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.c1 {
+  display: grid;
+  position: relative;
+  padding-bottom: 0;
+  padding-top: 40px;
+  justify-items: center;
+}
+
+.c1:before {
+  content: "";
+  position: absolute;
+  top: 300px;
+  left: 28px;
+  height: calc(100% - 300px);
+  width: 2px;
+  background: #e8e8e8;
+}
+
+.c1:after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  height: 120px;
+  width: 100%;
+  background-image: linear-gradient(to top,#ffffff,rgba(255,255,255,0));
+}
+
+.c22 {
+  justify-self: center;
+  margin-top: 35px;
+}
+
+.c19 {
+  justify-self: start;
+  margin-left: 9px;
+  margin-top: 10px;
+}
+
+.c9 {
+  display: none;
+}
+
+.c7 {
+  position: relative;
+  margin-bottom: 46px;
+}
+
+.c7:after {
+  content: "";
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  z-index: 5;
+  -webkit-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  transform: rotate(45deg);
+  border: solid #7f91a8;
+  border-width: 0 3px 3px 0;
+  display: inline-block;
+  padding: 3px;
+}
+
+.c5 {
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1fr;
+  place-items: center;
+  grid-gap: 10px;
+}
+
+.c6 {
+  font-size: 16px;
+  font-weight: 300;
+  line-height: 1.5;
+  color: #46515e;
+}
+
+@media (min-width:1440px) {
+  .c16 {
+    font-size: 20px;
+  }
+}
+
+@media (min-width:740px) {
+  .c12 {
+    margin-top: 20px;
+  }
+}
+
+@media only screen and (min-width:1440px) {
+  .c12 {
+    margin: 0 80px;
+    width: calc(50% - 70px);
+    margin: 0;
+    padding-top: 40px;
+    -webkit-order: -1;
+    -ms-flex-order: -1;
+    order: -1;
+    -webkit-align-items: flex-end;
+    -webkit-box-align: flex-end;
+    -ms-flex-align: flex-end;
+    align-items: flex-end;
+  }
+}
+
+@media (min-width:740px) {
+  .c18 {
+    margin-top: 20px;
+  }
+}
+
+@media only screen and (min-width:1440px) {
+  .c18 {
+    margin: 0 80px;
+    width: calc(50% - 70px);
+    margin: 0;
+    padding-top: 40px;
+    -webkit-order: 1;
+    -ms-flex-order: 1;
+    order: 1;
+    -webkit-align-items: flex-start;
+    -webkit-box-align: flex-start;
+    -ms-flex-align: flex-start;
+    align-items: flex-start;
+  }
+}
+
+@media (min-width:1440px) {
+  .c13 {
+    margin-top: 0;
+    left: 50%;
+    margin-left: -9px;
+    top: 50px;
+  }
+}
+
+@media (min-width:740px) {
+  .c10 {
+    margin-bottom: 40px;
+  }
+}
+
+@media (min-width:1440px) {
+  .c10 {
+    -webkit-flex-wrap: nowrap;
+    -ms-flex-wrap: nowrap;
+    flex-wrap: nowrap;
+    -webkit-align-items: flex-start;
+    -webkit-box-align: flex-start;
+    -ms-flex-align: flex-start;
+    align-items: flex-start;
+    -webkit-box-pack: justify;
+    -webkit-justify-content: space-between;
+    -ms-flex-pack: justify;
+    justify-content: space-between;
+  }
+}
+
+@media (min-width:740px) {
+  .c17 {
+    margin-bottom: 0px;
+  }
+}
+
+@media (min-width:1440px) {
+  .c17 {
+    -webkit-flex-wrap: nowrap;
+    -ms-flex-wrap: nowrap;
+    flex-wrap: nowrap;
+    -webkit-align-items: flex-start;
+    -webkit-box-align: flex-start;
+    -ms-flex-align: flex-start;
+    align-items: flex-start;
+    -webkit-box-pack: justify;
+    -webkit-justify-content: space-between;
+    -ms-flex-pack: justify;
+    justify-content: space-between;
+  }
+}
+
+@media (min-width:1440px) {
+  .c11 {
+    width: calc(50% - 70px);
+    margin: 0;
+  }
+}
+
+@media (min-width:1440px) {
+  .c2 {
+    padding: 80px 0;
+  }
+}
+
+@media (min-width:1440px) {
+  .c3 {
+    font-size: 38px;
+    padding: 2px 0;
+    margin: 0 0 10px;
+  }
+}
+
+@media (min-width:1440px) {
+  .c4 {
+    font-size: 24px;
+  }
+}
+
+@media (min-width:740px) {
+  .c0 {
+    width: 60%;
+  }
+}
+
+@media (min-width:1440px) {
+  .c0 {
+    width: 70%;
+  }
+}
+
+@media (min-width:1440px) {
+  .c1 {
+    padding-bottom: 60px;
+    padding-top: 0;
+    background-image: none;
+  }
+}
+
+@media (min-width:1440px) {
+  .c1:before {
+    left: 50%;
+    margin-left: -2px;
+  }
+}
+
+@media (min-width:740px) {
+  .c22 {
+    margin-bottom: 40px;
+  }
+}
+
+@media (min-width:1440px) {
+  .c22 {
+    margin-top: 0;
+    margin-bottom: 0;
+  }
+}
+
+@media (min-width:1440px) {
+  .c9 {
+    position: relative;
+    display: block;
+    width: 100%;
+  }
+}
+
+@media (min-width:1440px) {
+  .c7 {
+    display: none;
+  }
+}
+
+@media (min-width:1440px) {
+  .c5 {
+    grid-gap: 25px;
+    grid-template-columns: 1fr 26% 1fr;
+    margin-top: -50px;
+    margin-bottom: 46px;
+  }
+}
+
+@media (min-width:1440px) {
+  .c6 {
+    margin-bottom: 0;
+    width: 100%;
+    text-align: right;
+  }
+}
+
+<div
+  className="c0"
+>
+  <div
+    className="c1"
+  >
+    <div
+      className="c2"
+    >
+      <h2
+        className="c3"
+      >
+        itineraryTitle
+      </h2>
+      <h3
+        className="c4"
+      >
+        itinerarySubTitle
+      </h3>
+    </div>
+    <div
+      className="c5"
+    >
+      <div
+        className="c6"
+      >
+        selectItinerary
+      </div>
+      <div
+        className="c7"
+      >
+        <select
+          className="c8"
+          onChange={[Function]}
+        >
+          <option
+            value="shoppingOnTheGo"
+          >
+            shoppingOnTheGo
+          </option>
+          <option
+            value="coloursSoundsFlavours"
+          >
+            coloursSoundsFlavours
+          </option>
+          <option
+            value="familyFun"
+          >
+            familyFun
+          </option>
+          <option
+            value="likeCelebrity"
+          >
+            likeCelebrity
+          </option>
+          <option
+            value="sizeIsEverything"
+          >
+            sizeIsEverything
+          </option>
+        </select>
+      </div>
+      <div
+        className="c9"
+      >
+        <div
+          className="css-10nd86i"
+          onKeyDown={[Function]}
+        >
+          <div
+            className="css-5aa2rb react-select__control"
+            onMouseDown={[Function]}
+            onTouchEnd={[Function]}
+          >
+            <div
+              className="css-1rtrksz react-select__value-container react-select__value-container--has-value"
+            >
+              <div
+                className="css-yb30j4 react-select__single-value"
+              >
+                shoppingOnTheGo
+              </div>
+              <input
+                className="css-14uuagi"
+                id="react-select-desktop-input"
+                onBlur={[Function]}
+                onChange={[Function]}
+                onFocus={[Function]}
+                readOnly={true}
+                tabIndex="0"
+                value=""
+              />
+            </div>
+            <div
+              className="css-1wy0on6 react-select__indicators"
+            >
+              <div
+                aria-hidden="true"
+                className="css-1rzng2i react-select__indicator react-select__dropdown-indicator"
+                onMouseDown={[Function]}
+                onTouchEnd={[Function]}
+              >
+                <svg
+                  fill="currentColor"
+                  height="24px"
+                  preserveAspectRatio="xMidYMid meet"
+                  style={
+                    Object {
+                      "color": undefined,
+                      "verticalAlign": "middle",
+                    }
+                  }
+                  viewBox="0 0 24 24"
+                  width="24px"
+                >
+                  <path
+                    d="M16.59 8.59L12 13.17 7.41 8.59 6 10l6 6 6-6z"
+                  />
+                </svg>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      className="react-reveal"
+      style={
+        Object {
+          "opacity": undefined,
+        }
+      }
+    >
+      <div
+        className="c10"
+      >
+        <img
+          className="c11"
+          src="/static/images/itinerary/shopping/explore-the-souks.jpg"
+        />
+        <div
+          className="c12"
+        >
+          <div
+            className="c13"
+          />
+          <div>
+            <div
+              className="c14"
+            >
+              8 AM
+            </div>
+            <h2
+              className="c15"
+              fontSize={20}
+            >
+              shoppingOnTheGo__exploreTheSouksTitle
+            </h2>
+          </div>
+          <span
+            className="c16"
+          >
+            shoppingOnTheGo__exploreTheSouksDescription
+          </span>
+        </div>
+      </div>
+    </div>
+    <div
+      className="react-reveal"
+      style={
+        Object {
+          "opacity": undefined,
+        }
+      }
+    >
+      <div
+        className="c17"
+      >
+        <img
+          className="c11"
+          src="/static/images/itinerary/shopping/visit-the-dubai-mall.jpg"
+        />
+        <div
+          className="c18"
+        >
+          <div
+            className="c13"
+          />
+          <div>
+            <div
+              className="c14"
+            >
+              10 AM
+            </div>
+            <h2
+              className="c15"
+              fontSize={20}
+            >
+              shoppingOnTheGo__visitTheMallTitle
+            </h2>
+          </div>
+          <span
+            className="c16"
+          >
+            shoppingOnTheGo__visitTheMallDescription
+          </span>
+        </div>
+      </div>
+    </div>
+  </div>
+  <button
+    className="c19 c20"
+    onClick={[Function]}
+    size="normal"
+  >
+    <div
+      className="c21"
+      size="normal"
+      theme={
+        Object {
+          "orbit": Object {
+            "backgroundAlertCritical": "#fae8e8",
+            "backgroundAlertInfo": "#e0f6ff",
+            "backgroundAlertSuccess": "#e7f3e8",
+            "backgroundAlertWarning": "#fcf1cd",
+            "backgroundBadgeCritical": "#fae8e8",
+            "backgroundBadgeDark": "#46515e",
+            "backgroundBadgeInfo": "#e0f6ff",
+            "backgroundBadgeNeutral": "#f5f7f9",
+            "backgroundBadgeSuccess": "#e7f3e8",
+            "backgroundBadgeWarning": "#fcf1cd",
+            "backgroundBody": "#f5f7f9",
+            "backgroundButtonBordered": "transparent",
+            "backgroundButtonBorderedActive": "#fff",
+            "backgroundButtonBorderedHover": "#f5f7f9",
+            "backgroundButtonCritical": "#d21c1c",
+            "backgroundButtonCriticalActive": "#b21717",
+            "backgroundButtonCriticalHover": "#bd1919",
+            "backgroundButtonFacebook": "#3b5998",
+            "backgroundButtonFacebookActive": "#354f88",
+            "backgroundButtonFacebookHover": "#385490",
+            "backgroundButtonGoogle": "#f5f7f9",
+            "backgroundButtonGoogleActive": "#d6dee6",
+            "backgroundButtonGoogleHover": "#e5eaef",
+            "backgroundButtonInfo": "#0176D2",
+            "backgroundButtonInfoActive": "#0064b2",
+            "backgroundButtonInfoHover": "#006abd",
+            "backgroundButtonLinkPrimary": "transparent",
+            "backgroundButtonLinkPrimaryActive": "#d6dee6",
+            "backgroundButtonLinkPrimaryHover": "#e5eaef",
+            "backgroundButtonLinkSecondary": "transparent",
+            "backgroundButtonLinkSecondaryActive": "#d6dee6",
+            "backgroundButtonLinkSecondaryHover": "#e5eaef",
+            "backgroundButtonPrimary": "#00a991",
+            "backgroundButtonPrimaryActive": "#008f7b",
+            "backgroundButtonPrimaryHover": "#009882",
+            "backgroundButtonSecondary": "#e8edf1",
+            "backgroundButtonSecondaryActive": "#cad5df",
+            "backgroundButtonSecondaryHover": "#d9e1e8",
+            "backgroundButtonSuccess": "#46B655",
+            "backgroundButtonSuccessActive": "#3fa34c",
+            "backgroundButtonSuccessHover": "#42ac50",
+            "backgroundButtonWarning": "#f9971e",
+            "backgroundButtonWarningActive": "#e68206",
+            "backgroundButtonWarningHover": "#f48a06",
+            "backgroundCard": "#fff",
+            "backgroundCarrierLogo": "transparent",
+            "backgroundCountryFlag": "transparent",
+            "backgroundIllustration": "transparent",
+            "backgroundInput": "#fff",
+            "backgroundInputDisabled": "#e8edf1",
+            "backgroundModal": "#fff",
+            "backgroundSeparator": "#e8edf1",
+            "backgroundServiceLogo": "transparent",
+            "borderColorButtonCriticalBordered": "#d21c1c",
+            "borderColorButtonCriticalBorderedActive": "#b21717",
+            "borderColorButtonCriticalBorderedHover": "#bd1919",
+            "borderColorButtonFacebookBordered": "#3b5998",
+            "borderColorButtonFacebookBorderedActive": "#354f88",
+            "borderColorButtonFacebookBorderedHover": "#385490",
+            "borderColorButtonGoogleBordered": "#46515e",
+            "borderColorButtonGoogleBorderedActive": "#38404b",
+            "borderColorButtonGoogleBorderedHover": "#3f4854",
+            "borderColorButtonInfoBordered": "#0176D2",
+            "borderColorButtonInfoBorderedActive": "#0064b2",
+            "borderColorButtonInfoBorderedHover": "#006abd",
+            "borderColorButtonPrimaryBordered": "#00a991",
+            "borderColorButtonPrimaryBorderedActive": "#008f7b",
+            "borderColorButtonPrimaryBorderedHover": "#009882",
+            "borderColorButtonSecondaryBordered": "#46515e",
+            "borderColorButtonSecondaryBorderedActive": "#38404b",
+            "borderColorButtonSecondaryBorderedHover": "#3f4854",
+            "borderColorButtonSuccessBordered": "#46B655",
+            "borderColorButtonSuccessBorderedActive": "#3fa34c",
+            "borderColorButtonSuccessBorderedHover": "#42ac50",
+            "borderColorButtonWarningBordered": "#f9971e",
+            "borderColorButtonWarningBorderedActive": "#e68206",
+            "borderColorButtonWarningBorderedHover": "#f48a06",
+            "borderColorCard": "#e8edf1",
+            "borderColorCheckboxRadio": "#bac7d5",
+            "borderColorCheckboxRadioActive": "#46515e",
+            "borderColorCheckboxRadioError": "#d21c1c",
+            "borderColorCheckboxRadioFocus": "#0176D2",
+            "borderColorCheckboxRadioHover": "#7f91a8",
+            "borderColorInput": "#bac7d5",
+            "borderColorInputActive": "#94a8be",
+            "borderColorInputError": "#d21c1c",
+            "borderColorInputErrorFocus": "#d21c1c",
+            "borderColorInputErrorHover": "#bd1919",
+            "borderColorInputFocus": "#0176D2",
+            "borderColorInputHover": "#a6b6c8",
+            "borderColorModal": "#e8edf1",
+            "borderColorTableCell": "#bac7d5",
+            "borderRadiusBadge": "12px",
+            "borderRadiusCircle": "50%",
+            "borderRadiusLarge": "6px",
+            "borderRadiusNormal": "3px",
+            "borderRadiusSmall": "2px",
+            "borderStyleCard": "solid",
+            "borderStyleInput": "solid",
+            "borderWidthCard": "1px",
+            "borderWidthInput": "1px",
+            "borderWidthInputFocus": "2px",
+            "boxShadowActionable": "0 2px 4px 0 rgba(23, 27, 30, 0.1)",
+            "boxShadowButtonFocus": "0 0 4px 1px rgba(1,118,210,0.3)",
+            "boxShadowElevatedLevel1": "0 4px 12px 0 rgba(23, 27, 30, 0.15)",
+            "boxShadowModal": "0 20px 60px 0 rgba(23, 27, 30, 0.4)",
+            "colorAlertIconCritical": "#d21c1c",
+            "colorAlertIconInfo": "#0176D2",
+            "colorAlertIconSuccess": "#46B655",
+            "colorAlertIconWarning": "#f9971e",
+            "colorFormLabel": "#46515e",
+            "colorFormLabelFilled": "#7f91a8",
+            "colorHeading": "#171b1e",
+            "colorHeadingInverted": "#fff",
+            "colorIconAttention": "#171b1e",
+            "colorIconCheckboxRadio": "#00a991",
+            "colorIconCheckboxRadioDisabled": "#bac7d5",
+            "colorIconCritical": "#d21c1c",
+            "colorIconInfo": "#0176D2",
+            "colorIconInput": "#bac7d5",
+            "colorIconPrimary": "#46515e",
+            "colorIconRadioButton": "#00a991",
+            "colorIconRadioButtonDisabled": "#bac7d5",
+            "colorIconSecondary": "#7f91a8",
+            "colorIconSuccess": "#46B655",
+            "colorIconTertiary": "#bac7d5",
+            "colorIconWarning": "#f9971e",
+            "colorInfoCheckBoxRadio": "#7f91a8",
+            "colorPlaceholderInput": "#bac7d5",
+            "colorPlaceholderInputError": "#d21c1c",
+            "colorPlaceholderInputFile": "#7f91a8",
+            "colorPlaceholderInputFileError": "#d21c1c",
+            "colorTextAlertCritical": "#650808",
+            "colorTextAlertInfo": "#07405c",
+            "colorTextAlertLink": "#171b1e",
+            "colorTextAlertSuccess": "#065d12",
+            "colorTextAlertWarning": "#a93610",
+            "colorTextAttention": "#171b1e",
+            "colorTextBadgeCritical": "#d21c1c",
+            "colorTextBadgeDark": "#fff",
+            "colorTextBadgeInfo": "#0176D2",
+            "colorTextBadgeNeutral": "#171b1e",
+            "colorTextBadgeSuccess": "#46B655",
+            "colorTextBadgeWarning": "#f9971e",
+            "colorTextButtonCritical": "#fff",
+            "colorTextButtonCriticalActive": "#fff",
+            "colorTextButtonCriticalBordered": "#d21c1c",
+            "colorTextButtonCriticalBorderedActive": "#b21717",
+            "colorTextButtonCriticalBorderedHover": "#bd1919",
+            "colorTextButtonCriticalHover": "#fff",
+            "colorTextButtonFacebook": "#fff",
+            "colorTextButtonFacebookActive": "#fff",
+            "colorTextButtonFacebookBordered": "#3b5998",
+            "colorTextButtonFacebookBorderedActive": "#354f88",
+            "colorTextButtonFacebookBorderedHover": "#385490",
+            "colorTextButtonFacebookHover": "#fff",
+            "colorTextButtonFilled": "#fff",
+            "colorTextButtonFilledActive": "#fff",
+            "colorTextButtonFilledHover": "#fff",
+            "colorTextButtonGoogle": "#46515e",
+            "colorTextButtonGoogleActive": "#38404b",
+            "colorTextButtonGoogleBordered": "#46515e",
+            "colorTextButtonGoogleBorderedActive": "#38404b",
+            "colorTextButtonGoogleBorderedHover": "#3f4854",
+            "colorTextButtonGoogleHover": "#3f4854",
+            "colorTextButtonInfo": "#fff",
+            "colorTextButtonInfoActive": "#fff",
+            "colorTextButtonInfoBordered": "#0176D2",
+            "colorTextButtonInfoBorderedActive": "#0064b2",
+            "colorTextButtonInfoBorderedHover": "#006abd",
+            "colorTextButtonInfoHover": "#fff",
+            "colorTextButtonLinkPrimary": "#00a991",
+            "colorTextButtonLinkPrimaryActive": "#008f7b",
+            "colorTextButtonLinkPrimaryHover": "#009882",
+            "colorTextButtonLinkSecondary": "#46515e",
+            "colorTextButtonLinkSecondaryActive": "#38404b",
+            "colorTextButtonLinkSecondaryHover": "#3f4854",
+            "colorTextButtonPrimary": "#fff",
+            "colorTextButtonPrimaryActive": "#fff",
+            "colorTextButtonPrimaryBordered": "#00a991",
+            "colorTextButtonPrimaryBorderedActive": "#008f7b",
+            "colorTextButtonPrimaryBorderedHover": "#009882",
+            "colorTextButtonPrimaryHover": "#fff",
+            "colorTextButtonSecondary": "#46515e",
+            "colorTextButtonSecondaryActive": "#38404b",
+            "colorTextButtonSecondaryBordered": "#46515e",
+            "colorTextButtonSecondaryBorderedActive": "#38404b",
+            "colorTextButtonSecondaryBorderedHover": "#3f4854",
+            "colorTextButtonSecondaryHover": "#3f4854",
+            "colorTextButtonSuccess": "#fff",
+            "colorTextButtonSuccessActive": "#fff",
+            "colorTextButtonSuccessBordered": "#46B655",
+            "colorTextButtonSuccessBorderedActive": "#3fa34c",
+            "colorTextButtonSuccessBorderedHover": "#42ac50",
+            "colorTextButtonSuccessHover": "#fff",
+            "colorTextButtonWarning": "#fff",
+            "colorTextButtonWarningActive": "#fff",
+            "colorTextButtonWarningBordered": "#f9971e",
+            "colorTextButtonWarningBorderedActive": "#e68206",
+            "colorTextButtonWarningBorderedHover": "#f48a06",
+            "colorTextButtonWarningHover": "#fff",
+            "colorTextCritical": "#d21c1c",
+            "colorTextError": "#d21c1c",
+            "colorTextInfo": "#0176D2",
+            "colorTextInput": "#46515e",
+            "colorTextInputDisabled": "#bac7d5",
+            "colorTextInputPrefix": "#7f91a8",
+            "colorTextLinkPrimary": "#00a991",
+            "colorTextLinkPrimaryHover": "#00a991",
+            "colorTextLinkSecondary": "#171b1e",
+            "colorTextLinkSecondaryHover": "#00a991",
+            "colorTextPrimary": "#46515e",
+            "colorTextSecondary": "#7f91a8",
+            "colorTextSuccess": "#46B655",
+            "colorTextWarning": "#f9971e",
+            "colorTextWhite": "#fff",
+            "durationFast": "0.15s",
+            "durationNormal": "0.3s",
+            "durationSlow": "0.4s",
+            "fontFamily": "\\"Roboto\\", -apple-system, \\".SFNSText-Regular\\", \\"San Francisco\\", \\"Segoe UI\\", \\"Helvetica Neue\\", \\"Lucida Grande\\", sans-serif",
+            "fontSizeButtonLarge": "16px",
+            "fontSizeButtonNormal": "14px",
+            "fontSizeButtonSmall": "12px",
+            "fontSizeFormFeedback": "12px",
+            "fontSizeFormLabel": "14px",
+            "fontSizeHeadingDisplay": "40px",
+            "fontSizeHeadingTitle1": "28px",
+            "fontSizeHeadingTitle2": "22px",
+            "fontSizeHeadingTitle3": "16px",
+            "fontSizeInputNormal": "16px",
+            "fontSizeInputSmall": "14px",
+            "fontSizeMessage": "14px",
+            "fontSizeTextLarge": "16px",
+            "fontSizeTextNormal": "14px",
+            "fontSizeTextSmall": "12px",
+            "fontWeightBold": "700",
+            "fontWeightHeadingDisplay": "700",
+            "fontWeightHeadingTitle1": "700",
+            "fontWeightHeadingTitle2": "500",
+            "fontWeightHeadingTitle3": "500",
+            "fontWeightLinks": "500",
+            "fontWeightMedium": "500",
+            "fontWeightNormal": "400",
+            "heightBadge": "24px",
+            "heightButtonLarge": "52px",
+            "heightButtonNormal": "44px",
+            "heightButtonSmall": "32px",
+            "heightCheckbox": "20px",
+            "heightCountryFlag": "auto",
+            "heightIconLarge": "32px",
+            "heightIconMedium": "24px",
+            "heightIconSmall": "16px",
+            "heightIllustrationMedium": "200px",
+            "heightIllustrationSmall": "90px",
+            "heightInputGroupSeparatorNormal": "24px",
+            "heightInputGroupSeparatorSmall": "16px",
+            "heightInputLarge": "52px",
+            "heightInputNormal": "44px",
+            "heightInputSmall": "32px",
+            "heightRadioButton": "20px",
+            "heightSeparator": "1px",
+            "heightServiceLogoLarge": "48px",
+            "heightServiceLogoMedium": "24px",
+            "heightServiceLogoSmall": "12px",
+            "lineHeightHeading": "1.2",
+            "lineHeightText": "1.4",
+            "marginBottomSelectSuffix": "2px",
+            "marginButtonIconLarge": "16px",
+            "marginButtonIconNormal": "12px",
+            "marginButtonIconSmall": "8px",
+            "marginRightBadgeIcon": "4px",
+            "marginRightButtonGroup": "1px",
+            "marginTopFormFeedback": "2px",
+            "modifierScaleButtonActive": 0.95,
+            "modifierScaleCheckboxRadioActive": 0.95,
+            "opacityButtonDisabled": "0.3",
+            "opacityCheckboxDisabled": "0.5",
+            "opacityOverlay": "0.8",
+            "opacityRadioButtonDisabled": "0.5",
+            "paddingAlert": "16px",
+            "paddingAlertWithIcon": "12px",
+            "paddingButtonLarge": "28px",
+            "paddingButtonLargeWithIcon": "12px",
+            "paddingButtonNormal": "16px",
+            "paddingButtonNormalWithIcon": "8px",
+            "paddingButtonSmall": "12px",
+            "paddingButtonSmallWithIcon": "8px",
+            "paddingInputNormal": "0 12px",
+            "paddingInputSmall": "0 12px",
+            "paddingLeftInputFile": "6px",
+            "paddingLeftSelectPrefix": "48px",
+            "paddingTextareaNormal": "12px",
+            "paddingTextareaSmall": "8px 12px",
+            "paletteBlueDark": "#07405c",
+            "paletteBlueLight": "#e0f6ff",
+            "paletteBlueLightActive": "#b0e8fe",
+            "paletteBlueLightHover": "#c8effe",
+            "paletteBlueNormal": "#0176D2",
+            "paletteBlueNormalActive": "#0064b2",
+            "paletteBlueNormalHover": "#006abd",
+            "paletteCloudLight": "#f5f7f9",
+            "paletteCloudLightActive": "#d6dee6",
+            "paletteCloudLightHover": "#e5eaef",
+            "paletteCloudNormal": "#e8edf1",
+            "paletteCloudNormalActive": "#cad5df",
+            "paletteCloudNormalHover": "#d9e1e8",
+            "paletteGreenDark": "#065d12",
+            "paletteGreenLight": "#e7f3e8",
+            "paletteGreenLightActive": "#c7e3c9",
+            "paletteGreenLightHover": "#d7ebd8",
+            "paletteGreenNormal": "#46B655",
+            "paletteGreenNormalActive": "#3fa34c",
+            "paletteGreenNormalHover": "#42ac50",
+            "paletteInkDark": "#171b1e",
+            "paletteInkLight": "#7f91a8",
+            "paletteInkLightActive": "#5f738c",
+            "paletteInkLightHover": "#6d819c",
+            "paletteInkLighter": "#bac7d5",
+            "paletteInkLighterActive": "#94a8be",
+            "paletteInkLighterHover": "#a6b6c8",
+            "paletteInkNormal": "#46515e",
+            "paletteInkNormalActive": "#38404b",
+            "paletteInkNormalHover": "#3f4854",
+            "paletteOrangeDark": "#a93610",
+            "paletteOrangeLight": "#fcf1cd",
+            "paletteOrangeLightActive": "#f9e4a1",
+            "paletteOrangeLightHover": "#faeab7",
+            "paletteOrangeNormal": "#f9971e",
+            "paletteOrangeNormalActive": "#e68206",
+            "paletteOrangeNormalHover": "#f48a06",
+            "paletteProductDark": "#005448",
+            "paletteProductLight": "#9ae5da",
+            "paletteProductLightActive": "#64d7c6",
+            "paletteProductLightHover": "#7fded0",
+            "paletteProductNormal": "#00a991",
+            "paletteProductNormalActive": "#008f7b",
+            "paletteProductNormalHover": "#009882",
+            "paletteRedDark": "#650808",
+            "paletteRedLight": "#fae8e8",
+            "paletteRedLightActive": "#f1c0c0",
+            "paletteRedLightHover": "#f5d4d4",
+            "paletteRedNormal": "#d21c1c",
+            "paletteRedNormalActive": "#b21717",
+            "paletteRedNormalHover": "#bd1919",
+            "paletteSocialFacebook": "#3b5998",
+            "paletteSocialFacebookActive": "#354f88",
+            "paletteSocialFacebookHover": "#385490",
+            "paletteWhite": "#fff",
+            "paletteWhiteActive": "#e5eaef",
+            "paletteWhiteHover": "#f5f7f9",
+            "spaceLarge": "24px",
+            "spaceMedium": "16px",
+            "spaceSmall": "12px",
+            "spaceXLarge": "32px",
+            "spaceXSmall": "8px",
+            "spaceXXLarge": "40px",
+            "spaceXXSmall": "4px",
+            "spaceXXXLarge": "52px",
+            "spaceXXXSmall": "2px",
+            "textDecorationTextLinkPrimary": "none",
+            "textDecorationTextLinkPrimaryHover": "underline",
+            "textDecorationTextLinkSecondary": "underline",
+            "textDecorationTextLinkSecondaryHover": "underline",
+            "widthBadgeCircled": "24px",
+            "widthCheckbox": "20px",
+            "widthCountryFlag": "24px",
+            "widthIconLarge": "32px",
+            "widthIconMedium": "24px",
+            "widthIconSmall": "16px",
+            "widthRadioButton": "20px",
+            "zIndexDefault": "1",
+            "zIndexModal": "825",
+            "zIndexModalOverlay": "800",
+            "zIndexOnTheTop": "900",
+            "zIndexSticky": "100",
+          },
+        }
+      }
+    >
+      <svg
+        fill="currentColor"
+        height="24px"
+        preserveAspectRatio="xMidYMid meet"
+        style={
+          Object {
+            "color": "#7f91a8",
+            "verticalAlign": "middle",
+          }
+        }
+        viewBox="0 0 24 24"
+        width="24px"
+      >
+        <path
+          d="M20 12l-1.41-1.41L13 16.17V4h-2v12.17l-5.58-5.59L4 12l8 8z"
+        />
+      </svg>
+    </div>
+    showMore
+  </button>
+  <button
+    className="c22 c23"
+    onClick={[Function]}
+    size="large"
+  >
+    startYourTripNow
+  </button>
+</div>
+`;
+
 exports[`Storyshots Text default 1`] = `
 <span>
   kek
