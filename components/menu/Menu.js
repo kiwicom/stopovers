@@ -33,10 +33,13 @@ const Logo = styled.img`
 
 const LanguageWrapper = styled.div`
   justify-self: end;
-  padding-right: 5px;
-  padding-left: 5px;
+  align-self: ${({ isMobile }) => (isMobile ? "center" : "start")};
+  margin-right: 5px;
+  margin-left: 5px;
+  position: relative;
+  display: flex;
   @media (min-width: 740px) {
-    padding-right: 40px;
+    margin-right: 40px;
   }
 `;
 
@@ -59,7 +62,7 @@ const Menu = ({ langId, isMobile }: Props) => (
       linkHolidays={`https://kiwicom.lastminute.com/flight-hotel/${UTM_PARAMS}`}
     />
 
-    <LanguageWrapper>
+    <LanguageWrapper isMobile={isMobile}>
       <Language
         flat
         native={isMobile}
