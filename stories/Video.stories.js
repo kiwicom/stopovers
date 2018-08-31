@@ -5,4 +5,4 @@ import { storiesOf } from "@storybook/react";
 
 import Video from "../components/video/Video";
 
-storiesOf("Video", module).add("full render", () => <Video />);
+storiesOf("Video", module).add("default", () => <Video />);

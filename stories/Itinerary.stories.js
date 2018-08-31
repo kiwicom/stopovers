@@ -5,4 +5,4 @@ import { storiesOf } from "@storybook/react";
 
 import Itinerary from "../components/itinerary/Itinerary";
 
-storiesOf("Itinerary", module).add("full render", () => <Itinerary isMobile />);
+storiesOf("Itinerary", module).add("default", () => <Itinerary isMobile />);
