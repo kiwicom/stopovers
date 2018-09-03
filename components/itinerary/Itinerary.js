@@ -147,14 +147,14 @@ const DropdownTitle = styled.div`
   }
 `;
 
-const Itinerary = () => (
+type Props = {
+  isMobile: boolean,
+};
+
+const Itinerary = ({ isMobile }: Props) => (
   <ItineraryProvider>
     <ItineraryContext.Consumer>
-      {({
-        state: { dropdownValue, isCollapsed, isMobile },
-        changeDropdownValue,
-        showMore,
-      }: Context) => {
+      {({ state: { dropdownValue, isCollapsed }, changeDropdownValue, showMore }: Context) => {
         const isMobileCollapsed = isMobile && isCollapsed;
         const items = data[dropdownValue];
         const itemsDisplayed = isMobileCollapsed ? items.slice(0, 2) : items;

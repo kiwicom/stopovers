@@ -15,6 +15,7 @@ sketchy-null
 [include]
 
 [libs]
+types/
 
 [options]
 emoji=true

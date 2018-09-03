@@ -17,8 +17,8 @@
     "update-translations:dev": "nodemon scripts/updateTranslations.js --exec babel-node"
   },
   "dependencies": {
-    "@kiwicom/nitro": "^0.12.1",
-    "@kiwicom/orbit-components": "^0.4.1",
+    "@kiwicom/nitro": "^0.26.3",
+    "@kiwicom/orbit-components": "^0.8.0",
     "babel-core": "^7.0.0-0",
     "chalk": "^2.4.1",
     "dotenv": "^6.0.0",

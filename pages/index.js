@@ -53,12 +53,15 @@ type Props = {
 
 type State = {
   areKeysShown: boolean,
+  isMobile: boolean,
 };
 
 export default class Index extends React.Component<Props, State> {
-  state = { areKeysShown: false };
+  state = { areKeysShown: false, isMobile: false };
 
   componentDidMount() {
+    this.detectMobile();
+    window.addEventListener("resize", this.detectMobile);
     window.document.addEventListener("keydown", this.handleKeyDown.bind(this));
     const { affilid, ...marketingParams } = getCurrentUrlParams();
     if (affilid) {
@@ -75,7 +78,12 @@ export default class Index extends React.Component<Props, State> {
 
   componentWillUnmount() {
     window.document.removeEventListener("keydown", this.handleKeyDown.bind(this));
+    window.removeEventListener("resize", this.detectMobile);
   }
+
+  detectMobile = () => {
+    this.setState({ isMobile: window.innerWidth < 740 });
+  };
 
   static async getInitialProps({ query: { lang }, req }: { query: Query, req: any }) {
     const langId = lang && usedLangIds.includes(lang) ? lang : "en";
@@ -110,10 +118,22 @@ export default class Index extends React.Component<Props, State> {
 
   render() {
     const { translations, language, fetched, langId } = this.props;
+    const { isMobile, areKeysShown } = this.state;
+    const translationsForMenu = translations
+      ? {
+          "search.service.travel_anywhere": translations.travel,
+          "search.service.holidays": translations.holidays,
+          "search.service.cars": translations.cars,
+          "search.service.rooms": translations.rooms,
+        }
+      : {};
     return (
-      <Provider translations={this.state.areKeysShown ? {} : translations} language={language}>
+      <Provider
+        translations={areKeysShown ? {} : { ...translations, ...translationsForMenu }}
+        language={language}
+      >
         <FetchedProvider value={fetched}>
-          <Menu langId={langId} />
+          <Menu langId={langId} isMobile={isMobile} />
         </FetchedProvider>
         <Hero />
         <StickyAction />
@@ -121,7 +141,7 @@ export default class Index extends React.Component<Props, State> {
           <SliderSection />
         </Element>
         <Element name="itinerary">
-          <Itinerary />
+          <Itinerary isMobile={isMobile} />
         </Element>
         <Element name="partners">
           <Partners />
