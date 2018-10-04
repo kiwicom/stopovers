@@ -56,6 +56,7 @@ const generateScript = (langId: ?string) => {
   script.setAttribute("data-return", returnDate || "");
   script.setAttribute("data-hide-cookie-banner", "true");
   script.setAttribute("data-user-id", userId);
+  script.setAttribute("data-affilid", "acquisition_dubai");
 
   return script;
 };
