@@ -8,6 +8,7 @@ import { type BrandLanguage } from "@kiwicom/nitro/lib/records/BrandLanguage";
 import { type Fetched, fetchedDefault } from "@kiwicom/nitro/lib/records/Fetched";
 import { type Translations } from "@kiwicom/nitro/lib/services/intl/translate";
 import { Provider as FetchedProvider } from "@kiwicom/nitro/lib/services/fetched/context";
+import Head from "next/head";
 import cookies from "js-cookie";
 import "isomorphic-unfetch";
 
@@ -128,36 +129,41 @@ export default class Index extends React.Component<Props, State> {
         }
       : {};
     return (
-      <Provider
-        translations={areKeysShown ? {} : { ...translations, ...translationsForMenu }}
-        language={language}
-      >
-        <FetchedProvider value={fetched}>
-          <Menu langId={langId} isMobile={isMobile} />
-        </FetchedProvider>
-        <Hero />
-        <StickyAction />
-        <Element name="slider">
-          <SliderSection />
-        </Element>
-        <Element name="itinerary">
-          <Itinerary isMobile={isMobile} />
-        </Element>
-        <Element name="partners">
-          <Partners />
-        </Element>
-        <Element name="articles">
-          <Articles />
-        </Element>
-        <Element name="video">
-          <Video />
-        </Element>
-        <Element name="search">
-          <Search langId={langId} />
-        </Element>
-        <Footer langId={langId} />
-        <Banner />
-      </Provider>
+      <React.Fragment>
+        <Head>
+          <title>Stopovers</title>
+        </Head>
+        <Provider
+          translations={areKeysShown ? {} : { ...translations, ...translationsForMenu }}
+          language={language}
+        >
+          <FetchedProvider value={fetched}>
+            <Menu langId={langId} isMobile={isMobile} />
+          </FetchedProvider>
+          <Hero />
+          <StickyAction />
+          <Element name="slider">
+            <SliderSection />
+          </Element>
+          <Element name="itinerary">
+            <Itinerary isMobile={isMobile} />
+          </Element>
+          <Element name="partners">
+            <Partners />
+          </Element>
+          <Element name="articles">
+            <Articles />
+          </Element>
+          <Element name="video">
+            <Video />
+          </Element>
+          <Element name="search">
+            <Search langId={langId} />
+          </Element>
+          <Footer langId={langId} />
+          <Banner />
+        </Provider>
+      </React.Fragment>
     );
   }
 }
