@@ -6,6 +6,7 @@
 dist
 .next
 out
+dato
 
 # dependencies
 node_modules

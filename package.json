@@ -14,7 +14,8 @@
     "typecheck": "flow check",
     "update-translations": "node dist/updateTranslations.js",
     "update-translations:build": "babel scripts --ignore __tests__,__test__,__mocks__ --out-dir dist/",
-    "update-translations:dev": "nodemon scripts/updateTranslations.js --exec babel-node"
+    "update-translations:dev": "nodemon scripts/updateTranslations.js --exec babel-node",
+    "fetch": "dato dump --preview"
   },
   "dependencies": {
     "@kiwicom/nitro": "^0.26.3",
@@ -56,6 +57,7 @@
     "babel-plugin-require-context-hook": "^1.0.0",
     "babel-plugin-styled-components": "^1.8.0",
     "babel-plugin-transform-flow-strip-types": "^6.22.0",
+    "datocms-client": "^0.7.2",
     "enzyme": "^3.6.0",
     "enzyme-adapter-react-16": "^1.5.0",
     "enzyme-to-json": "^3.3.4",
