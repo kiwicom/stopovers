@@ -72,8 +72,8 @@ const Description = styled.p`
 `;
 
 const LinkWrapper = styled.div`
-  display: grid;
-  justify-items: right;
+  display: flex;
+  justify-content: flex-end;
   margin-bottom: 10px;
   padding-right: 10px;
 `;

@@ -46,21 +46,26 @@ const ArticlesWrapper = styled.div`
 `;
 
 const ActionWrapper = styled.div`
-  display: grid;
-  grid-template-columns: 1fr;
-  justify-items: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   padding: 32px 0;
 
   @media (min-width: 740px) {
-    grid-template-columns: 1fr;
     padding: 60px 0 80px;
   }
 
   @media (min-width: 1440px) {
-    justify-items: end;
-    grid-template-columns: 1fr auto 1fr;
+    justify-content: center;
+    flex-direction: row;
     padding: 60px 0 80px;
-    grid-gap: 30px;
+
+    & > :first-child,
+    & > :last-child {
+      flex: 1;
+      margin: 0 30px;
+      text-align: end;
+    }
   }
 `;
 
@@ -101,6 +106,7 @@ const Articles = () => (
       >
         <Text t="searchFlightsNow" />
       </Button>
+      <div />
     </ActionWrapper>
   </Wrapper>
 );
