@@ -11,8 +11,7 @@ import { scrollToElement } from "../helpers";
 import { sendEvent } from "../../etc/logLady";
 
 const Wrapper = styled.div`
-  display: ${({ isHidden }) => (isHidden ? "none" : "grid")};
-  grid-template-columns: 55px 1fr 76px;
+  display: ${({ isHidden }) => (isHidden ? "none" : "flex")};
   place-items: center;
   position: fixed;
   left: 0px;
@@ -21,16 +20,31 @@ const Wrapper = styled.div`
   width: 100%;
   background-color: white;
   box-shadow: 0 -2px 4px 0 rgba(23, 27, 30, 0.1);
+  z-index: 5;
+
   @media (min-width: 740px) {
     display: none;
   }
-  z-index: 5;
+
+  & > * {
+    display: flex;
+    justify-content: center;
+  }
+`;
+
+const StyledAirplaneRight = styled(AirplaneRight)`
+  flex: 0 0 55px;
 `;
 
 const BannerTitle = styled.p`
   font-size: 14px;
   font-weight: 300;
   color: #171b1e;
+  flex: 1;
+`;
+
+const ButtonWrapper = styled.div`
+  flex: 0 0 76px;
 `;
 
 type State = {
@@ -59,11 +73,13 @@ class Banner extends React.Component<{}, State> {
     const { isHidden } = this.state;
     return (
       <Wrapper isHidden={isHidden}>
-        <AirplaneRight customColor="bac7d5" />
+        <StyledAirplaneRight customColor="bac7d5" />
         <BannerTitle>
           <Text t="bannerTitle" />
         </BannerTitle>
-        <Button icon={<Search />} onClick={this.scrollToSearch} />
+        <ButtonWrapper>
+          <Button icon={<Search />} onClick={this.scrollToSearch} />
+        </ButtonWrapper>
         <Link style={{ display: "none" }} to="partners" onSetActive={this.show} spy />
         <Link style={{ display: "none" }} to="video" onSetActive={this.hide} spy />
       </Wrapper>
