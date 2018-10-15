@@ -5,8 +5,6 @@ import styled from "styled-components";
 import { Linkedin, Twitter, Instagram, Facebook } from "@kiwicom/orbit-components/lib/icons";
 import Text from "@kiwicom/nitro/lib/components/Text";
 
-import { UTM_PARAMS } from "../../etc/helpers";
-
 const Wrapper = styled.div`
   display: grid;
   grid-template-rows: 120px 1fr 90px;
@@ -101,22 +99,22 @@ const prepareLinks = (langId: ?string) => {
     {
       id: 1,
       title: "termsAndConditions",
-      url: `https://www.kiwi.com/${lang}/pages/content/legal/${UTM_PARAMS}`,
+      url: `https://www.kiwi.com/${lang}/pages/content/legal/`,
     },
     {
       id: 2,
       title: "termsOfUse",
-      url: `https://www.kiwi.com/${lang}/pages/content/terms/${UTM_PARAMS}`,
+      url: `https://www.kiwi.com/${lang}/pages/content/terms/`,
     },
     {
       id: 3,
       title: "privacyPolicy",
-      url: `https://www.kiwi.com/${lang}/content/privacy/${UTM_PARAMS}`,
+      url: `https://www.kiwi.com/${lang}/content/privacy/`,
     },
     {
       id: 4,
       title: "security",
-      url: `https://www.kiwi.com/${lang}/pages/security/${UTM_PARAMS}`,
+      url: `https://www.kiwi.com/${lang}/pages/security/`,
     },
   ];
 };
@@ -125,22 +123,22 @@ const icons = [
   {
     id: 1,
     component: <Instagram />,
-    url: `https://www.instagram.com/kiwicom247/${UTM_PARAMS}`,
+    url: `https://www.instagram.com/kiwicom247/`,
   },
   {
     id: 2,
     component: <Twitter />,
-    url: `htts://twitter.com/kiwipcom247/${UTM_PARAMS}`,
+    url: `htts://twitter.com/kiwipcom247/`,
   },
   {
     id: 3,
     component: <Linkedin />,
-    url: `https://www.linkedin.com/company/Kiwi.com/${UTM_PARAMS}`,
+    url: `https://www.linkedin.com/company/Kiwi.com/`,
   },
   {
     id: 4,
     component: <Facebook />,
-    url: `https://www.facebook.com/kiwicom247/${UTM_PARAMS}`,
+    url: `https://www.facebook.com/kiwicom247/`,
   },
 ];
 
@@ -151,7 +149,7 @@ type Props = {
 const Footer = ({ langId }: Props) => (
   <Wrapper>
     <LogoWrapper>
-      <a href={`https://www.kiwi.com/${langId || "en"}/${UTM_PARAMS}`}>
+      <a href={`https://www.kiwi.com/${langId || "en"}/`}>
         <Logo src="/static/images/logo.svg" alt="Kiwi.com" />
       </a>
     </LogoWrapper>
