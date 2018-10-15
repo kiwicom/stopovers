@@ -17,7 +17,8 @@ import Dropdown from "../shared/Dropdown";
 import { data, dropdownData } from "./mockedData";
 
 const Wrapper = styled.div`
-  display: grid;
+  display: flex;
+  flex-direction: column;
   max-width: 1400px;
   margin: 0 auto;
   @media (min-width: 740px) {
@@ -29,7 +30,8 @@ const Wrapper = styled.div`
 `;
 
 const ItineraryWrapper = styled.div`
-  display: grid;
+  display: flex;
+  flex-direction: column;
   position: relative;
   padding-bottom: 0;
   padding-top: 40px;
@@ -70,7 +72,7 @@ const ItineraryWrapper = styled.div`
 `;
 
 const StyledButton = styled(Button)`
-  justify-self: center;
+  align-self: center;
   margin-top: 35px;
   @media (min-width: 740px) {
     margin-bottom: 40px;
@@ -82,7 +84,7 @@ const StyledButton = styled(Button)`
 `;
 
 const StyledLink = styled(ButtonLink)`
-  justify-self: start;
+  align-self: start;
   margin-left: 9px;
   margin-top: 10px;
 `;
@@ -93,12 +95,14 @@ const DropdownWrapper = styled.div`
   @media (min-width: 1440px) {
     position: relative;
     display: block;
-    width: 100%;
+    width: 26%;
+    margin: 0 25px;
   }
 `;
 
 const DropdownWrapperMobile = styled.div`
   position: relative;
+  margin-top: 10px;
   margin-bottom: 46px;
 
   &:after {
@@ -121,14 +125,12 @@ const DropdownWrapperMobile = styled.div`
 
 const DropdownGroup = styled.div`
   width: 100%;
-  display: grid;
-  grid-template-columns: 1fr;
-  place-items: center;
-  grid-gap: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 
   @media (min-width: 1440px) {
-    grid-gap: 25px;
-    grid-template-columns: 1fr 26% 1fr;
+    flex-direction: row;
     margin-top: -50px;
     margin-bottom: 46px;
   }
@@ -142,7 +144,7 @@ const DropdownTitle = styled.div`
 
   @media (min-width: 1440px) {
     margin-bottom: 0;
-    width: 100%;
+    width: calc(37% - 25px);
     text-align: right;
   }
 `;
