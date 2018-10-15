@@ -92,7 +92,7 @@ const Content = () => (
       <StyledText t="worldOfExperiences" />
     </TextWrapper>
     <AirplaneWrapper>
-      <AirplaneDown customColor="7f91a8" />
+      <AirplaneDown color="secondary" />
     </AirplaneWrapper>
     <ActionWrapper>
       <Action />

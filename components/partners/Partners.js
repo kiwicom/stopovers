@@ -116,7 +116,7 @@ const Partners = () => (
         <StyledText t="partnersDescription" />
       </Content>
       <AirplaneWrapper>
-        <AirplaneDown customColor="7f91a8" />
+        <AirplaneDown color="tertiary" />
       </AirplaneWrapper>
     </Wrapper>
   </>
