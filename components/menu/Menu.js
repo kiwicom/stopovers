@@ -6,7 +6,7 @@ import Language from "@kiwicom/nitro/lib/components/Language";
 import Router from "next/router";
 import HeaderLinks from "@kiwicom/nitro/lib/components/HeaderLinks";
 
-import { getCurrentUrlParams, UTM_PARAMS } from "../../etc/helpers";
+import { getCurrentUrlParams } from "../../etc/helpers";
 
 type Props = {
   langId: ?string,
@@ -46,20 +46,16 @@ const LanguageWrapper = styled.div`
 const Menu = ({ langId, isMobile }: Props) => (
   <Wrapper>
     <LogoWrapper>
-      <a href={`https://www.kiwi.com/${langId || "en"}/${UTM_PARAMS}`}>
+      <a href={`https://www.kiwi.com/${langId || "en"}/`}>
         <Logo src="/static/images/logo-menu.svg" alt="kiwicom logo" />
       </a>
     </LogoWrapper>
     <HeaderLinks
-      linkFlights={`https://www.kiwi.com/${langId || "en"}/searchDeep${UTM_PARAMS}&pageName=search`}
+      linkFlights={`https://www.kiwi.com/${langId || "en"}/search/`}
       forceNewWindow
-      linkRooms={`https://rooms.kiwi.com/${UTM_PARAMS}${
-        langId ? `&preflang=${langId}` : ""
-      }&adplat=headerlinks`}
-      linkCars={`https://cars.kiwi.com/${UTM_PARAMS}${
-        langId ? `&preflang=${langId}` : ""
-      }&adplat=headerlinks`}
-      linkHolidays={`https://kiwicom.lastminute.com/flight-hotel/${UTM_PARAMS}`}
+      linkRooms={`https://rooms.kiwi.com/?${langId ? `preflang=${langId}` : ""}&adplat=headerlinks`}
+      linkCars={`https://cars.kiwi.com/?${langId ? `preflang=${langId}` : ""}&adplat=headerlinks`}
+      linkHolidays="https://kiwicom.lastminute.com/flight-hotel/"
     />
 
     <LanguageWrapper isMobile={isMobile}>
