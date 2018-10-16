@@ -6,42 +6,44 @@ import styled from "styled-components";
 import Content from "./Content";
 
 const Wrapper = styled.div`
-  display: grid;
-  grid-template-columns: 1fr;
-  grid-template-areas: "image" "content";
-  grid-template-rows: 250px 1fr;
+  display: flex;
+  flex-direction: column-reverse;
   place-items: center;
   margin-bottom: 35px;
 
-  @media (min-width: 500px) {
-    grid-template-rows: 320px 1fr;
-  }
-
-  @media (min-width: 600px) {
-    grid-template-rows: 400px 1fr;
-  }
-
   @media (min-width: 740px) {
-    grid-template-columns: 1fr 1fr;
-    grid-template-rows: 510px;
-    grid-template-areas: "content image";
+    flex-direction: row;
     margin-bottom: 9.5px;
-  }
 
-  @media (min-width: 1000px) {
-    grid-template-rows: 560px;
+    & > * {
+      flex: 1;
+    }
   }
 
   @media (min-width: 1440px) {
     margin-bottom: 0;
-    grid-template-rows: 700px;
   }
 `;
 
 const ImageWrapper = styled.div`
   place-self: end;
-  grid-area: image;
-  height: 100%;
+  height: 250px;
+
+  @media (min-width: 500px) {
+    height: 320px;
+  }
+  @media (min-width: 600px) {
+    height: 400px;
+  }
+  @media (min-width: 740px) {
+    height: 510px;
+  }
+  @media (min-width: 1000px) {
+    height: 560px;
+  }
+  @media (min-width: 1440px) {
+    height: 700px;
+  }
 `;
 
 const Image = styled.img`
@@ -79,11 +81,11 @@ const DubaiLogo = styled.img`
 `;
 
 const ContentWrapper = styled.div`
+  display: flex;
+  flex-direction: column;
   margin-top: 24px;
-  display: grid;
-  grid-area: content;
   justify-self: center;
-  justify-items: center;
+  align-items: center;
 `;
 
 const Hero = () => (
