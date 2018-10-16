@@ -8,7 +8,6 @@ import { type BrandLanguage } from "@kiwicom/nitro/lib/records/BrandLanguage";
 import { type Fetched, fetchedDefault } from "@kiwicom/nitro/lib/records/Fetched";
 import { type Translations } from "@kiwicom/nitro/lib/services/intl/translate";
 import { Provider as FetchedProvider } from "@kiwicom/nitro/lib/services/fetched/context";
-import Head from "next/head";
 import cookies from "js-cookie";
 import "isomorphic-unfetch";
 
@@ -23,6 +22,7 @@ import {
 } from "../etc/helpers";
 import { sendEvent } from "../etc/logLady";
 import { saveToSession } from "../etc/marketingHelpers";
+import MetaHead from "../components/shared/MetaHead";
 import Menu from "../components/menu/Menu";
 import Hero from "../components/hero/Hero";
 import SliderSection from "../components/sliderSection/SliderSection";
@@ -128,15 +128,19 @@ export default class Index extends React.Component<Props, State> {
           "search.service.rooms": translations.rooms,
         }
       : {};
+    const translationsForHead = translations
+      ? {
+          metaDescription: translations["dubai_414745.metaDescription"],
+          metaTitle: translations["dubai_414745.metaTitle"],
+        }
+      : {};
     return (
       <React.Fragment>
-        <Head>
-          <title>Stopovers</title>
-        </Head>
         <Provider
           translations={areKeysShown ? {} : { ...translations, ...translationsForMenu }}
           language={language}
         >
+          <MetaHead translations={translationsForHead} />
           <FetchedProvider value={fetched}>
             <Menu langId={langId} isMobile={isMobile} />
           </FetchedProvider>

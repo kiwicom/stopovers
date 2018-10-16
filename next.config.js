@@ -25,7 +25,7 @@ module.exports = {
   },
   useFileSystemPublicRoutes: process.env.NODE_ENV !== "production",
   exportPathMap() {
-    const usedLangIds = ["en", "cz", "ro", "hu", "es", "fr", "de", "ru", "it"];
+    const usedLangIds = ["en", "cz", "ro", "hu", "es", "fr", "de", "ru", "it", "pl"];
     const allLangs = Object.values(langsData).map(({ id, phraseApp, iso }) => ({
       id,
       phraseApp,
