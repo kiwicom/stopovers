@@ -9,10 +9,9 @@ import StyledText from "../shared/StyledText";
 
 const Wrapper = styled.div`
   position: relative;
-  display: grid;
-  grid-template-columns: 1fr;
-  grid-gap: 37px;
   align-items: center;
+  display: flex;
+  flex-direction: column;
   padding: 0 16px 32px;
 
   @media only screen and (min-width: 740px) {
@@ -20,11 +19,9 @@ const Wrapper = styled.div`
   }
 
   @media only screen and (min-width: 1440px) {
-    grid-template-columns: 1fr 1fr;
-    grid-template-rows: 1.2fr 0;
-    grid-column-gap: 120px;
+    flex-direction: row;
     margin-bottom: 80px;
-    padding: 0 136px 0;
+    padding: 0 136px 37px;
 
     &::before {
       content: "";
@@ -40,24 +37,35 @@ const Wrapper = styled.div`
 `;
 
 const Logos = styled.div`
-  display: grid;
-  grid-template-columns: 1fr;
-  grid-gap: 24px;
+  margin-bottom: -24px;
+  display: flex;
+  flex-direction: column;
   place-items: center;
 
   @media only screen and (min-width: 740px) {
-    grid-template-columns: 1fr 1fr;
-    grid-column-gap: 80px;
-    grid-row-gap: 30px;
+    margin-bottom: -30px
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
     order: 1;
-    > :last-child {
-      ${({ isOdd }) => isOdd && "grid-column: 1/3;"};
-    }
+    width: 100%;
   }
 
   @media only screen and (min-width: 1440px) {
     order: 0;
+    flex: 1;
     padding: 30px 0;
+  }
+`;
+
+const LogoWrapper = styled.div`
+  margin-bottom: 24px;
+
+  @media only screen and (min-width: 740px) {
+    flex-basis: 50%;
+    justify-content: center;
+
+    margin-bottom: 30px;
   }
 `;
 
@@ -69,17 +77,28 @@ type LogoType = {
 };
 
 const Logo = styled.img`
+  display: block;
+  margin: 0 auto;
   width: ${({ width }: LogoType) => width || "225"}px;
+  max-width: calc(100% - 20px);
 `;
 
 const Content = styled.div`
   padding: 0 16px;
   text-align: center;
+  margin-top: 37px;
+
+  @media only screen and (min-width: 740px) {
+    margin-top: 0;
+    margin-bottom: 37px;
+  }
 
   @media only screen and (min-width: 1440px) {
-    padding: 0 16px;
+    order: 3;
+    flex: 1;
     text-align: left;
     padding: 30px 0;
+    margin-bottom: 0;
   }
 `;
 
@@ -87,11 +106,11 @@ const AirplaneWrapper = styled.div`
   display: none;
 
   @media only screen and (min-width: 1440px) {
-    grid-column: 1 /3;
-    justify-self: center;
-    align-self: end;
+    margin: 0 48px;
+    order: 2;
+    align-self: flex-end;
     position: relative;
-    bottom: -10px;
+    bottom: -47px;
     display: block;
   }
 `;
@@ -109,7 +128,9 @@ const Partners = () => (
     <Wrapper>
       <Logos isOdd={logos.length % 2}>
         {logos.map((logo: LogoType) => (
-          <Logo src={logo.url} alt={logo.name} key={logo.id} width={logo.width} />
+          <LogoWrapper>
+            <Logo src={logo.url} alt={logo.name} key={logo.id} width={logo.width} />
+          </LogoWrapper>
         ))}
       </Logos>
       <Content>
