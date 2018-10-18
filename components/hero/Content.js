@@ -58,29 +58,33 @@ const TextWrapper = styled.div`
 `;
 
 const ActionWrapper = styled.div`
-  display: grid;
-  grid-template-columns: 1.35fr 1fr;
+  display: flex;
   align-items: center;
   justify-content: space-between;
   margin-left: -19px;
   width: 272px;
 
   @media (min-width: 740px) {
-    grid-template-columns: 94px 1fr;
-    margin-left: -66px;
+    justify-content: flex-start;
+    width: 260px;
+    margin-left: -34px;
   }
 
   @media (min-width: 1440px) {
-    width: 300px;
-    margin-left: -180px;
+    width: 350px;
+    margin-left: -87px;
   }
 `;
 
 const AirplaneWrapper = styled.div`
   position: relative;
-  justify-self: start;
   top: -38px;
   left: -3px;
+  width: 260px;
+
+  @media (min-width: 1440px) {
+    width: 400px;
+  }
 `;
 
 const Content = () => (

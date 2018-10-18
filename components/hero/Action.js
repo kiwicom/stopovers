@@ -10,6 +10,7 @@ import ActionText from "../shared/ActionText";
 import { scrollToElement } from "../helpers";
 
 const ActionButton = styled.button`
+  flex-shrink: 0;
   width: 52px;
   height: 52px;
   border-radius: 50%;
