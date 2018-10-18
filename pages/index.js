@@ -93,7 +93,7 @@ export default class Index extends React.Component<Props, State> {
     const language = mapLanguage(brandLanguage.languages[langId], langInfos[langId]);
     const isServer = !!req;
     const translationsUrl = `${isServer ? `http://localhost:3000` : ""}/static/locales/${
-      language.iso
+      language.phraseApp
     }.json`;
     const translations = await fetch(translationsUrl).then(x => x.json());
     const fetched = {
