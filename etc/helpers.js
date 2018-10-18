@@ -7,7 +7,21 @@ import { type Language } from "@kiwicom/nitro/lib/records/Languages";
 import { type BrandLanguages } from "@kiwicom/nitro/lib/records/BrandLanguage";
 import cookies from "js-cookie";
 
-export const usedLangIds = ["en", "cz", "ro", "hu", "es", "fr", "de", "ru", "it", "pl"];
+export const usedLangIds = [
+  "en",
+  "ca",
+  "us",
+  "sg",
+  "es",
+  "it",
+  "fr",
+  "de",
+  "pl",
+  "cz",
+  "ru",
+  "ro",
+  "hu",
+];
 
 export const UTM_PARAMS = process.env.UTM_PARAMS ? `?${process.env.UTM_PARAMS}` : "";
 

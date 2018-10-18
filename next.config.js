@@ -25,7 +25,21 @@ module.exports = {
   },
   useFileSystemPublicRoutes: process.env.NODE_ENV !== "production",
   exportPathMap() {
-    const usedLangIds = ["en", "cz", "ro", "hu", "es", "fr", "de", "ru", "it", "pl"];
+    const usedLangIds = [
+      "en",
+      "ca",
+      "us",
+      "sg",
+      "es",
+      "it",
+      "fr",
+      "de",
+      "pl",
+      "cz",
+      "ru",
+      "ro",
+      "hu",
+    ];
     const allLangs = Object.values(langsData).map(({ id, phraseApp, iso }) => ({
       id,
       phraseApp,
@@ -37,7 +51,10 @@ module.exports = {
       const translateTo = usedLangIds.includes(lang.id) ? lang.id : fallbackId;
       return {
         ...mapping,
-        [`/${lang.id}/stopovers/dubai`]: { page: "/", query: { lang: translateTo } },
+        [`/${lang.id}/stopovers/dubai`]: {
+          page: "/",
+          query: { lang: translateTo },
+        },
       };
     }, {});
   },

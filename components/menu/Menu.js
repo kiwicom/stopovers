@@ -32,7 +32,7 @@ const Logo = styled.img`
 `;
 
 const LanguageWrapper = styled.div`
-  justify-self: end;
+  ${({ isMobile }) => isMobile && "justify-self: end;"};
   align-self: ${({ isMobile }) => (isMobile ? "center" : "start")};
   margin-right: 5px;
   margin-left: 5px;
