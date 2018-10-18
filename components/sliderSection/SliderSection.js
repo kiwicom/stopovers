@@ -2,16 +2,7 @@
 
 import * as React from "react";
 import styled from "styled-components";
-import {
-  CarouselProvider,
-  Slider,
-  Slide,
-  ButtonBack,
-  ButtonNext,
-  DotGroup,
-  Image,
-} from "pure-react-carousel";
-import { ChevronRight, ChevronLeft } from "@kiwicom/orbit-components/lib/icons";
+import { ChevronRight } from "@kiwicom/orbit-components/lib/icons";
 import Text from "@kiwicom/nitro/lib/components/Text";
 import { Button, ButtonLink } from "@kiwicom/orbit-components";
 
@@ -19,181 +10,58 @@ import { sendEvent } from "../../etc/logLady";
 import SectionTitle from "../shared/SectionTitle";
 import Description from "../shared/Description";
 import { scrollToElement } from "../helpers";
+import Slider from "./Slider";
 import sliderImages from "./mockedData";
 
 const Wrapper = styled.div`
-  display: grid;
+  display: flex;
+  flex-wrap: wrap;
   padding: 0 0 22px 0;
-  grid-template-columns: 1fr;
-  grid-template-rows: repeat(auto-fit, 1fr);
   background-color: #f6f7f9;
 
   @media (min-width: 740px) {
     padding: 0 25px 10px;
-    grid-template-rows: 100px 1fr 1fr;
-    grid-template-columns: 1fr 1fr;
-    grid-column-gap: 25px;
   }
 
   @media (min-width: 1440px) {
-    grid-template-rows: 0.7fr 0.55fr 1fr;
     justify-items: left;
     padding: 100px 65px 42px;
-    grid-column-gap: 65px;
     align-items: center;
   }
 `;
 
-const SliderWrapper = styled.div`
-  width: 100%;
+const ContentWrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  margin: 0 auto;
 
   @media (min-width: 740px) {
-    grid-row: 2 / 4;
+    margin-left: 25px;
+    max-width: calc(50% - 25px);
   }
 
   @media (min-width: 1440px) {
-    grid-row: 1 / 4;
-  }
-
-  .provider {
-    display: grid;
-    grid-template-columns: 0 1fr 0;
-    grid-template-rows: 1fr 58px;
-    align-items: center;
-    justify-content: center;
-    overflow: hidden;
-  }
-
-  .slider {
-    position: relative;
-    overflow: hidden;
-    border-radius: 3px;
-  }
-
-  .next {
-    cursor: pointer;
-    color: #46515e;
-    background-color: #f5f7f9;
-    border: none;
-    opacity: 0.9;
-    border-radius: 3px;
-    padding: 0;
-    margin: 0;
-    position: relative;
-    right: 38px;
-    z-index: 1;
-    margin-right: -40px;
-    padding: 4px;
-  }
-
-  .back {
-    cursor: pointer;
-    color: #46515e;
-    background-color: #f5f7f9;
-    border: none;
-    opacity: 0.9;
-    border-radius: 3px;
-    padding: 0;
-    margin: 0;
-    position: relative;
-    left: 38px;
-    z-index: 1;
-    margin-left: -40px;
-    padding: 4px;
-  }
-
-  .dots {
-    grid-column: 1/3;
-    display: flex;
-    flex-direction: row;
-    place-self: center;
-    align-items: center;
-  }
-
-  .carousel__dot {
-    cursor: pointer;
-    border-radius: 50%;
-    background-color: #bac7d5;
-    border: none;
-    padding: 6px;
-    margin: 0;
-
-    &:not(:last-child) {
-      margin-right: 16px;
-    }
-  }
-
-  .carousel__dot--selected {
-    background-color: #00a991;
-    padding: 8px;
-  }
-
-  .carousel__image {
-    display: block;
-    width: 100%;
-    height: 100%;
-  }
-
-  .carousel__slide {
-    float: left;
-    position: relative;
-    display: block;
-    box-sizing: border-box;
-    height: 0;
-    margin: 0;
-    list-style-type: none;
-  }
-
-  .carousel__slider-tray {
-    transition: transform 0.5s;
-    transition-timing-function: cubic-bezier(0.645, 0.045, 0.355, 1);
-    will-change: transform;
-  }
-
-  .carousel__spinner {
-    position: absolute;
-    top: calc(50% - 15px);
-    left: calc(50% - 15px);
-    width: 30px;
-    height: 30px;
-    animation-name: a;
-    animation-duration: 1s;
-    animation-timing-function: linear;
-    animation-iteration-count: infinite;
-    border-width: 4px;
-    border-style: solid;
-    border-top-color: #000;
-    border-right-color: #a9a9a9;
-    border-bottom-color: #a9a9a9;
-    border-left-color: #a9a9a9;
-    border-radius: 30px;
-  }
-
-  @keyframes a {
-    0% {
-      transform: rotate(0deg);
-    }
-
-    to {
-      transform: rotate(1turn);
-    }
+    margin-left: 65px;
   }
 `;
 
 const DescriptionWrapper = styled.div`
-  align-self: center;
-  justify-self: center;
-  padding: 5px 30px 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   max-width: 520px;
+  padding-top: 5px;
+  margin-bottom: 24px;
 
   @media (min-width: 740px) {
-    justify-self: start;
+    flex-basis: 50%;
+    justify-content: flex-start;
     padding: 0;
   }
 
   @media (min-width: 1440px) {
-    order: 2;
-    align-self: center;
+    margin-top: 24px;
+    margin-bottom: 40px;
   }
 
   > * {
@@ -202,97 +70,97 @@ const DescriptionWrapper = styled.div`
 `;
 
 const ButtonsWrapper = styled.div`
-  display: grid;
-  grid-template-columns: 1fr;
-  margin-top: 24px;
-  grid-row-gap: 10px;
-  align-items: center;
-  justify-items: center;
+  display: flex;
+  flex-direction: column;
+  place-items: center;
+
+  & > :first-child {
+    margin-bottom: 10px;
+  }
 
   @media (min-width: 740px) {
-    grid-gap: 20px;
+    flex-direction: row;
     margin-top: 0;
     place-items: start;
-    grid-template-columns: 170px 1fr;
+
+    & > :first-child {
+      margin-bottom: 0px;
+      margin-right: 28px;
+    }
   }
 
   @media (min-width: 1440px) {
-    grid-template-columns: 1fr 1fr;
     order: 3;
     place-self: start;
     margin-top: 20px;
+
+    & > :first-child {
+      margin-bottom: 0px;
+      margin-right: 60px;
+    }
   }
 `;
 
-const TitleWrapper = styled.div`
+const TitleDesktop = styled.div`
+  display: none;
+
+  @media (min-width: 1440px) {
+    display: block;
+    align-self: flex-start;
+  }
+`;
+
+const TitleMobile = styled.div`
+  margin: 0 auto;
+
   @media (min-width: 740px) {
-    grid-column: 1 / 3;
+    width: 100%;
   }
 
   @media (min-width: 1440px) {
-    grid-column: 2 / 3;
-    order: 1;
-    align-self: end;
+    display: none;
   }
 `;
 
 const SliderSection = () => (
   <Wrapper>
-    <TitleWrapper>
+    <TitleMobile>
       <SectionTitle title="stopoverTitle" resetPadding />
-    </TitleWrapper>
-    <SliderWrapper>
-      <CarouselProvider
-        naturalSlideWidth={606}
-        naturalSlideHeight={400}
-        totalSlides={sliderImages.length}
-        hasMasterSpinner
-        className="provider"
-      >
-        <ButtonBack className="back">
-          <ChevronLeft size="large" />
-        </ButtonBack>
-        <Slider className="slider">
-          {sliderImages.map((image, index) => (
-            <Slide index={index} key={image.title}>
-              <Image src={image.url} alt={image.title} />
-            </Slide>
-          ))}
-        </Slider>
-        <ButtonNext className="next">
-          <ChevronRight size="large" />
-        </ButtonNext>
+    </TitleMobile>
+    <Slider sliderImages={sliderImages} />
+    <ContentWrapper>
+      <TitleDesktop>
+        <SectionTitle title="stopoverTitle" resetPadding />
+      </TitleDesktop>
 
-        <DotGroup className="dots" />
-      </CarouselProvider>
-    </SliderWrapper>
-    <DescriptionWrapper>
-      <Description>
-        <Text t="stopoverDescription" />
-      </Description>
-    </DescriptionWrapper>
-    <ButtonsWrapper>
-      <Button
-        size="large"
-        onClick={() => {
-          scrollToElement("search");
-          sendEvent("searchFlights");
-        }}
-      >
-        <Text t="searchFlights" />
-      </Button>
-      <ButtonLink
-        type="secondary"
-        size="large"
-        icon={<ChevronRight />}
-        onClick={() => {
-          scrollToElement("itinerary");
-          sendEvent("discoverTips");
-        }}
-      >
-        <Text t="chooseItinerary" />
-      </ButtonLink>
-    </ButtonsWrapper>
+      <DescriptionWrapper>
+        <Description>
+          <Text t="stopoverDescription" />
+        </Description>
+      </DescriptionWrapper>
+      <ButtonsWrapper>
+        <Button
+          size="large"
+          onClick={() => {
+            scrollToElement("search");
+            sendEvent("searchFlights");
+          }}
+        >
+          <Text t="searchFlights" />
+        </Button>
+        <ButtonLink
+          type="secondary"
+          size="large"
+          icon={<ChevronRight />}
+          onClick={() => {
+            scrollToElement("itinerary");
+            sendEvent("discoverTips");
+          }}
+        >
+          <Text t="chooseItinerary" />
+        </ButtonLink>
+      </ButtonsWrapper>
+    </ContentWrapper>
   </Wrapper>
 );
 
