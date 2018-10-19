@@ -42,8 +42,11 @@ const StyledSlide = styled(Slide)`
   box-sizing: border-box;
   margin: 0;
   list-style-type: none;
-  height: 100%;
   padding: 0 !important;
+
+  .carousel__inner-slide {
+    height: 100%;
+  }
 `;
 
 const StyledImage = styled(Image)`
