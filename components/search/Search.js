@@ -21,20 +21,10 @@ const Wrapper = styled.div`
 `;
 
 const WidgetWrapper = styled.div`
-  display: grid;
-  grid-template-columns: 1fr;
-
-  @media (min-width: 740px) {
-    grid-template-columns: 1fr 704px 1fr;
-  }
-`;
-
-const Widget = styled.div`
-  grid-column-start: 1;
-
-  @media (min-width: 740px) {
-    grid-column-start: 2;
-  }
+  display: flex;
+  flex-direction: column;
+  max-width: 704px;
+  margin: 0 auto;
 `;
 
 type Props = {
@@ -97,7 +87,7 @@ class Search extends React.Component<Props> {
         <SectionTitle title="widgetTitle" subtitle="widgetSubTitle" />
 
         <WidgetWrapper>
-          <Widget id="widget-holder" />
+          <div id="widget-holder" />
         </WidgetWrapper>
       </Wrapper>
     );
