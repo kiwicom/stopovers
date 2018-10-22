@@ -15,7 +15,7 @@
     "update-translations": "node dist/updateTranslations.js",
     "update-translations:build": "babel scripts --ignore __tests__,__test__,__mocks__ --out-dir dist/",
     "update-translations:dev": "nodemon scripts/updateTranslations.js --exec babel-node",
-    "fetch": "dato dump --preview"
+    "fetch": "dato dump"
   },
   "dependencies": {
     "@kiwicom/nitro": "^0.26.3",

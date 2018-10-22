@@ -11,6 +11,7 @@ sketchy-null
 [ignore]
 <PROJECT_ROOT>\/node_modules\/graphviz\/.*
 <PROJECT_ROOT>\/next.config.js
+<PROJECT_ROOT>\/dato.config.js
 
 [include]
 
