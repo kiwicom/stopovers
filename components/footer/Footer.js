@@ -6,33 +6,23 @@ import { Linkedin, Twitter, Instagram, Facebook } from "@kiwicom/orbit-component
 import Text from "@kiwicom/nitro/lib/components/Text";
 
 const Wrapper = styled.div`
-  display: grid;
-  grid-template-rows: 120px 1fr 90px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   border-top: 2px solid #f5f7f9;
-  place-items: center;
+  padding: 24px;
 
   @media (min-width: 740px) {
-    grid-template-rows: 1fr 1fr;
-    grid-template-columns: 189px 1fr;
-    justify-items: start;
-    padding: 40px 32px;
-  }
-
-  @media (min-width: 1440px) {
-    grid-template-rows: 1fr;
-    grid-template-columns: 189px 1fr 220px;
-    justify-items: start;
-    padding: 46px 50px;
+    flex-direction: row;
+    padding: 40px 50px;
   }
 `;
 
 const LogoWrapper = styled.div`
-  place-self: center;
+  margin: 0 0 40px 0;
 
   @media (min-width: 740px) {
-    justify-self: start;
-    align-self: center;
-    grid-row: 1 / 3;
+    margin: 0 50px 0 0;
   }
 `;
 
@@ -40,25 +30,34 @@ const Logo = styled.img`
   vertical-align: middle;
 `;
 
-const LinkWrapper = styled.div`
+const LinksAndIconsWrapper = styled.div`
   display: flex;
+  flex-grow: 1;
   flex-direction: column;
-  align-items: center;
-
-  @media (min-width: 740px) {
-    flex-direction: row;
-    justify-self: end;
-    align-self: center;
-    padding: 12px 0;
-    order: 1;
-  }
+  align-items: flex-end;
 
   @media (min-width: 1440px) {
     flex-direction: row;
-    justify-self: start;
-    align-self: center;
-    padding: 12px 0;
-    order: 0;
+    align-items: center;
+  }
+  @media (max-width: 740px) {
+    align-items: center;
+  }
+`;
+
+const LinksWrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 40px;
+
+  @media (min-width: 740px) {
+    margin: 0;
+    flex-direction: row;
+
+    @media (max-width: 1440px) {
+      margin-top: 24px;
+    }
   }
 `;
 
@@ -68,28 +67,28 @@ const Link = styled.a`
   text-decoration: none;
 
   &:not(:last-child) {
-    margin-bottom: 24px;
-
+    @media (max-width: 740px) {
+      margin-bottom: 24px;
+    }
     @media (min-width: 740px) {
-      margin-bottom: 0;
       margin-right: 24px;
     }
   }
 `;
 
 const Icons = styled.div`
-  > * {
-    color: #bac7d5;
-
-    &:not(:last-child) {
-      margin-right: 24px;
-    }
-  }
+  margin-left: auto;
 
   @media (min-width: 740px) {
-    justify-self: end;
-    align-self: center;
-    padding: 12px 0;
+    @media (max-width: 1440px) {
+      order: -1;
+    }
+  }
+`;
+
+const IconsLink = styled.a`
+  :not(:last-child) {
+    margin-right: 24px;
   }
 `;
 
@@ -122,22 +121,22 @@ const prepareLinks = (langId: ?string) => {
 const icons = [
   {
     id: 1,
-    component: <Instagram />,
+    component: <Instagram color="tertiary" />,
     url: `https://www.instagram.com/kiwicom247/`,
   },
   {
     id: 2,
-    component: <Twitter />,
-    url: `htts://twitter.com/kiwipcom247/`,
+    component: <Twitter color="tertiary" />,
+    url: `https://twitter.com/kiwicom247/`,
   },
   {
     id: 3,
-    component: <Linkedin />,
+    component: <Linkedin color="tertiary" />,
     url: `https://www.linkedin.com/company/Kiwi.com/`,
   },
   {
     id: 4,
-    component: <Facebook />,
+    component: <Facebook color="tertiary" />,
     url: `https://www.facebook.com/kiwicom247/`,
   },
 ];
@@ -153,20 +152,22 @@ const Footer = ({ langId }: Props) => (
         <Logo src="/static/images/logo.svg" alt="Kiwi.com" />
       </a>
     </LogoWrapper>
-    <LinkWrapper>
-      {prepareLinks(langId).map(link => (
-        <Link href={link.url} key={link.id} target="_blank" rel="noopener noreferrer">
-          <Text t={link.title} />
-        </Link>
-      ))}
-    </LinkWrapper>
-    <Icons>
-      {icons.map(icon => (
-        <a href={icon.url} key={icon.id} target="_blank" rel="noopener noreferrer">
-          {icon.component}
-        </a>
-      ))}
-    </Icons>
+    <LinksAndIconsWrapper>
+      <LinksWrapper>
+        {prepareLinks(langId).map(link => (
+          <Link href={link.url} key={link.id} target="_blank" rel="noopener noreferrer">
+            <Text t={link.title} />
+          </Link>
+        ))}
+      </LinksWrapper>
+      <Icons>
+        {icons.map(icon => (
+          <IconsLink href={icon.url} key={icon.id} target="_blank" rel="noopener noreferrer">
+            {icon.component}
+          </IconsLink>
+        ))}
+      </Icons>
+    </LinksAndIconsWrapper>
   </Wrapper>
 );
 
