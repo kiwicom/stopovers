@@ -50,6 +50,8 @@ type Props = {
   language: LangInfo,
   fetched: Fetched,
   langId: string,
+  currentPath: string,
+  socialPhotos: { twitter: ?string, facebook: ?string },
 };
 
 type State = {
@@ -86,7 +88,15 @@ export default class Index extends React.Component<Props, State> {
     this.setState({ isMobile: window.innerWidth < 740 });
   };
 
-  static async getInitialProps({ query: { lang }, req }: { query: Query, req: any }) {
+  static async getInitialProps({
+    query: { lang },
+    req,
+    asPath,
+  }: {
+    query: Query,
+    req: any,
+    asPath: string,
+  }) {
     const langId = lang && usedLangIds.includes(lang) ? lang : "en";
     const langInfos: LangInfos = filterLanguages(langsData);
     const brandLanguage: BrandLanguage = filterBrandLanguage(brandLangsData, langId);
@@ -105,6 +115,12 @@ export default class Index extends React.Component<Props, State> {
       language,
       fetched,
       langId,
+      currentPath: asPath,
+      socialPhotos: {
+        twitter:
+          "https://www.datocms-assets.com/7631/1539703853-dubaitwittersummaryimage1200x643.jpg",
+        facebook: "https://www.datocms-assets.com/7631/1539703866-dubaifacebook1200x630.png",
+      },
     };
   }
 
@@ -118,7 +134,7 @@ export default class Index extends React.Component<Props, State> {
   }
 
   render() {
-    const { translations, language, fetched, langId } = this.props;
+    const { translations, language, fetched, langId, currentPath, socialPhotos } = this.props;
     const { isMobile, areKeysShown } = this.state;
     const translationsForMenu = translations
       ? {
@@ -128,19 +144,29 @@ export default class Index extends React.Component<Props, State> {
           "search.service.rooms": translations.rooms,
         }
       : {};
-    const translationsForHead = translations
-      ? {
-          metaDescription: translations["dubai_414745.metaDescription"],
-          metaTitle: translations["dubai_414745.metaTitle"],
-        }
-      : {};
+    const translationsForHead = translations && {
+      metaDescription: translations["dubai_414745.metaDescription"],
+      metaTitle: translations["dubai_414745.metaTitle"],
+      otherMetaTags: {
+        "434528": { value: translations["dubai_414745.otherMetaTags.434528.value"] },
+        "434527": { value: translations["dubai_414745.otherMetaTags.434527.value"] },
+        "434526": { value: translations["dubai_414745.otherMetaTags.434526.value"] },
+        "434525": { value: translations["dubai_414745.otherMetaTags.434525.value"] },
+      },
+    };
+
     return (
       <React.Fragment>
         <Provider
           translations={areKeysShown ? {} : { ...translations, ...translationsForMenu }}
           language={language}
         >
-          <MetaHead translations={translationsForHead} />
+          <MetaHead
+            translations={translationsForHead}
+            locale={language.iso}
+            currentPath={currentPath}
+            socialPhotos={socialPhotos}
+          />
           <FetchedProvider value={fetched}>
             <Menu langId={langId} isMobile={isMobile} />
           </FetchedProvider>

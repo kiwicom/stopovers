@@ -1,7 +1,7 @@
 // @flow
 
 import "isomorphic-unfetch";
-import pick from "lodash.pick";
+import pick from "lodash/pick";
 import { type LangInfos, type LangInfo } from "@kiwicom/nitro/lib/records/LangInfo";
 import { type Language } from "@kiwicom/nitro/lib/records/Languages";
 import { type BrandLanguages } from "@kiwicom/nitro/lib/records/BrandLanguage";
