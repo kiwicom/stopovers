@@ -154,7 +154,7 @@ export default class Index extends React.Component<Props, State> {
         "434525": { value: translations["dubai_414745.otherMetaTags.434525.value"] },
       },
     };
-
+    const areArticlesShown = ["en-GB", "en-US"].includes(language.phraseApp);
     return (
       <React.Fragment>
         <Provider
@@ -181,11 +181,13 @@ export default class Index extends React.Component<Props, State> {
           <Element name="partners">
             <Partners />
           </Element>
-          <Element name="articles">
-            <Articles />
-          </Element>
+          {areArticlesShown && (
+            <Element name="articles">
+              <Articles />
+            </Element>
+          )}
           <Element name="video">
-            <Video />
+            <Video isGrey={!areArticlesShown} />
           </Element>
           <Element name="search">
             <Search langId={langId} />
