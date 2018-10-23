@@ -14,8 +14,7 @@ type Props = {
 };
 
 const Wrapper = styled.div`
-  display: grid;
-  grid-template-columns: 99px auto auto;
+  display: flex;
   height: 50px;
   align-items: center;
   padding-left: 10px;
@@ -32,12 +31,14 @@ const Logo = styled.img`
 `;
 
 const LanguageWrapper = styled.div`
-  ${({ isMobile }) => isMobile && "justify-self: end;"};
-  align-self: ${({ isMobile }) => (isMobile ? "center" : "start")};
+  ${({ isMobile }) => isMobile && "justify-self: flex-end;"};
+  align-self: ${({ isMobile }) => (isMobile ? "center" : "flex-start")};
   margin-right: 5px;
   margin-left: 5px;
   position: relative;
+  flex: 1;
   display: flex;
+  justify-content: flex-end;
   @media (min-width: 740px) {
     margin-right: 40px;
   }
