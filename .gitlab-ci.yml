@@ -1,9 +1,11 @@
 stages:
   - install
   - test
-  - build
-  - deploy dev
-  - deploy production
+  - build dev
+  - build staging
+  - build prod
+  - deploy staging
+  - deploy prod
 
 image: node:10.8
 
@@ -23,7 +25,7 @@ frontend install:
   retry: 2
 
 # Test stage
-frontend:test:
+frontend test:
   stage: test
   script:
     - *install_frontend
@@ -36,9 +38,7 @@ frontend:test:
     policy: pull
   retry: 2
 
-# Build stage
-frontend:build:
-  stage: build
+.build:
   script:
     - *install_frontend
     - yarn update-translations:build
@@ -52,9 +52,40 @@ frontend:build:
     paths:
       - out/
 
-# Deploy dev stage
-frontend dev:deploy:
-  stage: deploy dev
+# Build stage for dev branches
+frontend dev:build:
+  extends: .build
+  stage: build dev
+  environment:
+    name: dev/$CI_COMMIT_REF_NAME
+  only:
+    - branches
+  except:
+    - master
+    - hot/$CI_COMMIT_REF_NAME
+
+# Staging build
+frontend staging:build:
+  extends: .build
+  stage: build staging
+  environment:
+    name: staging
+  only:
+    - master
+    - hot/$CI_COMMIT_REF_NAME
+
+# Production build
+frontend prod:build:
+  extends: .build
+  stage: build prod
+  environment:
+    name: production
+  only:
+    - tags
+
+# Staging deployment
+frontend staging:deploy:
+  stage: deploy staging
   image: kiwicom/s3cmd-plus-docker
   script:
     - s3cmd sync --no-mime-magic --guess-mime-type --recursive out/* s3://kw-stopovers-dev/
@@ -64,10 +95,13 @@ frontend dev:deploy:
       - out/
   only:
     - master
+  environment:
+    name: staging
+    url: http://kw-stopovers-dev.s3-website-eu-west-1.amazonaws.com/en/stopovers/dubai/
 
-# Deploy prod stage
+# Production deployment
 frontend prod:deploy:
-  stage: deploy production
+  stage: deploy prod
   image: kiwicom/s3cmd-plus-docker
   script:
     - s3cmd sync --no-mime-magic --guess-mime-type --recursive out/* s3://kw-stopovers/
@@ -75,5 +109,7 @@ frontend prod:deploy:
     key: ${CI_COMMIT_REF_SLUG}-stopovers
     paths:
       - out/
+  environment:
+    name: production
   only:
     - tags
