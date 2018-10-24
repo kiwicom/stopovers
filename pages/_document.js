@@ -65,7 +65,7 @@ const globalStyles = () => injectGlobal`
   }
   iframe.youtube-embed {
     max-width: 100%;
-    height: 162px;
+    height: 300px;
   }
 
   @media only screen and (min-width: 740px) {
