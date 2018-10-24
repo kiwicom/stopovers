@@ -43,7 +43,7 @@ const Logos = styled.div`
   place-items: center;
 
   @media only screen and (min-width: 740px) {
-    margin-bottom: -30px
+    margin-bottom: -30px;
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: center;

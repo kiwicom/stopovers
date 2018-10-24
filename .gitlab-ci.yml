@@ -62,7 +62,7 @@ frontend dev:build:
     - branches
   except:
     - master
-    - hot/$CI_COMMIT_REF_NAME
+    - /^hot\/.*$/
 
 # Staging build
 frontend staging:build:
@@ -72,7 +72,7 @@ frontend staging:build:
     name: staging
   only:
     - master
-    - hot/$CI_COMMIT_REF_NAME
+    - /^hot\/.*$/
 
 # Production build
 frontend prod:build:
