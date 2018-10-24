@@ -41,8 +41,8 @@ frontend test:
 .build:
   script:
     - *install_frontend
-    - yarn update-translations:build
-    - yarn update-translations
+    - yarn scripts:build
+    - yarn fetch-translations
     - yarn export
     - mv out/_next out/static && mv out/static out/stopovers-static && mv out/stopovers-static/_next/static out/stopovers-static/_next/stopovers-static
     - find out -type f -exec sed -i "s/\/static\//\/stopovers-static\//g" {} \;
