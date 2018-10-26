@@ -6,6 +6,7 @@ const path = require("path");
 const Dotenv = require("dotenv-webpack");
 
 const langsData = require("./static/languages.json");
+const cmsData = require("./dato/data.json");
 
 module.exports = {
   webpack: config => {
@@ -40,6 +41,7 @@ module.exports = {
       "ro",
       "hu",
     ];
+    const cityTags = Object.keys(cmsData);
     const allLangs = Object.values(langsData).map(({ id, phraseApp, iso }) => ({
       id,
       phraseApp,
@@ -49,12 +51,19 @@ module.exports = {
       const fallbackLang = allLangs.find(fb => fb.iso === lang.phraseApp);
       const fallbackId = (fallbackLang && fallbackLang.id) || "en";
       const translateTo = usedLangIds.includes(lang.id) ? lang.id : fallbackId;
+      const langCitiesMap = cityTags.reduce((result, cityTag) => {
+        const cityName = cityTag.split("_")[0];
+        return {
+          ...result,
+          [`/${lang.id}/stopovers/${cityName}`]: {
+            page: "/",
+            query: { lang: translateTo, cityTag },
+          },
+        };
+      }, {});
       return {
         ...mapping,
-        [`/${lang.id}/stopovers/dubai`]: {
-          page: "/",
-          query: { lang: translateTo },
-        },
+        ...langCitiesMap,
       };
     }, {});
   },

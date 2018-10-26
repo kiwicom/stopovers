@@ -3,17 +3,17 @@
 import fetch from "isomorphic-unfetch";
 import dotenv from "dotenv";
 import chalk from "chalk";
-import fs from "fs";
+import fs from "fs-extra";
 
 dotenv.config();
 
 const PHRASE_APP_BASE_URL = "https://api.phraseapp.com/api/v2/";
 const PHRASE_APP_PROJECT_ID = process.env.PHRASE_APP_PROJECT_ID || "";
 const PHRASE_APP_ACCESS_TOKEN = process.env.PHRASE_APP_ACCESS_TOKEN || "";
-const FILE_FORMAT = "simple_json";
+const FILE_FORMAT = "nested_json";
 
 const url = `${PHRASE_APP_BASE_URL}projects/${PHRASE_APP_PROJECT_ID}/locales/`;
-const getLocaleUrl = id => `${url}${id}/download?file_format=${FILE_FORMAT}`;
+const getLocaleUrl = id => `${url}${id}/download?file_format=${FILE_FORMAT}?encoding=UTF-8`;
 const headers = {
   method: "GET",
   headers: {
@@ -47,10 +47,25 @@ async function processResponses(allLocalesJson) {
     const responses = await processResponses(allLocalesJson);
 
     responses.map(({ code, translation }: { code: string, translation: string }) => {
-      fs.writeFile(
-        `static/locales/${code}.json`,
-        JSON.stringify(translation, null, 2),
-        "utf8",
+      const { menuItems, ...cities } = translation;
+      const cityTags = Object.keys(cities);
+      cityTags.forEach(cityTag => {
+        const path = `static/cities/${cityTag}/locales/`;
+        fs.outputFile(`${path}/${code}.json`, JSON.stringify(cities[cityTag], null, 2), err => {
+          if (err) {
+            return console.error(err); // eslint-disable-line no-console
+          }
+
+          // eslint-disable-next-line no-console
+          return console.log(
+            chalk.green.bold(`\nCongratulations! ${code} translations were updated\n`),
+          );
+        });
+      });
+      fs.outputFile(
+        `static/locales/menuItems/${code}.json`,
+        JSON.stringify(menuItems, null, 2),
+
         err => {
           if (err) {
             return console.error(err); // eslint-disable-line no-console

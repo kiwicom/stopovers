@@ -39,6 +39,8 @@ import brandLangsData from "../static/brandLanguages.json";
 
 const isProd = process.env.NODE_ENV === "production";
 
+const fetchJson = async (url: string) => await fetch(url).then(x => x.json());
+
 type Query = {
   lang?: string,
   from?: string,
@@ -89,7 +91,7 @@ export default class Index extends React.Component<Props, State> {
   };
 
   static async getInitialProps({
-    query: { lang },
+    query: { lang, cityTag },
     req,
     asPath,
   }: {
@@ -102,25 +104,26 @@ export default class Index extends React.Component<Props, State> {
     const brandLanguage: BrandLanguage = filterBrandLanguage(brandLangsData, langId);
     const language = mapLanguage(brandLanguage.languages[langId], langInfos[langId]);
     const isServer = !!req;
-    const translationsUrl = `${isServer ? `http://localhost:3000` : ""}/static/locales/${
-      language.phraseApp
-    }.json`;
-    const translations = await fetch(translationsUrl).then(x => x.json());
+    const staticPath = `${isServer ? `http://localhost:3000` : ""}/static`;
+    const cityPath = `${staticPath}/cities/${cityTag}/`;
+    const translations = await fetchJson(`${cityPath}/locales/${language.phraseApp}.json`);
+    const cityData = await fetchJson(`${cityPath}/cms_data.json`);
+    const menuTranslations = await fetchJson(
+      `${staticPath}/locales/menuItems/${language.phraseApp}.json`,
+    );
     const fetched = {
       ...fetchedDefault,
       brandLanguage,
     };
     return {
       translations,
+      menuTranslations,
+      cityData,
       language,
       fetched,
       langId,
       currentPath: asPath,
-      socialPhotos: {
-        twitter:
-          "https://www.datocms-assets.com/7631/1539703853-dubaitwittersummaryimage1200x643.jpg",
-        facebook: "https://www.datocms-assets.com/7631/1539703866-dubaifacebook1200x630.png",
-      },
+      cityTag,
     };
   }
 
@@ -134,31 +137,43 @@ export default class Index extends React.Component<Props, State> {
   }
 
   render() {
-    const { translations, language, fetched, langId, currentPath, socialPhotos } = this.props;
+    const {
+      translations,
+      menuTranslations,
+      language,
+      fetched,
+      langId,
+      currentPath,
+      cityData,
+    } = this.props;
     const { isMobile, areKeysShown } = this.state;
-    const translationsForMenu = translations
+    const translationsForMenu = menuTranslations
       ? {
-          "search.service.travel_anywhere": translations.travel,
-          "search.service.holidays": translations.holidays,
-          "search.service.cars": translations.cars,
-          "search.service.rooms": translations.rooms,
+          "search.service.travel_anywhere": menuTranslations.header.travel,
+          "search.service.holidays": menuTranslations.header.holidays,
+          "search.service.cars": menuTranslations.header.cars,
+          "search.service.rooms": menuTranslations.header.rooms,
         }
       : {};
+
     const translationsForHead = translations && {
-      metaDescription: translations["dubai_414745.metaDescription"],
-      metaTitle: translations["dubai_414745.metaTitle"],
-      otherMetaTags: {
-        "434528": { value: translations["dubai_414745.otherMetaTags.434528.value"] },
-        "434527": { value: translations["dubai_414745.otherMetaTags.434527.value"] },
-        "434526": { value: translations["dubai_414745.otherMetaTags.434526.value"] },
-        "434525": { value: translations["dubai_414745.otherMetaTags.434525.value"] },
-      },
+      metaDescription: translations.metaDescription,
+      metaTitle: translations.metaTitle,
+      otherMetaTags: translations.otherMetaTags,
+    };
+    const socialPhotos = {
+      twitter: cityData.photoForTwitterCard.url,
+      facebook: cityData.photoForFacebookCard.url,
     };
     const areArticlesShown = ["en-GB", "en-US"].includes(language.phraseApp);
     return (
       <React.Fragment>
         <Provider
-          translations={areKeysShown ? {} : { ...translations, ...translationsForMenu }}
+          translations={
+            areKeysShown
+              ? {}
+              : { ...translations, ...translationsForMenu, ...menuTranslations.footer }
+          }
           language={language}
         >
           <MetaHead
