@@ -1,10 +1,14 @@
 {
-  "footer.privacyPolicy": "Ochrana osobních údajů",
-  "footer.security": "Bezpečnost",
-  "footer.termsAndConditions": "Obchodní podmínky",
-  "footer.termsOfUse": "Podmínky používání",
-  "header.cars": "Auta",
-  "header.holidays": "Dovolená",
-  "header.rooms": "Ubytování",
-  "header.travel": "Cestování"
+  "footer": {
+    "privacyPolicy": "Ochrana osobních údajů",
+    "security": "Bezpečnost",
+    "termsAndConditions": "Obchodní podmínky",
+    "termsOfUse": "Podmínky používání"
+  },
+  "header": {
+    "cars": "Auta",
+    "holidays": "Dovolená",
+    "rooms": "Ubytování",
+    "travel": "Cestování"
+  }
 }

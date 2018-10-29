@@ -44,7 +44,7 @@ const LanguageWrapper = styled.div`
   }
 `;
 
-const Menu = ({ langId, isMobile }: Props) => (
+const Menu = ({ langId, isMobile, cityTag }: Props) => (
   <Wrapper>
     <LogoWrapper>
       <a href={`https://www.kiwi.com/${langId || "en"}/`}>
@@ -69,9 +69,9 @@ const Menu = ({ langId, isMobile }: Props) => (
           Router.push(
             {
               pathname: "/",
-              query: { ...currentParams, lang },
+              query: { ...currentParams, lang, cityTag },
             },
-            `/${lang}/stopovers/dubai/`,
+            `/${lang}/stopovers/${cityTag.split("_")[0]}/`,
           );
         }}
       />

@@ -1,10 +1,14 @@
 {
-  "footer.privacyPolicy": "Datenschutzrichtlinie",
-  "footer.security": "Sicherheit",
-  "footer.termsAndConditions": "Allgemeine Geschäftsbedingungen",
-  "footer.termsOfUse": "Nutzungsbedingungen",
-  "header.cars": "Autos",
-  "header.holidays": "Urlaub",
-  "header.rooms": "Zimmer",
-  "header.travel": "Reisen"
+  "footer": {
+    "privacyPolicy": "Datenschutzrichtlinie",
+    "security": "Sicherheit",
+    "termsAndConditions": "Allgemeine Geschäftsbedingungen",
+    "termsOfUse": "Nutzungsbedingungen"
+  },
+  "header": {
+    "cars": "Autos",
+    "holidays": "Urlaub",
+    "rooms": "Zimmer",
+    "travel": "Reisen"
+  }
 }

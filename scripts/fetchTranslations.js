@@ -10,7 +10,7 @@ const env = name => process.env[name] || "";
 
 const PHRASE_APP_BASE_URL = "https://api.phraseapp.com/api/v2";
 const LOCALES_URL = `${PHRASE_APP_BASE_URL}/projects/${env("PHRASE_APP_PROJECT_ID")}/locales`;
-const FILE_FORMAT = "simple_json";
+const FILE_FORMAT = "nested_json";
 
 const fetchJSON = async url => {
   const options = {
@@ -33,6 +33,20 @@ const writeJSON = (filename, obj) =>
     });
   });
 
+const flatten = (obj, keyPrefix = "") =>
+  Object.entries(obj).reduce((result, [key, value]) => {
+    if (value && typeof value === "object") {
+      return {
+        ...result,
+        ...flatten(value, `${keyPrefix}${key}.`),
+      };
+    }
+    return {
+      ...result,
+      [keyPrefix + key]: value,
+    };
+  }, {});
+
 (async () => {
   try {
     const allLocales = await fetchJSON(LOCALES_URL);
@@ -45,16 +59,13 @@ const writeJSON = (filename, obj) =>
         `${LOCALES_URL}/${locale.id}/download?file_format=${FILE_FORMAT}&encoding=UTF-8`,
       );
 
-      const translationsByRootKey = Object.keys(translation).reduce((obj, key) => {
-        const { groups } = key.match(/(?<rootKey>[^.]*).(?<rest>.*)/);
-        return {
-          ...obj,
-          [groups.rootKey]: {
-            ...obj[groups.rootKey],
-            [groups.rest]: translation[key],
-          },
-        };
-      }, {});
+      const translationsByRootKey = Object.keys(translation).reduce(
+        (result, key) => ({
+          ...result,
+          [key]: key === "menuItems" ? translation[key] : flatten(translation[key]),
+        }),
+        {},
+      );
 
       Object.keys(translationsByRootKey).forEach(async rootKey => {
         const path =

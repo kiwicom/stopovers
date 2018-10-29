@@ -90,10 +90,10 @@ const AirplaneWrapper = styled.div`
 const Content = () => (
   <React.Fragment>
     <MainTitle>
-      <Text t="startYourVacation" />
+      <Text t="mainTitle" />
     </MainTitle>
     <TextWrapper>
-      <StyledText t="worldOfExperiences" />
+      <StyledText t="mainDescription" />
     </TextWrapper>
     <AirplaneWrapper>
       <AirplaneDown color="secondary" />

@@ -1,10 +1,14 @@
 {
-  "footer.privacyPolicy": "Adatvédelmi szabályzat",
-  "footer.security": "Biztonság",
-  "footer.termsAndConditions": "Szerződési feltételek",
-  "footer.termsOfUse": "Felhasználási feltételek",
-  "header.cars": "Autók",
-  "header.holidays": "Üdülések",
-  "header.rooms": "Szobák",
-  "header.travel": "Utazás"
+  "footer": {
+    "privacyPolicy": "Adatvédelmi szabályzat",
+    "security": "Biztonság",
+    "termsAndConditions": "Szerződési feltételek",
+    "termsOfUse": "Felhasználási feltételek"
+  },
+  "header": {
+    "cars": "Autók",
+    "holidays": "Üdülések",
+    "rooms": "Szobák",
+    "travel": "Utazás"
+  }
 }

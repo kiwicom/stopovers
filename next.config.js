@@ -6,7 +6,7 @@ const path = require("path");
 const Dotenv = require("dotenv-webpack");
 
 const langsData = require("./static/languages.json");
-const cmsData = require("./dato/data.json");
+const cmsData = require("./dato/en-GB.json");
 
 module.exports = {
   webpack: config => {
@@ -41,7 +41,7 @@ module.exports = {
       "ro",
       "hu",
     ];
-    const cityTags = Object.keys(cmsData);
+    const cityTags = Object.keys(cmsData).filter(key => key !== "menuItems");
     const allLangs = Object.values(langsData).map(({ id, phraseApp, iso }) => ({
       id,
       phraseApp,

@@ -1,10 +1,14 @@
 {
-  "footer.privacyPolicy": "Политика конфиденциальности",
-  "footer.security": "Контроль безопасности",
-  "footer.termsAndConditions": "Условия обслуживания",
-  "footer.termsOfUse": "Условия использования",
-  "header.cars": "Автопрокат",
-  "header.holidays": "Отпуска",
-  "header.rooms": "Гостиницы",
-  "header.travel": "Рейсы"
+  "footer": {
+    "privacyPolicy": "Политика конфиденциальности",
+    "security": "Контроль безопасности",
+    "termsAndConditions": "Условия обслуживания",
+    "termsOfUse": "Условия использования"
+  },
+  "header": {
+    "cars": "Автопрокат",
+    "holidays": "Отпуска",
+    "rooms": "Гостиницы",
+    "travel": "Рейсы"
+  }
 }

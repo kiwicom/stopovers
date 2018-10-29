@@ -39,7 +39,7 @@ import brandLangsData from "../static/brandLanguages.json";
 
 const isProd = process.env.NODE_ENV === "production";
 
-const fetchJson = async (url: string) => await fetch(url).then(x => x.json());
+const fetchJson = (url: string) => fetch(url).then(x => x.json());
 
 type Query = {
   lang?: string,
@@ -105,7 +105,7 @@ export default class Index extends React.Component<Props, State> {
     const language = mapLanguage(brandLanguage.languages[langId], langInfos[langId]);
     const isServer = !!req;
     const staticPath = `${isServer ? `http://localhost:3000` : ""}/static`;
-    const cityPath = `${staticPath}/cities/${cityTag}/`;
+    const cityPath = `${staticPath}/cities/${cityTag}`;
     const translations = await fetchJson(`${cityPath}/locales/${language.phraseApp}.json`);
     const cityData = await fetchJson(`${cityPath}/cms_data.json`);
     const menuTranslations = await fetchJson(
@@ -145,6 +145,7 @@ export default class Index extends React.Component<Props, State> {
       langId,
       currentPath,
       cityData,
+      cityTag,
     } = this.props;
     const { isMobile, areKeysShown } = this.state;
     const translationsForMenu = menuTranslations
@@ -162,8 +163,8 @@ export default class Index extends React.Component<Props, State> {
       otherMetaTags: translations.otherMetaTags,
     };
     const socialPhotos = {
-      twitter: cityData.photoForTwitterCard.url,
-      facebook: cityData.photoForFacebookCard.url,
+      twitter: cityData["photoForTwitterCard.url"],
+      facebook: cityData["photoForFacebookCard.url"],
     };
     const areArticlesShown = ["en-GB", "en-US"].includes(language.phraseApp);
     return (
@@ -183,11 +184,11 @@ export default class Index extends React.Component<Props, State> {
             socialPhotos={socialPhotos}
           />
           <FetchedProvider value={fetched}>
-            <Menu langId={langId} isMobile={isMobile} />
+            <Menu langId={langId} isMobile={isMobile} cityTag={cityTag} />
           </FetchedProvider>
-          <Hero />
+          <Hero logo={cityData.cityLogo} photo={cityData.mainPhoto} />
           <StickyAction />
-          <Element name="slider">
+          {/* <Element name="slider">
             <SliderSection />
           </Element>
           <Element name="itinerary">
@@ -208,7 +209,7 @@ export default class Index extends React.Component<Props, State> {
             <Search langId={langId} />
           </Element>
           <Footer langId={langId} />
-          <Banner />
+          <Banner /> */}
         </Provider>
       </React.Fragment>
     );

@@ -1,10 +1,14 @@
 {
-  "footer.privacyPolicy": "Polityka prywatności",
-  "footer.security": "Bezpieczeństwo",
-  "footer.termsAndConditions": "Regulamin",
-  "footer.termsOfUse": "Warunki",
-  "header.cars": "Samochód",
-  "header.holidays": "Wakacje",
-  "header.rooms": "Nocleg",
-  "header.travel": "Podróż"
+  "footer": {
+    "privacyPolicy": "Polityka prywatności",
+    "security": "Bezpieczeństwo",
+    "termsAndConditions": "Regulamin",
+    "termsOfUse": "Warunki"
+  },
+  "header": {
+    "cars": "Samochód",
+    "holidays": "Wakacje",
+    "rooms": "Nocleg",
+    "travel": "Podróż"
+  }
 }
