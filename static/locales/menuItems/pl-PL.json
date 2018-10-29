@@ -1,1 +1,10 @@
-undefined
+{
+  "footer.privacyPolicy": "Polityka prywatności",
+  "footer.security": "Bezpieczeństwo",
+  "footer.termsAndConditions": "Regulamin",
+  "footer.termsOfUse": "Warunki",
+  "header.cars": "Samochód",
+  "header.holidays": "Wakacje",
+  "header.rooms": "Nocleg",
+  "header.travel": "Podróż"
+}

@@ -1,1 +1,10 @@
-undefined
+{
+  "footer.privacyPolicy": "Politica de confidențialitate",
+  "footer.security": "Securitate",
+  "footer.termsAndConditions": "Termeni şi condiţii",
+  "footer.termsOfUse": "Condiții de utilizare",
+  "header.cars": "Mașini",
+  "header.holidays": "Vacanțe",
+  "header.rooms": "Camere",
+  "header.travel": "Călătorii"
+}

@@ -41,7 +41,6 @@ frontend test:
 .build:
   script:
     - *install_frontend
-    - yarn scripts:build
     - yarn fetch-translations
     - yarn export
     - mv out/_next out/static && mv out/static out/stopovers-static && mv out/stopovers-static/_next/static out/stopovers-static/_next/stopovers-static

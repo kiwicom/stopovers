@@ -1,1 +1,10 @@
-undefined
+{
+  "footer.privacyPolicy": "Политика конфиденциальности",
+  "footer.security": "Контроль безопасности",
+  "footer.termsAndConditions": "Условия обслуживания",
+  "footer.termsOfUse": "Условия использования",
+  "header.cars": "Автопрокат",
+  "header.holidays": "Отпуска",
+  "header.rooms": "Гостиницы",
+  "header.travel": "Рейсы"
+}

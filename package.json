@@ -12,10 +12,8 @@
     "storybook": "start-storybook -s ./ -p 6006",
     "storybook:build": "build-storybook -s ./ -o dist-storybook",
     "typecheck": "flow check",
-    "scripts:build": "babel scripts --ignore __tests__,__test__,__mocks__ --out-dir dist/",
-    "scripts:dev": "nodemon --watch scripts --exec yarn scripts:build",
-    "fetch-translations": "node dist/fetchTranslations.js",
-    "push-translations": "node dist/pushTranslations.js",
+    "fetch-translations": "babel-node scripts/fetchTranslations.js",
+    "push-translations": "babel-node scripts/pushTranslations.js",
     "fetch": "dato dump"
   },
   "dependencies": {

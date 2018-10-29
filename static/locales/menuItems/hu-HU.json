@@ -1,1 +1,10 @@
-undefined
+{
+  "footer.privacyPolicy": "Adatvédelmi szabályzat",
+  "footer.security": "Biztonság",
+  "footer.termsAndConditions": "Szerződési feltételek",
+  "footer.termsOfUse": "Felhasználási feltételek",
+  "header.cars": "Autók",
+  "header.holidays": "Üdülések",
+  "header.rooms": "Szobák",
+  "header.travel": "Utazás"
+}

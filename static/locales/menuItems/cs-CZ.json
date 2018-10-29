@@ -1,1 +1,10 @@
-undefined
+{
+  "footer.privacyPolicy": "Ochrana osobních údajů",
+  "footer.security": "Bezpečnost",
+  "footer.termsAndConditions": "Obchodní podmínky",
+  "footer.termsOfUse": "Podmínky používání",
+  "header.cars": "Auta",
+  "header.holidays": "Dovolená",
+  "header.rooms": "Ubytování",
+  "header.travel": "Cestování"
+}
