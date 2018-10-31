@@ -5,7 +5,6 @@ import styled from "styled-components";
 
 import { getUserId, getCurrentUrlParams } from "../../etc/helpers";
 import SectionTitle from "../shared/SectionTitle";
-import { filterValidKeys } from "../../etc/marketingHelpers";
 
 const Wrapper = styled.div`
   padding: 0 16px;
@@ -33,15 +32,7 @@ type Props = {
 };
 
 const generateScript = (langId: ?string) => {
-  const {
-    from,
-    to,
-    passengers,
-    departure,
-    returnDate,
-    affilid,
-    ...restParams
-  } = getCurrentUrlParams();
+  const { from, to, passengers, departure, returnDate } = getCurrentUrlParams();
 
   const userId = getUserId();
   const script = document.createElement("script");
@@ -56,11 +47,7 @@ const generateScript = (langId: ?string) => {
   script.setAttribute("data-return", returnDate || "");
   script.setAttribute("data-hide-cookie-banner", "true");
   script.setAttribute("data-user-id", userId);
-  script.setAttribute("data-affilid", affilid || "acquisition_dubai");
-  const marketingParams = filterValidKeys(restParams);
-  Object.keys(marketingParams).forEach((key: string) => {
-    script.setAttribute(`data-${key.replace(/_/g, "-")}`, marketingParams[key]);
-  });
+  script.setAttribute("data-affilid", "acquisition_dubai");
   return script;
 };
 
@@ -99,7 +86,6 @@ class Search extends React.Component<Props> {
     return (
       <Wrapper>
         <SectionTitle title="widgetTitle" subtitle="widgetSubTitle" />
-
         <WidgetWrapper>
           <div id="widget-holder" />
         </WidgetWrapper>
