@@ -67,9 +67,12 @@ export default class Index extends React.Component<Props, State> {
     window.addEventListener("resize", this.detectMobile);
     window.document.addEventListener("keydown", this.handleKeyDown.bind(this));
     const { affilid, ...marketingParams } = getCurrentUrlParams();
-    if (affilid) {
-      cookies.set("SKYPICKER_AFFILIATE", affilid, { expires: 30 });
-    }
+
+    cookies.set("SKYPICKER_AFFILIATE", affilid || "acquisiton", {
+      expires: 30,
+      domain: ".www.kiwi.com",
+    });
+
     saveToSession(marketingParams);
     window.gtag("config", GA_TRACKING_ID, {
       client_id: getUserId(),
