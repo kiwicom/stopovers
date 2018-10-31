@@ -5,6 +5,7 @@ import styled from "styled-components";
 
 import { getUserId, getCurrentUrlParams } from "../../etc/helpers";
 import SectionTitle from "../shared/SectionTitle";
+import { filterValidKeys } from "../../etc/marketingHelpers";
 
 const Wrapper = styled.div`
   padding: 0 16px;
@@ -32,7 +33,16 @@ type Props = {
 };
 
 const generateScript = (langId: ?string) => {
-  const { from, to, passengers, departure, returnDate } = getCurrentUrlParams();
+  const {
+    from,
+    to,
+    passengers,
+    departure,
+    returnDate,
+    affilid,
+    ...restParams
+  } = getCurrentUrlParams();
+
   const userId = getUserId();
   const script = document.createElement("script");
   script.src = "https://widget.kiwi.com/scripts/widget-stopover-iframe.js";
@@ -46,8 +56,11 @@ const generateScript = (langId: ?string) => {
   script.setAttribute("data-return", returnDate || "");
   script.setAttribute("data-hide-cookie-banner", "true");
   script.setAttribute("data-user-id", userId);
-  script.setAttribute("data-affilid", "acquisition_dubai");
-
+  script.setAttribute("data-affilid", affilid || "acquisition_dubai");
+  const marketingParams = filterValidKeys(restParams);
+  Object.keys(marketingParams).forEach((key: string) => {
+    script.setAttribute(`data-${key.replace(/_/g, "-")}`, marketingParams[key]);
+  });
   return script;
 };
 
@@ -63,16 +76,17 @@ class Search extends React.Component<Props> {
     this.script = script;
   }
 
-  componentDidUpdate() {
-    if (document.head) {
-      document.head.removeChild(this.script);
+  componentDidUpdate(prevProps: Props) {
+    if (this.props.langId !== prevProps.langId) {
+      if (document.head) {
+        document.head.removeChild(this.script);
+      }
+      const script = generateScript(this.props.langId);
+      if (document.head) {
+        document.head.appendChild(script);
+      }
+      this.script = script;
     }
-    const { langId } = this.props;
-    const script = generateScript(langId);
-    if (document.head) {
-      document.head.appendChild(script);
-    }
-    this.script = script;
   }
 
   componentWillUnmount() {

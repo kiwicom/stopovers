@@ -61,3 +61,6 @@ export function saveToSession(object: UtmSet): void {
       });
   }
 }
+
+export const filterValidKeys = (rawObject: { [key: string]: string }): UtmSet =>
+  UTM_LIST.reduce((obj, key) => (rawObject[key] ? { ...obj, [key]: rawObject[key] } : obj), {});
