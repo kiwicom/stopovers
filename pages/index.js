@@ -223,9 +223,9 @@ export default class Index extends React.Component<Props, State> {
           </Element>
           <Element name="search">
             <Search langId={langId} />
-          </Element>
+          </Element> */}
           <Footer langId={langId} />
-          <Banner /> */}
+          {/* <Banner />  */}
         </Provider>
       </React.Fragment>
     );
