@@ -36,7 +36,6 @@ const nonTranslatedKeys = [
   "photoForTwitterCard",
   "photoForFacebookCard",
   "otherMetaTags",
-  "cityName",
 ];
 
 // TODO: write proper flow types

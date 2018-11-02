@@ -45,6 +45,7 @@ type Query = {
   lang?: string,
   from?: string,
   to?: string,
+  cityTag: string,
 };
 
 type Props = {
@@ -54,6 +55,9 @@ type Props = {
   langId: string,
   currentPath: string,
   socialPhotos: { twitter: ?string, facebook: ?string },
+  menuTranslations: { header: { [key: string]: string }, footer: { [key: string]: string } },
+  cityTag: string,
+  cityData: Object,
 };
 
 type State = {
@@ -157,14 +161,20 @@ export default class Index extends React.Component<Props, State> {
         }
       : {};
 
-    const translationsForHead = translations && {
-      metaDescription: translations.metaDescription,
-      metaTitle: translations.metaTitle,
-      otherMetaTags: translations.otherMetaTags,
-    };
+    const translationsForHead =
+      translations &&
+      Object.keys(translations)
+        .filter(key => /otherMetaTags/.test(key))
+        .reduce((result, key) => ({ ...result, [key]: translations[key] }), {
+          metaDescription: translations.metaDescription,
+          metaTitle: translations.metaTitle,
+        });
+
+    // TODO: introduce optional chaining to the app for undefined check
+    // see https://github.com/tc39/proposal-optional-chaining
     const socialPhotos = {
-      twitter: cityData["photoForTwitterCard.url"],
-      facebook: cityData["photoForFacebookCard.url"],
+      twitter: cityData.photoForTwitterCard.url,
+      facebook: cityData.photoForFacebookCard.url,
     };
     const areArticlesShown = ["en-GB", "en-US"].includes(language.phraseApp);
     return (
@@ -182,6 +192,7 @@ export default class Index extends React.Component<Props, State> {
             locale={language.iso}
             currentPath={currentPath}
             socialPhotos={socialPhotos}
+            otherMetaTagIds={Object.keys(cityData.otherMetaTags)}
           />
           <FetchedProvider value={fetched}>
             <Menu langId={langId} isMobile={isMobile} cityTag={cityTag} />
