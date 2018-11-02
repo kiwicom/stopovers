@@ -28,6 +28,16 @@ const LogoWrapper = styled.div`
 
 const Logo = styled.img`
   vertical-align: middle;
+  @media (max-width: 510px) {
+    display: none;
+  }
+`;
+
+const LogoMobile = styled.img`
+  vertical-align: middle;
+  @media (min-width: 511px) {
+    display: none;
+  }
 `;
 
 const LanguageWrapper = styled.div`
@@ -49,6 +59,7 @@ const Menu = ({ langId, isMobile }: Props) => (
     <LogoWrapper>
       <a href={`https://www.kiwi.com/${langId || "en"}/`}>
         <Logo src="/static/images/logo-menu.svg" alt="kiwicom logo" />
+        <LogoMobile src="/static/images/logo-symbol.svg" alt="kiwicom logo" />
       </a>
     </LogoWrapper>
     <HeaderLinks
