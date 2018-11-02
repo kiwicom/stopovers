@@ -10,8 +10,7 @@ import { sendEvent } from "../../etc/logLady";
 import SectionTitle from "../shared/SectionTitle";
 import Description from "../shared/Description";
 import { scrollToElement } from "../helpers";
-import Slider from "./Slider";
-import sliderImages from "./mockedData";
+import Slider, { type Props as SliderProps } from "./Slider";
 
 const Wrapper = styled.div`
   display: flex;
@@ -122,20 +121,20 @@ const TitleMobile = styled.div`
   }
 `;
 
-const SliderSection = () => (
+const SliderSection = ({ sliderImages }: SliderProps) => (
   <Wrapper>
     <TitleMobile>
-      <SectionTitle title="stopoverTitle" resetPadding />
+      <SectionTitle title="sliderSectionTitle" resetPadding />
     </TitleMobile>
     <Slider sliderImages={sliderImages} />
     <ContentWrapper>
       <TitleDesktop>
-        <SectionTitle title="stopoverTitle" resetPadding />
+        <SectionTitle title="sliderSectionTitle" resetPadding />
       </TitleDesktop>
 
       <DescriptionWrapper>
         <Description>
-          <Text t="stopoverDescription" />
+          <Text t="sliderSectionDescription" />
         </Description>
       </DescriptionWrapper>
       <ButtonsWrapper>
@@ -146,7 +145,7 @@ const SliderSection = () => (
             sendEvent("searchFlights");
           }}
         >
-          <Text t="searchFlights" />
+          <Text t="sliderSectionButtonText" />
         </Button>
         <ButtonLink
           type="secondary"
@@ -157,7 +156,7 @@ const SliderSection = () => (
             sendEvent("discoverTips");
           }}
         >
-          <Text t="chooseItinerary" />
+          <Text t="sliderSectionLinkText" />
         </ButtonLink>
       </ButtonsWrapper>
     </ContentWrapper>

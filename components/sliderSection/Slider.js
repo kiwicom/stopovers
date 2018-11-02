@@ -147,12 +147,12 @@ const SliderWrapper = styled.div`
   }
 `;
 
-type Props = {
-  sliderImages: Array<{
-    url: string,
-    title: string,
-  }>,
-};
+export type Props = {|
+  sliderImages: $ReadOnlyArray<{|
+    +url: string,
+    +title: string,
+  |}>,
+|};
 
 const Slider = ({ sliderImages }: Props) => (
   <SliderWrapper>
