@@ -177,6 +177,10 @@ export default class Index extends React.Component<Props, State> {
       facebook: cityData.photoForFacebookCard.url,
     };
     const areArticlesShown = ["en-GB", "en-US"].includes(language.phraseApp);
+    const sliderImages = cityData.sliderPhotos.map((image, index) => ({
+      url: image.url,
+      title: `Slide ${cityData.cityName} ${index + 1}`,
+    }));
     return (
       <React.Fragment>
         <Provider
@@ -199,9 +203,10 @@ export default class Index extends React.Component<Props, State> {
           </FetchedProvider>
           <Hero logo={cityData.cityLogo} photo={cityData.mainPhoto} />
           <StickyAction />
-          {/* <Element name="slider">
-            <SliderSection />
+          <Element name="slider">
+            <SliderSection sliderImages={sliderImages} />
           </Element>
+          {/*
           <Element name="itinerary">
             <Itinerary isMobile={isMobile} />
           </Element>
