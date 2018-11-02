@@ -11,6 +11,7 @@ import { getCurrentUrlParams } from "../../etc/helpers";
 type Props = {
   langId: ?string,
   isMobile: boolean,
+  cityTag: string,
 };
 
 const Wrapper = styled.div`

@@ -22,17 +22,18 @@ const Wrapper = styled.div`
   }
 `;
 
-const Video = ({ isGrey }: { isGrey?: boolean }) => (
-  <Wrapper isGrey={isGrey}>
-    <SectionTitle title="videoTitle" subtitle="videoSubTitle" />
-    <YouTube
-      videoId="euqPNQ199Mw"
-      className="youtube-embed"
-      onPlay={() => {
-        sendEvent("watchVideo");
-      }}
-    />
-  </Wrapper>
-);
+const Video = ({ isGrey, id }: { isGrey?: boolean, id: ?string }) =>
+  id ? (
+    <Wrapper isGrey={isGrey}>
+      <SectionTitle title="videoSectionTitle" subtitle="videoSectionSubtitle" />
+      <YouTube
+        videoId={id}
+        className="youtube-embed"
+        onPlay={() => {
+          sendEvent("watchVideo");
+        }}
+      />
+    </Wrapper>
+  ) : null;
 
 export default Video;
