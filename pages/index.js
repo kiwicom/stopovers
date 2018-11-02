@@ -218,9 +218,11 @@ export default class Index extends React.Component<Props, State> {
               <Articles />
             </Element>
           )}
+          */}
           <Element name="video">
-            <Video isGrey={!areArticlesShown} />
+            <Video isGrey={!areArticlesShown} id={cityData.videoYoutubeUrl.providerUid} />
           </Element>
+          {/*
           <Element name="search">
             <Search langId={langId} />
           </Element>
