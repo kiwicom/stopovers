@@ -75,7 +75,7 @@ class Banner extends React.Component<{}, State> {
       <Wrapper isHidden={isHidden}>
         <StyledAirplaneRight customColor="bac7d5" />
         <BannerTitle>
-          <Text t="searchWithStopover" />
+          <Text t="stickyBannerText" />
         </BannerTitle>
         <ButtonWrapper>
           <Button icon={<Search />} onClick={this.scrollToSearch} />

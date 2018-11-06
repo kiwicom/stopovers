@@ -1,32 +1,32 @@
 {
   "id": "414745",
   "itemType": "stopover",
-  "updatedAt": "2018-10-25T14:28:37.759Z",
-  "createdAt": "2018-10-25T14:28:37.759Z",
+  "updatedAt": "2018-11-06T11:11:05.711Z",
+  "createdAt": "2018-10-11T09:28:28.025Z",
   "otherMetaTags": {
     "434525": {
       "id": "434525",
       "itemType": "tag",
       "updatedAt": "2018-10-19T15:07:29.411Z",
-      "createdAt": "2018-10-19T15:07:29.411Z"
+      "createdAt": "2018-10-19T15:07:29.400Z"
     },
     "434526": {
       "id": "434526",
       "itemType": "tag",
       "updatedAt": "2018-10-19T15:07:29.511Z",
-      "createdAt": "2018-10-19T15:07:29.511Z"
+      "createdAt": "2018-10-19T15:07:29.504Z"
     },
     "434527": {
       "id": "434527",
       "itemType": "tag",
       "updatedAt": "2018-10-19T15:07:29.552Z",
-      "createdAt": "2018-10-19T15:07:29.552Z"
+      "createdAt": "2018-10-19T15:07:29.541Z"
     },
     "434528": {
       "id": "434528",
       "itemType": "tag",
       "updatedAt": "2018-10-19T15:07:29.603Z",
-      "createdAt": "2018-10-19T15:07:29.603Z"
+      "createdAt": "2018-10-19T15:07:29.591Z"
     }
   },
   "photoForFacebookCard": {
@@ -63,7 +63,7 @@
       "id": "414771",
       "itemType": "article",
       "updatedAt": "2018-10-11T09:57:36.306Z",
-      "createdAt": "2018-10-11T09:57:36.306Z",
+      "createdAt": "2018-10-11T09:55:05.760Z",
       "linkText": "Explore Dubai",
       "url": "https://www.kiwi.com/stories/these-are-the-best-things-to-do-in-dubai/?utm_source=kiwicom&utm_medium=website&utm_campaign=these-are-the-best-things-to-do-in-dubai",
       "description": "Here are our favorite things to do in the UAE’s resort city, as well as some things you may not have thought about.",
@@ -82,7 +82,7 @@
       "id": "414772",
       "itemType": "article",
       "updatedAt": "2018-10-11T09:59:26.852Z",
-      "createdAt": "2018-10-11T09:59:26.852Z",
+      "createdAt": "2018-10-11T09:59:26.847Z",
       "linkText": "One - Two - GO!",
       "url": "https://www.kiwi.com/stories/adrenaline-in-the-desert-dubai-unveils-worlds-longest-urban-zipline/?utm_source=kiwicom&utm_medium=website&utm_campaign=adrenaline-in-the-desert-dubai-unveils-worlds-longest-urban-zipline",
       "description": "One kilometer long and two people sliding simultaneously - there's a new zip line over Dubai Marina.",
@@ -101,7 +101,7 @@
       "id": "414773",
       "itemType": "article",
       "updatedAt": "2018-10-11T10:00:21.904Z",
-      "createdAt": "2018-10-11T10:00:21.904Z",
+      "createdAt": "2018-10-11T10:00:21.901Z",
       "linkText": "Extend your trip",
       "url": "https://www.kiwi.com/stories/uae-to-introduce-free-visa-for-48-hour-trips/?utm_source=kiwicom&utm_medium=website&utm_campaign=uae-to-introduce-free-visa-for-48-hour-trips",
       "description": "In what could be a boon for tourism to Dubai, UAE to introduce free visa for 48-hour trips. The transit visa can be extended to 96 hours for a small fee.",
@@ -151,13 +151,13 @@
       "id": "414777",
       "itemType": "itinerary",
       "updatedAt": "2018-10-25T14:16:31.046Z",
-      "createdAt": "2018-10-25T14:16:31.046Z",
+      "createdAt": "2018-10-11T10:02:42.050Z",
       "tips": {
         "414775": {
           "id": "414775",
           "itemType": "tip",
           "updatedAt": "2018-10-11T10:02:41.868Z",
-          "createdAt": "2018-10-11T10:02:41.868Z",
+          "createdAt": "2018-10-11T10:02:41.861Z",
           "photo": {
             "format": "jpg",
             "size": 146635,
@@ -173,7 +173,7 @@
           "id": "414776",
           "itemType": "tip",
           "updatedAt": "2018-10-11T10:02:41.968Z",
-          "createdAt": "2018-10-11T10:02:41.968Z",
+          "createdAt": "2018-10-11T10:02:41.957Z",
           "photo": {
             "format": "jpg",
             "size": 215629,
@@ -189,7 +189,7 @@
           "id": "439222",
           "itemType": "tip",
           "updatedAt": "2018-10-25T13:56:02.848Z",
-          "createdAt": "2018-10-25T13:56:02.848Z",
+          "createdAt": "2018-10-25T13:56:02.836Z",
           "photo": {
             "format": "jpg",
             "size": 118033,
@@ -205,7 +205,7 @@
           "id": "439223",
           "itemType": "tip",
           "updatedAt": "2018-10-25T13:57:15.357Z",
-          "createdAt": "2018-10-25T13:57:15.357Z",
+          "createdAt": "2018-10-25T13:57:15.346Z",
           "photo": {
             "format": "jpg",
             "size": 107062,
@@ -221,7 +221,7 @@
           "id": "439224",
           "itemType": "tip",
           "updatedAt": "2018-10-25T13:57:15.487Z",
-          "createdAt": "2018-10-25T13:57:15.487Z",
+          "createdAt": "2018-10-25T13:57:15.479Z",
           "photo": {
             "format": "jpg",
             "size": 114865,
@@ -237,7 +237,7 @@
           "id": "439227",
           "itemType": "tip",
           "updatedAt": "2018-10-25T14:00:06.490Z",
-          "createdAt": "2018-10-25T14:00:06.490Z",
+          "createdAt": "2018-10-25T14:00:06.473Z",
           "photo": {
             "format": "jpg",
             "size": 124437,
@@ -253,7 +253,7 @@
           "id": "439228",
           "itemType": "tip",
           "updatedAt": "2018-10-25T14:16:30.908Z",
-          "createdAt": "2018-10-25T14:16:30.908Z",
+          "createdAt": "2018-10-25T14:00:06.697Z",
           "photo": {
             "format": "jpg",
             "size": 214021,
@@ -271,13 +271,13 @@
       "id": "414791",
       "itemType": "itinerary",
       "updatedAt": "2018-10-25T14:06:10.128Z",
-      "createdAt": "2018-10-25T14:06:10.128Z",
+      "createdAt": "2018-10-11T10:05:39.159Z",
       "tips": {
         "414790": {
           "id": "414790",
           "itemType": "tip",
           "updatedAt": "2018-10-11T10:05:39.121Z",
-          "createdAt": "2018-10-11T10:05:39.121Z",
+          "createdAt": "2018-10-11T10:05:39.117Z",
           "photo": {
             "format": "jpg",
             "size": 166472,
@@ -293,7 +293,7 @@
           "id": "439231",
           "itemType": "tip",
           "updatedAt": "2018-10-25T14:06:08.150Z",
-          "createdAt": "2018-10-25T14:06:08.150Z",
+          "createdAt": "2018-10-25T14:06:08.122Z",
           "photo": {
             "format": "jpg",
             "size": 121500,
@@ -309,7 +309,7 @@
           "id": "439232",
           "itemType": "tip",
           "updatedAt": "2018-10-25T14:06:08.420Z",
-          "createdAt": "2018-10-25T14:06:08.420Z",
+          "createdAt": "2018-10-25T14:06:08.407Z",
           "photo": {
             "format": "jpg",
             "size": 181256,
@@ -325,7 +325,7 @@
           "id": "439233",
           "itemType": "tip",
           "updatedAt": "2018-10-25T14:06:08.840Z",
-          "createdAt": "2018-10-25T14:06:08.840Z",
+          "createdAt": "2018-10-25T14:06:08.814Z",
           "photo": {
             "format": "jpg",
             "size": 181072,
@@ -341,7 +341,7 @@
           "id": "439234",
           "itemType": "tip",
           "updatedAt": "2018-10-25T14:06:09.295Z",
-          "createdAt": "2018-10-25T14:06:09.295Z",
+          "createdAt": "2018-10-25T14:06:09.223Z",
           "photo": {
             "format": "jpg",
             "size": 184093,
@@ -357,7 +357,7 @@
           "id": "439235",
           "itemType": "tip",
           "updatedAt": "2018-10-25T14:06:09.667Z",
-          "createdAt": "2018-10-25T14:06:09.667Z",
+          "createdAt": "2018-10-25T14:06:09.660Z",
           "photo": {
             "format": "jpg",
             "size": 198355,
@@ -373,7 +373,7 @@
           "id": "439236",
           "itemType": "tip",
           "updatedAt": "2018-10-25T14:06:09.968Z",
-          "createdAt": "2018-10-25T14:06:09.968Z",
+          "createdAt": "2018-10-25T14:06:09.921Z",
           "photo": {
             "format": "jpg",
             "size": 172652,
@@ -391,13 +391,13 @@
       "id": "439245",
       "itemType": "itinerary",
       "updatedAt": "2018-10-25T14:26:25.832Z",
-      "createdAt": "2018-10-25T14:26:25.832Z",
+      "createdAt": "2018-10-25T14:11:56.548Z",
       "tips": {
         "439238": {
           "id": "439238",
           "itemType": "tip",
           "updatedAt": "2018-10-25T14:11:55.793Z",
-          "createdAt": "2018-10-25T14:11:55.793Z",
+          "createdAt": "2018-10-25T14:11:55.786Z",
           "photo": {
             "format": "jpg",
             "size": 204437,
@@ -413,7 +413,7 @@
           "id": "439239",
           "itemType": "tip",
           "updatedAt": "2018-10-25T14:26:25.759Z",
-          "createdAt": "2018-10-25T14:26:25.759Z",
+          "createdAt": "2018-10-25T14:11:55.915Z",
           "photo": {
             "format": "jpg",
             "size": 114865,
@@ -429,7 +429,7 @@
           "id": "439240",
           "itemType": "tip",
           "updatedAt": "2018-10-25T14:11:56.036Z",
-          "createdAt": "2018-10-25T14:11:56.036Z",
+          "createdAt": "2018-10-25T14:11:56.028Z",
           "photo": {
             "format": "jpg",
             "size": 86171,
@@ -445,7 +445,7 @@
           "id": "439241",
           "itemType": "tip",
           "updatedAt": "2018-10-25T14:11:56.127Z",
-          "createdAt": "2018-10-25T14:11:56.127Z",
+          "createdAt": "2018-10-25T14:11:56.116Z",
           "photo": {
             "format": "jpg",
             "size": 111756,
@@ -461,7 +461,7 @@
           "id": "439242",
           "itemType": "tip",
           "updatedAt": "2018-10-25T14:11:56.216Z",
-          "createdAt": "2018-10-25T14:11:56.216Z",
+          "createdAt": "2018-10-25T14:11:56.205Z",
           "photo": {
             "format": "jpg",
             "size": 142112,
@@ -477,7 +477,7 @@
           "id": "439243",
           "itemType": "tip",
           "updatedAt": "2018-10-25T14:11:56.325Z",
-          "createdAt": "2018-10-25T14:11:56.325Z",
+          "createdAt": "2018-10-25T14:11:56.317Z",
           "photo": {
             "format": "jpg",
             "size": 93880,
@@ -493,7 +493,7 @@
           "id": "439244",
           "itemType": "tip",
           "updatedAt": "2018-10-25T14:11:56.453Z",
-          "createdAt": "2018-10-25T14:11:56.453Z",
+          "createdAt": "2018-10-25T14:11:56.441Z",
           "photo": {
             "format": "jpg",
             "size": 108047,
@@ -511,13 +511,13 @@
       "id": "439256",
       "itemType": "itinerary",
       "updatedAt": "2018-10-25T14:21:45.553Z",
-      "createdAt": "2018-10-25T14:21:45.553Z",
+      "createdAt": "2018-10-25T14:15:46.055Z",
       "tips": {
         "439254": {
           "id": "439254",
           "itemType": "tip",
           "updatedAt": "2018-10-25T14:15:45.920Z",
-          "createdAt": "2018-10-25T14:15:45.920Z",
+          "createdAt": "2018-10-25T14:15:45.892Z",
           "photo": {
             "format": "jpg",
             "size": 131360,
@@ -533,7 +533,7 @@
           "id": "439255",
           "itemType": "tip",
           "updatedAt": "2018-10-25T14:15:45.995Z",
-          "createdAt": "2018-10-25T14:15:45.995Z",
+          "createdAt": "2018-10-25T14:15:45.989Z",
           "photo": {
             "format": "jpg",
             "size": 172704,
@@ -549,7 +549,7 @@
           "id": "439270",
           "itemType": "tip",
           "updatedAt": "2018-10-25T14:21:45.360Z",
-          "createdAt": "2018-10-25T14:21:45.360Z",
+          "createdAt": "2018-10-25T14:21:45.356Z",
           "photo": {
             "format": "jpg",
             "size": 185751,
@@ -565,7 +565,7 @@
           "id": "439271",
           "itemType": "tip",
           "updatedAt": "2018-10-25T14:21:45.396Z",
-          "createdAt": "2018-10-25T14:21:45.396Z",
+          "createdAt": "2018-10-25T14:21:45.392Z",
           "photo": {
             "format": "jpg",
             "size": 129173,
@@ -581,7 +581,7 @@
           "id": "439272",
           "itemType": "tip",
           "updatedAt": "2018-10-25T14:21:45.435Z",
-          "createdAt": "2018-10-25T14:21:45.435Z",
+          "createdAt": "2018-10-25T14:21:45.431Z",
           "photo": {
             "format": "jpg",
             "size": 141672,
@@ -597,7 +597,7 @@
           "id": "439273",
           "itemType": "tip",
           "updatedAt": "2018-10-25T14:21:45.477Z",
-          "createdAt": "2018-10-25T14:21:45.477Z",
+          "createdAt": "2018-10-25T14:21:45.473Z",
           "photo": {
             "format": "jpg",
             "size": 179082,
@@ -613,7 +613,7 @@
           "id": "439274",
           "itemType": "tip",
           "updatedAt": "2018-10-25T14:21:45.515Z",
-          "createdAt": "2018-10-25T14:21:45.515Z",
+          "createdAt": "2018-10-25T14:21:45.511Z",
           "photo": {
             "format": "jpg",
             "size": 201160,
@@ -631,13 +631,13 @@
       "id": "439277",
       "itemType": "itinerary",
       "updatedAt": "2018-10-25T14:33:24.025Z",
-      "createdAt": "2018-10-25T14:33:24.025Z",
+      "createdAt": "2018-10-25T14:23:28.221Z",
       "tips": {
         "439276": {
           "id": "439276",
           "itemType": "tip",
           "updatedAt": "2018-10-25T14:23:28.137Z",
-          "createdAt": "2018-10-25T14:23:28.137Z",
+          "createdAt": "2018-10-25T14:23:28.130Z",
           "photo": {
             "format": "jpg",
             "size": 121911,
@@ -653,7 +653,7 @@
           "id": "439278",
           "itemType": "tip",
           "updatedAt": "2018-10-25T14:33:22.784Z",
-          "createdAt": "2018-10-25T14:33:22.784Z",
+          "createdAt": "2018-10-25T14:33:22.762Z",
           "photo": {
             "format": "jpg",
             "size": 45555,
@@ -669,7 +669,7 @@
           "id": "439279",
           "itemType": "tip",
           "updatedAt": "2018-10-25T14:33:23.192Z",
-          "createdAt": "2018-10-25T14:33:23.192Z",
+          "createdAt": "2018-10-25T14:33:23.184Z",
           "photo": {
             "format": "jpg",
             "size": 168564,
@@ -685,7 +685,7 @@
           "id": "439280",
           "itemType": "tip",
           "updatedAt": "2018-10-25T14:33:23.470Z",
-          "createdAt": "2018-10-25T14:33:23.470Z",
+          "createdAt": "2018-10-25T14:33:23.457Z",
           "photo": {
             "format": "jpg",
             "size": 114865,
@@ -701,7 +701,7 @@
           "id": "439281",
           "itemType": "tip",
           "updatedAt": "2018-10-25T14:33:23.652Z",
-          "createdAt": "2018-10-25T14:33:23.652Z",
+          "createdAt": "2018-10-25T14:33:23.647Z",
           "photo": {
             "format": "jpg",
             "size": 310921,
@@ -717,7 +717,7 @@
           "id": "439282",
           "itemType": "tip",
           "updatedAt": "2018-10-25T14:33:23.769Z",
-          "createdAt": "2018-10-25T14:33:23.769Z",
+          "createdAt": "2018-10-25T14:33:23.760Z",
           "photo": {
             "format": "jpg",
             "size": 142483,
@@ -733,7 +733,7 @@
           "id": "439283",
           "itemType": "tip",
           "updatedAt": "2018-10-25T14:33:23.907Z",
-          "createdAt": "2018-10-25T14:33:23.907Z",
+          "createdAt": "2018-10-25T14:33:23.884Z",
           "photo": {
             "format": "jpg",
             "size": 114873,
@@ -751,21 +751,12 @@
   "sliderPhotos": [
     {
       "format": "jpg",
-      "size": 184350,
+      "size": 101930,
       "width": 840,
-      "height": 549,
+      "height": 584,
       "title": null,
       "alt": null,
-      "url": "https://www.datocms-assets.com/7631/1539249847-carousel-third.jpg"
-    },
-    {
-      "format": "jpg",
-      "size": 147971,
-      "width": 840,
-      "height": 560,
-      "title": null,
-      "alt": null,
-      "url": "https://www.datocms-assets.com/7631/1539249850-carousel-second.jpg"
+      "url": "https://www.datocms-assets.com/7631/1539249855-carousel-first.jpg"
     },
     {
       "format": "jpg",
@@ -778,12 +769,21 @@
     },
     {
       "format": "jpg",
-      "size": 101930,
+      "size": 147971,
       "width": 840,
-      "height": 584,
+      "height": 560,
       "title": null,
       "alt": null,
-      "url": "https://www.datocms-assets.com/7631/1539249855-carousel-first.jpg"
+      "url": "https://www.datocms-assets.com/7631/1539249850-carousel-second.jpg"
+    },
+    {
+      "format": "jpg",
+      "size": 184350,
+      "width": 840,
+      "height": 549,
+      "title": null,
+      "alt": null,
+      "url": "https://www.datocms-assets.com/7631/1539249847-carousel-third.jpg"
     }
   ],
   "cityLogo": {
@@ -803,6 +803,5 @@
     "title": null,
     "alt": null,
     "url": "https://www.datocms-assets.com/7631/1539249822-dubai-hero.jpg"
-  },
-  "cityName": "Dubai"
+  }
 }

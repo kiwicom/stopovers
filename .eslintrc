@@ -25,7 +25,7 @@
     "import/no-extraneous-dependencies": [
       "error",
       {
-        "devDependencies": ["etc/**", "stories/**", "**/__tests__/*"]
+        "devDependencies": ["etc/**", "stories/**", "scripts/**", "**/__tests__/*"]
       }
     ],
     "flowtype/require-valid-file-annotation": ["error", "always", { "annotationStyle": "line" }],

@@ -26,7 +26,7 @@ import MetaHead from "../components/shared/MetaHead";
 import Menu from "../components/menu/Menu";
 import Hero from "../components/hero/Hero";
 import SliderSection from "../components/sliderSection/SliderSection";
-import Itinerary from "../components/itinerary/Itinerary";
+// import Itinerary from "../components/itinerary/Itinerary";
 import Partners from "../components/partners/Partners";
 import Articles from "../components/articles/Articles";
 import Video from "../components/video/Video";
@@ -210,24 +210,23 @@ export default class Index extends React.Component<Props, State> {
           <Element name="itinerary">
             <Itinerary isMobile={isMobile} />
           </Element>
+          */}
           <Element name="partners">
-            <Partners />
+            <Partners logos={cityData.partnerLogos} />
           </Element>
           {areArticlesShown && (
             <Element name="articles">
               <Articles />
             </Element>
           )}
-          */}
           <Element name="video">
             <Video isGrey={!areArticlesShown} id={cityData.videoYoutubeUrl.providerUid} />
           </Element>
-          {/*
           <Element name="search">
             <Search langId={langId} />
-          </Element> */}
+          </Element>
           <Footer langId={langId} />
-          {/* <Banner />  */}
+          <Banner />
         </Provider>
       </React.Fragment>
     );

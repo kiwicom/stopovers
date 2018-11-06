@@ -85,7 +85,7 @@ const ActionTitle = styled.h4`
 
 const Articles = () => (
   <Wrapper>
-    <SectionTitle title="articlesTitle" subtitle="articlesSubTitle" />
+    <SectionTitle title="articlesSectionTitle" subtitle="articlesSectionSubtitle" />
 
     <ArticlesWrapper>
       {articles.map(article => (
@@ -95,7 +95,7 @@ const Articles = () => (
 
     <ActionWrapper>
       <ActionTitle>
-        <Text t="bookYourFlight" />
+        <Text t="articlesSectionCtaDescription" />
       </ActionTitle>
       <Button
         size="large"
@@ -104,7 +104,7 @@ const Articles = () => (
           sendEvent("bookNow");
         }}
       >
-        <Text t="searchFlightsNow" />
+        <Text t="articlesSectionCtaButtonText" />
       </Button>
       <div />
     </ActionWrapper>
