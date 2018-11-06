@@ -6,6 +6,7 @@ import { sendEvent } from "../../etc/logLady";
 
 type Props = {
   children: React.Node,
+  defaultValue: string,
 };
 
 type State = {
@@ -23,12 +24,11 @@ export const ItineraryContext: Object = React.createContext();
 
 class ItineraryProvider extends React.Component<Props, State> {
   state = {
-    dropdownValue: "shoppingOnTheGo",
+    dropdownValue: this.props.defaultValue,
     isCollapsed: true,
   };
 
   render() {
-    const { children } = this.props;
     return (
       <ItineraryContext.Provider
         value={{
@@ -47,7 +47,7 @@ class ItineraryProvider extends React.Component<Props, State> {
           },
         }}
       >
-        {children}
+        {this.props.children}
       </ItineraryContext.Provider>
     );
   }

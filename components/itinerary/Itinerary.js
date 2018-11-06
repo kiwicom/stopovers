@@ -14,7 +14,6 @@ import ItineraryProvider, { ItineraryContext, type Context } from "./ItineraryCo
 import SectionTitle from "../shared/SectionTitle";
 import DropdownMobile, { renderDropdownItem } from "../shared/DropdownMobile";
 import Dropdown from "../shared/Dropdown";
-import { data, dropdownData } from "./mockedData";
 
 const Wrapper = styled.div`
   display: flex;
@@ -149,44 +148,69 @@ const DropdownTitle = styled.div`
   }
 `;
 
-type Props = {
-  isMobile: boolean,
+export type Tip = {
+  id: string,
+  photo: {
+    url: string,
+  },
+  time: string,
 };
 
-const Itinerary = ({ isMobile }: Props) => (
-  <ItineraryProvider>
+type Tips = {
+  [key: string]: Tip,
+};
+
+type Props = {
+  isMobile: boolean,
+  data: {
+    [key: string]: {
+      id: string,
+      tips: Tips,
+    },
+  },
+};
+
+const Itinerary = ({ isMobile, data }: Props) => (
+  <ItineraryProvider defaultValue={Object.keys(data)[0]}>
     <ItineraryContext.Consumer>
       {({ state: { dropdownValue, isCollapsed }, changeDropdownValue, showMore }: Context) => {
         const isMobileCollapsed = isMobile && isCollapsed;
-        const items = data[dropdownValue];
+        const itineraryTips: Tips = data[dropdownValue].tips;
+        const items: Tip[] = Object.keys(itineraryTips).map(tipId => itineraryTips[tipId]);
         const itemsDisplayed = isMobileCollapsed ? items.slice(0, 2) : items;
         return (
           <Wrapper>
             <ItineraryWrapper isCutBottom={isMobileCollapsed}>
-              <SectionTitle title="itineraryTitle" subtitle="itinerarySubTitle" />
+              <SectionTitle title="itinerarySectionTitle" subtitle="itinerarySectionSubtitle" />
               <DropdownGroup>
                 <DropdownTitle>
-                  <Text t="selectItinerary" />
+                  <Text t="itinerarySelectorDescription" />
                 </DropdownTitle>
                 <DropdownWrapperMobile>
                   <DropdownMobile
                     onChange={(e: SyntheticEvent<HTMLSelectElement>) => {
                       const { value } = e.currentTarget;
                       changeDropdownValue(value);
-                      sendEvent("discoverTips", value);
                     }}
                   >
-                    {dropdownData.map(item => renderDropdownItem(item))}
+                    {Object.keys(data).map((id: string) => renderDropdownItem(id))}
                   </DropdownMobile>
                 </DropdownWrapperMobile>
                 <DropdownWrapper>
-                  <Dropdown onChange={changeDropdownValue} options={dropdownData} />
+                  <Dropdown
+                    onChange={changeDropdownValue}
+                    options={Object.keys(data).map(id => ({
+                      value: id,
+                      label: `itineraries.${id}.title`,
+                    }))}
+                  />
                 </DropdownWrapper>
               </DropdownGroup>
 
               <Fade>
                 {itemsDisplayed.map((itineraryItem, index) => (
                   <ItineraryItem
+                    itineraryId={dropdownValue}
                     key={itineraryItem.id}
                     item={itineraryItem}
                     order={index}
@@ -212,7 +236,7 @@ const Itinerary = ({ isMobile }: Props) => (
                 sendEvent("startYourTrip");
               }}
             >
-              <Text t="startYourTripNow" />
+              <Text t="itineraryCtaButtonText" />
             </StyledButton>
           </Wrapper>
         );

@@ -4,15 +4,9 @@ import * as React from "react";
 import styled from "styled-components";
 import Text from "@kiwicom/nitro/lib/components/Text";
 
-type DropdownItem = {
-  id: number,
-  value: string,
-  label: string,
-};
-
-export const renderDropdownItem = ({ value, id, label }: DropdownItem) => (
-  <option value={value} key={id}>
-    <Text t={label} />
+export const renderDropdownItem = (id: string) => (
+  <option value={id} key={id}>
+    <Text t={`itineraries.${id}.title`} />
   </option>
 );
 
