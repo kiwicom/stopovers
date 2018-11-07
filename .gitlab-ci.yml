@@ -51,9 +51,7 @@ frontend test:
     paths:
       - out/
 
-# Build stage for dev branches
-frontend dev:build:
-  extends: .build
+.build-cms:
   script:
     - *install_frontend
     - yarn fetch
@@ -63,6 +61,14 @@ frontend dev:build:
     - mv out/_next out/static && mv out/static out/stopovers-static && mv out/stopovers-static/_next/static out/stopovers-static/_next/stopovers-static
     - find out -type f -exec sed -i "s/\/static\//\/stopovers-static\//g" {} \;
     - find out -type f -exec sed -i "s/\/_next\//\/stopovers-static\/_next\//g" {} \;
+  cache:
+    key: ${CI_COMMIT_REF_SLUG}-stopovers
+    paths:
+      - out/
+
+# Build stage for dev branches
+frontend dev:build:
+  extends: .build-cms
   stage: build dev
   environment:
     name: dev/$CI_COMMIT_REF_NAME
@@ -74,13 +80,14 @@ frontend dev:build:
 
 # Staging build
 frontend staging:build:
-  extends: .build
+  extends: .build-cms
   stage: build staging
   environment:
     name: staging
-  only:
+  except:
     - master
     - /^hot\/.*$/
+    - tags
 
 # Production build
 frontend prod:build:
@@ -101,8 +108,10 @@ frontend staging:deploy:
     key: ${CI_COMMIT_REF_SLUG}-stopovers
     paths:
       - out/
-  only:
+  except:
     - master
+    - /^hot\/.*$/
+    - tags
   environment:
     name: staging
     url: http://kw-stopovers-dev.s3-website-eu-west-1.amazonaws.com/en/stopovers/dubai/
