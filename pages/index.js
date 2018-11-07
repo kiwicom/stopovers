@@ -214,7 +214,7 @@ export default class Index extends React.Component<Props, State> {
           </Element>
           {areArticlesShown && (
             <Element name="articles">
-              <Articles />
+              <Articles items={Object.values(cityData.articles)} />
             </Element>
           )}
           <Element name="video">

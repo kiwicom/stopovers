@@ -7,14 +7,14 @@ import { ChevronRight } from "@kiwicom/orbit-components/lib/icons";
 
 import { sendEvent } from "../../etc/logLady";
 
-type ArticleType = {|
-  id: number,
+export type ArticleType = {
+  id: string,
   title: string,
   description: string,
-  linkTitle: string,
-  linkUrl: string,
-  imageUrl: string,
-|};
+  linkText: string,
+  url: string,
+  photo: { url: string },
+};
 
 type Props = {|
   article: ArticleType,
@@ -80,14 +80,14 @@ const LinkWrapper = styled.div`
 
 const ArticleItem = ({ article }: Props) => (
   <Article>
-    <ArticleThumbnail src={article.imageUrl} />
+    <ArticleThumbnail src={article.photo.url} />
     <ArticleTextWrapper>
       <Title>
         <TitleLink
           onClick={() => {
-            sendEvent("goToStories", article.linkUrl);
+            sendEvent("goToStories", article.url);
           }}
-          href={article.linkUrl}
+          href={article.url}
           target="_blank"
           rel="noopener"
         >
@@ -100,14 +100,14 @@ const ArticleItem = ({ article }: Props) => (
     <LinkWrapper>
       <ButtonLink
         onClick={() => {
-          sendEvent("goToStories", article.linkUrl);
+          sendEvent("goToStories", article.url);
         }}
-        href={article.linkUrl}
+        href={article.url}
         external
         type="secondary"
         icon={<ChevronRight />}
       >
-        {article.linkTitle}
+        {article.linkText}
       </ButtonLink>
     </LinkWrapper>
   </Article>
