@@ -1,7 +1,7 @@
 {
   "id": "414745",
-  "itemType": "stopover",
-  "updatedAt": "2018-11-06T11:11:05.711Z",
+  "itemType": "city",
+  "updatedAt": "2018-11-06T14:42:36.954Z",
   "createdAt": "2018-10-11T09:28:28.025Z",
   "otherMetaTags": {
     "434525": {
@@ -803,5 +803,6 @@
     "title": null,
     "alt": null,
     "url": "https://www.datocms-assets.com/7631/1539249822-dubai-hero.jpg"
-  }
+  },
+  "isStopover": true
 }

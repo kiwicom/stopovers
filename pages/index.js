@@ -175,22 +175,26 @@ export default class Index extends React.Component<Props, State> {
       Object.keys(translations)
         .filter(key => /otherMetaTags/.test(key))
         .reduce((result, key) => ({ ...result, [key]: translations[key] }), {
-          metaDescription: translations.metaDescription,
-          metaTitle: translations.metaTitle,
+          metaDescription: translations?.metaDescription,
+          metaTitle: translations?.metaTitle,
         });
 
     // TODO: introduce optional chaining to the app for undefined check
     // see https://github.com/tc39/proposal-optional-chaining
     const socialPhotos = {
-      twitter: cityData.photoForTwitterCard.url,
-      facebook: cityData.photoForFacebookCard.url,
+      twitter: cityData.photoForTwitterCard?.url,
+      facebook: cityData.photoForFacebookCard?.url,
     };
     const areArticlesShown = ["en-GB", "en-US"].includes(language.phraseApp);
-    const sliderImages = cityData.sliderPhotos.map((image, index) => ({
-      url: image.url,
-      title: `Slide ${cityData.cityName} ${index + 1}`,
-    }));
-
+    const sliderImages =
+      cityData.sliderPhotos &&
+      cityData.sliderPhotos.map(
+        (image, index) =>
+          image && {
+            url: image.url,
+            title: `Slide ${cityData.cityName} ${index + 1}`,
+          },
+      );
     return (
       <React.Fragment>
         <Provider
@@ -228,7 +232,7 @@ export default class Index extends React.Component<Props, State> {
             </Element>
           )}
           <Element name="video">
-            <Video isGrey={!areArticlesShown} id={cityData.videoYoutubeUrl.providerUid} />
+            <Video isGrey={!areArticlesShown} id={cityData.videoYoutubeUrl?.providerUid} />
           </Element>
           <Element name="search">
             <Search langId={langId} />

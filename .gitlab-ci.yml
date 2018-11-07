@@ -54,6 +54,15 @@ frontend test:
 # Build stage for dev branches
 frontend dev:build:
   extends: .build
+  script:
+    - *install_frontend
+    - yarn fetch
+    - yarn push-translations
+    - yarn fetch-translations
+    - yarn export
+    - mv out/_next out/static && mv out/static out/stopovers-static && mv out/stopovers-static/_next/static out/stopovers-static/_next/stopovers-static
+    - find out -type f -exec sed -i "s/\/static\//\/stopovers-static\//g" {} \;
+    - find out -type f -exec sed -i "s/\/_next\//\/stopovers-static\/_next\//g" {} \;
   stage: build dev
   environment:
     name: dev/$CI_COMMIT_REF_NAME
