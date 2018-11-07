@@ -11,7 +11,7 @@ const env = name => process.env[name] || "";
 const PHRASE_APP_BASE_URL = "https://api.phraseapp.com/api/v2";
 const URL = `${PHRASE_APP_BASE_URL}/projects/${env("PHRASE_APP_PROJECT_ID")}/uploads`;
 
-const filenames = ["static/locales/cms_en-GB.json"];
+const filenames = ["dato/en-GB.json"];
 const options = {
   method: "POST",
   headers: {
