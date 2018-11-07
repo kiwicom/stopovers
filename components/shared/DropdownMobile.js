@@ -2,11 +2,10 @@
 
 import * as React from "react";
 import styled from "styled-components";
-import Text from "@kiwicom/nitro/lib/components/Text";
 
-export const renderDropdownItem = (id: string) => (
+export const renderDropdownItem = (id: string, label: string) => (
   <option value={id} key={id}>
-    <Text t={`itineraries.${id}.title`} />
+    {label}
   </option>
 );
 

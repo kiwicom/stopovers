@@ -36,6 +36,7 @@ import Banner from "../components/banner/Banner";
 import StickyAction from "../components/stickyAction/StickyAction";
 import langsData from "../static/languages.json";
 import brandLangsData from "../static/brandLanguages.json";
+import type { ArticleType } from "../components/articles/ArticleItem";
 
 const isProd = process.env.NODE_ENV === "production";
 
@@ -58,6 +59,7 @@ type Props = {
   menuTranslations: { header: { [key: string]: string }, footer: { [key: string]: string } },
   cityTag: string,
   cityData: Object,
+  articles: ArticleType[],
 };
 
 type State = {
@@ -119,6 +121,11 @@ export default class Index extends React.Component<Props, State> {
       ...fetchedDefault,
       brandLanguage,
     };
+
+    const articles: ArticleType[] = Object.keys(cityData.articles).map(
+      (id: string) => cityData.articles[id],
+    );
+
     return {
       translations,
       menuTranslations,
@@ -128,6 +135,7 @@ export default class Index extends React.Component<Props, State> {
       langId,
       currentPath: asPath,
       cityTag,
+      articles,
     };
   }
 
@@ -150,6 +158,7 @@ export default class Index extends React.Component<Props, State> {
       currentPath,
       cityData,
       cityTag,
+      articles,
     } = this.props;
     const { isMobile, areKeysShown } = this.state;
     const translationsForMenu = menuTranslations
@@ -181,6 +190,7 @@ export default class Index extends React.Component<Props, State> {
       url: image.url,
       title: `Slide ${cityData.cityName} ${index + 1}`,
     }));
+
     return (
       <React.Fragment>
         <Provider
@@ -214,7 +224,7 @@ export default class Index extends React.Component<Props, State> {
           </Element>
           {areArticlesShown && (
             <Element name="articles">
-              <Articles items={Object.values(cityData.articles)} />
+              <Articles items={articles} />
             </Element>
           )}
           <Element name="video">

@@ -6,6 +6,7 @@ import Fade from "react-reveal/Fade";
 import Text from "@kiwicom/nitro/lib/components/Text";
 import { Button, ButtonLink } from "@kiwicom/orbit-components";
 import { ArrowDown } from "@kiwicom/orbit-components/lib/icons";
+import { Consumer as IntlConsumer } from "@kiwicom/nitro/lib/services/intl/context";
 
 import { sendEvent } from "../../etc/logLady";
 import { scrollToElement } from "../helpers";
@@ -193,7 +194,13 @@ const Itinerary = ({ isMobile, data }: Props) => (
                       changeDropdownValue(value);
                     }}
                   >
-                    {Object.keys(data).map((id: string) => renderDropdownItem(id))}
+                    <IntlConsumer>
+                      {intl =>
+                        Object.keys(data).map((id: string) =>
+                          renderDropdownItem(id, intl.translate(`itineraries.${id}.title`)),
+                        )
+                      }
+                    </IntlConsumer>
                   </DropdownMobile>
                 </DropdownWrapperMobile>
                 <DropdownWrapper>

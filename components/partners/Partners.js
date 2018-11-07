@@ -125,8 +125,8 @@ const Partners = ({ logos }: Props) => (
     <Wrapper>
       <Logos isOdd={logos.length % 2}>
         {logos.map((logo: LogoType) => (
-          <LogoWrapper>
-            <Logo src={logo.url} alt={logo.alt} key={logo.title} title={logo.title} />
+          <LogoWrapper key={logo.title}>
+            <Logo src={logo.url} alt={logo.alt} title={logo.title} />
           </LogoWrapper>
         ))}
       </Logos>

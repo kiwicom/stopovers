@@ -7,14 +7,14 @@ import { ChevronRight } from "@kiwicom/orbit-components/lib/icons";
 
 import { sendEvent } from "../../etc/logLady";
 
-export type ArticleType = {
+export type ArticleType = {|
   id: string,
   title: string,
   description: string,
   linkText: string,
   url: string,
   photo: { url: string },
-};
+|};
 
 type Props = {|
   article: ArticleType,
