@@ -121,46 +121,47 @@ const TitleMobile = styled.div`
   }
 `;
 
-const SliderSection = ({ sliderImages }: SliderProps) => (
-  <Wrapper>
-    <TitleMobile>
-      <SectionTitle title="sliderSectionTitle" resetPadding />
-    </TitleMobile>
-    <Slider sliderImages={sliderImages} />
-    <ContentWrapper>
-      <TitleDesktop>
+const SliderSection = ({ sliderImages }: SliderProps) =>
+  sliderImages && sliderImages.length ? (
+    <Wrapper>
+      <TitleMobile>
         <SectionTitle title="sliderSectionTitle" resetPadding />
-      </TitleDesktop>
+      </TitleMobile>
+      <Slider sliderImages={sliderImages} />
+      <ContentWrapper>
+        <TitleDesktop>
+          <SectionTitle title="sliderSectionTitle" resetPadding />
+        </TitleDesktop>
 
-      <DescriptionWrapper>
-        <Description>
-          <Text t="sliderSectionDescription" />
-        </Description>
-      </DescriptionWrapper>
-      <ButtonsWrapper>
-        <Button
-          size="large"
-          onClick={() => {
-            scrollToElement("search");
-            sendEvent("searchFlights");
-          }}
-        >
-          <Text t="sliderSectionButtonText" />
-        </Button>
-        <ButtonLink
-          type="secondary"
-          size="large"
-          icon={<ChevronRight />}
-          onClick={() => {
-            scrollToElement("itinerary");
-            sendEvent("discoverTips");
-          }}
-        >
-          <Text t="sliderSectionLinkText" />
-        </ButtonLink>
-      </ButtonsWrapper>
-    </ContentWrapper>
-  </Wrapper>
-);
+        <DescriptionWrapper>
+          <Description>
+            <Text t="sliderSectionDescription" />
+          </Description>
+        </DescriptionWrapper>
+        <ButtonsWrapper>
+          <Button
+            size="large"
+            onClick={() => {
+              scrollToElement("search");
+              sendEvent("searchFlights");
+            }}
+          >
+            <Text t="sliderSectionButtonText" />
+          </Button>
+          <ButtonLink
+            type="secondary"
+            size="large"
+            icon={<ChevronRight />}
+            onClick={() => {
+              scrollToElement("itinerary");
+              sendEvent("discoverTips");
+            }}
+          >
+            <Text t="sliderSectionLinkText" />
+          </ButtonLink>
+        </ButtonsWrapper>
+      </ContentWrapper>
+    </Wrapper>
+  ) : null;
 
 export default SliderSection;

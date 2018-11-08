@@ -118,26 +118,27 @@ type Props = {
   logos: LogoType[],
 };
 
-const Partners = ({ logos }: Props) => (
-  <>
-    <SectionTitle title="partnersSectionTitle" subtitle="partnersSectionSubtitle" />
+const Partners = ({ logos }: Props) =>
+  logos && logos.length ? (
+    <>
+      <SectionTitle title="partnersSectionTitle" subtitle="partnersSectionSubtitle" />
 
-    <Wrapper>
-      <Logos isOdd={logos.length % 2}>
-        {logos.map((logo: LogoType) => (
-          <LogoWrapper key={logo.title}>
-            <Logo src={logo.url} alt={logo.alt} title={logo.title} />
-          </LogoWrapper>
-        ))}
-      </Logos>
-      <Content>
-        <StyledText t="partnersSectionDescription" />
-      </Content>
-      <AirplaneWrapper>
-        <AirplaneDown color="tertiary" />
-      </AirplaneWrapper>
-    </Wrapper>
-  </>
-);
+      <Wrapper>
+        <Logos isOdd={logos.length % 2}>
+          {logos.map((logo: LogoType) => (
+            <LogoWrapper key={logo.title}>
+              <Logo src={logo.url} alt={logo.alt} title={logo.title} />
+            </LogoWrapper>
+          ))}
+        </Logos>
+        <Content>
+          <StyledText t="partnersSectionDescription" />
+        </Content>
+        <AirplaneWrapper>
+          <AirplaneDown color="tertiary" />
+        </AirplaneWrapper>
+      </Wrapper>
+    </>
+  ) : null;
 
 export default Partners;
