@@ -110,12 +110,12 @@ export default class Index extends React.Component<Props, State> {
     const brandLanguage: BrandLanguage = filterBrandLanguage(brandLangsData, langId);
     const language = mapLanguage(brandLanguage.languages[langId], langInfos[langId]);
     const isServer = !!req;
-    const staticPath = `${isServer ? `http://localhost:3000` : ""}/static`;
-    const cityPath = `${staticPath}/cities/${cityTag}`;
-    const translations = await fetchJson(`${cityPath}/locales/${language.phraseApp}.json`);
-    const cityData = await fetchJson(`${cityPath}/cms_data.json`);
+    const staticPath = `${isServer ? `http://localhost:3000` : ""}/static/`;
+    const cityPath = `${staticPath}cities/${cityTag}/`;
+    const translations = await fetchJson(`${cityPath}locales/${language.phraseApp}.json`);
+    const cityData = await fetchJson(`${cityPath}cms_data.json`);
     const menuTranslations = await fetchJson(
-      `${staticPath}/locales/menuItems/${language.phraseApp}.json`,
+      `${staticPath}locales/menuItems/${language.phraseApp}.json`,
     );
     const fetched = {
       ...fetchedDefault,
@@ -175,22 +175,26 @@ export default class Index extends React.Component<Props, State> {
       Object.keys(translations)
         .filter(key => /otherMetaTags/.test(key))
         .reduce((result, key) => ({ ...result, [key]: translations[key] }), {
-          metaDescription: translations.metaDescription,
-          metaTitle: translations.metaTitle,
+          metaDescription: translations?.metaDescription,
+          metaTitle: translations?.metaTitle,
         });
 
-    // TODO: introduce optional chaining to the app for undefined check
-    // see https://github.com/tc39/proposal-optional-chaining
     const socialPhotos = {
-      twitter: cityData.photoForTwitterCard.url,
-      facebook: cityData.photoForFacebookCard.url,
+      twitter: cityData.photoForTwitterCard?.url,
+      facebook: cityData.photoForFacebookCard?.url,
     };
-    const areArticlesShown = ["en-GB", "en-US"].includes(language.phraseApp);
-    const sliderImages = cityData.sliderPhotos.map((image, index) => ({
-      url: image.url,
-      title: `Slide ${cityData.cityName} ${index + 1}`,
-    }));
-
+    const areArticlesShown =
+      ["en-GB", "en-US"].includes(language.phraseApp) &&
+      Object.keys(cityData.articles).length !== 0;
+    const sliderImages =
+      cityData.sliderPhotos &&
+      cityData.sliderPhotos.map(
+        (image, index) =>
+          image && {
+            url: image.url,
+            title: `Slide ${cityData.cityName} ${index + 1}`,
+          },
+      );
     return (
       <React.Fragment>
         <Provider
@@ -209,7 +213,12 @@ export default class Index extends React.Component<Props, State> {
             otherMetaTagIds={Object.keys(cityData.otherMetaTags)}
           />
           <FetchedProvider value={fetched}>
-            <Menu langId={langId} isMobile={isMobile} cityTag={cityTag} />
+            <Menu
+              langId={langId}
+              isMobile={isMobile}
+              cityTag={cityTag}
+              isStopover={cityData.isStopover}
+            />
           </FetchedProvider>
           <Hero logo={cityData.cityLogo} photo={cityData.mainPhoto} />
           <StickyAction />
@@ -228,7 +237,7 @@ export default class Index extends React.Component<Props, State> {
             </Element>
           )}
           <Element name="video">
-            <Video isGrey={!areArticlesShown} id={cityData.videoYoutubeUrl.providerUid} />
+            <Video isGrey={!areArticlesShown} id={cityData.videoYoutubeUrl?.providerUid} />
           </Element>
           <Element name="search">
             <Search langId={langId} />

@@ -56,7 +56,9 @@ const flatten = (obj, keyPrefix = "") =>
     // eslint-disable-next-line no-restricted-syntax
     for (const locale of allLocales) {
       const translation = await fetchJSON(
-        `${LOCALES_URL}/${locale.id}/download?file_format=${FILE_FORMAT}&encoding=UTF-8`,
+        `${LOCALES_URL}/${
+          locale.id
+        }/download?file_format=${FILE_FORMAT}&encoding=UTF-8&include_empty_translations=true`,
       );
 
       const translationsByRootKey = Object.keys(translation).reduce(
