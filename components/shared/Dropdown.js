@@ -5,6 +5,8 @@ import Select, { components } from "react-select";
 import { ChevronDown, ChevronUp } from "@kiwicom/orbit-components/lib/icons";
 import Text from "@kiwicom/nitro/lib/components/Text";
 
+import { sendEvent } from "../../etc/logLady";
+
 type Props = {
   options: Array<{ value: string, label: string }>,
   onChange: (optionValue: string) => void,
@@ -79,7 +81,10 @@ const Dropdown = ({ options, onChange }: Props) => (
     isSearchable={false}
     defaultValue={options[0]}
     blurInputOnSelect
-    onChange={option => onChange(option.value)}
+    onChange={option => {
+      sendEvent("discoverTips", option.value);
+      return onChange(option.value);
+    }}
     components={{ DropdownIndicator, IndicatorSeparator: null, SingleValue, Option }}
     hideSelectedOptions
     classNamePrefix="react-select"

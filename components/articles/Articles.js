@@ -5,10 +5,10 @@ import styled from "styled-components";
 import Text from "@kiwicom/nitro/lib/components/Text";
 import { Button } from "@kiwicom/orbit-components";
 
+import type { ArticleType } from "./ArticleItem";
 import { scrollToElement } from "../helpers";
 import SectionTitle from "../shared/SectionTitle";
 import ArticleItem from "./ArticleItem";
-import articles from "./mockedData";
 import { sendEvent } from "../../etc/logLady";
 
 const Wrapper = styled.div`
@@ -83,19 +83,23 @@ const ActionTitle = styled.h4`
   }
 `;
 
-const Articles = () => (
+type Props = {
+  items: ArticleType[],
+};
+
+const Articles = ({ items }: Props) => (
   <Wrapper>
-    <SectionTitle title="articlesTitle" subtitle="articlesSubTitle" />
+    <SectionTitle title="articlesSectionTitle" subtitle="articlesSectionSubtitle" />
 
     <ArticlesWrapper>
-      {articles.map(article => (
-        <ArticleItem article={article} key={article.id} />
+      {items.map(item => (
+        <ArticleItem article={item} key={item.id} />
       ))}
     </ArticlesWrapper>
 
     <ActionWrapper>
       <ActionTitle>
-        <Text t="bookYourFlight" />
+        <Text t="articlesSectionCtaDescription" />
       </ActionTitle>
       <Button
         size="large"
@@ -104,7 +108,7 @@ const Articles = () => (
           sendEvent("bookNow");
         }}
       >
-        <Text t="searchFlightsNow" />
+        <Text t="articlesSectionCtaButtonText" />
       </Button>
       <div />
     </ActionWrapper>

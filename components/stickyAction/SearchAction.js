@@ -13,7 +13,7 @@ const SearchAction = () => (
   <>
     <AirplaneRight customColor="#bac7d5" />
     <ActionText>
-      <Text t="searchWithStopover" />
+      <Text t="stickyBannerText" />
     </ActionText>
     <Button
       size="large"
@@ -22,7 +22,7 @@ const SearchAction = () => (
         sendEvent("searchNow");
       }}
     >
-      <Text t="goToSearch" />
+      <Text t="stickyBannerButtonText" />
     </Button>
   </>
 );
