@@ -3,18 +3,12 @@
 import * as React from "react";
 import Head from "next/head";
 import translate from "@kiwicom/nitro/lib/services/intl/translate";
-import omit from "lodash/omit";
-
-type Tags = {
-  [key: string]: { value: string },
-};
 
 type Props = {
-  translations?: {
-    metaDescription?: string,
-    metaTitle?: string,
-    otherMetaTags?: Tags,
+  translations: {
+    [key: string]: string,
   },
+  otherMetaTagIds: string[],
   locale: string,
   currentPath: string,
   socialPhotos: {
@@ -23,14 +17,10 @@ type Props = {
   },
 };
 
-// TODO: make meta tags dynamic via DatoCMS
-const MetaHead = ({ translations, locale, currentPath, socialPhotos }: Props) => {
-  const currentUrl = `https://www.kiwi.com${currentPath.split(/[?#]/)[0]}/`;
-  const stringTranslations = translations ? omit(translations, "otherMetaTags") : {};
-  const title = translate(stringTranslations, "metaTitle");
-  const description = translate(stringTranslations, "metaDescription");
-  const otherMetaTags =
-    translations && translations.otherMetaTags ? translations.otherMetaTags : {};
+const MetaHead = ({ translations, locale, currentPath, socialPhotos, otherMetaTagIds }: Props) => {
+  const currentUrl = `https://www.kiwi.com${currentPath.split(/[?#]/)[0]}`;
+  const title = translate(translations, "metaTitle");
+  const description = translate(translations, "metaDescription");
   return (
     <Head>
       <title>{title}</title>
@@ -49,8 +39,12 @@ const MetaHead = ({ translations, locale, currentPath, socialPhotos }: Props) =>
       <meta property="og:url" content={currentUrl} />
       <meta property="og:site_name" content="Kiwi.com" />
 
-      {Object.keys(otherMetaTags).map(key => (
-        <meta property="article:tag" key={key} content={otherMetaTags[key].value || ""} />
+      {otherMetaTagIds.map(id => (
+        <meta
+          property="article:tag"
+          key={id}
+          content={translate(translations, `otherMetaTags.${id}.value`)}
+        />
       ))}
 
       <meta name="twitter:card" content="summary_large_image" />

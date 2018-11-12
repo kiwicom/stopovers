@@ -1,0 +1,14 @@
+{
+  "footer": {
+    "privacyPolicy": "Politique de confidentialité",
+    "security": "Sécurité",
+    "termsAndConditions": "Conditions générales",
+    "termsOfUse": "Conditions d'utilisation"
+  },
+  "header": {
+    "cars": "Voitures",
+    "holidays": "Vacances",
+    "rooms": "Chambres",
+    "travel": "Voyage"
+  }
+}

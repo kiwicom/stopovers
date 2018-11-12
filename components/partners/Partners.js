@@ -69,17 +69,10 @@ const LogoWrapper = styled.div`
   }
 `;
 
-type LogoType = {
-  id: number,
-  url: string,
-  name: string,
-  width?: string,
-};
-
 const Logo = styled.img`
   display: block;
   margin: 0 auto;
-  width: ${({ width }: LogoType) => width || "225"}px;
+  width: 225px;
   max-width: calc(100% - 20px);
 `;
 
@@ -115,32 +108,37 @@ const AirplaneWrapper = styled.div`
   }
 `;
 
-const logos = [
-  { id: 1, name: "renralcars.com", url: "/static/images/partners/rentalcars.png" },
-  { id: 2, name: "Get your guide", url: "/static/images/partners/get-your-guide.png" },
-  { id: 3, name: "Mozio", url: "/static/images/partners/mozio.png", width: "160" },
-];
+type LogoType = {
+  title: string,
+  alt: string,
+  url: string,
+};
 
-const Partners = () => (
-  <>
-    <SectionTitle title="partnersTitle" subtitle="partnersSubTitle" />
+type Props = {
+  logos: LogoType[],
+};
 
-    <Wrapper>
-      <Logos isOdd={logos.length % 2}>
-        {logos.map((logo: LogoType) => (
-          <LogoWrapper>
-            <Logo src={logo.url} alt={logo.name} key={logo.id} width={logo.width} />
-          </LogoWrapper>
-        ))}
-      </Logos>
-      <Content>
-        <StyledText t="partnersDescription" />
-      </Content>
-      <AirplaneWrapper>
-        <AirplaneDown color="tertiary" />
-      </AirplaneWrapper>
-    </Wrapper>
-  </>
-);
+const Partners = ({ logos }: Props) =>
+  logos && logos.length ? (
+    <>
+      <SectionTitle title="partnersSectionTitle" subtitle="partnersSectionSubtitle" />
+
+      <Wrapper>
+        <Logos isOdd={logos.length % 2}>
+          {logos.map((logo: LogoType) => (
+            <LogoWrapper key={logo.title}>
+              <Logo src={logo.url} alt={logo.alt} title={logo.title} />
+            </LogoWrapper>
+          ))}
+        </Logos>
+        <Content>
+          <StyledText t="partnersSectionDescription" />
+        </Content>
+        <AirplaneWrapper>
+          <AirplaneDown color="tertiary" />
+        </AirplaneWrapper>
+      </Wrapper>
+    </>
+  ) : null;
 
 export default Partners;
