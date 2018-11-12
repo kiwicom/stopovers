@@ -1,37 +1,49 @@
 // @flow
 
 import "isomorphic-unfetch";
-import pick from "lodash/pick";
 import { type LangInfos, type LangInfo } from "@kiwicom/nitro/lib/records/LangInfo";
 import { type Language } from "@kiwicom/nitro/lib/records/Languages";
-import { type BrandLanguages } from "@kiwicom/nitro/lib/records/BrandLanguage";
+import { type BrandLanguages, type BrandLanguage } from "@kiwicom/nitro/lib/records/BrandLanguage";
 import cookies from "js-cookie";
-
-export const usedLangIds = [
-  "en",
-  "ca",
-  "us",
-  "sg",
-  "es",
-  "it",
-  "fr",
-  "de",
-  "pl",
-  "cz",
-  "ru",
-  "ro",
-  "hu",
-];
 
 export const UTM_PARAMS = process.env.UTM_PARAMS ? `?${process.env.UTM_PARAMS}` : "";
 
-export function filterLanguages(langsData: LangInfos) {
-  return pick(langsData, usedLangIds);
+export function filterLanguages(langsData: LangInfos, usedLocales: string[]): LangInfos {
+  return Object.keys(langsData).reduce((result, key) => {
+    if (usedLocales.includes(langsData[key].iso))
+      return {
+        ...result,
+        [key]: langsData[key],
+      };
+    return result;
+  }, {});
 }
 
-export function filterBrandLanguage(brandLangsData: BrandLanguages, langId: string) {
+export function getCurrentLanguage(supportedLanguages: LangInfos, locale: string): string {
+  return (
+    Object.keys(supportedLanguages).find(langId => supportedLanguages[langId].iso === locale) ||
+    "en"
+  );
+}
+
+export function filterBrandLanguage(
+  brandLangsData: BrandLanguages,
+  langId: string,
+  supportedLangs: LangInfos,
+): BrandLanguage {
   const brandLanguage = brandLangsData.kiwicom[langId];
-  const languages = pick(brandLanguage.languages, usedLangIds);
+  const supportedLangIds = Object.keys(supportedLangs);
+  const allBrandLangs = brandLanguage.languages;
+
+  const languages = Object.keys(allBrandLangs).reduce((result, key) => {
+    if (supportedLangIds.includes(key))
+      return {
+        ...result,
+        [key]: allBrandLangs[key],
+      };
+    return result;
+  }, {});
+
   return { ...brandLanguage, languages };
 }
 
@@ -39,7 +51,6 @@ export function mapLanguage(lang: Language, langInfo: LangInfo) {
   return {
     ...langInfo,
     name: langInfo.displayName,
-    flag: lang.flag || langInfo.id,
     defaultCountry: lang.defaultCountry,
   };
 }
