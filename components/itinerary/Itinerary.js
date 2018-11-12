@@ -171,8 +171,11 @@ type Props = {
   },
 };
 
-const Itinerary = ({ isMobile, data }: Props) =>
-  data && Object.keys(data).length !== 0 ? (
+const Itinerary = ({ isMobile, data }: Props) => {
+  if (!data || Object.keys(data).length === 0) {
+    return null;
+  }
+  return (
     <ItineraryProvider defaultValue={Object.keys(data)[0]}>
       <ItineraryContext.Consumer>
         {({ state: { dropdownValue, isCollapsed }, changeDropdownValue, showMore }: Context) => {
@@ -251,6 +254,7 @@ const Itinerary = ({ isMobile, data }: Props) =>
         }}
       </ItineraryContext.Consumer>
     </ItineraryProvider>
-  ) : null;
+  );
+};
 
 export default Itinerary;

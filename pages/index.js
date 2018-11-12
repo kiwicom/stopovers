@@ -179,8 +179,6 @@ export default class Index extends React.Component<Props, State> {
           metaTitle: translations?.metaTitle,
         });
 
-    // TODO: introduce optional chaining to the app for undefined check
-    // see https://github.com/tc39/proposal-optional-chaining
     const socialPhotos = {
       twitter: cityData.photoForTwitterCard?.url,
       facebook: cityData.photoForFacebookCard?.url,
