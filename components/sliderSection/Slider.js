@@ -170,7 +170,7 @@ const Slider = ({ sliderImages }: Props) => (
         <StyledCarousel className="slider">
           {sliderImages.map((image, index) => (
             <StyledSlide index={index} key={image.title}>
-              <StyledImage src={image.url} alt={image.title} />
+              <StyledImage src={`${image.url}?w=840`} alt={image.title} />
             </StyledSlide>
           ))}
         </StyledCarousel>
