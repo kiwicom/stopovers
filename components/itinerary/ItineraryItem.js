@@ -53,7 +53,7 @@ const ItineraryItem = ({ itineraryId, item, order, hasNoMargin }: Props) => {
   const translationPrefix = `itineraries.${itineraryId}.tips.${id}`;
   return (
     <ItemWrapper hasNoMargin={hasNoMargin}>
-      <Image src={url} />
+      <Image src={`${url}?w=840`} />
 
       <ItemContent
         isOdd={isOdd}

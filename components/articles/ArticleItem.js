@@ -80,7 +80,7 @@ const LinkWrapper = styled.div`
 
 const ArticleItem = ({ article }: Props) => (
   <Article>
-    <ArticleThumbnail src={article.photo.url} />
+    <ArticleThumbnail src={`${article.photo.url}?w=700`} />
     <ArticleTextWrapper>
       <Title>
         <TitleLink

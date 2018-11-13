@@ -105,7 +105,7 @@ const Hero = ({ photo, logo }: Props) => (
       <Content />
     </ContentWrapper>
     <ImageWrapper>
-      {photo && <Image src={photo.url} alt={photo.alt} />}
+      {photo && <Image src={`${photo.url}?w=1000`} alt={photo.alt} />}
       {logo && (
         <DubaiLogoWrapper>
           <DubaiLogo src={logo.url} alt={logo.alt} />
