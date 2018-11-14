@@ -14,11 +14,11 @@ import "isomorphic-unfetch";
 import { GA_TRACKING_ID } from "../etc/gtag";
 import {
   filterLanguages,
-  filterBrandLanguage,
+  getBrandLanguage,
   mapLanguage,
-  usedLangIds,
   getUserId,
   getCurrentUrlParams,
+  getCurrentLanguage,
 } from "../etc/helpers";
 import { sendEvent } from "../etc/logLady";
 import { saveToSession } from "../etc/marketingHelpers";
@@ -43,10 +43,12 @@ const isProd = process.env.NODE_ENV === "production";
 const fetchJson = (url: string) => fetch(url).then(x => x.json());
 
 type Query = {
-  lang?: string,
+  langId: string,
   from?: string,
   to?: string,
   cityTag: string,
+  translateLocale: string,
+  usedLocales: string[],
 };
 
 type Props = {
@@ -60,6 +62,7 @@ type Props = {
   cityTag: string,
   cityData: Object,
   articles: ArticleType[],
+  usedLocales: string[],
 };
 
 type State = {
@@ -100,7 +103,7 @@ export default class Index extends React.Component<Props, State> {
   };
 
   static async getInitialProps({
-    query: { lang, cityTag },
+    query: { langId, usedLocales, cityTag },
     req,
     asPath,
   }: {
@@ -108,18 +111,27 @@ export default class Index extends React.Component<Props, State> {
     req: any,
     asPath: string,
   }) {
-    const langId = lang && usedLangIds.includes(lang) ? lang : "en";
-    const langInfos: LangInfos = filterLanguages(langsData);
-    const brandLanguage: BrandLanguage = filterBrandLanguage(brandLangsData, langId);
-    const language = mapLanguage(brandLanguage.languages[langId], langInfos[langId]);
+    const lang = langsData[langId] || langsData.en;
+    const locale = usedLocales.includes(lang.phraseApp) ? lang.phraseApp : "en-GB";
+    const supportedLangs: LangInfos = filterLanguages(langsData, usedLocales);
+
+    const currentLangId: string = getCurrentLanguage(supportedLangs, locale);
+
+    const brandLanguage: BrandLanguage = getBrandLanguage(
+      brandLangsData,
+      currentLangId,
+      supportedLangs,
+    );
+    const language = mapLanguage(
+      brandLanguage.languages[currentLangId],
+      supportedLangs[currentLangId],
+    );
     const isServer = !!req;
     const staticPath = `${isServer ? `http://localhost:3000` : ""}/static/`;
     const cityPath = `${staticPath}cities/${cityTag}/`;
-    const translations = await fetchJson(`${cityPath}locales/${language.phraseApp}.json`);
+    const translations = await fetchJson(`${cityPath}locales/${locale}.json`);
     const cityData = await fetchJson(`${cityPath}cms_data.json`);
-    const menuTranslations = await fetchJson(
-      `${staticPath}locales/menuItems/${language.phraseApp}.json`,
-    );
+    const menuTranslations = await fetchJson(`${staticPath}locales/menuItems/${locale}.json`);
     const fetched = {
       ...fetchedDefault,
       brandLanguage,
@@ -139,6 +151,7 @@ export default class Index extends React.Component<Props, State> {
       currentPath: asPath,
       cityTag,
       articles,
+      usedLocales,
     };
   }
 
@@ -162,6 +175,7 @@ export default class Index extends React.Component<Props, State> {
       cityData,
       cityTag,
       articles,
+      usedLocales,
     } = this.props;
     const { isMobile, areKeysShown } = this.state;
     const translationsForMenu = menuTranslations
@@ -217,10 +231,11 @@ export default class Index extends React.Component<Props, State> {
           />
           <FetchedProvider value={fetched}>
             <Menu
-              langId={langId}
+              lang={langId}
               isMobile={isMobile}
               cityTag={cityTag}
               isStopover={cityData.isStopover}
+              usedLocales={usedLocales}
             />
           </FetchedProvider>
           <Hero logo={cityData.cityLogo} photo={cityData.mainPhoto} />

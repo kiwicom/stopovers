@@ -9,10 +9,11 @@ import HeaderLinks from "@kiwicom/nitro/lib/components/HeaderLinks";
 import { getCurrentUrlParams } from "../../etc/helpers";
 
 type Props = {
-  langId: ?string,
+  lang: string,
   isMobile: boolean,
   cityTag: string,
   isStopover: boolean,
+  usedLocales: string[],
 };
 
 const Wrapper = styled.div`
@@ -56,22 +57,20 @@ const LanguageWrapper = styled.div`
   }
 `;
 
-const Menu = ({ langId, isMobile, cityTag, isStopover }: Props) => {
+const Menu = ({ lang, isMobile, cityTag, isStopover, usedLocales }: Props) => {
   const cityType = isStopover ? "stopover" : "destination";
   return (
     <Wrapper>
       <LogoWrapper>
-        <a href={`https://www.kiwi.com/${langId || "en"}/`}>
+        <a href={`https://www.kiwi.com/${lang || "en"}/`}>
           <Logo src="/static/images/logo-menu.svg" alt="kiwicom logo" />
         </a>
       </LogoWrapper>
       <HeaderLinks
-        linkFlights={`https://www.kiwi.com/${langId || "en"}/search/`}
+        linkFlights={`https://www.kiwi.com/${lang || "en"}/search/`}
         forceNewWindow
-        linkRooms={`https://rooms.kiwi.com/?${
-          langId ? `preflang=${langId}` : ""
-        }&adplat=headerlinks`}
-        linkCars={`https://cars.kiwi.com/?${langId ? `preflang=${langId}` : ""}&adplat=headerlinks`}
+        linkRooms={`https://rooms.kiwi.com/?${lang ? `preflang=${lang}` : ""}&adplat=headerlinks`}
+        linkCars={`https://cars.kiwi.com/?${lang ? `preflang=${lang}` : ""}&adplat=headerlinks`}
         linkHolidays="https://kiwicom.lastminute.com/flight-hotel/"
       />
 
@@ -79,15 +78,15 @@ const Menu = ({ langId, isMobile, cityTag, isStopover }: Props) => {
         <Language
           flat
           native={isMobile}
-          onChange={lang => {
+          onChange={langId => {
             const currentParams = getCurrentUrlParams();
             // eslint-disable-next-line fp/no-mutating-methods
             Router.push(
               {
                 pathname: "/",
-                query: { ...currentParams, lang, cityTag },
+                query: { ...currentParams, langId, cityTag, usedLocales },
               },
-              `/${lang}/${cityType}s/${cityTag.split("_")[0]}/`,
+              `/${langId}/${cityType}s/${cityTag.split("_")[0]}/`,
             );
           }}
         />

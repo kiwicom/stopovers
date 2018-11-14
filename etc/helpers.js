@@ -1,37 +1,49 @@
 // @flow
 
 import "isomorphic-unfetch";
-import pick from "lodash/pick";
 import { type LangInfos, type LangInfo } from "@kiwicom/nitro/lib/records/LangInfo";
-import { type Language } from "@kiwicom/nitro/lib/records/Languages";
-import { type BrandLanguages } from "@kiwicom/nitro/lib/records/BrandLanguage";
+import { type Language, type Languages } from "@kiwicom/nitro/lib/records/Languages";
+import { type BrandLanguages, type BrandLanguage } from "@kiwicom/nitro/lib/records/BrandLanguage";
 import cookies from "js-cookie";
-
-export const usedLangIds = [
-  "en",
-  "ca",
-  "us",
-  "sg",
-  "es",
-  "it",
-  "fr",
-  "de",
-  "pl",
-  "cz",
-  "ru",
-  "ro",
-  "hu",
-];
 
 export const UTM_PARAMS = process.env.UTM_PARAMS ? `?${process.env.UTM_PARAMS}` : "";
 
-export function filterLanguages(langsData: LangInfos) {
-  return pick(langsData, usedLangIds);
+export function pick(obj: Object, paths: string[], deepKey?: string) {
+  return Object.keys(obj).reduce((result, key) => {
+    const value = deepKey ? obj[key][deepKey] : key;
+    if (paths.includes(value))
+      return {
+        ...result,
+        [key]: obj[key],
+      };
+    return result;
+  }, {});
 }
 
-export function filterBrandLanguage(brandLangsData: BrandLanguages, langId: string) {
+export function filterLanguages(langsData: LangInfos, usedLocales: string[]): LangInfos {
+  return pick(langsData, usedLocales, "iso");
+}
+
+export function getCurrentLanguage(supportedLanguages: LangInfos, locale: string): string {
+  return (
+    Object.keys(supportedLanguages).find(langId => supportedLanguages[langId].iso === locale) ||
+    "en"
+  );
+}
+
+export function filterBrandLanguages(allBrandLangs: Languages, supportedLangIds: string[]) {
+  return pick(allBrandLangs, supportedLangIds);
+}
+
+export function getBrandLanguage(
+  brandLangsData: BrandLanguages,
+  langId: string,
+  supportedLangs: LangInfos,
+): BrandLanguage {
   const brandLanguage = brandLangsData.kiwicom[langId];
-  const languages = pick(brandLanguage.languages, usedLangIds);
+  const supportedLangIds = Object.keys(supportedLangs);
+  const allBrandLangs = brandLanguage.languages;
+  const languages = filterBrandLanguages(allBrandLangs, supportedLangIds);
   return { ...brandLanguage, languages };
 }
 
@@ -39,7 +51,6 @@ export function mapLanguage(lang: Language, langInfo: LangInfo) {
   return {
     ...langInfo,
     name: langInfo.displayName,
-    flag: lang.flag || langInfo.id,
     defaultCountry: lang.defaultCountry,
   };
 }
