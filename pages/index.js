@@ -111,7 +111,9 @@ export default class Index extends React.Component<Props, State> {
     const lang = langsData[langId] || langsData.en;
     const locale = usedLocales.includes(lang.phraseApp) ? lang.phraseApp : "en-GB";
     const supportedLangs: LangInfos = filterLanguages(langsData, usedLocales);
+
     const currentLangId: string = getCurrentLanguage(supportedLangs, locale);
+
     const brandLanguage: BrandLanguage = getBrandLanguage(
       brandLangsData,
       currentLangId,

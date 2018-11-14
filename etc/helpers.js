@@ -8,15 +8,20 @@ import cookies from "js-cookie";
 
 export const UTM_PARAMS = process.env.UTM_PARAMS ? `?${process.env.UTM_PARAMS}` : "";
 
-export function filterLanguages(langsData: LangInfos, usedLocales: string[]): LangInfos {
-  return Object.keys(langsData).reduce((result, key) => {
-    if (usedLocales.includes(langsData[key].iso))
+export function pick(obj: Object, paths: string[], deepKey?: string) {
+  return Object.keys(obj).reduce((result, key) => {
+    const value = deepKey ? obj[key][deepKey] : key;
+    if (paths.includes(value))
       return {
         ...result,
-        [key]: langsData[key],
+        [key]: obj[key],
       };
     return result;
   }, {});
+}
+
+export function filterLanguages(langsData: LangInfos, usedLocales: string[]): LangInfos {
+  return pick(langsData, usedLocales, "iso");
 }
 
 export function getCurrentLanguage(supportedLanguages: LangInfos, locale: string): string {
@@ -27,14 +32,7 @@ export function getCurrentLanguage(supportedLanguages: LangInfos, locale: string
 }
 
 export function filterBrandLanguages(allBrandLangs: Languages, supportedLangIds: string[]) {
-  return Object.keys(allBrandLangs).reduce((result, key) => {
-    if (supportedLangIds.includes(key))
-      return {
-        ...result,
-        [key]: allBrandLangs[key],
-      };
-    return result;
-  }, {});
+  return pick(allBrandLangs, supportedLangIds);
 }
 
 export function getBrandLanguage(
@@ -45,9 +43,7 @@ export function getBrandLanguage(
   const brandLanguage = brandLangsData.kiwicom[langId];
   const supportedLangIds = Object.keys(supportedLangs);
   const allBrandLangs = brandLanguage.languages;
-
   const languages = filterBrandLanguages(allBrandLangs, supportedLangIds);
-
   return { ...brandLanguage, languages };
 }
 
