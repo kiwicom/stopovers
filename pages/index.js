@@ -14,7 +14,7 @@ import "isomorphic-unfetch";
 import { GA_TRACKING_ID } from "../etc/gtag";
 import {
   filterLanguages,
-  filterBrandLanguage,
+  getBrandLanguage,
   mapLanguage,
   getUserId,
   getCurrentUrlParams,
@@ -112,7 +112,7 @@ export default class Index extends React.Component<Props, State> {
     const locale = usedLocales.includes(lang.phraseApp) ? lang.phraseApp : "en-GB";
     const supportedLangs: LangInfos = filterLanguages(langsData, usedLocales);
     const currentLangId: string = getCurrentLanguage(supportedLangs, locale);
-    const brandLanguage: BrandLanguage = filterBrandLanguage(
+    const brandLanguage: BrandLanguage = getBrandLanguage(
       brandLangsData,
       currentLangId,
       supportedLangs,

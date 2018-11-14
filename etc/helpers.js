@@ -2,7 +2,7 @@
 
 import "isomorphic-unfetch";
 import { type LangInfos, type LangInfo } from "@kiwicom/nitro/lib/records/LangInfo";
-import { type Language } from "@kiwicom/nitro/lib/records/Languages";
+import { type Language, type Languages } from "@kiwicom/nitro/lib/records/Languages";
 import { type BrandLanguages, type BrandLanguage } from "@kiwicom/nitro/lib/records/BrandLanguage";
 import cookies from "js-cookie";
 
@@ -26,7 +26,18 @@ export function getCurrentLanguage(supportedLanguages: LangInfos, locale: string
   );
 }
 
-export function filterBrandLanguage(
+export function filterBrandLanguages(allBrandLangs: Languages, supportedLangIds: string[]) {
+  return Object.keys(allBrandLangs).reduce((result, key) => {
+    if (supportedLangIds.includes(key))
+      return {
+        ...result,
+        [key]: allBrandLangs[key],
+      };
+    return result;
+  }, {});
+}
+
+export function getBrandLanguage(
   brandLangsData: BrandLanguages,
   langId: string,
   supportedLangs: LangInfos,
@@ -35,14 +46,7 @@ export function filterBrandLanguage(
   const supportedLangIds = Object.keys(supportedLangs);
   const allBrandLangs = brandLanguage.languages;
 
-  const languages = Object.keys(allBrandLangs).reduce((result, key) => {
-    if (supportedLangIds.includes(key))
-      return {
-        ...result,
-        [key]: allBrandLangs[key],
-      };
-    return result;
-  }, {});
+  const languages = filterBrandLanguages(allBrandLangs, supportedLangIds);
 
   return { ...brandLanguage, languages };
 }
