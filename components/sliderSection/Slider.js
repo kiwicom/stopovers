@@ -114,6 +114,22 @@ const spin = keyframes`
 `;
 
 const SliderWrapper = styled.div`
+  width: 100%;
+
+  .carousel__master-spinner-container {
+    display: flex;
+    align-items: center;
+    height: 470px;
+
+    @media (min-width: 750px) {
+      height: 200px;
+    }
+
+    @media (min-width: 1440px) {
+      height: 440px;
+    }
+  }
+
   .carousel__slider-tray {
     margin: 0;
     padding: 0;
