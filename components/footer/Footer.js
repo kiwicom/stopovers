@@ -55,7 +55,7 @@ const LinksWrapper = styled.div`
     margin: 0;
     flex-direction: row;
 
-    @media (max-width: 1440px) {
+    @media (max-width: 1439px) {
       margin-top: 24px;
     }
   }
@@ -79,10 +79,8 @@ const Link = styled.a`
 const Icons = styled.div`
   margin-left: auto;
 
-  @media (min-width: 740px) {
-    @media (max-width: 1440px) {
-      order: -1;
-    }
+  @media (min-width: 740px) and (max-width: 1439px) {
+    order: -1;
   }
 `;
 
