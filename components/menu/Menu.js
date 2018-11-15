@@ -64,6 +64,7 @@ const Menu = ({ lang, isMobile, cityTag, isStopover, usedLocales }: Props) => {
       <LogoWrapper>
         <a href={`https://www.kiwi.com/${lang || "en"}/`}>
           <Logo src="/static/images/logo-menu.svg" alt="kiwicom logo" />
+          <LogoMobile src="/static/images/logo-symbol.svg" alt="kiwicom logo" />
         </a>
       </LogoWrapper>
       <HeaderLinks
