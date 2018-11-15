@@ -85,7 +85,7 @@ class Search extends React.Component<Props> {
   render() {
     return (
       <Wrapper>
-        <SectionTitle title="widgetTitle" subtitle="widgetSubTitle" />
+        <SectionTitle title="searchSectionTitle" subtitle="searchSectionSubtitle" />
         <WidgetWrapper>
           <div id="widget-holder" />
         </WidgetWrapper>

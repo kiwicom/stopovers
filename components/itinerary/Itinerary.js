@@ -6,6 +6,7 @@ import Fade from "react-reveal/Fade";
 import Text from "@kiwicom/nitro/lib/components/Text";
 import { Button, ButtonLink } from "@kiwicom/orbit-components";
 import { ArrowDown } from "@kiwicom/orbit-components/lib/icons";
+import { Consumer as IntlConsumer } from "@kiwicom/nitro/lib/services/intl/context";
 
 import { sendEvent } from "../../etc/logLady";
 import { scrollToElement } from "../helpers";
@@ -14,7 +15,6 @@ import ItineraryProvider, { ItineraryContext, type Context } from "./ItineraryCo
 import SectionTitle from "../shared/SectionTitle";
 import DropdownMobile, { renderDropdownItem } from "../shared/DropdownMobile";
 import Dropdown from "../shared/Dropdown";
-import { data, dropdownData } from "./mockedData";
 
 const Wrapper = styled.div`
   display: flex;
@@ -149,76 +149,112 @@ const DropdownTitle = styled.div`
   }
 `;
 
-type Props = {
-  isMobile: boolean,
+export type Tip = {
+  id: string,
+  photo: {
+    url: string,
+  },
+  time: string,
 };
 
-const Itinerary = ({ isMobile }: Props) => (
-  <ItineraryProvider>
-    <ItineraryContext.Consumer>
-      {({ state: { dropdownValue, isCollapsed }, changeDropdownValue, showMore }: Context) => {
-        const isMobileCollapsed = isMobile && isCollapsed;
-        const items = data[dropdownValue];
-        const itemsDisplayed = isMobileCollapsed ? items.slice(0, 2) : items;
-        return (
-          <Wrapper>
-            <ItineraryWrapper isCutBottom={isMobileCollapsed}>
-              <SectionTitle title="itineraryTitle" subtitle="itinerarySubTitle" />
-              <DropdownGroup>
-                <DropdownTitle>
-                  <Text t="selectItinerary" />
-                </DropdownTitle>
-                <DropdownWrapperMobile>
-                  <DropdownMobile
-                    onChange={(e: SyntheticEvent<HTMLSelectElement>) => {
-                      const { value } = e.currentTarget;
-                      changeDropdownValue(value);
-                      sendEvent("discoverTips", value);
-                    }}
-                  >
-                    {dropdownData.map(item => renderDropdownItem(item))}
-                  </DropdownMobile>
-                </DropdownWrapperMobile>
-                <DropdownWrapper>
-                  <Dropdown onChange={changeDropdownValue} options={dropdownData} />
-                </DropdownWrapper>
-              </DropdownGroup>
+type Tips = {
+  [key: string]: Tip,
+};
 
-              <Fade>
-                {itemsDisplayed.map((itineraryItem, index) => (
-                  <ItineraryItem
-                    key={itineraryItem.id}
-                    item={itineraryItem}
-                    order={index}
-                    hasNoMargin={isMobile && itemsDisplayed.length === index + 1}
-                  />
-                ))}
-              </Fade>
-            </ItineraryWrapper>
-            {isMobile &&
-              isCollapsed && (
-                <StyledLink
-                  type="secondary"
-                  icon={<ArrowDown color="secondary" />}
-                  onClick={() => showMore()}
-                >
-                  <Text t="showMore" />
-                </StyledLink>
-              )}
-            <StyledButton
-              size="large"
-              onClick={() => {
-                scrollToElement("search");
-                sendEvent("startYourTrip");
-              }}
-            >
-              <Text t="startYourTripNow" />
-            </StyledButton>
-          </Wrapper>
-        );
-      }}
-    </ItineraryContext.Consumer>
-  </ItineraryProvider>
-);
+type Props = {
+  isMobile: boolean,
+  data: {
+    [key: string]: {
+      id: string,
+      tips: Tips,
+    },
+  },
+};
+
+const Itinerary = ({ isMobile, data }: Props) => {
+  if (!data || Object.keys(data).length === 0) {
+    return null;
+  }
+  return (
+    <ItineraryProvider defaultValue={Object.keys(data)[0]}>
+      <ItineraryContext.Consumer>
+        {({ state: { dropdownValue, isCollapsed }, changeDropdownValue, showMore }: Context) => {
+          const isMobileCollapsed = isMobile && isCollapsed;
+          const itineraryTips: Tips = data[dropdownValue].tips;
+          const items: Tip[] = Object.keys(itineraryTips).map(tipId => itineraryTips[tipId]);
+          const itemsDisplayed = isMobileCollapsed ? items.slice(0, 2) : items;
+          return (
+            <Wrapper>
+              <ItineraryWrapper isCutBottom={isMobileCollapsed}>
+                <SectionTitle title="itinerarySectionTitle" subtitle="itinerarySectionSubtitle" />
+                <DropdownGroup>
+                  <DropdownTitle>
+                    <Text t="itinerarySelectorDescription" />
+                  </DropdownTitle>
+                  <DropdownWrapperMobile>
+                    <DropdownMobile
+                      onChange={(e: SyntheticEvent<HTMLSelectElement>) => {
+                        const { value } = e.currentTarget;
+                        changeDropdownValue(value);
+                      }}
+                    >
+                      <IntlConsumer>
+                        {intl =>
+                          Object.keys(data).map((id: string) =>
+                            renderDropdownItem(id, intl.translate(`itineraries.${id}.title`)),
+                          )
+                        }
+                      </IntlConsumer>
+                    </DropdownMobile>
+                  </DropdownWrapperMobile>
+                  <DropdownWrapper>
+                    <Dropdown
+                      onChange={changeDropdownValue}
+                      options={Object.keys(data).map(id => ({
+                        value: id,
+                        label: `itineraries.${id}.title`,
+                      }))}
+                    />
+                  </DropdownWrapper>
+                </DropdownGroup>
+
+                <Fade>
+                  {itemsDisplayed.map((itineraryItem, index) => (
+                    <ItineraryItem
+                      itineraryId={dropdownValue}
+                      key={itineraryItem.id}
+                      item={itineraryItem}
+                      order={index}
+                      hasNoMargin={isMobile && itemsDisplayed.length === index + 1}
+                    />
+                  ))}
+                </Fade>
+              </ItineraryWrapper>
+              {isMobile &&
+                isCollapsed && (
+                  <StyledLink
+                    type="secondary"
+                    icon={<ArrowDown color="secondary" />}
+                    onClick={() => showMore()}
+                  >
+                    <Text t="showMore" />
+                  </StyledLink>
+                )}
+              <StyledButton
+                size="large"
+                onClick={() => {
+                  scrollToElement("search");
+                  sendEvent("startYourTrip");
+                }}
+              >
+                <Text t="itineraryCtaButtonText" />
+              </StyledButton>
+            </Wrapper>
+          );
+        }}
+      </ItineraryContext.Consumer>
+    </ItineraryProvider>
+  );
+};
 
 export default Itinerary;

@@ -88,16 +88,29 @@ const ContentWrapper = styled.div`
   align-items: center;
 `;
 
-const Hero = () => (
+type Props = {
+  photo: {
+    url: string,
+    alt: string,
+  },
+  logo: {
+    url: string,
+    alt: string,
+  },
+};
+
+const Hero = ({ photo, logo }: Props) => (
   <Wrapper>
     <ContentWrapper>
       <Content />
     </ContentWrapper>
     <ImageWrapper>
-      <Image src="/static/images/dubai-hero.jpg" />
-      <DubaiLogoWrapper>
-        <DubaiLogo src="/static/images/dubai-logo.svg" alt="dubai logo" />
-      </DubaiLogoWrapper>
+      {photo && <Image src={`${photo.url}?w=1000`} alt={photo.alt} />}
+      {logo && (
+        <DubaiLogoWrapper>
+          <DubaiLogo src={logo.url} alt={logo.alt} />
+        </DubaiLogoWrapper>
+      )}
     </ImageWrapper>
   </Wrapper>
 );

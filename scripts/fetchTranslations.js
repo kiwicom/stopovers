@@ -3,67 +3,79 @@
 import fetch from "isomorphic-unfetch";
 import dotenv from "dotenv";
 import chalk from "chalk";
-import fs from "fs";
+import fs from "fs-extra";
 
 dotenv.config();
+const env = name => process.env[name] || "";
 
-const PHRASE_APP_BASE_URL = "https://api.phraseapp.com/api/v2/";
-const PHRASE_APP_PROJECT_ID = process.env.PHRASE_APP_PROJECT_ID || "";
-const PHRASE_APP_ACCESS_TOKEN = process.env.PHRASE_APP_ACCESS_TOKEN || "";
-const FILE_FORMAT = "simple_json";
+const PHRASE_APP_BASE_URL = "https://api.phraseapp.com/api/v2";
+const LOCALES_URL = `${PHRASE_APP_BASE_URL}/projects/${env("PHRASE_APP_PROJECT_ID")}/locales`;
+const FILE_FORMAT = "nested_json";
 
-const url = `${PHRASE_APP_BASE_URL}projects/${PHRASE_APP_PROJECT_ID}/locales/`;
-const getLocaleUrl = id => `${url}${id}/download?file_format=${FILE_FORMAT}`;
-const headers = {
-  method: "GET",
-  headers: {
-    "Content-Type": "application/json",
-    Authorization: `token ${PHRASE_APP_ACCESS_TOKEN}`,
-  },
+const fetchJSON = async url => {
+  const options = {
+    method: "GET",
+    headers: {
+      "Content-Type": "application/json",
+      Authorization: `token ${env("PHRASE_APP_ACCESS_TOKEN")}`,
+    },
+  };
+  return (await fetch(url, options)).json();
 };
+const writeJSON = (filename, obj) =>
+  new Promise((resolve, reject) => {
+    fs.outputFile(filename, JSON.stringify(obj, null, 2), "utf8", err => {
+      if (err) {
+        reject(err);
+      }
 
-// PhraseApp has limits on parallel requests
-// that's why we process requests in sequence
-async function processResponses(allLocalesJson) {
-  const results = [];
-
-  // eslint-disable-next-line no-restricted-syntax
-  for (const locale of allLocalesJson) {
-    const response = await fetch(getLocaleUrl(locale.id), headers);
-
-    results.push({
-      code: locale.code,
-      translation: await response.json(),
+      resolve();
     });
-  }
-  return results;
-}
+  });
+
+const flatten = (obj, keyPrefix = "") =>
+  Object.entries(obj).reduce((result, [key, value]) => {
+    if (value && typeof value === "object") {
+      return {
+        ...result,
+        ...flatten(value, `${keyPrefix}${key}.`),
+      };
+    }
+    return {
+      ...result,
+      [keyPrefix + key]: value,
+    };
+  }, {});
 
 (async () => {
   try {
-    const getAllLocales = await fetch(url, headers);
-    const allLocalesJson = await getAllLocales.json();
+    const allLocales = await fetchJSON(LOCALES_URL);
 
-    const responses = await processResponses(allLocalesJson);
-
-    responses.map(({ code, translation }: { code: string, translation: string }) => {
-      fs.writeFile(
-        `static/locales/${code}.json`,
-        JSON.stringify(translation, null, 2),
-        "utf8",
-        err => {
-          if (err) {
-            return console.error(err); // eslint-disable-line no-console
-          }
-
-          // eslint-disable-next-line no-console
-          return console.log(
-            chalk.green.bold(`\nCongratulations! ${code} translations were updated\n`),
-          );
-        },
+    // PhraseApp has limits on parallel requests
+    // that's why we process requests in sequence
+    // eslint-disable-next-line no-restricted-syntax
+    for (const locale of allLocales) {
+      const translation = await fetchJSON(
+        `${LOCALES_URL}/${locale.id}/download?file_format=${FILE_FORMAT}&encoding=UTF-8`,
       );
-      return true;
-    });
+
+      const translationsByRootKey = Object.keys(translation).reduce(
+        (result, key) => ({
+          ...result,
+          [key]: key === "menuItems" ? translation[key] : flatten(translation[key]),
+        }),
+        {},
+      );
+
+      Object.keys(translationsByRootKey).forEach(async rootKey => {
+        const path =
+          rootKey === "menuItems" ? "static/locales/menuItems" : `static/cities/${rootKey}/locales`;
+        await writeJSON(`${path}/${locale.code}.json`, translationsByRootKey[rootKey]);
+      });
+
+      // eslint-disable-next-line no-console
+      console.log(chalk.green.bold(`${locale.code} translations updated.`));
+    }
   } catch (error) {
     console.error(error); // eslint-disable-line no-console
     process.exit(1);

@@ -11,7 +11,7 @@ const env = name => process.env[name] || "";
 const PHRASE_APP_BASE_URL = "https://api.phraseapp.com/api/v2";
 const URL = `${PHRASE_APP_BASE_URL}/projects/${env("PHRASE_APP_PROJECT_ID")}/uploads`;
 
-const filenames = ["static/locales/en-GB.json"];
+const filenames = ["dato/en-GB.json"];
 const options = {
   method: "POST",
   headers: {
@@ -28,9 +28,9 @@ const options = {
     for (const filename of filenames) {
       const file = fs.createReadStream(filename);
       const body = new FormData();
-      body.append("file_format", "json");
+      body.append("file_format", "nested_json");
       body.append("file", file);
-      body.append("locale_id", env("PHRASE_APP_LOCALE_ID"));
+      body.append("locale_id", "en-GB");
 
       const response = await fetch(URL, { ...options, body });
       results[filename] = (await response.json()).summary;

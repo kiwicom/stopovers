@@ -70,7 +70,7 @@ const Circle = styled.div`
 `;
 
 const getIntlTime = (time: string, langId: string) => {
-  const intlTime = DateTime.fromString(time, "h a", { zone: "utc" })
+  const intlTime = DateTime.fromString(time, "hh:mm", { zone: "utc" })
     .setLocale(langId)
     .toLocaleString({
       hour: "numeric",

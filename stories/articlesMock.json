@@ -1,0 +1,59 @@
+[
+  {
+    "id": "414771",
+    "itemType": "article",
+    "updatedAt": "2018-10-11T09:57:36.306Z",
+    "createdAt": "2018-10-11T09:55:05.760Z",
+    "linkText": "Explore Dubai",
+    "url": "https://www.kiwi.com/stories/these-are-the-best-things-to-do-in-dubai/?utm_source=kiwicom&utm_medium=website&utm_campaign=these-are-the-best-things-to-do-in-dubai",
+    "description": "Here are our favorite things to do in the UAE’s resort city, as well as some things you may not have thought about.",
+    "title": "These are the best things to do in Dubai",
+    "photo": {
+      "format": "jpg",
+      "size": 153146,
+      "width": 1000,
+      "height": 667,
+      "title": null,
+      "alt": null,
+      "url": "https://www.datocms-assets.com/7631/1539250432-best-things-in-dubai.jpg"
+    }
+  },
+  {
+    "id": "414772",
+    "itemType": "article",
+    "updatedAt": "2018-10-11T09:59:26.852Z",
+    "createdAt": "2018-10-11T09:59:26.847Z",
+    "linkText": "One - Two - GO!",
+    "url": "https://www.kiwi.com/stories/adrenaline-in-the-desert-dubai-unveils-worlds-longest-urban-zipline/?utm_source=kiwicom&utm_medium=website&utm_campaign=adrenaline-in-the-desert-dubai-unveils-worlds-longest-urban-zipline",
+    "description": "One kilometer long and two people sliding simultaneously - there's a new zip line over Dubai Marina.",
+    "title": "Dubai unveils world's longest urban zipline",
+    "photo": {
+      "format": "jpg",
+      "size": 297208,
+      "width": 1200,
+      "height": 799,
+      "title": null,
+      "alt": null,
+      "url": "https://www.datocms-assets.com/7631/1539251891-zipline.jpg"
+    }
+  },
+  {
+    "id": "414773",
+    "itemType": "article",
+    "updatedAt": "2018-10-11T10:00:21.904Z",
+    "createdAt": "2018-10-11T10:00:21.901Z",
+    "linkText": "Extend your trip",
+    "url": "https://www.kiwi.com/stories/uae-to-introduce-free-visa-for-48-hour-trips/?utm_source=kiwicom&utm_medium=website&utm_campaign=uae-to-introduce-free-visa-for-48-hour-trips",
+    "description": "In what could be a boon for tourism to Dubai, UAE to introduce free visa for 48-hour trips. The transit visa can be extended to 96 hours for a small fee.",
+    "title": "​​UAE to introduce free visa for 48-hour trips",
+    "photo": {
+      "format": "jpg",
+      "size": 1485564,
+      "width": 4072,
+      "height": 2715,
+      "title": null,
+      "alt": null,
+      "url": "https://www.datocms-assets.com/7631/1539251976-a-view-like-no-other.jpg"
+    }
+  }
+]

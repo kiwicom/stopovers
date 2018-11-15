@@ -3,20 +3,14 @@
 import * as React from "react";
 import styled from "styled-components";
 
+import type { Tip } from "./Itinerary";
 import ItemContent from "./ItemContent";
 
-type ItineraryItemType = {
-  imageUrl: string,
-  order: number,
-  time: string,
-  title: string,
-  description: string,
-};
-
 type Props = {
-  item: ItineraryItemType,
+  item: Tip,
   order: number,
   hasNoMargin: boolean,
+  itineraryId: string,
 };
 
 const ItemWrapper = styled.div`
@@ -49,15 +43,24 @@ const Image = styled.img`
   }
 `;
 
-const ItineraryItem = ({ item, order, hasNoMargin }: Props) => {
-  const { imageUrl, time, title, description } = item;
+const ItineraryItem = ({ itineraryId, item, order, hasNoMargin }: Props) => {
+  const {
+    photo: { url },
+    time,
+    id,
+  } = item;
   const isOdd = !(order % 2);
-
+  const translationPrefix = `itineraries.${itineraryId}.tips.${id}`;
   return (
     <ItemWrapper hasNoMargin={hasNoMargin}>
-      <Image src={imageUrl} />
+      <Image src={`${url}?w=840`} />
 
-      <ItemContent isOdd={isOdd} time={time} description={description} title={title} />
+      <ItemContent
+        isOdd={isOdd}
+        time={time}
+        description={`${translationPrefix}.description`}
+        title={`${translationPrefix}.title`}
+      />
     </ItemWrapper>
   );
 };

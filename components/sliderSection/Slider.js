@@ -114,6 +114,22 @@ const spin = keyframes`
 `;
 
 const SliderWrapper = styled.div`
+  width: 100%;
+
+  .carousel__master-spinner-container {
+    display: flex;
+    align-items: center;
+    height: 470px;
+
+    @media (min-width: 750px) {
+      height: 200px;
+    }
+
+    @media (min-width: 1440px) {
+      height: 440px;
+    }
+  }
+
   .carousel__slider-tray {
     margin: 0;
     padding: 0;
@@ -147,12 +163,12 @@ const SliderWrapper = styled.div`
   }
 `;
 
-type Props = {
-  sliderImages: Array<{
-    url: string,
-    title: string,
-  }>,
-};
+export type Props = {|
+  sliderImages: $ReadOnlyArray<{|
+    +url: string,
+    +title: string,
+  |}>,
+|};
 
 const Slider = ({ sliderImages }: Props) => (
   <SliderWrapper>
@@ -170,7 +186,7 @@ const Slider = ({ sliderImages }: Props) => (
         <StyledCarousel className="slider">
           {sliderImages.map((image, index) => (
             <StyledSlide index={index} key={image.title}>
-              <StyledImage src={image.url} alt={image.title} />
+              <StyledImage src={`${image.url}?w=840`} alt={image.title} />
             </StyledSlide>
           ))}
         </StyledCarousel>

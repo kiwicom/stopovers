@@ -1,37 +1,41 @@
 // @flow
 
-import "isomorphic-unfetch";
-import pick from "lodash/pick";
 import { type LangInfos, type LangInfo } from "@kiwicom/nitro/lib/records/LangInfo";
 import { type Language } from "@kiwicom/nitro/lib/records/Languages";
-import { type BrandLanguages } from "@kiwicom/nitro/lib/records/BrandLanguage";
+import { type BrandLanguages, type BrandLanguage } from "@kiwicom/nitro/lib/records/BrandLanguage";
 import cookies from "js-cookie";
-
-export const usedLangIds = [
-  "en",
-  "ca",
-  "us",
-  "sg",
-  "es",
-  "it",
-  "fr",
-  "de",
-  "pl",
-  "cz",
-  "ru",
-  "ro",
-  "hu",
-];
 
 export const UTM_PARAMS = process.env.UTM_PARAMS ? `?${process.env.UTM_PARAMS}` : "";
 
-export function filterLanguages(langsData: LangInfos) {
-  return pick(langsData, usedLangIds);
+export function pick(obj: Object, paths: string[], deepKey?: string) {
+  return Object.keys(obj).reduce((result, key) => {
+    const value = deepKey ? obj[key][deepKey] : key;
+    if (paths.includes(value))
+      return {
+        ...result,
+        [key]: obj[key],
+      };
+    return result;
+  }, {});
 }
 
-export function filterBrandLanguage(brandLangsData: BrandLanguages, langId: string) {
+export function filterLanguages(langsData: LangInfos, usedLocales: string[]): LangInfos {
+  return pick(langsData, usedLocales, "iso");
+}
+
+export function isoToLangId(languages: LangInfos, iso: string): string {
+  return Object.keys(languages).find(langId => languages[langId].iso === iso) || "en";
+}
+
+export function getBrandLanguage(
+  brandLangsData: BrandLanguages,
+  langId: string,
+  supportedLangs: LangInfos,
+): BrandLanguage {
   const brandLanguage = brandLangsData.kiwicom[langId];
-  const languages = pick(brandLanguage.languages, usedLangIds);
+  const supportedLangIds = Object.keys(supportedLangs);
+  const allBrandLangs = brandLanguage.languages;
+  const languages = pick(allBrandLangs, supportedLangIds);
   return { ...brandLanguage, languages };
 }
 
@@ -39,38 +43,24 @@ export function mapLanguage(lang: Language, langInfo: LangInfo) {
   return {
     ...langInfo,
     name: langInfo.displayName,
-    flag: lang.flag || langInfo.id,
     defaultCountry: lang.defaultCountry,
   };
 }
 
-export function parseQuery(queryString: string): Object {
-  const pairs = (queryString[0] === "?" ? queryString.substr(1) : queryString).split("&");
-  return pairs.reduce((query, pair) => {
-    const parts = pair.split("=");
-    if (parts[0] !== "") {
-      const key = decodeURIComponent(parts[0]);
-
-      return {
-        ...query,
-        [key === "return" ? "returnDate" : key]: decodeURIComponent(parts[1] || ""),
-      };
-    }
-    return query;
-  }, {});
-}
-
-export function getCurrentUrlParams() {
-  return parseQuery(window.location.search);
+export function getCurrentUrlParams(): Object {
+  const params = {};
+  new URL(window.location.href).searchParams.forEach((value, key) => {
+    params[key] = value;
+  });
+  return params;
 }
 
 export function generateUserId() {
-  function s4() {
-    return Math.floor((1 + Math.random()) * 0x10000)
+  return "xx-x-x-x-xxx".replace(/x/g, () =>
+    Math.floor((1 + Math.random()) * 0x10000)
       .toString(16)
-      .substring(1);
-  }
-  return `${s4() + s4()}-${s4()}-${s4()}-${s4()}-${s4()}${s4()}${s4()}`;
+      .substring(1),
+  );
 }
 
 export const getUserId = () => {

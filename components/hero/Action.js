@@ -53,7 +53,7 @@ const Action = () => (
       <ChevronDown customColor="#ffffff" size="medium" />
     </ActionButton>
     <ActionText>
-      <Text t="saveOnTrip" />
+      <Text t="mainActionButtonText" />
     </ActionText>
   </React.Fragment>
 );

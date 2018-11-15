@@ -9,8 +9,11 @@ import HeaderLinks from "@kiwicom/nitro/lib/components/HeaderLinks";
 import { getCurrentUrlParams } from "../../etc/helpers";
 
 type Props = {
-  langId: ?string,
+  lang: string,
   isMobile: boolean,
+  cityTag: string,
+  isStopover: boolean,
+  usedLocales: string[],
 };
 
 const Wrapper = styled.div`
@@ -54,40 +57,43 @@ const LanguageWrapper = styled.div`
   }
 `;
 
-const Menu = ({ langId, isMobile }: Props) => (
-  <Wrapper>
-    <LogoWrapper>
-      <a href={`https://www.kiwi.com/${langId || "en"}/`}>
-        <Logo src="/static/images/logo-menu.svg" alt="kiwicom logo" />
-        <LogoMobile src="/static/images/logo-symbol.svg" alt="kiwicom logo" />
-      </a>
-    </LogoWrapper>
-    <HeaderLinks
-      linkFlights={`https://www.kiwi.com/${langId || "en"}/search/`}
-      forceNewWindow
-      linkRooms={`https://rooms.kiwi.com/?${langId ? `preflang=${langId}` : ""}&adplat=headerlinks`}
-      linkCars={`https://cars.kiwi.com/?${langId ? `preflang=${langId}` : ""}&adplat=headerlinks`}
-      linkHolidays="https://kiwicom.lastminute.com/flight-hotel/"
-    />
-
-    <LanguageWrapper isMobile={isMobile}>
-      <Language
-        flat
-        native={isMobile}
-        onChange={lang => {
-          const currentParams = getCurrentUrlParams();
-          // eslint-disable-next-line fp/no-mutating-methods
-          Router.push(
-            {
-              pathname: "/",
-              query: { ...currentParams, lang },
-            },
-            `/${lang}/stopovers/dubai/`,
-          );
-        }}
+const Menu = ({ lang, isMobile, cityTag, isStopover, usedLocales }: Props) => {
+  const cityType = isStopover ? "stopover" : "destination";
+  return (
+    <Wrapper>
+      <LogoWrapper>
+        <a href={`https://www.kiwi.com/${lang || "en"}/`}>
+          <Logo src="/static/images/logo-menu.svg" alt="kiwicom logo" />
+          <LogoMobile src="/static/images/logo-symbol.svg" alt="kiwicom logo" />
+        </a>
+      </LogoWrapper>
+      <HeaderLinks
+        linkFlights={`https://www.kiwi.com/${lang || "en"}/search/`}
+        forceNewWindow
+        linkRooms={`https://rooms.kiwi.com/?${lang ? `preflang=${lang}` : ""}&adplat=headerlinks`}
+        linkCars={`https://cars.kiwi.com/?${lang ? `preflang=${lang}` : ""}&adplat=headerlinks`}
+        linkHolidays="https://kiwicom.lastminute.com/flight-hotel/"
       />
-    </LanguageWrapper>
-  </Wrapper>
-);
+
+      <LanguageWrapper isMobile={isMobile}>
+        <Language
+          flat
+          native={isMobile}
+          onChange={langId => {
+            const currentParams = getCurrentUrlParams();
+            // eslint-disable-next-line fp/no-mutating-methods
+            Router.push(
+              {
+                pathname: "/",
+                query: { ...currentParams, langId, cityTag, usedLocales },
+              },
+              `/${langId}/${cityType}s/${cityTag.split("_")[0]}/`,
+            );
+          }}
+        />
+      </LanguageWrapper>
+    </Wrapper>
+  );
+};
 
 export default Menu;
