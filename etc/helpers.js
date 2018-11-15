@@ -1,8 +1,7 @@
 // @flow
 
-import "isomorphic-unfetch";
 import { type LangInfos, type LangInfo } from "@kiwicom/nitro/lib/records/LangInfo";
-import { type Language, type Languages } from "@kiwicom/nitro/lib/records/Languages";
+import { type Language } from "@kiwicom/nitro/lib/records/Languages";
 import { type BrandLanguages, type BrandLanguage } from "@kiwicom/nitro/lib/records/BrandLanguage";
 import cookies from "js-cookie";
 
@@ -24,15 +23,8 @@ export function filterLanguages(langsData: LangInfos, usedLocales: string[]): La
   return pick(langsData, usedLocales, "iso");
 }
 
-export function getCurrentLanguage(supportedLanguages: LangInfos, locale: string): string {
-  return (
-    Object.keys(supportedLanguages).find(langId => supportedLanguages[langId].iso === locale) ||
-    "en"
-  );
-}
-
-export function filterBrandLanguages(allBrandLangs: Languages, supportedLangIds: string[]) {
-  return pick(allBrandLangs, supportedLangIds);
+export function isoToLangId(languages: LangInfos, iso: string): string {
+  return Object.keys(languages).find(langId => languages[langId].iso === iso) || "en";
 }
 
 export function getBrandLanguage(
@@ -43,7 +35,7 @@ export function getBrandLanguage(
   const brandLanguage = brandLangsData.kiwicom[langId];
   const supportedLangIds = Object.keys(supportedLangs);
   const allBrandLangs = brandLanguage.languages;
-  const languages = filterBrandLanguages(allBrandLangs, supportedLangIds);
+  const languages = pick(allBrandLangs, supportedLangIds);
   return { ...brandLanguage, languages };
 }
 
@@ -55,33 +47,20 @@ export function mapLanguage(lang: Language, langInfo: LangInfo) {
   };
 }
 
-export function parseQuery(queryString: string): Object {
-  const pairs = (queryString[0] === "?" ? queryString.substr(1) : queryString).split("&");
-  return pairs.reduce((query, pair) => {
-    const parts = pair.split("=");
-    if (parts[0] !== "") {
-      const key = decodeURIComponent(parts[0]);
-
-      return {
-        ...query,
-        [key === "return" ? "returnDate" : key]: decodeURIComponent(parts[1] || ""),
-      };
-    }
-    return query;
-  }, {});
-}
-
-export function getCurrentUrlParams() {
-  return parseQuery(window.location.search);
+export function getCurrentUrlParams(): Object {
+  const params = {};
+  new URL(window.location.href).searchParams.forEach((value, key) => {
+    params[key] = value;
+  });
+  return params;
 }
 
 export function generateUserId() {
-  function s4() {
-    return Math.floor((1 + Math.random()) * 0x10000)
+  return "xx-x-x-x-xxx".replace(/x/g, () =>
+    Math.floor((1 + Math.random()) * 0x10000)
       .toString(16)
-      .substring(1);
-  }
-  return `${s4() + s4()}-${s4()}-${s4()}-${s4()}-${s4()}${s4()}${s4()}`;
+      .substring(1),
+  );
 }
 
 export const getUserId = () => {

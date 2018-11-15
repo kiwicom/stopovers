@@ -18,7 +18,7 @@ import {
   mapLanguage,
   getUserId,
   getCurrentUrlParams,
-  getCurrentLanguage,
+  isoToLangId,
 } from "../etc/helpers";
 import { sendEvent } from "../etc/logLady";
 import { saveToSession } from "../etc/marketingHelpers";
@@ -115,7 +115,7 @@ export default class Index extends React.Component<Props, State> {
     const locale = usedLocales.includes(lang.phraseApp) ? lang.phraseApp : "en-GB";
     const supportedLangs: LangInfos = filterLanguages(langsData, usedLocales);
 
-    const currentLangId: string = getCurrentLanguage(supportedLangs, locale);
+    const currentLangId: string = isoToLangId(supportedLangs, locale);
 
     const brandLanguage: BrandLanguage = getBrandLanguage(
       brandLangsData,
