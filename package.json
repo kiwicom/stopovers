@@ -17,7 +17,7 @@
     "fetch": "dato dump"
   },
   "dependencies": {
-    "@kiwicom/nitro": "^0.26.3",
+    "@kiwicom/nitro": "^0.58.0",
     "@kiwicom/orbit-components": "^0.12.1",
     "babel-core": "^7.0.0-0",
     "chalk": "^2.4.1",
