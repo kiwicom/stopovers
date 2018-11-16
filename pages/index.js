@@ -2,7 +2,8 @@
 
 import * as React from "react";
 import { Element } from "react-scroll";
-import { Provider } from "@kiwicom/nitro/lib/services/intl/context";
+import InitIntl from "@kiwicom/nitro/lib/components/InitIntl";
+import { Provider as IntlProvider } from "@kiwicom/nitro/lib/services/intl/context";
 import { type LangInfos, type LangInfo } from "@kiwicom/nitro/lib/records/LangInfo";
 import { type BrandLanguage } from "@kiwicom/nitro/lib/records/BrandLanguage";
 import { type Fetched, fetchedDefault } from "@kiwicom/nitro/lib/records/Fetched";
@@ -212,57 +213,62 @@ export default class Index extends React.Component<Props, State> {
             title: `Slide ${cityData.cityName} ${index + 1}`,
           },
       );
+
+    const intl = {
+      language,
+      translations: areKeysShown
+        ? {}
+        : { ...translations, ...translationsForMenu, ...menuTranslations.footer },
+    };
+
     return (
       <React.Fragment>
-        <Provider
-          translations={
-            areKeysShown
-              ? {}
-              : { ...translations, ...translationsForMenu, ...menuTranslations.footer }
-          }
-          language={language}
-        >
-          <MetaHead
-            translations={translationsForHead}
-            locale={language.iso}
-            currentPath={currentPath}
-            socialPhotos={socialPhotos}
-            otherMetaTagIds={Object.keys(cityData.otherMetaTags)}
-          />
-          <FetchedProvider value={fetched}>
-            <Menu
-              lang={langId}
-              isMobile={isMobile}
-              cityTag={cityTag}
-              isStopover={cityData.isStopover}
-              usedLocales={usedLocales}
-            />
-          </FetchedProvider>
-          <Hero logo={cityData.cityLogo} photo={cityData.mainPhoto} />
-          <StickyAction />
-          <Element name="slider">
-            <SliderSection sliderImages={sliderImages} />
-          </Element>
-          <Element name="itinerary">
-            <Itinerary data={cityData.itineraries} isMobile={isMobile} />
-          </Element>
-          <Element name="partners">
-            <Partners logos={cityData.partnerLogos} />
-          </Element>
-          {areArticlesShown && (
-            <Element name="articles">
-              <Articles items={articles} />
-            </Element>
+        <InitIntl raw={intl}>
+          {intlFull => (
+            <IntlProvider value={intlFull}>
+              <MetaHead
+                translations={translationsForHead}
+                locale={language.iso}
+                currentPath={currentPath}
+                socialPhotos={socialPhotos}
+                otherMetaTagIds={Object.keys(cityData.otherMetaTags)}
+              />
+              <FetchedProvider value={fetched}>
+                <Menu
+                  lang={langId}
+                  isMobile={isMobile}
+                  cityTag={cityTag}
+                  isStopover={cityData.isStopover}
+                  usedLocales={usedLocales}
+                />
+              </FetchedProvider>
+              <Hero logo={cityData.cityLogo} photo={cityData.mainPhoto} />
+              <StickyAction />
+              <Element name="slider">
+                <SliderSection sliderImages={sliderImages} />
+              </Element>
+              <Element name="itinerary">
+                <Itinerary data={cityData.itineraries} isMobile={isMobile} />
+              </Element>
+              <Element name="partners">
+                <Partners logos={cityData.partnerLogos} />
+              </Element>
+              {areArticlesShown && (
+                <Element name="articles">
+                  <Articles items={articles} />
+                </Element>
+              )}
+              <Element name="video">
+                <Video isGrey={!areArticlesShown} id={cityData.videoYoutubeUrl?.providerUid} />
+              </Element>
+              <Element name="search">
+                <Search langId={langId} />
+              </Element>
+              <Footer langId={langId} />
+              <Banner />
+            </IntlProvider>
           )}
-          <Element name="video">
-            <Video isGrey={!areArticlesShown} id={cityData.videoYoutubeUrl?.providerUid} />
-          </Element>
-          <Element name="search">
-            <Search langId={langId} />
-          </Element>
-          <Footer langId={langId} />
-          <Banner />
-        </Provider>
+        </InitIntl>
       </React.Fragment>
     );
   }
