@@ -2,7 +2,7 @@
 
 import * as React from "react";
 import { AirplaneRight } from "@kiwicom/orbit-components/lib/icons";
-import Text from "@kiwicom/nitro/lib/components/Text";
+import Translate from "@kiwicom/nitro/lib/components/Translate";
 import { Button } from "@kiwicom/orbit-components";
 
 import { sendEvent } from "../../etc/logLady";
@@ -13,7 +13,7 @@ const SearchAction = () => (
   <>
     <AirplaneRight customColor="#bac7d5" />
     <ActionText>
-      <Text t="stickyBannerText" />
+      <Translate t="stickyBannerText" />
     </ActionText>
     <Button
       size="large"
@@ -22,7 +22,7 @@ const SearchAction = () => (
         sendEvent("searchNow");
       }}
     >
-      <Text t="stickyBannerButtonText" />
+      <Translate t="stickyBannerButtonText" />
     </Button>
   </>
 );

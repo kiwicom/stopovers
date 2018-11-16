@@ -2,7 +2,7 @@
 
 import * as React from "react";
 import styled from "styled-components";
-import Text from "@kiwicom/nitro/lib/components/Text";
+import Translate from "@kiwicom/nitro/lib/components/Translate";
 
 type Props = {
   t: string,
@@ -21,7 +21,7 @@ const TextWrapper = styled.span`
 
 const StyledText = ({ t }: Props) => (
   <TextWrapper>
-    <Text t={t} />
+    <Translate t={t} />
   </TextWrapper>
 );
 

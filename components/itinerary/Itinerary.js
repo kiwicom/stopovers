@@ -3,7 +3,7 @@
 import * as React from "react";
 import styled from "styled-components";
 import Fade from "react-reveal/Fade";
-import Text from "@kiwicom/nitro/lib/components/Text";
+import Translate from "@kiwicom/nitro/lib/components/Translate";
 import { Button, ButtonLink } from "@kiwicom/orbit-components";
 import { ArrowDown } from "@kiwicom/orbit-components/lib/icons";
 import { Consumer as IntlConsumer } from "@kiwicom/nitro/lib/services/intl/context";
@@ -189,7 +189,7 @@ const Itinerary = ({ isMobile, data }: Props) => {
                 <SectionTitle title="itinerarySectionTitle" subtitle="itinerarySectionSubtitle" />
                 <DropdownGroup>
                   <DropdownTitle>
-                    <Text t="itinerarySelectorDescription" />
+                    <Translate t="itinerarySelectorDescription" />
                   </DropdownTitle>
                   <DropdownWrapperMobile>
                     <DropdownMobile
@@ -237,7 +237,7 @@ const Itinerary = ({ isMobile, data }: Props) => {
                     icon={<ArrowDown color="secondary" />}
                     onClick={() => showMore()}
                   >
-                    <Text t="showMore" />
+                    <Translate t="showMore" />
                   </StyledLink>
                 )}
               <StyledButton
@@ -247,7 +247,7 @@ const Itinerary = ({ isMobile, data }: Props) => {
                   sendEvent("startYourTrip");
                 }}
               >
-                <Text t="itineraryCtaButtonText" />
+                <Translate t="itineraryCtaButtonText" />
               </StyledButton>
             </Wrapper>
           );

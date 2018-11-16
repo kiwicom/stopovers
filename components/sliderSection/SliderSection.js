@@ -3,7 +3,7 @@
 import * as React from "react";
 import styled from "styled-components";
 import { ChevronRight } from "@kiwicom/orbit-components/lib/icons";
-import Text from "@kiwicom/nitro/lib/components/Text";
+import Translate from "@kiwicom/nitro/lib/components/Translate";
 import { Button, ButtonLink } from "@kiwicom/orbit-components";
 
 import { sendEvent } from "../../etc/logLady";
@@ -135,7 +135,7 @@ const SliderSection = ({ sliderImages }: SliderProps) =>
 
         <DescriptionWrapper>
           <Description>
-            <Text t="sliderSectionDescription" />
+            <Translate t="sliderSectionDescription" />
           </Description>
         </DescriptionWrapper>
         <ButtonsWrapper>
@@ -146,7 +146,7 @@ const SliderSection = ({ sliderImages }: SliderProps) =>
               sendEvent("searchFlights");
             }}
           >
-            <Text t="sliderSectionButtonText" />
+            <Translate t="sliderSectionButtonText" />
           </Button>
           <ButtonLink
             type="secondary"
@@ -157,7 +157,7 @@ const SliderSection = ({ sliderImages }: SliderProps) =>
               sendEvent("discoverTips");
             }}
           >
-            <Text t="sliderSectionLinkText" />
+            <Translate t="sliderSectionLinkText" />
           </ButtonLink>
         </ButtonsWrapper>
       </ContentWrapper>

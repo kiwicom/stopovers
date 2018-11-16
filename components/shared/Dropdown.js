@@ -3,7 +3,7 @@
 import * as React from "react";
 import Select, { components } from "react-select";
 import { ChevronDown, ChevronUp } from "@kiwicom/orbit-components/lib/icons";
-import Text from "@kiwicom/nitro/lib/components/Text";
+import Translate from "@kiwicom/nitro/lib/components/Translate";
 
 import { sendEvent } from "../../etc/logLady";
 
@@ -64,13 +64,13 @@ const DropdownIndicator = props =>
 
 const SingleValue = ({ children, ...props }) => (
   <components.SingleValue {...props}>
-    <Text t={children} />
+    <Translate t={children} />
   </components.SingleValue>
 );
 
 const Option = ({ children, ...props }) => (
   <components.Option {...props}>
-    <Text t={children} />
+    <Translate t={children} />
   </components.Option>
 );
 

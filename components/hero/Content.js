@@ -3,7 +3,7 @@
 import * as React from "react";
 import styled from "styled-components";
 import { AirplaneDown } from "@kiwicom/orbit-components/lib/icons";
-import Text from "@kiwicom/nitro/lib/components/Text";
+import Translate from "@kiwicom/nitro/lib/components/Translate";
 
 import Action from "./Action";
 import StyledText from "../shared/StyledText";
@@ -90,7 +90,7 @@ const AirplaneWrapper = styled.div`
 const Content = () => (
   <React.Fragment>
     <MainTitle>
-      <Text t="mainTitle" />
+      <Translate t="mainTitle" />
     </MainTitle>
     <TextWrapper>
       <StyledText t="mainDescription" />

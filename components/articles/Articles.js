@@ -2,7 +2,7 @@
 
 import * as React from "react";
 import styled from "styled-components";
-import Text from "@kiwicom/nitro/lib/components/Text";
+import Translate from "@kiwicom/nitro/lib/components/Translate";
 import { Button } from "@kiwicom/orbit-components";
 
 import type { ArticleType } from "./ArticleItem";
@@ -99,7 +99,7 @@ const Articles = ({ items }: Props) => (
 
     <ActionWrapper>
       <ActionTitle>
-        <Text t="articlesSectionCtaDescription" />
+        <Translate t="articlesSectionCtaDescription" />
       </ActionTitle>
       <Button
         size="large"
@@ -108,7 +108,7 @@ const Articles = ({ items }: Props) => (
           sendEvent("bookNow");
         }}
       >
-        <Text t="articlesSectionCtaButtonText" />
+        <Translate t="articlesSectionCtaButtonText" />
       </Button>
       <div />
     </ActionWrapper>

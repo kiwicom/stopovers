@@ -3,7 +3,7 @@
 import * as React from "react";
 import styled from "styled-components";
 import { AirplaneRight, Search } from "@kiwicom/orbit-components/lib/icons";
-import Text from "@kiwicom/nitro/lib/components/Text";
+import Translate from "@kiwicom/nitro/lib/components/Translate";
 import { Button } from "@kiwicom/orbit-components";
 import { Link } from "react-scroll";
 
@@ -75,7 +75,7 @@ class Banner extends React.Component<{}, State> {
       <Wrapper isHidden={isHidden}>
         <StyledAirplaneRight customColor="bac7d5" />
         <BannerTitle>
-          <Text t="stickyBannerText" />
+          <Translate t="stickyBannerText" />
         </BannerTitle>
         <ButtonWrapper>
           <Button icon={<Search />} onClick={this.scrollToSearch} />
