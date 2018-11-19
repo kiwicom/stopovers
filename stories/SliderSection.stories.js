@@ -21,5 +21,5 @@ const sliderImages = [
 ];
 
 storiesOf("SliderSection", module).add("default", () => (
-  <SliderSection sliderImages={sliderImages} />
+  <SliderSection sliderImages={sliderImages} areItineraries />
 ));

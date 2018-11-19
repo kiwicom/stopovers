@@ -121,7 +121,12 @@ const TitleMobile = styled.div`
   }
 `;
 
-const SliderSection = ({ sliderImages }: SliderProps) =>
+type Props = {
+  ...SliderProps,
+  areItineraries: boolean,
+};
+
+const SliderSection = ({ sliderImages, areItineraries }: Props) =>
   sliderImages && sliderImages.length ? (
     <Wrapper>
       <TitleMobile>
@@ -148,17 +153,19 @@ const SliderSection = ({ sliderImages }: SliderProps) =>
           >
             <Translate t="sliderSectionButtonText" />
           </Button>
-          <ButtonLink
-            type="secondary"
-            size="large"
-            icon={<ChevronRight />}
-            onClick={() => {
-              scrollToElement("itinerary");
-              sendEvent("discoverTips");
-            }}
-          >
-            <Translate t="sliderSectionLinkText" />
-          </ButtonLink>
+          {areItineraries && (
+            <ButtonLink
+              type="secondary"
+              size="large"
+              icon={<ChevronRight />}
+              onClick={() => {
+                scrollToElement("itinerary");
+                sendEvent("discoverTips");
+              }}
+            >
+              <Translate t="sliderSectionLinkText" />
+            </ButtonLink>
+          )}
         </ButtonsWrapper>
       </ContentWrapper>
     </Wrapper>

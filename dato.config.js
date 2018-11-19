@@ -26,7 +26,7 @@ const nonTranslatedKeys = [
   "updatedAt",
   "createdAt",
   "searchWidgetDataAffilid",
-  "searchWidgetDataStopoverLocation",
+  "searchWidgetDataLocation",
   "videoYoutubeUrl",
   "articles",
   "partnerLogos",

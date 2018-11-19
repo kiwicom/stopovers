@@ -245,7 +245,10 @@ export default class Index extends React.Component<Props, State> {
               <Hero logo={cityData.cityLogo} photo={cityData.mainPhoto} />
               <StickyAction />
               <Element name="slider">
-                <SliderSection sliderImages={sliderImages} />
+                <SliderSection
+                  sliderImages={sliderImages}
+                  areItineraries={Object.keys(cityData.itineraries).length !== 0}
+                />
               </Element>
               <Element name="itinerary">
                 <Itinerary data={cityData.itineraries} isMobile={isMobile} />
@@ -262,7 +265,12 @@ export default class Index extends React.Component<Props, State> {
                 <Video isGrey={!areArticlesShown} id={cityData.videoYoutubeUrl?.providerUid} />
               </Element>
               <Element name="search">
-                <Search langId={langId} />
+                <Search
+                  langId={langId}
+                  isStopover={cityData.isStopover}
+                  location={cityData.searchWidgetDataLocation}
+                  affilid={cityData.searchWidgetDataAffilid}
+                />
               </Element>
               <Footer langId={langId} />
               <Banner />
