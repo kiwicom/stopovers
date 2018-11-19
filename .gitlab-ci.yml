@@ -51,7 +51,12 @@ frontend test:
   cache:
     key: ${CI_COMMIT_REF_SLUG}-stopovers
     paths:
+      - node_modules/
+    policy: pull
+  artifacts:
+    paths:
       - out/
+    expire_in: 1 day
 
 # Build stage for dev branches
 frontend dev:build:
@@ -88,10 +93,6 @@ frontend staging:deploy:
   image: kiwicom/s3cmd-plus-docker
   script:
     - s3cmd sync --no-mime-magic --guess-mime-type --recursive out/* s3://kw-stopovers-dev/
-  cache:
-    key: ${CI_COMMIT_REF_SLUG}-stopovers
-    paths:
-      - out/
   only:
     - master
     - /^hot\/.*$/
@@ -105,10 +106,6 @@ frontend prod:deploy:
   image: kiwicom/s3cmd-plus-docker
   script:
     - s3cmd sync --no-mime-magic --guess-mime-type --recursive out/* s3://kw-stopovers/
-  cache:
-    key: ${CI_COMMIT_REF_SLUG}-stopovers
-    paths:
-      - out/
   environment:
     name: production
   only:
