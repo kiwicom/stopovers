@@ -44,16 +44,18 @@ const LogoMobile = styled.img`
 `;
 
 const LanguageWrapper = styled.div`
-  ${({ isMobile }) => isMobile && "justify-self: flex-end;"};
-  align-self: ${({ isMobile }) => (isMobile ? "center" : "flex-start")};
-  margin-right: 5px;
-  margin-left: 5px;
-  position: relative;
+  align-self: center;
+  margin-right: 20px;
   flex: 1;
   display: flex;
   justify-content: flex-end;
+
   @media (min-width: 740px) {
     margin-right: 40px;
+
+    & > div > div {
+      right: 40px;
+    }
   }
 `;
 
@@ -75,10 +77,11 @@ const Menu = ({ lang, isMobile, cityTag, isStopover, usedLocales }: Props) => {
         linkHolidays="https://kiwicom.lastminute.com/flight-hotel/"
       />
 
-      <LanguageWrapper isMobile={isMobile}>
+      <LanguageWrapper>
         <Language
           flat
           native={isMobile}
+          hideNativeText={isMobile}
           onChange={langId => {
             const currentParams = getCurrentUrlParams();
             // eslint-disable-next-line fp/no-mutating-methods

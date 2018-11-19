@@ -3,7 +3,7 @@
 import * as React from "react";
 import styled from "styled-components";
 import { ChevronDown } from "@kiwicom/orbit-components/lib/icons";
-import Text from "@kiwicom/nitro/lib/components/Text";
+import Translate from "@kiwicom/nitro/lib/components/Translate";
 
 import { sendEvent } from "../../etc/logLady";
 import ActionText from "../shared/ActionText";
@@ -53,7 +53,7 @@ const Action = () => (
       <ChevronDown customColor="#ffffff" size="medium" />
     </ActionButton>
     <ActionText>
-      <Text t="mainActionButtonText" />
+      <Translate t="mainActionButtonText" />
     </ActionText>
   </React.Fragment>
 );

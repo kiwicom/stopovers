@@ -3,7 +3,7 @@
 import * as React from "react";
 import styled from "styled-components";
 import { Linkedin, Twitter, Instagram, Facebook } from "@kiwicom/orbit-components/lib/icons";
-import Text from "@kiwicom/nitro/lib/components/Text";
+import Translate from "@kiwicom/nitro/lib/components/Translate";
 
 const Wrapper = styled.div`
   display: flex;
@@ -154,7 +154,7 @@ const Footer = ({ langId }: Props) => (
       <LinksWrapper>
         {prepareLinks(langId).map(link => (
           <Link href={link.url} key={link.id} target="_blank" rel="noopener noreferrer">
-            <Text t={link.title} />
+            <Translate t={link.title} />
           </Link>
         ))}
       </LinksWrapper>

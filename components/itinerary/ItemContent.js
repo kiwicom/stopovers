@@ -3,7 +3,7 @@
 import * as React from "react";
 import styled from "styled-components";
 import { DateTime } from "luxon";
-import Text from "@kiwicom/nitro/lib/components/Text";
+import Translate from "@kiwicom/nitro/lib/components/Translate";
 import { Consumer } from "@kiwicom/nitro/lib/services/intl/context";
 
 import StyledText from "../shared/StyledText";
@@ -89,7 +89,7 @@ const ItemContent = ({ isOdd, title, time, description }: Props) => (
         <div>
           <Time>{getIntlTime(time, intl.language ? intl.language.id : "en")}</Time>
           <ItineraryTitle fontSize={20}>
-            <Text t={title} />
+            <Translate t={title} />
           </ItineraryTitle>
         </div>
         <StyledText t={description} />
