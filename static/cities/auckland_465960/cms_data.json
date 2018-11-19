@@ -1,0 +1,53 @@
+{
+  "id": "465960",
+  "itemType": "city",
+  "updatedAt": "2018-11-19T08:11:57.036Z",
+  "createdAt": "2018-11-16T13:46:46.707Z",
+  "otherMetaTags": {
+    "465959": {
+      "id": "465959",
+      "itemType": "tag",
+      "updatedAt": "2018-11-16T14:46:35.432Z",
+      "createdAt": "2018-11-16T13:46:46.222Z"
+    }
+  },
+  "photoForFacebookCard": null,
+  "photoForTwitterCard": null,
+  "searchWidgetDataAffilid": "acquisition_auckland",
+  "searchWidgetDataLocation": "AKL",
+  "videoYoutubeUrl": null,
+  "articles": {},
+  "partnerLogos": [],
+  "itineraries": {},
+  "sliderPhotos": [
+    {
+      "format": "jpg",
+      "size": 50128581,
+      "width": 8688,
+      "height": 5792,
+      "title": null,
+      "alt": null,
+      "url": "https://www.datocms-assets.com/7631/1542376001-aucklandnzshutterstock794923135.jpg"
+    },
+    {
+      "format": "jpg",
+      "size": 11613443,
+      "width": 5184,
+      "height": 3456,
+      "title": null,
+      "alt": null,
+      "url": "https://www.datocms-assets.com/7631/1542375990-aucklandnzshutterstock529150330.jpg"
+    }
+  ],
+  "cityLogo": null,
+  "mainPhoto": {
+    "format": "jpg",
+    "size": 2771818,
+    "width": 3611,
+    "height": 2708,
+    "title": null,
+    "alt": null,
+    "url": "https://www.datocms-assets.com/7631/1542375980-aucklandnzauseb-m-1099869-unsplash.jpg"
+  },
+  "isStopover": false
+}

@@ -5,4 +5,6 @@ import { storiesOf } from "@storybook/react";
 
 import Search from "../components/search/Search";
 
-storiesOf("Search", module).add("default", () => <Search langId="ru" />);
+storiesOf("Search", module).add("default", () => (
+  <Search langId="ru" isStopover={false} location="AKL" affilid="some_affilid" />
+));

@@ -27,27 +27,31 @@ const WidgetWrapper = styled.div`
   margin: 0 auto;
 `;
 
+/* eslint-disable react/no-unused-prop-types */
 type Props = {
   langId: ?string,
+  location: string,
+  isStopover: boolean,
+  affilid: string,
 };
 
-const generateScript = (langId: ?string) => {
+const generateScript = ({ langId, location, isStopover, affilid }: Props) => {
   const { from, to, passengers, departure, returnDate } = getCurrentUrlParams();
 
   const userId = getUserId();
   const script = document.createElement("script");
   script.src = "https://widget.kiwi.com/scripts/widget-stopover-iframe.js";
   script.setAttribute("data-width", "100%");
-  script.setAttribute("data-stopover-location", "dubai_ae,DWC,DXB,SHJ");
+  script.setAttribute("data-stopover-location", isStopover ? location : "");
   script.setAttribute("data-lang", langId || "en");
   script.setAttribute("data-from", from || "");
-  script.setAttribute("data-to", to || "");
+  script.setAttribute("data-to", isStopover ? to || "" : location);
   script.setAttribute("data-passengers", passengers || "1");
   script.setAttribute("data-departure", departure || "");
   script.setAttribute("data-return", returnDate || "");
   script.setAttribute("data-hide-cookie-banner", "true");
   script.setAttribute("data-user-id", userId);
-  script.setAttribute("data-affilid", "acquisition_dubai");
+  script.setAttribute("data-affilid", affilid || "");
   return script;
 };
 
@@ -55,8 +59,7 @@ class Search extends React.Component<Props> {
   script: HTMLScriptElement;
 
   componentDidMount() {
-    const { langId } = this.props;
-    const script = generateScript(langId);
+    const script = generateScript(this.props);
     if (document.head) {
       document.head.appendChild(script);
     }
@@ -68,7 +71,7 @@ class Search extends React.Component<Props> {
       if (document.head) {
         document.head.removeChild(this.script);
       }
-      const script = generateScript(this.props.langId);
+      const script = generateScript(this.props);
       if (document.head) {
         document.head.appendChild(script);
       }

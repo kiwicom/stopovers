@@ -31,6 +31,7 @@ const options = {
       body.append("file_format", "nested_json");
       body.append("file", file);
       body.append("locale_id", "en-GB");
+      body.append("update_translations", "true");
 
       const response = await fetch(URL, { ...options, body });
       results[filename] = (await response.json()).summary;
