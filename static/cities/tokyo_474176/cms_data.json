@@ -1,0 +1,34 @@
+{
+  "id": "474176",
+  "itemType": "city",
+  "updatedAt": "2018-11-21T13:21:25.710Z",
+  "createdAt": "2018-11-21T12:02:47.337Z",
+  "otherMetaTags": {
+    "474175": {
+      "id": "474175",
+      "itemType": "tag",
+      "updatedAt": "2018-11-21T13:21:25.382Z",
+      "createdAt": "2018-11-21T12:02:47.068Z"
+    }
+  },
+  "photoForFacebookCard": null,
+  "photoForTwitterCard": null,
+  "searchWidgetDataAffilid": "acquisition_tokyo",
+  "searchWidgetDataLocation": "NRT,HND",
+  "videoYoutubeUrl": null,
+  "articles": {},
+  "partnerLogos": [],
+  "itineraries": {},
+  "sliderPhotos": {},
+  "cityLogo": null,
+  "mainPhoto": {
+    "format": "jpg",
+    "size": 8658402,
+    "width": 4000,
+    "height": 2668,
+    "title": null,
+    "alt": null,
+    "url": "https://www.datocms-assets.com/7631/1542806457-tokyojpshutterstock790426882.jpg"
+  },
+  "isStopover": false
+}

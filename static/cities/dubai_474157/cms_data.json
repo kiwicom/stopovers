@@ -1,0 +1,34 @@
+{
+  "id": "474157",
+  "itemType": "city",
+  "updatedAt": "2018-11-21T11:53:08.103Z",
+  "createdAt": "2018-11-21T11:42:22.260Z",
+  "otherMetaTags": {
+    "474156": {
+      "id": "474156",
+      "itemType": "tag",
+      "updatedAt": "2018-11-21T11:53:08.005Z",
+      "createdAt": "2018-11-21T11:42:21.908Z"
+    }
+  },
+  "photoForFacebookCard": null,
+  "photoForTwitterCard": null,
+  "searchWidgetDataAffilid": "acquisition_dubai",
+  "searchWidgetDataLocation": "DXB,DWC",
+  "videoYoutubeUrl": null,
+  "articles": {},
+  "partnerLogos": [],
+  "itineraries": {},
+  "sliderPhotos": {},
+  "cityLogo": null,
+  "mainPhoto": {
+    "format": "jpg",
+    "size": 5309521,
+    "width": 5760,
+    "height": 3840,
+    "title": null,
+    "alt": null,
+    "url": "https://www.datocms-assets.com/7631/1542800760-dubaiaemoh-354211-unsplash.jpg"
+  },
+  "isStopover": false
+}

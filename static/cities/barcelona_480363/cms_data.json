@@ -1,0 +1,34 @@
+{
+  "id": "480363",
+  "itemType": "city",
+  "updatedAt": "2018-11-21T15:23:17.616Z",
+  "createdAt": "2018-11-21T15:19:40.938Z",
+  "otherMetaTags": {
+    "480362": {
+      "id": "480362",
+      "itemType": "tag",
+      "updatedAt": "2018-11-21T15:23:17.429Z",
+      "createdAt": "2018-11-21T15:19:40.435Z"
+    }
+  },
+  "photoForFacebookCard": null,
+  "photoForTwitterCard": null,
+  "searchWidgetDataAffilid": "acquisition_barcelona",
+  "searchWidgetDataLocation": "BCN",
+  "videoYoutubeUrl": null,
+  "articles": {},
+  "partnerLogos": [],
+  "itineraries": {},
+  "sliderPhotos": {},
+  "cityLogo": null,
+  "mainPhoto": {
+    "format": "jpg",
+    "size": 4604175,
+    "width": 2742,
+    "height": 1823,
+    "title": null,
+    "alt": null,
+    "url": "https://www.datocms-assets.com/7631/1542813716-shutterstock444318685.jpg"
+  },
+  "isStopover": false
+}

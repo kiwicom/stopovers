@@ -1,23 +1,28 @@
 // @flow
 
-const filterByKeys = (data, filterKeys, areIncluded) =>
+const filterByKeys = (data, filterKeys, areIncluded, noEmptyValues) =>
   Object.keys(data)
     .filter(key => (areIncluded ? filterKeys.includes(key) : !filterKeys.includes(key)))
-    .reduce(
-      (obj, key) => ({
+    .reduce((obj, key) => {
+      if (noEmptyValues && !data[key]) {
+        return obj;
+      }
+      return {
         ...obj,
         [key]: data[key],
-      }),
-      {},
-    );
-const formatList = (list, translatedFields, isTranslatedPart) =>
-  list.reduce(
-    (result, item) => ({
+      };
+    }, {});
+
+const formatList = (list, translatedFields, isTranslatedPart, callback) =>
+  list.reduce((result, item) => {
+    const id = item.id || callback(item);
+    return {
       ...result,
-      [item.id]: filterByKeys(item, translatedFields, isTranslatedPart),
-    }),
-    {},
-  );
+      [id]: filterByKeys(item, translatedFields, isTranslatedPart, isTranslatedPart),
+    };
+  }, {});
+
+const getSlideId = slide => slide.url.match(/(\d+)[^/]+(?=\.\w+$)/)[1];
 
 const nonTranslatedKeys = [
   "id",
@@ -45,25 +50,32 @@ module.exports = (dato, root) => {
   const formattedData = dato.cities.reduce(
     (aggregated, city) => {
       const allData = city.toMap();
-      const translatedData = filterByKeys(allData, nonTranslatedKeys);
+      const translatedData = filterByKeys(allData, nonTranslatedKeys, false, true);
       const nonTranslatedData = filterByKeys(allData, nonTranslatedKeys, true);
       const cityTag = `${city.name.replace(/ /g, "-").toLowerCase()}_${city.id}`;
 
       const translatedTagFields = ["value"];
       const translatedItineraryFields = ["title"];
       const translatedTipFields = ["title", "description"];
+      const translatedSlideFields = ["alt", "title"];
 
       const formatItineraries = (rawItineraries, isTranslatedPart) =>
         rawItineraries.reduce(
           (result, itinerary) => ({
             ...result,
             [itinerary.id]: {
-              ...filterByKeys(itinerary, translatedItineraryFields, isTranslatedPart),
+              ...filterByKeys(
+                itinerary,
+                translatedItineraryFields,
+                isTranslatedPart,
+                isTranslatedPart,
+              ),
               tips: formatList(itinerary.tips, translatedTipFields, isTranslatedPart),
             },
           }),
           {},
         );
+
       return {
         translated: {
           ...aggregated.translated,
@@ -71,6 +83,12 @@ module.exports = (dato, root) => {
             ...translatedData,
             itineraries: formatItineraries(nonTranslatedData.itineraries, true),
             otherMetaTags: formatList(nonTranslatedData.otherMetaTags, translatedTagFields, true),
+            sliderPhotos: formatList(
+              nonTranslatedData.sliderPhotos,
+              translatedSlideFields,
+              true,
+              getSlideId,
+            ),
           },
         },
         nonTranslated: {
@@ -80,6 +98,12 @@ module.exports = (dato, root) => {
             articles: formatList(nonTranslatedData.articles, []),
             itineraries: formatItineraries(nonTranslatedData.itineraries),
             otherMetaTags: formatList(nonTranslatedData.otherMetaTags, translatedTagFields),
+            sliderPhotos: formatList(
+              nonTranslatedData.sliderPhotos,
+              translatedSlideFields,
+              false,
+              getSlideId,
+            ),
           },
         },
       };

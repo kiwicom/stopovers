@@ -195,18 +195,21 @@ export default class Index extends React.Component<Props, State> {
       twitter: cityData.photoForTwitterCard?.url,
       facebook: cityData.photoForFacebookCard?.url,
     };
+
     const areArticlesShown =
       ["en-GB", "en-US"].includes(language.phraseApp) &&
       Object.keys(cityData.articles).length !== 0;
+
+    const sliderImagesObj = cityData.sliderPhotos;
     const sliderImages =
-      cityData.sliderPhotos &&
-      cityData.sliderPhotos.map(
-        (image, index) =>
-          image && {
-            url: image.url,
-            title: `Slide ${cityData.cityName} ${index + 1}`,
-          },
-      );
+      sliderImagesObj &&
+      Object.keys(sliderImagesObj).map(key => {
+        const image = sliderImagesObj[key];
+        return {
+          id: key,
+          url: image.url,
+        };
+      });
 
     const intl = {
       language,

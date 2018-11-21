@@ -1,0 +1,34 @@
+{
+  "id": "480175",
+  "itemType": "city",
+  "updatedAt": "2018-11-21T15:20:31.121Z",
+  "createdAt": "2018-11-21T15:17:52.459Z",
+  "otherMetaTags": {
+    "480174": {
+      "id": "480174",
+      "itemType": "tag",
+      "updatedAt": "2018-11-21T15:19:27.121Z",
+      "createdAt": "2018-11-21T15:17:51.951Z"
+    }
+  },
+  "photoForFacebookCard": null,
+  "photoForTwitterCard": null,
+  "searchWidgetDataAffilid": "acquisition_rome",
+  "searchWidgetDataLocation": "FCO,CIA",
+  "videoYoutubeUrl": null,
+  "articles": {},
+  "partnerLogos": [],
+  "itineraries": {},
+  "sliderPhotos": {},
+  "cityLogo": null,
+  "mainPhoto": {
+    "format": "jpg",
+    "size": 4753496,
+    "width": 4000,
+    "height": 6016,
+    "title": null,
+    "alt": null,
+    "url": "https://www.datocms-assets.com/7631/1542813620-romeitl-a-l-a-1071561-unsplash.jpg"
+  },
+  "isStopover": false
+}
