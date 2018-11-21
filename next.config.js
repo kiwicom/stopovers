@@ -42,7 +42,11 @@ module.exports = {
           ...result,
           [`/${lang.id}/${cityTypes}/${cityName}`]: {
             page: "/",
-            query: { usedLocales, langId: lang.id, cityTag },
+            query: {
+              usedLocales: [...usedLocales, "en-SG", "en-CA"],
+              langId: lang.id,
+              cityTag,
+            },
           },
         };
       }, {});

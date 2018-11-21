@@ -3,7 +3,7 @@
 import Cookies from "js-cookie";
 
 import * as Helpers from "../helpers";
-import langsData from "../../static/languages.json";
+import languages from "../../static/languages.json";
 
 describe("helpers", () => {
   it("filters properties of an object properly", () => {
@@ -21,15 +21,22 @@ describe("helpers", () => {
   });
 
   it("filters languages properly", () => {
-    const output = Helpers.filterLanguages(langsData, ["en-GB", "en-CA", "en-US"]);
+    const output = Helpers.filterLanguages(["en-GB", "en-CA", "en-US"]);
     expect(Object.keys(output)).toEqual(["en", "ca", "us"]);
-    expect(Object.keys(output).every(key => output[key] === langsData[key])).toBe(true);
+    expect(Object.keys(output).every(key => output[key] === languages[key])).toBe(true);
   });
 
-  it("convert locale ISO to langID", () => {
-    expect(Helpers.isoToLangId(langsData, "en-US")).toEqual("us");
-    expect(Helpers.isoToLangId(langsData, "en-CA")).toEqual("ca");
-    expect(Helpers.isoToLangId(langsData, "es-ES")).toEqual("es");
+  it("gets correct language data", () => {
+    expect(Helpers.getLanguage("non existing language")).toEqual(languages.en);
+    expect(Helpers.getLanguage("ca")).toEqual({
+      ...languages.ca,
+      name: languages.ca.displayName,
+    });
+  });
+
+  it("gets correct brand language data", () => {
+    const supportedLangs = Helpers.filterLanguages(["en-GB", "en-CA", "es-ES"]);
+    expect(Helpers.getBrandLanguage("es", supportedLangs)).toMatchSnapshot();
   });
 
   it("gets correct args from current URL", () => {

@@ -4,8 +4,7 @@ import * as React from "react";
 import { Element } from "react-scroll";
 import InitIntl from "@kiwicom/nitro/lib/components/InitIntl";
 import { Provider as IntlProvider } from "@kiwicom/nitro/lib/services/intl/context";
-import { type LangInfos, type LangInfo } from "@kiwicom/nitro/lib/records/LangInfo";
-import { type BrandLanguage } from "@kiwicom/nitro/lib/records/BrandLanguage";
+import { type LangInfo } from "@kiwicom/nitro/lib/records/LangInfo";
 import { type Fetched, fetchedDefault } from "@kiwicom/nitro/lib/records/Fetched";
 import { type Translations } from "@kiwicom/nitro/lib/services/intl/translate";
 import { Provider as FetchedProvider } from "@kiwicom/nitro/lib/services/fetched/context";
@@ -15,11 +14,10 @@ import "isomorphic-unfetch";
 import { GA_TRACKING_ID } from "../etc/gtag";
 import {
   filterLanguages,
+  getLanguage,
   getBrandLanguage,
-  mapLanguage,
   getUserId,
   getCurrentUrlParams,
-  isoToLangId,
 } from "../etc/helpers";
 import { sendEvent } from "../etc/logLady";
 import { saveToSession } from "../etc/marketingHelpers";
@@ -35,8 +33,6 @@ import Search from "../components/search/Search";
 import Footer from "../components/footer/Footer";
 import Banner from "../components/banner/Banner";
 import StickyAction from "../components/stickyAction/StickyAction";
-import langsData from "../static/languages.json";
-import brandLangsData from "../static/brandLanguages.json";
 import type { ArticleType } from "../components/articles/ArticleItem";
 
 const isProd = process.env.NODE_ENV === "production";
@@ -112,31 +108,26 @@ export default class Index extends React.Component<Props, State> {
     req: any,
     asPath: string,
   }) {
-    const lang = langsData[langId] || langsData.en;
-    const locale = usedLocales.includes(lang.phraseApp) ? lang.phraseApp : "en-GB";
-    const supportedLangs: LangInfos = filterLanguages(langsData, usedLocales);
+    const supportedLangs = filterLanguages(usedLocales);
 
-    const currentLangId: string = isoToLangId(supportedLangs, locale);
+    const currentLang = getLanguage(langId);
+    const currentBrandLang = getBrandLanguage(langId, supportedLangs);
 
-    const brandLanguage: BrandLanguage = getBrandLanguage(
-      brandLangsData,
-      currentLangId,
-      supportedLangs,
-    );
-    const language = mapLanguage(
-      brandLanguage.languages[currentLangId],
-      supportedLangs[currentLangId],
-    );
+    // This string is in the same format as ISO locale, but does not always
+    // correspond to it. For example: English (Canada) has 'en-CA' ISO code, but
+    // 'en-GB' phraseApp code.
+    const phraseAppLocale = usedLocales.includes(currentLang.phraseApp)
+      ? currentLang.phraseApp
+      : "en-GB";
+
     const isServer = !!req;
     const staticPath = `${isServer ? `http://localhost:3000` : ""}/static/`;
     const cityPath = `${staticPath}cities/${cityTag}/`;
-    const translations = await fetchJson(`${cityPath}locales/${locale}.json`);
+    const translations = await fetchJson(`${cityPath}locales/${phraseAppLocale}.json`);
     const cityData = await fetchJson(`${cityPath}cms_data.json`);
-    const menuTranslations = await fetchJson(`${staticPath}locales/menuItems/${locale}.json`);
-    const fetched = {
-      ...fetchedDefault,
-      brandLanguage,
-    };
+    const menuTranslations = await fetchJson(
+      `${staticPath}locales/menuItems/${phraseAppLocale}.json`,
+    );
 
     const articles: ArticleType[] = Object.keys(cityData.articles).map(
       (id: string) => cityData.articles[id],
@@ -146,13 +137,16 @@ export default class Index extends React.Component<Props, State> {
       translations,
       menuTranslations,
       cityData,
-      language,
-      fetched,
       langId,
-      currentPath: asPath,
       cityTag,
       articles,
       usedLocales,
+      language: currentLang,
+      currentPath: asPath,
+      fetched: {
+        ...fetchedDefault,
+        brandLanguage: currentBrandLang,
+      },
     };
   }
 

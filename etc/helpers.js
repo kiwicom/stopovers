@@ -1,9 +1,11 @@
 // @flow
 
 import { type LangInfos, type LangInfo } from "@kiwicom/nitro/lib/records/LangInfo";
-import { type Language } from "@kiwicom/nitro/lib/records/Languages";
-import { type BrandLanguages, type BrandLanguage } from "@kiwicom/nitro/lib/records/BrandLanguage";
+import { type BrandLanguage } from "@kiwicom/nitro/lib/records/BrandLanguage";
 import cookies from "js-cookie";
+
+import languages from "../static/languages.json";
+import brandLanguages from "../static/brandLanguages.json";
 
 export const UTM_PARAMS = process.env.UTM_PARAMS ? `?${process.env.UTM_PARAMS}` : "";
 
@@ -19,31 +21,24 @@ export function pick(obj: Object, paths: string[], deepKey?: string) {
   }, {});
 }
 
-export function filterLanguages(langsData: LangInfos, usedLocales: string[]): LangInfos {
-  return pick(langsData, usedLocales, "iso");
+export function filterLanguages(usedLocales: string[]): LangInfos {
+  return pick(languages, usedLocales, "iso");
 }
 
-export function isoToLangId(languages: LangInfos, iso: string): string {
-  return Object.keys(languages).find(langId => languages[langId].iso === iso) || "en";
-}
-
-export function getBrandLanguage(
-  brandLangsData: BrandLanguages,
-  langId: string,
-  supportedLangs: LangInfos,
-): BrandLanguage {
-  const brandLanguage = brandLangsData.kiwicom[langId];
-  const supportedLangIds = Object.keys(supportedLangs);
-  const allBrandLangs = brandLanguage.languages;
-  const languages = pick(allBrandLangs, supportedLangIds);
-  return { ...brandLanguage, languages };
-}
-
-export function mapLanguage(lang: Language, langInfo: LangInfo) {
+export function getLanguage(langId: string): LangInfo {
+  const language = languages[langId] || languages.en;
   return {
-    ...langInfo,
-    name: langInfo.displayName,
-    defaultCountry: lang.defaultCountry,
+    ...language,
+    name: language.displayName,
+  };
+}
+
+export function getBrandLanguage(langId: string, supportedLangs: LangInfos): BrandLanguage {
+  const brandLanguage = brandLanguages.kiwicom[langId];
+  const supportedLangIds = Object.keys(supportedLangs);
+  return {
+    ...brandLanguage,
+    languages: pick(brandLanguage.languages, supportedLangIds),
   };
 }
 

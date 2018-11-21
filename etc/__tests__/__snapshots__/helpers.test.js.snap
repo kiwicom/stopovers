@@ -1,0 +1,36 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`helpers gets correct brand language data 1`] = `
+Object {
+  "continents": Array [
+    "ap",
+    "eu",
+    "aas",
+    "mea",
+  ],
+  "defaultLocale": "en",
+  "languages": Object {
+    "ca": Object {
+      "continent": "aas",
+      "defaultCountry": "ca",
+      "flag": "ca",
+      "id": "ca",
+      "name": "English (Canada)",
+    },
+    "en": Object {
+      "continent": "eu",
+      "defaultCountry": "gb",
+      "flag": "gb",
+      "id": "en",
+      "name": "English",
+    },
+    "es": Object {
+      "continent": "eu",
+      "defaultCountry": "es",
+      "flag": "es",
+      "id": "es",
+      "name": "Español",
+    },
+  },
+}
+`;
