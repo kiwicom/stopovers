@@ -182,15 +182,6 @@ export default class Index extends React.Component<Props, State> {
         }
       : {};
 
-    const translationsForHead =
-      translations &&
-      Object.keys(translations)
-        .filter(key => /otherMetaTags/.test(key))
-        .reduce((result, key) => ({ ...result, [key]: translations[key] }), {
-          metaDescription: translations?.metaDescription,
-          metaTitle: translations?.metaTitle,
-        });
-
     const socialPhotos = {
       twitter: cityData.photoForTwitterCard?.url,
       facebook: cityData.photoForFacebookCard?.url,
@@ -224,7 +215,6 @@ export default class Index extends React.Component<Props, State> {
           {intlFull => (
             <IntlProvider value={intlFull}>
               <MetaHead
-                translations={translationsForHead}
                 locale={language.iso}
                 currentPath={currentPath}
                 socialPhotos={socialPhotos}
