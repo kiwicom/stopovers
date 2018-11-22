@@ -1,6 +1,7 @@
 // @flow
 
 import * as React from "react";
+import { Consumer as IntlConsumer } from "@kiwicom/nitro/lib/services/intl/context";
 import styled, { keyframes } from "styled-components";
 import {
   CarouselProvider,
@@ -165,8 +166,8 @@ const SliderWrapper = styled.div`
 
 export type Props = {|
   sliderImages: $ReadOnlyArray<{|
+    +id: string,
     +url: string,
-    +title: string,
   |}>,
 |};
 
@@ -184,11 +185,25 @@ const Slider = ({ sliderImages }: Props) => (
           <ChevronLeft size="large" />
         </StyledButtonBack>
         <StyledCarousel className="slider">
-          {sliderImages.map((image, index) => (
-            <StyledSlide index={index} key={image.title}>
-              <StyledImage src={`${image.url}?w=840`} alt={image.title} />
-            </StyledSlide>
-          ))}
+          <IntlConsumer>
+            {intl =>
+              sliderImages.map((image, index) => {
+                const alt = intl.translate(`sliderPhotos.${image.id}.alt`);
+                const title = intl.translate(`sliderPhotos.${image.id}.title`);
+                const defaultDesc = `Slide ${intl.translate("name")} ${index + 1}`;
+                const validate = (text: string) => (/sliderPhotos/.test(text) ? defaultDesc : text);
+                return (
+                  <StyledSlide index={index} key={image.id}>
+                    <StyledImage
+                      src={`${image.url}?w=840`}
+                      title={validate(title)}
+                      alt={validate(alt)}
+                    />
+                  </StyledSlide>
+                );
+              })
+            }
+          </IntlConsumer>
         </StyledCarousel>
 
         <StyledButtonNext className="next">

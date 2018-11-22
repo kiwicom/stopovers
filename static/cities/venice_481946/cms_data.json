@@ -1,0 +1,34 @@
+{
+  "id": "481946",
+  "itemType": "city",
+  "updatedAt": "2018-11-21T15:37:59.580Z",
+  "createdAt": "2018-11-21T15:34:47.094Z",
+  "otherMetaTags": {
+    "481944": {
+      "id": "481944",
+      "itemType": "tag",
+      "updatedAt": "2018-11-21T15:37:59.095Z",
+      "createdAt": "2018-11-21T15:34:46.338Z"
+    }
+  },
+  "photoForFacebookCard": null,
+  "photoForTwitterCard": null,
+  "searchWidgetDataAffilid": "acquisition_venice",
+  "searchWidgetDataLocation": "VCE,TSF",
+  "videoYoutubeUrl": null,
+  "articles": {},
+  "partnerLogos": [],
+  "itineraries": {},
+  "sliderPhotos": {},
+  "cityLogo": null,
+  "mainPhoto": {
+    "format": "jpg",
+    "size": 13938429,
+    "width": 4674,
+    "height": 3396,
+    "title": null,
+    "alt": null,
+    "url": "https://www.datocms-assets.com/7631/1542814650-veniceitshutterstock268992557.jpg"
+  },
+  "isStopover": false
+}

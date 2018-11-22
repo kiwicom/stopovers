@@ -1,0 +1,34 @@
+{
+  "id": "481538",
+  "itemType": "city",
+  "updatedAt": "2018-11-21T15:34:11.103Z",
+  "createdAt": "2018-11-21T15:30:52.983Z",
+  "otherMetaTags": {
+    "481537": {
+      "id": "481537",
+      "itemType": "tag",
+      "updatedAt": "2018-11-21T15:34:10.801Z",
+      "createdAt": "2018-11-21T15:30:52.655Z"
+    }
+  },
+  "photoForFacebookCard": null,
+  "photoForTwitterCard": null,
+  "searchWidgetDataAffilid": "acquisition_stockholm",
+  "searchWidgetDataLocation": "ARN,NYO,BMA,VST",
+  "videoYoutubeUrl": null,
+  "articles": {},
+  "partnerLogos": [],
+  "itineraries": {},
+  "sliderPhotos": {},
+  "cityLogo": null,
+  "mainPhoto": {
+    "format": "jpg",
+    "size": 10095728,
+    "width": 4599,
+    "height": 2983,
+    "title": null,
+    "alt": null,
+    "url": "https://www.datocms-assets.com/7631/1542814432-stockholmseshutterstock1200086689.jpg"
+  },
+  "isStopover": false
+}

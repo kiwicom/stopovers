@@ -1,7 +1,7 @@
 {
   "id": "414745",
   "itemType": "city",
-  "updatedAt": "2018-11-08T08:42:53.218Z",
+  "updatedAt": "2018-11-21T22:39:20.804Z",
   "createdAt": "2018-10-11T09:28:28.025Z",
   "otherMetaTags": {
     "434525": {
@@ -748,44 +748,36 @@
       }
     }
   },
-  "sliderPhotos": [
-    {
+  "sliderPhotos": {
+    "1542839873": {
       "format": "jpg",
       "size": 101930,
       "width": 840,
       "height": 584,
-      "title": null,
-      "alt": null,
-      "url": "https://www.datocms-assets.com/7631/1539249855-carousel-first.jpg"
+      "url": "https://www.datocms-assets.com/7631/1542839873-carousel-first.jpg"
     },
-    {
-      "format": "jpg",
-      "size": 122129,
-      "width": 840,
-      "height": 560,
-      "title": null,
-      "alt": null,
-      "url": "https://www.datocms-assets.com/7631/1539249853-carousel-fourth.jpg"
-    },
-    {
+    "1542839892": {
       "format": "jpg",
       "size": 147971,
       "width": 840,
       "height": 560,
-      "title": null,
-      "alt": null,
-      "url": "https://www.datocms-assets.com/7631/1539249850-carousel-second.jpg"
+      "url": "https://www.datocms-assets.com/7631/1542839892-carousel-second.jpg"
     },
-    {
+    "1542839909": {
       "format": "jpg",
       "size": 184350,
       "width": 840,
       "height": 549,
-      "title": null,
-      "alt": null,
-      "url": "https://www.datocms-assets.com/7631/1539249847-carousel-third.jpg"
+      "url": "https://www.datocms-assets.com/7631/1542839909-carousel-third.jpg"
+    },
+    "1542839916": {
+      "format": "jpg",
+      "size": 122129,
+      "width": 840,
+      "height": 560,
+      "url": "https://www.datocms-assets.com/7631/1542839916-carousel-fourth.jpg"
     }
-  ],
+  },
   "cityLogo": {
     "format": "svg",
     "size": 4624,

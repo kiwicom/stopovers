@@ -1,14 +1,14 @@
 {
-  "id": "454084",
+  "id": "474133",
   "itemType": "city",
-  "updatedAt": "2018-11-19T15:14:15.341Z",
-  "createdAt": "2018-11-06T14:39:51.107Z",
+  "updatedAt": "2018-11-21T11:31:30.113Z",
+  "createdAt": "2018-11-21T11:18:51.658Z",
   "otherMetaTags": {
-    "454107": {
-      "id": "454107",
+    "474132": {
+      "id": "474132",
       "itemType": "tag",
-      "updatedAt": "2018-11-06T15:05:11.473Z",
-      "createdAt": "2018-11-06T15:05:11.468Z"
+      "updatedAt": "2018-11-21T11:31:30.004Z",
+      "createdAt": "2018-11-21T11:18:51.296Z"
     }
   },
   "photoForFacebookCard": null,
@@ -19,15 +19,7 @@
   "articles": {},
   "partnerLogos": [],
   "itineraries": {},
-  "sliderPhotos": {
-    "1541514733": {
-      "format": "jpg",
-      "size": 4445095,
-      "width": 4896,
-      "height": 3264,
-      "url": "https://www.datocms-assets.com/7631/1541514733-sydney.jpg"
-    }
-  },
+  "sliderPhotos": {},
   "cityLogo": null,
   "mainPhoto": {
     "format": "jpg",

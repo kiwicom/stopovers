@@ -1,0 +1,34 @@
+{
+  "id": "480816",
+  "itemType": "city",
+  "updatedAt": "2018-11-21T15:26:44.998Z",
+  "createdAt": "2018-11-21T15:23:59.345Z",
+  "otherMetaTags": {
+    "480814": {
+      "id": "480814",
+      "itemType": "tag",
+      "updatedAt": "2018-11-21T15:26:44.535Z",
+      "createdAt": "2018-11-21T15:23:58.806Z"
+    }
+  },
+  "photoForFacebookCard": null,
+  "photoForTwitterCard": null,
+  "searchWidgetDataAffilid": "acquisition_madrid",
+  "searchWidgetDataLocation": "MAD",
+  "videoYoutubeUrl": null,
+  "articles": {},
+  "partnerLogos": [],
+  "itineraries": {},
+  "sliderPhotos": {},
+  "cityLogo": null,
+  "mainPhoto": {
+    "format": "jpg",
+    "size": 25277295,
+    "width": 6734,
+    "height": 3400,
+    "title": null,
+    "alt": null,
+    "url": "https://www.datocms-assets.com/7631/1542813900-madridesshutterstock63893056.jpg"
+  },
+  "isStopover": false
+}
