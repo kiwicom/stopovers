@@ -19,6 +19,7 @@ import {
   getUserId,
   getCurrentUrlParams,
 } from "../etc/helpers";
+import fetchLowestPrice from "../etc/fetchLowestPrice";
 import { sendEvent } from "../etc/logLady";
 import { saveToSession } from "../etc/marketingHelpers";
 import MetaHead from "../components/shared/MetaHead";
@@ -128,6 +129,10 @@ export default class Index extends React.Component<Props, State> {
     const menuTranslations = await fetchJson(
       `${staticPath}locales/menuItems/${phraseAppLocale}.json`,
     );
+    const lowestPrice = await fetchLowestPrice(
+      cityData.departureForLowestPrice,
+      cityData.searchWidgetDataLocation,
+    );
 
     const articles: ArticleType[] = Object.keys(cityData.articles).map(
       (id: string) => cityData.articles[id],
@@ -136,13 +141,16 @@ export default class Index extends React.Component<Props, State> {
     return {
       translations,
       menuTranslations,
-      cityData,
       langId,
       cityTag,
       articles,
       usedLocales,
       language: currentLang,
       currentPath: asPath,
+      cityData: {
+        ...cityData,
+        lowestPrice,
+      },
       fetched: {
         ...fetchedDefault,
         brandLanguage: currentBrandLang,
@@ -212,57 +220,67 @@ export default class Index extends React.Component<Props, State> {
     return (
       <React.Fragment>
         <InitIntl raw={intl}>
-          {intlFull => (
-            <IntlProvider value={intlFull}>
-              <MetaHead
-                locale={language.iso}
-                currentPath={currentPath}
-                socialPhotos={socialPhotos}
-                otherMetaTagIds={Object.keys(cityData.otherMetaTags)}
-              />
-              <FetchedProvider value={fetched}>
-                <Menu
-                  lang={langId}
-                  isMobile={isMobile}
-                  cityTag={cityTag}
-                  isStopover={cityData.isStopover}
-                  usedLocales={usedLocales}
+          {intlFull => {
+            const translate = (key, value) =>
+              intlFull.translate(key, value).replace(/\[price\]/g, cityData.lowestPrice);
+
+            return (
+              <IntlProvider value={{ ...intlFull, translate }}>
+                <MetaHead
+                  locale={language.iso}
+                  currentPath={currentPath}
+                  socialPhotos={socialPhotos}
+                  otherMetaTagIds={Object.keys(cityData.otherMetaTags)}
                 />
-              </FetchedProvider>
-              <Hero logo={cityData.cityLogo} photo={cityData.mainPhoto} />
-              <StickyAction />
-              <Element name="slider">
-                <SliderSection
-                  sliderImages={sliderImages}
-                  areItineraries={Object.keys(cityData.itineraries).length !== 0}
+                <FetchedProvider value={fetched}>
+                  <Menu
+                    lang={langId}
+                    isMobile={isMobile}
+                    cityTag={cityTag}
+                    isStopover={cityData.isStopover}
+                    usedLocales={usedLocales}
+                  />
+                </FetchedProvider>
+                <Hero
+                  logo={cityData.cityLogo}
+                  photo={cityData.mainPhoto}
+                  departureForLowestPrice={cityData.departureForLowestPrice}
+                  arrivalForLowestPrice={cityData.searchWidgetDataLocation}
                 />
-              </Element>
-              <Element name="itinerary">
-                <Itinerary data={cityData.itineraries} isMobile={isMobile} />
-              </Element>
-              <Element name="partners">
-                <Partners logos={cityData.partnerLogos} />
-              </Element>
-              {areArticlesShown && (
-                <Element name="articles">
-                  <Articles items={articles} />
+                <StickyAction />
+                <Element name="slider">
+                  <SliderSection
+                    sliderImages={sliderImages}
+                    areItineraries={Object.keys(cityData.itineraries).length !== 0}
+                  />
                 </Element>
-              )}
-              <Element name="video">
-                <Video isGrey={!areArticlesShown} id={cityData.videoYoutubeUrl?.providerUid} />
-              </Element>
-              <Element name="search">
-                <Search
-                  langId={langId}
-                  isStopover={cityData.isStopover}
-                  location={cityData.searchWidgetDataLocation}
-                  affilid={cityData.searchWidgetDataAffilid}
-                />
-              </Element>
-              <Footer langId={langId} />
-              <Banner />
-            </IntlProvider>
-          )}
+                <Element name="itinerary">
+                  <Itinerary data={cityData.itineraries} isMobile={isMobile} />
+                </Element>
+                <Element name="partners">
+                  <Partners logos={cityData.partnerLogos} />
+                </Element>
+                {areArticlesShown && (
+                  <Element name="articles">
+                    <Articles items={articles} />
+                  </Element>
+                )}
+                <Element name="video">
+                  <Video isGrey={!areArticlesShown} id={cityData.videoYoutubeUrl?.providerUid} />
+                </Element>
+                <Element name="search">
+                  <Search
+                    langId={langId}
+                    isStopover={cityData.isStopover}
+                    location={cityData.searchWidgetDataLocation}
+                    affilid={cityData.searchWidgetDataAffilid}
+                  />
+                </Element>
+                <Footer langId={langId} />
+                <Banner />
+              </IntlProvider>
+            );
+          }}
         </InitIntl>
       </React.Fragment>
     );
