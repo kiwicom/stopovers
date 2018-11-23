@@ -129,10 +129,9 @@ export default class Index extends React.Component<Props, State> {
     const menuTranslations = await fetchJson(
       `${staticPath}locales/menuItems/${phraseAppLocale}.json`,
     );
-    const lowestPrice = await fetchLowestPrice(
-      cityData.departureForLowestPrice,
-      cityData.searchWidgetDataLocation,
-    );
+    const lowestPrice =
+      !cityData.isStopover &&
+      (await fetchLowestPrice(cityData.departureForLowestPrice, cityData.searchWidgetDataLocation));
 
     const articles: ArticleType[] = Object.keys(cityData.articles).map(
       (id: string) => cityData.articles[id],
@@ -225,7 +224,7 @@ export default class Index extends React.Component<Props, State> {
               intlFull.translate(key, value).replace(/\[price\]/g, cityData.lowestPrice);
 
             return (
-              <IntlProvider value={{ ...intlFull, translate }}>
+              <IntlProvider value={cityData.isStopover ? intlFull : { ...intlFull, translate }}>
                 <MetaHead
                   locale={language.iso}
                   currentPath={currentPath}
@@ -241,12 +240,7 @@ export default class Index extends React.Component<Props, State> {
                     usedLocales={usedLocales}
                   />
                 </FetchedProvider>
-                <Hero
-                  logo={cityData.cityLogo}
-                  photo={cityData.mainPhoto}
-                  departureForLowestPrice={cityData.departureForLowestPrice}
-                  arrivalForLowestPrice={cityData.searchWidgetDataLocation}
-                />
+                <Hero logo={cityData.cityLogo} photo={cityData.mainPhoto} />
                 <StickyAction />
                 <Element name="slider">
                   <SliderSection

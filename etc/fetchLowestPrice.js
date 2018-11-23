@@ -1,4 +1,5 @@
 // @flow
+
 import fetch from "isomorphic-unfetch";
 import { DateTime } from "luxon";
 
@@ -14,7 +15,10 @@ const query = `
   }
 `;
 
-export default async function getLowestPrice(departure: string, arrival: string): Promise<string> {
+export default async function getLowestPrice(
+  departure: "EU" | "US",
+  arrival: string,
+): Promise<string> {
   const now = DateTime.local();
   const dateFrom = now.toFormat("dd/MM/yyyy");
   const dateTo = now.plus({ months: 3 }).toFormat("dd/MM/yyyy");
@@ -24,6 +28,8 @@ export default async function getLowestPrice(departure: string, arrival: string)
       dateFrom,
       dateTo,
       to: arrival,
+      // The API is fine with US, but wants europe instead of EU, so here we convert
+      // EU to europe when needed.
       flyFrom: departure === "EU" ? "europe" : departure,
       adults: 1,
       typeFlight: "oneway",
@@ -48,5 +54,8 @@ export default async function getLowestPrice(departure: string, arrival: string)
   if (price.amount && price.currency) {
     return `${price.amount} ${price.currency}`;
   }
-  return "-";
+  // There should always be a result returned from the API. If there isn't this
+  // error is thrown so the build fails and we can check what went wrong.
+  // eslint-disable-next-line fp/no-throw
+  throw new Error(`lowest price not found for "${departure}" => "${arrival}"`);
 }
