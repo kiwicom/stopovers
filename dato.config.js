@@ -1,41 +1,66 @@
 // @flow
 
-const translatedImageFields = ["alt", "title"];
-
-const filterByKeys = (data, filterKeys, areIncluded, noEmptyValues) =>
-  Object.keys(data)
-    .filter(key => (areIncluded ? filterKeys.includes(key) : !filterKeys.includes(key)))
-    .concat("photo") // we need to include this key in all cases
-    .reduce((obj, key) => {
-      if (noEmptyValues && !data[key]) {
-        return obj;
-      }
-      if (key === "photo") {
-        if (!data.photo) return obj;
-        if (data.itemType === "article") {
-          return { ...obj, photo: data.photo };
-        }
-        return {
+const cleanEmptyValues = data =>
+  typeof data !== "object"
+    ? data
+    : Object.keys(data).reduce(
+        (obj, key) => ({
           ...obj,
-          photo: filterByKeys(data.photo, translatedImageFields, areIncluded, noEmptyValues),
-        };
-      }
-      return {
-        ...obj,
-        [key]: data[key],
-      };
-    }, {});
+          ...(data[key] ? { [key]: cleanEmptyValues(data[key]) } : null),
+        }),
+        {},
+      );
 
-const formatList = (list, translatedFields, isTranslatedPart, callback) =>
-  list.reduce((result, item) => {
-    const id = item.id || callback(item);
+const filterByKeys = (data, filterKeys, areIncluded) =>
+  Object.keys(data)
+    .filter(key => areIncluded === filterKeys.includes(key))
+    .reduce((obj, key) => ({ ...obj, [key]: data[key] }), {});
+
+const listToObj = (list, filterKeys, areIncluded, getID) =>
+  list.reduce((obj, item) => {
+    const id = item.id || getID(item);
     return {
-      ...result,
-      [id]: filterByKeys(item, translatedFields, isTranslatedPart, isTranslatedPart),
+      ...obj,
+      [id]: filterByKeys(item, filterKeys, areIncluded),
     };
   }, {});
 
-const getImageId = img => img.url.match(/(\d+)[^/]+(?=\.\w+$)/)[1];
+const formatItineraries = (itineraries, isTranslatedPart) =>
+  itineraries.reduce(
+    (result, itinerary) => ({
+      ...result,
+      [itinerary.id]: {
+        ...filterByKeys(itinerary, ["title"], isTranslatedPart),
+        tips: cleanEmptyValues(
+          listToObj(itinerary.tips, ["title", "description"], isTranslatedPart),
+        ),
+      },
+    }),
+    {},
+  );
+
+const formatImage = (data, isTranslatedPart, getPhoto) => {
+  const photo = getPhoto ? getPhoto(data) : data.photo;
+  if (!photo) return data;
+
+  // For articles, titles and alt text of pictures don't need to be translated.
+  if (data.itemType === "article") {
+    return isTranslatedPart ? null : photo;
+  }
+
+  return filterByKeys(photo, ["alt", "title"], isTranslatedPart);
+};
+
+const formatImages = (images, isTranslatedPart, getPhoto) => {
+  const getImageId = img => img.url.match(/(\d+)[^/]+(?=\.\w+$)/)[1];
+  return images.reduce((obj, image) => {
+    const formattedImage = cleanEmptyValues(formatImage(image, isTranslatedPart, getPhoto));
+    return {
+      ...obj,
+      [getImageId(image)]: formattedImage,
+    };
+  }, {});
+};
 
 const nonTranslatedKeys = [
   "id",
@@ -63,29 +88,10 @@ module.exports = (dato, root) => {
   const formattedData = dato.cities.reduce(
     (aggregated, city) => {
       const allData = city.toMap();
-      const translatedData = filterByKeys(allData, nonTranslatedKeys, false, true);
+      const translatedData = filterByKeys(allData, nonTranslatedKeys, false);
       const nonTranslatedData = filterByKeys(allData, nonTranslatedKeys, true);
       const cityTag = `${city.name.replace(/ /g, "-").toLowerCase()}_${city.id}`;
       const translatedTagFields = ["value"];
-      const translatedItineraryFields = ["title"];
-      const translatedTipFields = ["title", "description"];
-
-      const formatItineraries = (rawItineraries, isTranslatedPart) =>
-        rawItineraries.reduce(
-          (result, itinerary) => ({
-            ...result,
-            [itinerary.id]: {
-              ...filterByKeys(
-                itinerary,
-                translatedItineraryFields,
-                isTranslatedPart,
-                isTranslatedPart,
-              ),
-              tips: formatList(itinerary.tips, translatedTipFields, isTranslatedPart),
-            },
-          }),
-          {},
-        );
 
       return {
         translated: {
@@ -93,36 +99,28 @@ module.exports = (dato, root) => {
           [cityTag]: {
             ...translatedData,
             itineraries: formatItineraries(nonTranslatedData.itineraries, true),
-            otherMetaTags: formatList(nonTranslatedData.otherMetaTags, translatedTagFields, true),
-            sliderPhotos: formatList(
-              nonTranslatedData.sliderPhotos,
-              translatedImageFields,
-              true,
-              getImageId,
-            ),
-            mainPhoto: filterByKeys(nonTranslatedData.mainPhoto, translatedImageFields, true, true),
+            otherMetaTags: listToObj(nonTranslatedData.otherMetaTags, translatedTagFields, true),
+            sliderPhotos: formatImages(nonTranslatedData.sliderPhotos, true),
+            mainPhoto: formatImage(nonTranslatedData, true, data => data.mainPhoto),
           },
         },
         nonTranslated: {
           ...aggregated.nonTranslated,
           [cityTag]: {
             ...nonTranslatedData,
-            articles: formatList(nonTranslatedData.articles, []),
-            itineraries: formatItineraries(nonTranslatedData.itineraries),
-            otherMetaTags: formatList(nonTranslatedData.otherMetaTags, translatedTagFields),
-            sliderPhotos: formatList(
-              nonTranslatedData.sliderPhotos,
-              translatedImageFields,
-              false,
-              getImageId,
-            ),
-            mainPhoto: filterByKeys(nonTranslatedData.mainPhoto, translatedImageFields),
+            articles: listToObj(nonTranslatedData.articles, [], false),
+            itineraries: formatItineraries(nonTranslatedData.itineraries, false),
+            otherMetaTags: listToObj(nonTranslatedData.otherMetaTags, translatedTagFields, false),
+            sliderPhotos: formatImages(nonTranslatedData.sliderPhotos, false),
+            mainPhoto: formatImage(nonTranslatedData, false, data => data.mainPhoto),
           },
         },
       };
     },
     { translated: {}, nonTranslated: {} },
   );
+
+  formattedData.translated = cleanEmptyValues(formattedData.translated);
 
   // en-GB translation for all cities as a source of truth
   // sent to phraseApp on each build (pushTranslations script)
