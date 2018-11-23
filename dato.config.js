@@ -39,6 +39,7 @@ const nonTranslatedKeys = [
   "sliderPhotos",
   "cityLogo",
   "mainPhoto",
+  "departureForLowestPrice",
   "photoForTwitterCard",
   "photoForFacebookCard",
   "otherMetaTags",
