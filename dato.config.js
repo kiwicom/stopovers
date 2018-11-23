@@ -1,11 +1,24 @@
 // @flow
 
+const translatedImageFields = ["alt", "title"];
+
 const filterByKeys = (data, filterKeys, areIncluded, noEmptyValues) =>
   Object.keys(data)
     .filter(key => (areIncluded ? filterKeys.includes(key) : !filterKeys.includes(key)))
+    .concat("photo") // we need to include this key in all cases
     .reduce((obj, key) => {
       if (noEmptyValues && !data[key]) {
         return obj;
+      }
+      if (key === "photo") {
+        if (!data.photo) return obj;
+        if (data.itemType === "article") {
+          return { ...obj, photo: data.photo };
+        }
+        return {
+          ...obj,
+          photo: filterByKeys(data.photo, translatedImageFields, areIncluded, noEmptyValues),
+        };
       }
       return {
         ...obj,
@@ -22,7 +35,7 @@ const formatList = (list, translatedFields, isTranslatedPart, callback) =>
     };
   }, {});
 
-const getSlideId = slide => slide.url.match(/(\d+)[^/]+(?=\.\w+$)/)[1];
+const getImageId = img => img.url.match(/(\d+)[^/]+(?=\.\w+$)/)[1];
 
 const nonTranslatedKeys = [
   "id",
@@ -53,11 +66,9 @@ module.exports = (dato, root) => {
       const translatedData = filterByKeys(allData, nonTranslatedKeys, false, true);
       const nonTranslatedData = filterByKeys(allData, nonTranslatedKeys, true);
       const cityTag = `${city.name.replace(/ /g, "-").toLowerCase()}_${city.id}`;
-
       const translatedTagFields = ["value"];
       const translatedItineraryFields = ["title"];
       const translatedTipFields = ["title", "description"];
-      const translatedSlideFields = ["alt", "title"];
 
       const formatItineraries = (rawItineraries, isTranslatedPart) =>
         rawItineraries.reduce(
@@ -85,10 +96,11 @@ module.exports = (dato, root) => {
             otherMetaTags: formatList(nonTranslatedData.otherMetaTags, translatedTagFields, true),
             sliderPhotos: formatList(
               nonTranslatedData.sliderPhotos,
-              translatedSlideFields,
+              translatedImageFields,
               true,
-              getSlideId,
+              getImageId,
             ),
+            mainPhoto: filterByKeys(nonTranslatedData.mainPhoto, translatedImageFields, true, true),
           },
         },
         nonTranslated: {
@@ -100,10 +112,11 @@ module.exports = (dato, root) => {
             otherMetaTags: formatList(nonTranslatedData.otherMetaTags, translatedTagFields),
             sliderPhotos: formatList(
               nonTranslatedData.sliderPhotos,
-              translatedSlideFields,
+              translatedImageFields,
               false,
-              getSlideId,
+              getImageId,
             ),
+            mainPhoto: filterByKeys(nonTranslatedData.mainPhoto, translatedImageFields),
           },
         },
       };
