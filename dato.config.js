@@ -25,20 +25,6 @@ const listToObj = (list, filterKeys, areIncluded, getID) =>
     };
   }, {});
 
-const formatItineraries = (itineraries, isTranslatedPart) =>
-  itineraries.reduce(
-    (result, itinerary) => ({
-      ...result,
-      [itinerary.id]: {
-        ...filterByKeys(itinerary, ["title"], isTranslatedPart),
-        tips: cleanEmptyValues(
-          listToObj(itinerary.tips, ["title", "description"], isTranslatedPart),
-        ),
-      },
-    }),
-    {},
-  );
-
 const formatImage = (data, isTranslatedPart, getPhoto) => {
   const photo = getPhoto ? getPhoto(data) : data.photo;
   if (!photo) return data;
@@ -61,6 +47,25 @@ const formatImages = (images, isTranslatedPart, getPhoto) => {
     };
   }, {});
 };
+
+const formatItineraries = (itineraries, isTranslatedPart) =>
+  itineraries.reduce((result, itinerary) => {
+    const tips = cleanEmptyValues(
+      listToObj(itinerary.tips, ["title", "description"], isTranslatedPart),
+    );
+
+    itinerary.tips.forEach(tip => {
+      tips[tip.id].photo = formatImage(tip, isTranslatedPart);
+    });
+
+    return {
+      ...result,
+      [itinerary.id]: {
+        ...filterByKeys(itinerary, ["title"], isTranslatedPart),
+        tips,
+      },
+    };
+  }, {});
 
 const nonTranslatedKeys = [
   "id",
@@ -100,7 +105,7 @@ module.exports = (dato, root) => {
             ...translatedData,
             itineraries: formatItineraries(nonTranslatedData.itineraries, true),
             otherMetaTags: listToObj(nonTranslatedData.otherMetaTags, translatedTagFields, true),
-            sliderPhotos: formatImages(nonTranslatedData.sliderPhotos, true),
+            sliderPhotos: formatImages(nonTranslatedData.sliderPhotos, true, photo => photo),
             mainPhoto: formatImage(nonTranslatedData, true, data => data.mainPhoto),
           },
         },
@@ -111,7 +116,7 @@ module.exports = (dato, root) => {
             articles: listToObj(nonTranslatedData.articles, [], false),
             itineraries: formatItineraries(nonTranslatedData.itineraries, false),
             otherMetaTags: listToObj(nonTranslatedData.otherMetaTags, translatedTagFields, false),
-            sliderPhotos: formatImages(nonTranslatedData.sliderPhotos, false),
+            sliderPhotos: formatImages(nonTranslatedData.sliderPhotos, false, photo => photo),
             mainPhoto: formatImage(nonTranslatedData, false, data => data.mainPhoto),
           },
         },
