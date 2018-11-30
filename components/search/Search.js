@@ -32,7 +32,7 @@ type Props = {
   langId: ?string,
   location: string,
   isStopover: boolean,
-  affilid: string,
+  affilid: ?string,
 };
 
 const generateScript = ({ langId, location, isStopover, affilid }: Props) => {
@@ -51,7 +51,7 @@ const generateScript = ({ langId, location, isStopover, affilid }: Props) => {
   script.setAttribute("data-return", returnDate || "");
   script.setAttribute("data-hide-cookie-banner", "true");
   script.setAttribute("data-user-id", userId);
-  script.setAttribute("data-affilid", affilid || "");
+  script.setAttribute("data-affilid", affilid || "acquisition");
   return script;
 };
 
