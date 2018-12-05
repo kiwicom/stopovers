@@ -1,19 +1,19 @@
 {
   "id": "474176",
   "itemType": "city",
-  "updatedAt": "2018-11-21T13:21:25.710Z",
-  "createdAt": "2018-11-21T12:02:47.337Z",
+  "updatedAt": "2018-12-03T08:51:52.000Z",
+  "createdAt": "2018-11-21T12:02:47.000Z",
   "otherMetaTags": {
     "474175": {
       "id": "474175",
       "itemType": "tag",
-      "updatedAt": "2018-11-21T13:21:25.382Z",
-      "createdAt": "2018-11-21T12:02:47.068Z"
+      "updatedAt": "2018-11-21T13:21:25.000Z",
+      "createdAt": "2018-11-21T12:02:47.000Z"
     }
   },
   "photoForFacebookCard": null,
   "photoForTwitterCard": null,
-  "searchWidgetDataAffilid": "acquisition_tokyo",
+  "searchWidgetDataAffilid": "acquisition_hmc",
   "searchWidgetDataLocation": "NRT,HND",
   "videoYoutubeUrl": null,
   "articles": {},

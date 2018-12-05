@@ -1,19 +1,19 @@
 {
   "id": "474133",
   "itemType": "city",
-  "updatedAt": "2018-11-21T11:31:30.113Z",
-  "createdAt": "2018-11-21T11:18:51.658Z",
+  "updatedAt": "2018-12-03T08:50:44.000Z",
+  "createdAt": "2018-11-21T11:18:51.000Z",
   "otherMetaTags": {
     "474132": {
       "id": "474132",
       "itemType": "tag",
-      "updatedAt": "2018-11-21T11:31:30.004Z",
-      "createdAt": "2018-11-21T11:18:51.296Z"
+      "updatedAt": "2018-11-21T11:31:30.000Z",
+      "createdAt": "2018-11-21T11:18:51.000Z"
     }
   },
   "photoForFacebookCard": null,
   "photoForTwitterCard": null,
-  "searchWidgetDataAffilid": "acquisition_sydney",
+  "searchWidgetDataAffilid": "acquisition_hmc",
   "searchWidgetDataLocation": "SYD",
   "videoYoutubeUrl": null,
   "articles": {},

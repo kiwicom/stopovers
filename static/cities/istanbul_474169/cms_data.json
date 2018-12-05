@@ -1,20 +1,20 @@
 {
   "id": "474169",
   "itemType": "city",
-  "updatedAt": "2018-11-21T11:58:16.062Z",
-  "createdAt": "2018-11-21T11:53:17.532Z",
+  "updatedAt": "2018-12-03T08:49:08.000Z",
+  "createdAt": "2018-11-21T11:53:17.000Z",
   "otherMetaTags": {
     "474168": {
       "id": "474168",
       "itemType": "tag",
-      "updatedAt": "2018-11-21T11:58:15.957Z",
-      "createdAt": "2018-11-21T11:53:17.259Z"
+      "updatedAt": "2018-11-21T11:58:15.000Z",
+      "createdAt": "2018-11-21T11:53:17.000Z"
     }
   },
   "photoForFacebookCard": null,
   "photoForTwitterCard": null,
-  "searchWidgetDataAffilid": "acquisition_istanbul",
-  "searchWidgetDataLocation": "IST,SAW,",
+  "searchWidgetDataAffilid": "acquisition_hmc",
+  "searchWidgetDataLocation": "IST,SAW",
   "videoYoutubeUrl": null,
   "articles": {},
   "partnerLogos": [],

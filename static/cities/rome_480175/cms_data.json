@@ -1,19 +1,19 @@
 {
   "id": "480175",
   "itemType": "city",
-  "updatedAt": "2018-11-21T15:20:31.121Z",
-  "createdAt": "2018-11-21T15:17:52.459Z",
+  "updatedAt": "2018-12-03T08:52:34.000Z",
+  "createdAt": "2018-11-21T15:17:52.000Z",
   "otherMetaTags": {
     "480174": {
       "id": "480174",
       "itemType": "tag",
-      "updatedAt": "2018-11-21T15:19:27.121Z",
-      "createdAt": "2018-11-21T15:17:51.951Z"
+      "updatedAt": "2018-11-21T15:19:27.000Z",
+      "createdAt": "2018-11-21T15:17:51.000Z"
     }
   },
   "photoForFacebookCard": null,
   "photoForTwitterCard": null,
-  "searchWidgetDataAffilid": "acquisition_rome",
+  "searchWidgetDataAffilid": "acquisition_hmc",
   "searchWidgetDataLocation": "FCO,CIA",
   "videoYoutubeUrl": null,
   "articles": {},

@@ -1,19 +1,19 @@
 {
   "id": "474252",
   "itemType": "city",
-  "updatedAt": "2018-11-21T13:25:38.012Z",
-  "createdAt": "2018-11-21T13:21:39.622Z",
+  "updatedAt": "2018-12-03T08:49:27.000Z",
+  "createdAt": "2018-11-21T13:21:39.000Z",
   "otherMetaTags": {
     "474251": {
       "id": "474251",
       "itemType": "tag",
-      "updatedAt": "2018-11-21T13:25:37.652Z",
-      "createdAt": "2018-11-21T13:21:39.007Z"
+      "updatedAt": "2018-11-21T13:25:37.000Z",
+      "createdAt": "2018-11-21T13:21:39.000Z"
     }
   },
   "photoForFacebookCard": null,
   "photoForTwitterCard": null,
-  "searchWidgetDataAffilid": "acquisition_goa",
+  "searchWidgetDataAffilid": "acquisition_hmc",
   "searchWidgetDataLocation": "GOI",
   "videoYoutubeUrl": null,
   "articles": {},

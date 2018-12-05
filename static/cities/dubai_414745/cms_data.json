@@ -1,32 +1,32 @@
 {
   "id": "414745",
   "itemType": "city",
-  "updatedAt": "2018-11-21T22:39:20.804Z",
-  "createdAt": "2018-10-11T09:28:28.025Z",
+  "updatedAt": "2018-11-21T22:39:20.000Z",
+  "createdAt": "2018-10-11T09:28:28.000Z",
   "otherMetaTags": {
     "434525": {
       "id": "434525",
       "itemType": "tag",
-      "updatedAt": "2018-10-19T15:07:29.411Z",
-      "createdAt": "2018-10-19T15:07:29.400Z"
+      "updatedAt": "2018-10-19T15:07:29.000Z",
+      "createdAt": "2018-10-19T15:07:29.000Z"
     },
     "434526": {
       "id": "434526",
       "itemType": "tag",
-      "updatedAt": "2018-10-19T15:07:29.511Z",
-      "createdAt": "2018-10-19T15:07:29.504Z"
+      "updatedAt": "2018-10-19T15:07:29.000Z",
+      "createdAt": "2018-10-19T15:07:29.000Z"
     },
     "434527": {
       "id": "434527",
       "itemType": "tag",
-      "updatedAt": "2018-10-19T15:07:29.552Z",
-      "createdAt": "2018-10-19T15:07:29.541Z"
+      "updatedAt": "2018-10-19T15:07:29.000Z",
+      "createdAt": "2018-10-19T15:07:29.000Z"
     },
     "434528": {
       "id": "434528",
       "itemType": "tag",
-      "updatedAt": "2018-10-19T15:07:29.603Z",
-      "createdAt": "2018-10-19T15:07:29.591Z"
+      "updatedAt": "2018-10-19T15:07:29.000Z",
+      "createdAt": "2018-10-19T15:07:29.000Z"
     }
   },
   "photoForFacebookCard": {
@@ -62,8 +62,8 @@
     "414771": {
       "id": "414771",
       "itemType": "article",
-      "updatedAt": "2018-10-11T09:57:36.306Z",
-      "createdAt": "2018-10-11T09:55:05.760Z",
+      "updatedAt": "2018-10-11T09:57:36.000Z",
+      "createdAt": "2018-10-11T09:55:05.000Z",
       "linkText": "Explore Dubai",
       "url": "https://www.kiwi.com/stories/these-are-the-best-things-to-do-in-dubai/?utm_source=kiwicom&utm_medium=website&utm_campaign=these-are-the-best-things-to-do-in-dubai",
       "description": "Here are our favorite things to do in the UAE’s resort city, as well as some things you may not have thought about.",
@@ -81,8 +81,8 @@
     "414772": {
       "id": "414772",
       "itemType": "article",
-      "updatedAt": "2018-10-11T09:59:26.852Z",
-      "createdAt": "2018-10-11T09:59:26.847Z",
+      "updatedAt": "2018-10-11T09:59:26.000Z",
+      "createdAt": "2018-10-11T09:59:26.000Z",
       "linkText": "One - Two - GO!",
       "url": "https://www.kiwi.com/stories/adrenaline-in-the-desert-dubai-unveils-worlds-longest-urban-zipline/?utm_source=kiwicom&utm_medium=website&utm_campaign=adrenaline-in-the-desert-dubai-unveils-worlds-longest-urban-zipline",
       "description": "One kilometer long and two people sliding simultaneously - there's a new zip line over Dubai Marina.",
@@ -100,8 +100,8 @@
     "414773": {
       "id": "414773",
       "itemType": "article",
-      "updatedAt": "2018-10-11T10:00:21.904Z",
-      "createdAt": "2018-10-11T10:00:21.901Z",
+      "updatedAt": "2018-10-11T10:00:21.000Z",
+      "createdAt": "2018-10-11T10:00:21.000Z",
       "linkText": "Extend your trip",
       "url": "https://www.kiwi.com/stories/uae-to-introduce-free-visa-for-48-hour-trips/?utm_source=kiwicom&utm_medium=website&utm_campaign=uae-to-introduce-free-visa-for-48-hour-trips",
       "description": "In what could be a boon for tourism to Dubai, UAE to introduce free visa for 48-hour trips. The transit visa can be extended to 96 hours for a small fee.",
@@ -150,14 +150,14 @@
     "414777": {
       "id": "414777",
       "itemType": "itinerary",
-      "updatedAt": "2018-10-25T14:16:31.046Z",
-      "createdAt": "2018-10-11T10:02:42.050Z",
+      "updatedAt": "2018-10-25T14:16:31.000Z",
+      "createdAt": "2018-10-11T10:02:42.000Z",
       "tips": {
         "414775": {
           "id": "414775",
           "itemType": "tip",
-          "updatedAt": "2018-10-11T10:02:41.868Z",
-          "createdAt": "2018-10-11T10:02:41.861Z",
+          "updatedAt": "2018-10-11T10:02:41.000Z",
+          "createdAt": "2018-10-11T10:02:41.000Z",
           "photo": {
             "format": "jpg",
             "size": 146635,
@@ -170,8 +170,8 @@
         "414776": {
           "id": "414776",
           "itemType": "tip",
-          "updatedAt": "2018-10-11T10:02:41.968Z",
-          "createdAt": "2018-10-11T10:02:41.957Z",
+          "updatedAt": "2018-10-11T10:02:41.000Z",
+          "createdAt": "2018-10-11T10:02:41.000Z",
           "photo": {
             "format": "jpg",
             "size": 215629,
@@ -184,8 +184,8 @@
         "439222": {
           "id": "439222",
           "itemType": "tip",
-          "updatedAt": "2018-10-25T13:56:02.848Z",
-          "createdAt": "2018-10-25T13:56:02.836Z",
+          "updatedAt": "2018-10-25T13:56:02.000Z",
+          "createdAt": "2018-10-25T13:56:02.000Z",
           "photo": {
             "format": "jpg",
             "size": 118033,
@@ -198,8 +198,8 @@
         "439223": {
           "id": "439223",
           "itemType": "tip",
-          "updatedAt": "2018-10-25T13:57:15.357Z",
-          "createdAt": "2018-10-25T13:57:15.346Z",
+          "updatedAt": "2018-10-25T13:57:15.000Z",
+          "createdAt": "2018-10-25T13:57:15.000Z",
           "photo": {
             "format": "jpg",
             "size": 107062,
@@ -212,8 +212,8 @@
         "439224": {
           "id": "439224",
           "itemType": "tip",
-          "updatedAt": "2018-10-25T13:57:15.487Z",
-          "createdAt": "2018-10-25T13:57:15.479Z",
+          "updatedAt": "2018-10-25T13:57:15.000Z",
+          "createdAt": "2018-10-25T13:57:15.000Z",
           "photo": {
             "format": "jpg",
             "size": 114865,
@@ -226,8 +226,8 @@
         "439227": {
           "id": "439227",
           "itemType": "tip",
-          "updatedAt": "2018-10-25T14:00:06.490Z",
-          "createdAt": "2018-10-25T14:00:06.473Z",
+          "updatedAt": "2018-10-25T14:00:06.000Z",
+          "createdAt": "2018-10-25T14:00:06.000Z",
           "photo": {
             "format": "jpg",
             "size": 124437,
@@ -240,8 +240,8 @@
         "439228": {
           "id": "439228",
           "itemType": "tip",
-          "updatedAt": "2018-10-25T14:16:30.908Z",
-          "createdAt": "2018-10-25T14:00:06.697Z",
+          "updatedAt": "2018-10-25T14:16:30.000Z",
+          "createdAt": "2018-10-25T14:00:06.000Z",
           "photo": {
             "format": "jpg",
             "size": 214021,
@@ -256,14 +256,14 @@
     "414791": {
       "id": "414791",
       "itemType": "itinerary",
-      "updatedAt": "2018-10-25T14:06:10.128Z",
-      "createdAt": "2018-10-11T10:05:39.159Z",
+      "updatedAt": "2018-10-25T14:06:10.000Z",
+      "createdAt": "2018-10-11T10:05:39.000Z",
       "tips": {
         "414790": {
           "id": "414790",
           "itemType": "tip",
-          "updatedAt": "2018-10-11T10:05:39.121Z",
-          "createdAt": "2018-10-11T10:05:39.117Z",
+          "updatedAt": "2018-10-11T10:05:39.000Z",
+          "createdAt": "2018-10-11T10:05:39.000Z",
           "photo": {
             "format": "jpg",
             "size": 166472,
@@ -276,8 +276,8 @@
         "439231": {
           "id": "439231",
           "itemType": "tip",
-          "updatedAt": "2018-10-25T14:06:08.150Z",
-          "createdAt": "2018-10-25T14:06:08.122Z",
+          "updatedAt": "2018-10-25T14:06:08.000Z",
+          "createdAt": "2018-10-25T14:06:08.000Z",
           "photo": {
             "format": "jpg",
             "size": 121500,
@@ -290,8 +290,8 @@
         "439232": {
           "id": "439232",
           "itemType": "tip",
-          "updatedAt": "2018-10-25T14:06:08.420Z",
-          "createdAt": "2018-10-25T14:06:08.407Z",
+          "updatedAt": "2018-10-25T14:06:08.000Z",
+          "createdAt": "2018-10-25T14:06:08.000Z",
           "photo": {
             "format": "jpg",
             "size": 181256,
@@ -304,8 +304,8 @@
         "439233": {
           "id": "439233",
           "itemType": "tip",
-          "updatedAt": "2018-10-25T14:06:08.840Z",
-          "createdAt": "2018-10-25T14:06:08.814Z",
+          "updatedAt": "2018-10-25T14:06:08.000Z",
+          "createdAt": "2018-10-25T14:06:08.000Z",
           "photo": {
             "format": "jpg",
             "size": 181072,
@@ -318,8 +318,8 @@
         "439234": {
           "id": "439234",
           "itemType": "tip",
-          "updatedAt": "2018-10-25T14:06:09.295Z",
-          "createdAt": "2018-10-25T14:06:09.223Z",
+          "updatedAt": "2018-10-25T14:06:09.000Z",
+          "createdAt": "2018-10-25T14:06:09.000Z",
           "photo": {
             "format": "jpg",
             "size": 184093,
@@ -332,8 +332,8 @@
         "439235": {
           "id": "439235",
           "itemType": "tip",
-          "updatedAt": "2018-10-25T14:06:09.667Z",
-          "createdAt": "2018-10-25T14:06:09.660Z",
+          "updatedAt": "2018-10-25T14:06:09.000Z",
+          "createdAt": "2018-10-25T14:06:09.000Z",
           "photo": {
             "format": "jpg",
             "size": 198355,
@@ -346,8 +346,8 @@
         "439236": {
           "id": "439236",
           "itemType": "tip",
-          "updatedAt": "2018-10-25T14:06:09.968Z",
-          "createdAt": "2018-10-25T14:06:09.921Z",
+          "updatedAt": "2018-10-25T14:06:09.000Z",
+          "createdAt": "2018-10-25T14:06:09.000Z",
           "photo": {
             "format": "jpg",
             "size": 172652,
@@ -362,14 +362,14 @@
     "439245": {
       "id": "439245",
       "itemType": "itinerary",
-      "updatedAt": "2018-10-25T14:26:25.832Z",
-      "createdAt": "2018-10-25T14:11:56.548Z",
+      "updatedAt": "2018-10-25T14:26:25.000Z",
+      "createdAt": "2018-10-25T14:11:56.000Z",
       "tips": {
         "439238": {
           "id": "439238",
           "itemType": "tip",
-          "updatedAt": "2018-10-25T14:11:55.793Z",
-          "createdAt": "2018-10-25T14:11:55.786Z",
+          "updatedAt": "2018-10-25T14:11:55.000Z",
+          "createdAt": "2018-10-25T14:11:55.000Z",
           "photo": {
             "format": "jpg",
             "size": 204437,
@@ -382,8 +382,8 @@
         "439239": {
           "id": "439239",
           "itemType": "tip",
-          "updatedAt": "2018-10-25T14:26:25.759Z",
-          "createdAt": "2018-10-25T14:11:55.915Z",
+          "updatedAt": "2018-10-25T14:26:25.000Z",
+          "createdAt": "2018-10-25T14:11:55.000Z",
           "photo": {
             "format": "jpg",
             "size": 114865,
@@ -396,8 +396,8 @@
         "439240": {
           "id": "439240",
           "itemType": "tip",
-          "updatedAt": "2018-10-25T14:11:56.036Z",
-          "createdAt": "2018-10-25T14:11:56.028Z",
+          "updatedAt": "2018-10-25T14:11:56.000Z",
+          "createdAt": "2018-10-25T14:11:56.000Z",
           "photo": {
             "format": "jpg",
             "size": 86171,
@@ -410,8 +410,8 @@
         "439241": {
           "id": "439241",
           "itemType": "tip",
-          "updatedAt": "2018-10-25T14:11:56.127Z",
-          "createdAt": "2018-10-25T14:11:56.116Z",
+          "updatedAt": "2018-10-25T14:11:56.000Z",
+          "createdAt": "2018-10-25T14:11:56.000Z",
           "photo": {
             "format": "jpg",
             "size": 111756,
@@ -424,8 +424,8 @@
         "439242": {
           "id": "439242",
           "itemType": "tip",
-          "updatedAt": "2018-10-25T14:11:56.216Z",
-          "createdAt": "2018-10-25T14:11:56.205Z",
+          "updatedAt": "2018-10-25T14:11:56.000Z",
+          "createdAt": "2018-10-25T14:11:56.000Z",
           "photo": {
             "format": "jpg",
             "size": 142112,
@@ -438,8 +438,8 @@
         "439243": {
           "id": "439243",
           "itemType": "tip",
-          "updatedAt": "2018-10-25T14:11:56.325Z",
-          "createdAt": "2018-10-25T14:11:56.317Z",
+          "updatedAt": "2018-10-25T14:11:56.000Z",
+          "createdAt": "2018-10-25T14:11:56.000Z",
           "photo": {
             "format": "jpg",
             "size": 93880,
@@ -452,8 +452,8 @@
         "439244": {
           "id": "439244",
           "itemType": "tip",
-          "updatedAt": "2018-10-25T14:11:56.453Z",
-          "createdAt": "2018-10-25T14:11:56.441Z",
+          "updatedAt": "2018-10-25T14:11:56.000Z",
+          "createdAt": "2018-10-25T14:11:56.000Z",
           "photo": {
             "format": "jpg",
             "size": 108047,
@@ -468,14 +468,14 @@
     "439256": {
       "id": "439256",
       "itemType": "itinerary",
-      "updatedAt": "2018-10-25T14:21:45.553Z",
-      "createdAt": "2018-10-25T14:15:46.055Z",
+      "updatedAt": "2018-10-25T14:21:45.000Z",
+      "createdAt": "2018-10-25T14:15:46.000Z",
       "tips": {
         "439254": {
           "id": "439254",
           "itemType": "tip",
-          "updatedAt": "2018-10-25T14:15:45.920Z",
-          "createdAt": "2018-10-25T14:15:45.892Z",
+          "updatedAt": "2018-10-25T14:15:45.000Z",
+          "createdAt": "2018-10-25T14:15:45.000Z",
           "photo": {
             "format": "jpg",
             "size": 131360,
@@ -488,8 +488,8 @@
         "439255": {
           "id": "439255",
           "itemType": "tip",
-          "updatedAt": "2018-10-25T14:15:45.995Z",
-          "createdAt": "2018-10-25T14:15:45.989Z",
+          "updatedAt": "2018-10-25T14:15:45.000Z",
+          "createdAt": "2018-10-25T14:15:45.000Z",
           "photo": {
             "format": "jpg",
             "size": 172704,
@@ -502,8 +502,8 @@
         "439270": {
           "id": "439270",
           "itemType": "tip",
-          "updatedAt": "2018-10-25T14:21:45.360Z",
-          "createdAt": "2018-10-25T14:21:45.356Z",
+          "updatedAt": "2018-10-25T14:21:45.000Z",
+          "createdAt": "2018-10-25T14:21:45.000Z",
           "photo": {
             "format": "jpg",
             "size": 185751,
@@ -516,8 +516,8 @@
         "439271": {
           "id": "439271",
           "itemType": "tip",
-          "updatedAt": "2018-10-25T14:21:45.396Z",
-          "createdAt": "2018-10-25T14:21:45.392Z",
+          "updatedAt": "2018-10-25T14:21:45.000Z",
+          "createdAt": "2018-10-25T14:21:45.000Z",
           "photo": {
             "format": "jpg",
             "size": 129173,
@@ -530,8 +530,8 @@
         "439272": {
           "id": "439272",
           "itemType": "tip",
-          "updatedAt": "2018-10-25T14:21:45.435Z",
-          "createdAt": "2018-10-25T14:21:45.431Z",
+          "updatedAt": "2018-10-25T14:21:45.000Z",
+          "createdAt": "2018-10-25T14:21:45.000Z",
           "photo": {
             "format": "jpg",
             "size": 141672,
@@ -544,8 +544,8 @@
         "439273": {
           "id": "439273",
           "itemType": "tip",
-          "updatedAt": "2018-10-25T14:21:45.477Z",
-          "createdAt": "2018-10-25T14:21:45.473Z",
+          "updatedAt": "2018-10-25T14:21:45.000Z",
+          "createdAt": "2018-10-25T14:21:45.000Z",
           "photo": {
             "format": "jpg",
             "size": 179082,
@@ -558,8 +558,8 @@
         "439274": {
           "id": "439274",
           "itemType": "tip",
-          "updatedAt": "2018-10-25T14:21:45.515Z",
-          "createdAt": "2018-10-25T14:21:45.511Z",
+          "updatedAt": "2018-10-25T14:21:45.000Z",
+          "createdAt": "2018-10-25T14:21:45.000Z",
           "photo": {
             "format": "jpg",
             "size": 201160,
@@ -574,14 +574,14 @@
     "439277": {
       "id": "439277",
       "itemType": "itinerary",
-      "updatedAt": "2018-10-25T14:33:24.025Z",
-      "createdAt": "2018-10-25T14:23:28.221Z",
+      "updatedAt": "2018-10-25T14:33:24.000Z",
+      "createdAt": "2018-10-25T14:23:28.000Z",
       "tips": {
         "439276": {
           "id": "439276",
           "itemType": "tip",
-          "updatedAt": "2018-10-25T14:23:28.137Z",
-          "createdAt": "2018-10-25T14:23:28.130Z",
+          "updatedAt": "2018-10-25T14:23:28.000Z",
+          "createdAt": "2018-10-25T14:23:28.000Z",
           "photo": {
             "format": "jpg",
             "size": 121911,
@@ -594,8 +594,8 @@
         "439278": {
           "id": "439278",
           "itemType": "tip",
-          "updatedAt": "2018-10-25T14:33:22.784Z",
-          "createdAt": "2018-10-25T14:33:22.762Z",
+          "updatedAt": "2018-10-25T14:33:22.000Z",
+          "createdAt": "2018-10-25T14:33:22.000Z",
           "photo": {
             "format": "jpg",
             "size": 45555,
@@ -608,8 +608,8 @@
         "439279": {
           "id": "439279",
           "itemType": "tip",
-          "updatedAt": "2018-10-25T14:33:23.192Z",
-          "createdAt": "2018-10-25T14:33:23.184Z",
+          "updatedAt": "2018-10-25T14:33:23.000Z",
+          "createdAt": "2018-10-25T14:33:23.000Z",
           "photo": {
             "format": "jpg",
             "size": 168564,
@@ -622,8 +622,8 @@
         "439280": {
           "id": "439280",
           "itemType": "tip",
-          "updatedAt": "2018-10-25T14:33:23.470Z",
-          "createdAt": "2018-10-25T14:33:23.457Z",
+          "updatedAt": "2018-10-25T14:33:23.000Z",
+          "createdAt": "2018-10-25T14:33:23.000Z",
           "photo": {
             "format": "jpg",
             "size": 114865,
@@ -636,8 +636,8 @@
         "439281": {
           "id": "439281",
           "itemType": "tip",
-          "updatedAt": "2018-10-25T14:33:23.652Z",
-          "createdAt": "2018-10-25T14:33:23.647Z",
+          "updatedAt": "2018-10-25T14:33:23.000Z",
+          "createdAt": "2018-10-25T14:33:23.000Z",
           "photo": {
             "format": "jpg",
             "size": 310921,
@@ -650,8 +650,8 @@
         "439282": {
           "id": "439282",
           "itemType": "tip",
-          "updatedAt": "2018-10-25T14:33:23.769Z",
-          "createdAt": "2018-10-25T14:33:23.760Z",
+          "updatedAt": "2018-10-25T14:33:23.000Z",
+          "createdAt": "2018-10-25T14:33:23.000Z",
           "photo": {
             "format": "jpg",
             "size": 142483,
@@ -664,8 +664,8 @@
         "439283": {
           "id": "439283",
           "itemType": "tip",
-          "updatedAt": "2018-10-25T14:33:23.907Z",
-          "createdAt": "2018-10-25T14:33:23.884Z",
+          "updatedAt": "2018-10-25T14:33:23.000Z",
+          "createdAt": "2018-10-25T14:33:23.000Z",
           "photo": {
             "format": "jpg",
             "size": 114873,

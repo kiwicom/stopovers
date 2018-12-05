@@ -45,7 +45,11 @@ export function getBrandLanguage(langId: string, supportedLangs: LangInfos): Bra
 export function getCurrentUrlParams(): Object {
   const params = {};
   new URL(window.location.href).searchParams.forEach((value, key) => {
-    params[key] = value;
+    if (key === "return") {
+      params.returnDate = value;
+    } else {
+      params[key] = value;
+    }
   });
   return params;
 }
