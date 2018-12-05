@@ -1,19 +1,19 @@
 {
   "id": "474154",
   "itemType": "city",
-  "updatedAt": "2018-11-21T11:42:08.198Z",
-  "createdAt": "2018-11-21T11:38:10.492Z",
+  "updatedAt": "2018-12-03T08:51:17.000Z",
+  "createdAt": "2018-11-21T11:38:10.000Z",
   "otherMetaTags": {
     "474153": {
       "id": "474153",
       "itemType": "tag",
-      "updatedAt": "2018-11-21T11:42:07.990Z",
-      "createdAt": "2018-11-21T11:38:10.177Z"
+      "updatedAt": "2018-11-21T11:42:07.000Z",
+      "createdAt": "2018-11-21T11:38:10.000Z"
     }
   },
   "photoForFacebookCard": null,
   "photoForTwitterCard": null,
-  "searchWidgetDataAffilid": "acquisition_telaviv",
+  "searchWidgetDataAffilid": "acquisition_hmc",
   "searchWidgetDataLocation": "TLV",
   "videoYoutubeUrl": null,
   "articles": {},

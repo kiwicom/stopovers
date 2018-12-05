@@ -1,19 +1,19 @@
 {
   "id": "465960",
   "itemType": "city",
-  "updatedAt": "2018-11-21T11:29:36.062Z",
-  "createdAt": "2018-11-16T13:46:46.707Z",
+  "updatedAt": "2018-12-03T08:50:26.000Z",
+  "createdAt": "2018-11-16T13:46:46.000Z",
   "otherMetaTags": {
     "465959": {
       "id": "465959",
       "itemType": "tag",
-      "updatedAt": "2018-11-16T14:46:35.432Z",
-      "createdAt": "2018-11-16T13:46:46.222Z"
+      "updatedAt": "2018-11-16T14:46:35.000Z",
+      "createdAt": "2018-11-16T13:46:46.000Z"
     }
   },
   "photoForFacebookCard": null,
   "photoForTwitterCard": null,
-  "searchWidgetDataAffilid": "acquisition_auckland",
+  "searchWidgetDataAffilid": "acquisition_hmc",
   "searchWidgetDataLocation": "AKL",
   "videoYoutubeUrl": null,
   "articles": {},

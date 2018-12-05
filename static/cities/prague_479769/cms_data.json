@@ -1,19 +1,19 @@
 {
   "id": "479769",
   "itemType": "city",
-  "updatedAt": "2018-11-21T15:16:22.658Z",
-  "createdAt": "2018-11-21T15:13:34.802Z",
+  "updatedAt": "2018-12-03T08:52:14.000Z",
+  "createdAt": "2018-11-21T15:13:34.000Z",
   "otherMetaTags": {
     "479767": {
       "id": "479767",
       "itemType": "tag",
-      "updatedAt": "2018-11-21T15:16:22.440Z",
-      "createdAt": "2018-11-21T15:13:34.523Z"
+      "updatedAt": "2018-11-21T15:16:22.000Z",
+      "createdAt": "2018-11-21T15:13:34.000Z"
     }
   },
   "photoForFacebookCard": null,
   "photoForTwitterCard": null,
-  "searchWidgetDataAffilid": "acquisition_prague",
+  "searchWidgetDataAffilid": "acquisition_hmc",
   "searchWidgetDataLocation": "PRG",
   "videoYoutubeUrl": null,
   "articles": {},

@@ -1,19 +1,19 @@
 {
   "id": "480363",
   "itemType": "city",
-  "updatedAt": "2018-11-21T15:23:17.616Z",
-  "createdAt": "2018-11-21T15:19:40.938Z",
+  "updatedAt": "2018-12-03T08:53:00.000Z",
+  "createdAt": "2018-11-21T15:19:40.000Z",
   "otherMetaTags": {
     "480362": {
       "id": "480362",
       "itemType": "tag",
-      "updatedAt": "2018-11-21T15:23:17.429Z",
-      "createdAt": "2018-11-21T15:19:40.435Z"
+      "updatedAt": "2018-11-21T15:23:17.000Z",
+      "createdAt": "2018-11-21T15:19:40.000Z"
     }
   },
   "photoForFacebookCard": null,
   "photoForTwitterCard": null,
-  "searchWidgetDataAffilid": "acquisition_barcelona",
+  "searchWidgetDataAffilid": "acquisition_hmc",
   "searchWidgetDataLocation": "BCN",
   "videoYoutubeUrl": null,
   "articles": {},

@@ -1,19 +1,19 @@
 {
   "id": "474157",
   "itemType": "city",
-  "updatedAt": "2018-11-21T11:53:08.103Z",
-  "createdAt": "2018-11-21T11:42:22.260Z",
+  "updatedAt": "2018-12-03T08:37:54.000Z",
+  "createdAt": "2018-11-21T11:42:22.000Z",
   "otherMetaTags": {
     "474156": {
       "id": "474156",
       "itemType": "tag",
-      "updatedAt": "2018-11-21T11:53:08.005Z",
-      "createdAt": "2018-11-21T11:42:21.908Z"
+      "updatedAt": "2018-11-21T11:53:08.000Z",
+      "createdAt": "2018-11-21T11:42:21.000Z"
     }
   },
   "photoForFacebookCard": null,
   "photoForTwitterCard": null,
-  "searchWidgetDataAffilid": "acquisition_dubai",
+  "searchWidgetDataAffilid": "acquisition_hmc",
   "searchWidgetDataLocation": "DXB,DWC",
   "videoYoutubeUrl": null,
   "articles": {},
@@ -24,10 +24,10 @@
   "cityLogo": null,
   "mainPhoto": {
     "format": "jpg",
-    "size": 5309521,
-    "width": 5760,
-    "height": 3840,
-    "url": "https://www.datocms-assets.com/7631/1542800760-dubaiaemoh-354211-unsplash.jpg"
+    "size": 5214070,
+    "width": 4800,
+    "height": 3200,
+    "url": "https://www.datocms-assets.com/7631/1543579889-dubaijeshoots-com-287411-unsplash.jpg"
   },
   "isStopover": false
 }

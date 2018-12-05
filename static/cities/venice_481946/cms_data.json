@@ -1,19 +1,19 @@
 {
   "id": "481946",
   "itemType": "city",
-  "updatedAt": "2018-11-21T15:37:59.580Z",
-  "createdAt": "2018-11-21T15:34:47.094Z",
+  "updatedAt": "2018-12-03T08:50:06.000Z",
+  "createdAt": "2018-11-21T15:34:47.000Z",
   "otherMetaTags": {
     "481944": {
       "id": "481944",
       "itemType": "tag",
-      "updatedAt": "2018-11-21T15:37:59.095Z",
-      "createdAt": "2018-11-21T15:34:46.338Z"
+      "updatedAt": "2018-11-21T15:37:59.000Z",
+      "createdAt": "2018-11-21T15:34:46.000Z"
     }
   },
   "photoForFacebookCard": null,
   "photoForTwitterCard": null,
-  "searchWidgetDataAffilid": "acquisition_venice",
+  "searchWidgetDataAffilid": "acquisition_hmc",
   "searchWidgetDataLocation": "VCE,TSF",
   "videoYoutubeUrl": null,
   "articles": {},

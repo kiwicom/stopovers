@@ -1,19 +1,19 @@
 {
   "id": "481205",
   "itemType": "city",
-  "updatedAt": "2018-11-21T15:30:35.455Z",
-  "createdAt": "2018-11-21T15:27:44.900Z",
+  "updatedAt": "2018-12-03T08:37:35.000Z",
+  "createdAt": "2018-11-21T15:27:44.000Z",
   "otherMetaTags": {
     "481203": {
       "id": "481203",
       "itemType": "tag",
-      "updatedAt": "2018-11-21T15:29:59.425Z",
-      "createdAt": "2018-11-21T15:27:44.534Z"
+      "updatedAt": "2018-11-21T15:29:59.000Z",
+      "createdAt": "2018-11-21T15:27:44.000Z"
     }
   },
   "photoForFacebookCard": null,
   "photoForTwitterCard": null,
-  "searchWidgetDataAffilid": "acquisition_london",
+  "searchWidgetDataAffilid": "acquisition_hmc",
   "searchWidgetDataLocation": "LGW,STN,LTN,LHR,SEN,LCY",
   "videoYoutubeUrl": null,
   "articles": {},

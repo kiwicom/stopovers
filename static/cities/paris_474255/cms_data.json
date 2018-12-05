@@ -1,19 +1,19 @@
 {
   "id": "474255",
   "itemType": "city",
-  "updatedAt": "2018-11-21T14:50:44.623Z",
-  "createdAt": "2018-11-21T13:26:11.445Z",
+  "updatedAt": "2018-12-03T08:38:29.000Z",
+  "createdAt": "2018-11-21T13:26:11.000Z",
   "otherMetaTags": {
     "474254": {
       "id": "474254",
       "itemType": "tag",
-      "updatedAt": "2018-11-21T14:50:44.523Z",
-      "createdAt": "2018-11-21T13:26:10.725Z"
+      "updatedAt": "2018-11-21T14:50:44.000Z",
+      "createdAt": "2018-11-21T13:26:10.000Z"
     }
   },
   "photoForFacebookCard": null,
   "photoForTwitterCard": null,
-  "searchWidgetDataAffilid": "acquisition_paris",
+  "searchWidgetDataAffilid": "acquisition_hmc",
   "searchWidgetDataLocation": "ORY,CDG,BVA,LBG,XCR",
   "videoYoutubeUrl": null,
   "articles": {},
@@ -24,10 +24,10 @@
   "cityLogo": null,
   "mainPhoto": {
     "format": "jpg",
-    "size": 2361539,
-    "width": 4437,
-    "height": 6656,
-    "url": "https://www.datocms-assets.com/7631/1542810345-parisfranthony-delanoix-460516-unsplash.jpg"
+    "size": 1679255,
+    "width": 2304,
+    "height": 1536,
+    "url": "https://www.datocms-assets.com/7631/1543244363-parisdaniil-vnoutchkov-591536-unsplash.jpg"
   },
   "isStopover": false
 }
