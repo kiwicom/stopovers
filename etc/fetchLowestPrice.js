@@ -3,7 +3,8 @@
 import fetch from "isomorphic-unfetch";
 import { DateTime } from "luxon";
 
-const url = "https://api.skypicker.com/umbrella/graphql";
+const endpoint = "https://api.skypicker.com/umbrella/graphql";
+const geoIPUrl = "https://geoip-api.skypicker.com/";
 const query = `
   query($parameters: Parameters!) {
     get_flights(parameters: $parameters) {
@@ -15,22 +16,24 @@ const query = `
   }
 `;
 
-export default async function getLowestPrice(
-  departure: "EU" | "US",
-  arrival: string,
-): Promise<string> {
+export default async function getLowestPrice(arrival: string): Promise<?string> {
   const now = DateTime.local();
   const dateFrom = now.toFormat("dd/MM/yyyy");
   const dateTo = now.plus({ months: 3 }).toFormat("dd/MM/yyyy");
+
+  const geoIPResponse = await fetch(geoIPUrl, {
+    method: "GET",
+    headers: { "Content-Type": "application/json" },
+  });
+
+  const userLocation = await geoIPResponse.json();
 
   const variables = {
     parameters: {
       dateFrom,
       dateTo,
       to: arrival,
-      // The API is fine with US, but wants europe instead of EU, so here we convert
-      // EU to europe when needed.
-      flyFrom: departure === "EU" ? "europe" : departure,
+      flyFrom: `${userLocation.latitude}-${userLocation.longitude}-250km`,
       adults: 1,
       typeFlight: "oneway",
       curr: "EUR",
@@ -40,7 +43,7 @@ export default async function getLowestPrice(
     },
   };
 
-  const response = await fetch(url, {
+  const response = await fetch(endpoint, {
     method: "POST",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify({ query, variables }),
@@ -54,8 +57,5 @@ export default async function getLowestPrice(
   if (price.amount && price.currency) {
     return `${price.amount} ${price.currency}`;
   }
-  // There should always be a result returned from the API. If there isn't this
-  // error is thrown so the build fails and we can check what went wrong.
-  // eslint-disable-next-line fp/no-throw
-  throw new Error(`lowest price not found for "${departure}" => "${arrival}"`);
+  return null;
 }
