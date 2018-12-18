@@ -97,12 +97,13 @@ type Props = {
     url: string,
     alt: string,
   },
+  isPriceLoaderShown: boolean,
 };
 
-const Hero = ({ photo, logo }: Props) => (
+const Hero = ({ photo, logo, isPriceLoaderShown }: Props) => (
   <Wrapper>
     <ContentWrapper>
-      <Content />
+      <Content isPriceLoading={isPriceLoaderShown} />
     </ContentWrapper>
     <ImageWrapper>
       {photo && <Image src={`${photo.url}?w=1000`} alt={photo.alt} />}

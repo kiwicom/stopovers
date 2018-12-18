@@ -1,18 +1,34 @@
 {
   "id": "481538",
   "itemType": "city",
-  "updatedAt": "2018-12-03T08:53:20.000Z",
-  "createdAt": "2018-11-21T15:30:52.000Z",
+  "updatedAt": "2018-12-18T15:39:59.655Z",
+  "createdAt": "2018-11-21T15:30:52.983Z",
   "otherMetaTags": {
     "481537": {
       "id": "481537",
       "itemType": "tag",
-      "updatedAt": "2018-11-21T15:34:10.000Z",
-      "createdAt": "2018-11-21T15:30:52.000Z"
+      "updatedAt": "2018-11-21T15:34:10.801Z",
+      "createdAt": "2018-11-21T15:30:52.655Z"
     }
   },
-  "photoForFacebookCard": null,
-  "photoForTwitterCard": null,
+  "photoForFacebookCard": {
+    "format": "jpg",
+    "size": 16840151,
+    "width": 5580,
+    "height": 3744,
+    "title": null,
+    "alt": null,
+    "url": "https://www.datocms-assets.com/7631/1545144831-stockholmse.jpg"
+  },
+  "photoForTwitterCard": {
+    "format": "jpg",
+    "size": 16840151,
+    "width": 5580,
+    "height": 3744,
+    "title": null,
+    "alt": null,
+    "url": "https://www.datocms-assets.com/7631/1545144830-stockholmse.jpg"
+  },
   "searchWidgetDataAffilid": "acquisition_hmc",
   "searchWidgetDataLocation": "ARN,NYO,BMA,VST",
   "videoYoutubeUrl": null,
@@ -27,7 +43,7 @@
     "size": 10095728,
     "width": 4599,
     "height": 2983,
-    "url": "https://www.datocms-assets.com/7631/1542814432-stockholmseshutterstock1200086689.jpg"
+    "url": "https://www.datocms-assets.com/7631/1544772522-stockholmseshutterstock1200086689.jpg"
   },
   "isStopover": false
 }

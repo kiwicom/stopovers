@@ -1,6 +1,6 @@
 {
-  "mainActionButtonText": "Travel to Stockholm from only [price]",
-  "mainDescription": "Stylish Stockholm is elegance on water. Use our groundbreaking flight search technology and explore one of the world’s greatest destinations",
+  "mainActionButtonText": "Travel to Catalonia from only [price]",
+  "mainDescription": "Use our groundbreaking flight search technology and explore one of the world’s greatest destinations",
   "mainPhoto.cityLogo.format": "png",
   "mainPhoto.cityLogo.height": "900",
   "mainPhoto.cityLogo.size": "3078756",
@@ -17,14 +17,14 @@
   "mainPhoto.otherMetaTags.0.value": "Stockholm",
   "mainPhoto.searchWidgetDataAffilid": "acquisition_hmc",
   "mainPhoto.searchWidgetDataLocation": "ARN,NYO,BMA,VST",
-  "mainPhoto.updatedAt": "2018-12-12T15:09:16.000Z",
-  "mainTitle": "Stockholm: style capital of Scandinavia",
-  "metaDescription": "Walk between Stockholm's 14 islands and you'll see a city that's beautiful, cultural, stimulating, laid-back, self-effacing and forward-thinking in equal measure. No wonder the locals call it \"beauty on water\".",
-  "metaTitle": "Picture yourself in unforgettable Stockholm",
-  "name": "Stockholm",
+  "mainPhoto.updatedAt": "2018-12-12T09:41:38.000Z",
+  "mainTitle": "Catalonia beyond Barcelona",
+  "metaDescription": "Stockholm dec",
+  "metaTitle": "Stockholm",
+  "name": "Catalonia",
   "otherMetaTags.481537.value": "Stockholm",
   "searchSectionSubtitle": "Search for flights to Stockholm",
   "searchSectionTitle": "Your experience starts here",
   "stickyBannerButtonText": "Search now",
-  "stickyBannerText": "Find the best deals to Stockholm"
+  "stickyBannerText": "Find the best deals to Catalonia"
 }

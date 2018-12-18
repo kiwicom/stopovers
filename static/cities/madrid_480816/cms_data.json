@@ -1,18 +1,34 @@
 {
   "id": "480816",
   "itemType": "city",
-  "updatedAt": "2018-12-03T08:38:07.000Z",
-  "createdAt": "2018-11-21T15:23:59.000Z",
+  "updatedAt": "2018-12-18T15:37:00.447Z",
+  "createdAt": "2018-11-21T15:23:59.345Z",
   "otherMetaTags": {
     "480814": {
       "id": "480814",
       "itemType": "tag",
-      "updatedAt": "2018-11-21T15:26:44.000Z",
-      "createdAt": "2018-11-21T15:23:58.000Z"
+      "updatedAt": "2018-11-21T15:26:44.535Z",
+      "createdAt": "2018-11-21T15:23:58.806Z"
     }
   },
-  "photoForFacebookCard": null,
-  "photoForTwitterCard": null,
+  "photoForFacebookCard": {
+    "format": "jpg",
+    "size": 12327412,
+    "width": 3846,
+    "height": 2564,
+    "title": null,
+    "alt": null,
+    "url": "https://www.datocms-assets.com/7631/1545145465-madridesshutterstock270955121.jpg"
+  },
+  "photoForTwitterCard": {
+    "format": "jpg",
+    "size": 12327412,
+    "width": 3846,
+    "height": 2564,
+    "title": null,
+    "alt": null,
+    "url": "https://www.datocms-assets.com/7631/1545145452-madridesshutterstock270955121.jpg"
+  },
   "searchWidgetDataAffilid": "acquisition_hmc",
   "searchWidgetDataLocation": "MAD",
   "videoYoutubeUrl": null,

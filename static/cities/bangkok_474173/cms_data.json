@@ -1,18 +1,34 @@
 {
   "id": "474173",
   "itemType": "city",
-  "updatedAt": "2018-12-03T08:51:32.000Z",
-  "createdAt": "2018-11-21T11:58:38.000Z",
+  "updatedAt": "2018-12-18T15:41:09.438Z",
+  "createdAt": "2018-11-21T11:58:38.514Z",
   "otherMetaTags": {
     "474172": {
       "id": "474172",
       "itemType": "tag",
-      "updatedAt": "2018-11-21T12:02:28.000Z",
-      "createdAt": "2018-11-21T11:58:38.000Z"
+      "updatedAt": "2018-11-21T12:02:28.946Z",
+      "createdAt": "2018-11-21T11:58:38.174Z"
     }
   },
-  "photoForFacebookCard": null,
-  "photoForTwitterCard": null,
+  "photoForFacebookCard": {
+    "format": "jpg",
+    "size": 7162317,
+    "width": 3888,
+    "height": 2592,
+    "title": null,
+    "alt": null,
+    "url": "https://www.datocms-assets.com/7631/1545144414-bangkokthshutterstock79183075.jpg"
+  },
+  "photoForTwitterCard": {
+    "format": "jpg",
+    "size": 7162317,
+    "width": 3888,
+    "height": 2592,
+    "title": null,
+    "alt": null,
+    "url": "https://www.datocms-assets.com/7631/1545144408-bangkokthshutterstock79183075.jpg"
+  },
   "searchWidgetDataAffilid": "acquisition_hmc",
   "searchWidgetDataLocation": "BKK,DMK",
   "videoYoutubeUrl": null,

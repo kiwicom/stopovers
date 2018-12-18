@@ -7,6 +7,7 @@ import Translate from "@kiwicom/nitro/lib/components/Translate";
 
 import { sendEvent } from "../../etc/logLady";
 import ActionText from "../shared/ActionText";
+import LoaderDots from "../shared/LoaderDots";
 import { scrollToElement } from "../helpers";
 
 const ActionButton = styled.button`
@@ -42,7 +43,11 @@ const ActionButton = styled.button`
   }
 `;
 
-const Action = () => (
+type Props = {
+  isPriceLoading: boolean,
+};
+
+const Action = ({ isPriceLoading }: Props) => (
   <React.Fragment>
     <ActionButton
       onClick={() => {
@@ -53,7 +58,7 @@ const Action = () => (
       <ChevronDown customColor="#ffffff" size="medium" />
     </ActionButton>
     <ActionText>
-      <Translate t="mainActionButtonText" />
+      <Translate t="mainActionButtonText" /> {isPriceLoading ? <LoaderDots /> : null}
     </ActionText>
   </React.Fragment>
 );

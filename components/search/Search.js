@@ -2,6 +2,7 @@
 
 import * as React from "react";
 import styled from "styled-components";
+import { DateTime } from "luxon";
 
 import { getUserId, getCurrentUrlParams } from "../../etc/helpers";
 import SectionTitle from "../shared/SectionTitle";
@@ -36,9 +37,12 @@ type Props = {
 };
 
 const generateScript = ({ langId, location, isStopover, affilid }: Props) => {
-  const { from, to, passengers, departure, returnDate } = getCurrentUrlParams();
+  const { from, to, passengers, departure, returnDate, promocode } = getCurrentUrlParams();
 
   const userId = getUserId();
+  const dateFrom = DateTime.local()
+    .plus({ months: 6 })
+    .toFormat("dd-MM-yyyy");
   const script = document.createElement("script");
   script.src = "https://widget.kiwi.com/scripts/widget-stopover-iframe.js";
   script.setAttribute("data-width", "100%");
@@ -47,11 +51,12 @@ const generateScript = ({ langId, location, isStopover, affilid }: Props) => {
   script.setAttribute("data-from", from || "");
   script.setAttribute("data-to", isStopover ? to || "" : location);
   script.setAttribute("data-passengers", passengers || "1");
-  script.setAttribute("data-departure", departure || "");
-  script.setAttribute("data-return", returnDate || "");
+  script.setAttribute("data-departure", departure || dateFrom);
+  script.setAttribute("data-return", returnDate || "2-10");
   script.setAttribute("data-hide-cookie-banner", "true");
   script.setAttribute("data-user-id", userId);
   script.setAttribute("data-affilid", affilid || "acquisition");
+  script.setAttribute("data-promocode", promocode || "");
   return script;
 };
 

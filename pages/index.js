@@ -66,12 +66,14 @@ type Props = {
 type State = {
   areKeysShown: boolean,
   isMobile: boolean,
+  isPriceLoaded: boolean,
+  lowestPrice: string,
 };
 
 export default class Index extends React.Component<Props, State> {
-  state = { areKeysShown: false, isMobile: false };
+  state = { areKeysShown: false, isMobile: false, lowestPrice: "", isPriceLoaded: false };
 
-  componentDidMount() {
+  async componentDidMount() {
     this.detectMobile();
     window.addEventListener("resize", this.detectMobile);
     window.document.addEventListener("keydown", this.handleKeyDown.bind(this));
@@ -89,6 +91,10 @@ export default class Index extends React.Component<Props, State> {
       send_page_view: isProd,
     });
     sendEvent("pageLoaded");
+    const lowestPrice =
+      !this.props.cityData.isStopover &&
+      (await fetchLowestPrice(this.props.cityData.searchWidgetDataLocation));
+    if (lowestPrice) this.setState({ isPriceLoaded: true, lowestPrice });
   }
 
   componentWillUnmount() {
@@ -129,9 +135,6 @@ export default class Index extends React.Component<Props, State> {
     const menuTranslations = await fetchJson(
       `${staticPath}locales/menuItems/${phraseAppLocale}.json`,
     );
-    const lowestPrice =
-      !cityData.isStopover &&
-      (await fetchLowestPrice(cityData.departureForLowestPrice, cityData.searchWidgetDataLocation));
 
     const articles: ArticleType[] = Object.keys(cityData.articles).map(
       (id: string) => cityData.articles[id],
@@ -148,7 +151,6 @@ export default class Index extends React.Component<Props, State> {
       currentPath: asPath,
       cityData: {
         ...cityData,
-        lowestPrice,
       },
       fetched: {
         ...fetchedDefault,
@@ -221,7 +223,7 @@ export default class Index extends React.Component<Props, State> {
         <InitIntl raw={intl}>
           {intlFull => {
             const translate = (key, value) =>
-              intlFull.translate(key, value).replace(/\[price\]/g, cityData.lowestPrice);
+              intlFull.translate(key, value).replace(/\[price\]/g, this.state.lowestPrice);
 
             return (
               <IntlProvider value={cityData.isStopover ? intlFull : { ...intlFull, translate }}>
@@ -240,7 +242,11 @@ export default class Index extends React.Component<Props, State> {
                     usedLocales={usedLocales}
                   />
                 </FetchedProvider>
-                <Hero logo={cityData.cityLogo} photo={cityData.mainPhoto} />
+                <Hero
+                  logo={cityData.cityLogo}
+                  photo={cityData.mainPhoto}
+                  isPriceLoaderShown={!this.state.isPriceLoaded}
+                />
                 <StickyAction />
                 <Element name="slider">
                   <SliderSection
