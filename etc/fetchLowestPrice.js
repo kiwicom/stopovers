@@ -19,7 +19,7 @@ const query = `
 export default async function getLowestPrice(arrival: string): Promise<?string> {
   const now = DateTime.local();
   const dateFrom = now.toFormat("dd/MM/yyyy");
-  const dateTo = now.plus({ months: 3 }).toFormat("dd/MM/yyyy");
+  const dateTo = now.plus({ months: 6 }).toFormat("dd/MM/yyyy");
 
   const geoIPResponse = await fetch(geoIPUrl, {
     method: "GET",
