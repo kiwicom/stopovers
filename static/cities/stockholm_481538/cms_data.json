@@ -1,14 +1,14 @@
 {
   "id": "481538",
   "itemType": "city",
-  "updatedAt": "2018-12-03T08:53:20.000Z",
-  "createdAt": "2018-11-21T15:30:52.000Z",
+  "updatedAt": "2018-12-14T07:28:55.980Z",
+  "createdAt": "2018-11-21T15:30:52.983Z",
   "otherMetaTags": {
     "481537": {
       "id": "481537",
       "itemType": "tag",
-      "updatedAt": "2018-11-21T15:34:10.000Z",
-      "createdAt": "2018-11-21T15:30:52.000Z"
+      "updatedAt": "2018-11-21T15:34:10.801Z",
+      "createdAt": "2018-11-21T15:30:52.655Z"
     }
   },
   "photoForFacebookCard": null,
@@ -27,7 +27,7 @@
     "size": 10095728,
     "width": 4599,
     "height": 2983,
-    "url": "https://www.datocms-assets.com/7631/1542814432-stockholmseshutterstock1200086689.jpg"
+    "url": "https://www.datocms-assets.com/7631/1544772522-stockholmseshutterstock1200086689.jpg"
   },
   "isStopover": false
 }

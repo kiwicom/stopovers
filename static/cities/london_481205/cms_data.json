@@ -1,14 +1,14 @@
 {
   "id": "481205",
   "itemType": "city",
-  "updatedAt": "2018-12-03T08:37:35.000Z",
-  "createdAt": "2018-11-21T15:27:44.000Z",
+  "updatedAt": "2018-12-03T08:37:35.574Z",
+  "createdAt": "2018-11-21T15:27:44.900Z",
   "otherMetaTags": {
     "481203": {
       "id": "481203",
       "itemType": "tag",
-      "updatedAt": "2018-11-21T15:29:59.000Z",
-      "createdAt": "2018-11-21T15:27:44.000Z"
+      "updatedAt": "2018-11-21T15:29:59.425Z",
+      "createdAt": "2018-11-21T15:27:44.534Z"
     }
   },
   "photoForFacebookCard": null,
