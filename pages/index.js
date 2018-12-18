@@ -66,11 +66,12 @@ type Props = {
 type State = {
   areKeysShown: boolean,
   isMobile: boolean,
+  isPriceLoaded: boolean,
   lowestPrice: string,
 };
 
 export default class Index extends React.Component<Props, State> {
-  state = { areKeysShown: false, isMobile: false, lowestPrice: "..." };
+  state = { areKeysShown: false, isMobile: false, lowestPrice: "", isPriceLoaded: false };
 
   async componentDidMount() {
     this.detectMobile();
@@ -93,7 +94,7 @@ export default class Index extends React.Component<Props, State> {
     const lowestPrice =
       !this.props.cityData.isStopover &&
       (await fetchLowestPrice(this.props.cityData.searchWidgetDataLocation));
-    if (lowestPrice) this.setState({ lowestPrice });
+    if (lowestPrice) this.setState({ isPriceLoaded: true, lowestPrice });
   }
 
   componentWillUnmount() {
@@ -241,7 +242,11 @@ export default class Index extends React.Component<Props, State> {
                     usedLocales={usedLocales}
                   />
                 </FetchedProvider>
-                <Hero logo={cityData.cityLogo} photo={cityData.mainPhoto} />
+                <Hero
+                  logo={cityData.cityLogo}
+                  photo={cityData.mainPhoto}
+                  isPriceLoaderShown={!this.state.isPriceLoaded}
+                />
                 <StickyAction />
                 <Element name="slider">
                   <SliderSection

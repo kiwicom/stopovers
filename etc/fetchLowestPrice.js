@@ -23,7 +23,6 @@ export default async function getLowestPrice(arrival: string): Promise<?string> 
 
   const geoIPResponse = await fetch(geoIPUrl, {
     method: "GET",
-    headers: { "Content-Type": "application/json" },
   });
 
   const userLocation = await geoIPResponse.json();

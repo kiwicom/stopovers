@@ -87,7 +87,11 @@ const AirplaneWrapper = styled.div`
   }
 `;
 
-const Content = () => (
+type Props = {
+  isPriceLoading: boolean,
+};
+
+const Content = ({ isPriceLoading }: Props) => (
   <React.Fragment>
     <MainTitle>
       <Translate t="mainTitle" />
@@ -99,7 +103,7 @@ const Content = () => (
       <AirplaneDown color="secondary" />
     </AirplaneWrapper>
     <ActionWrapper>
-      <Action />
+      <Action isPriceLoading={isPriceLoading} />
     </ActionWrapper>
   </React.Fragment>
 );
