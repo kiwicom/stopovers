@@ -1,7 +1,7 @@
 {
   "id": "474147",
   "itemType": "city",
-  "updatedAt": "2018-12-03T08:51:00.131Z",
+  "updatedAt": "2018-12-18T15:43:47.824Z",
   "createdAt": "2018-11-21T11:32:48.888Z",
   "otherMetaTags": {
     "474146": {
@@ -11,8 +11,24 @@
       "createdAt": "2018-11-21T11:32:48.584Z"
     }
   },
-  "photoForFacebookCard": null,
-  "photoForTwitterCard": null,
+  "photoForFacebookCard": {
+    "format": "jpg",
+    "size": 2096119,
+    "width": 5472,
+    "height": 3648,
+    "title": null,
+    "alt": null,
+    "url": "https://www.datocms-assets.com/7631/1545144092-baliindonesiajeremy-bishop-322802-unsplash.jpg"
+  },
+  "photoForTwitterCard": {
+    "format": "jpg",
+    "size": 2096119,
+    "width": 5472,
+    "height": 3648,
+    "title": null,
+    "alt": null,
+    "url": "https://www.datocms-assets.com/7631/1545144085-baliindonesiajeremy-bishop-322802-unsplash.jpg"
+  },
   "searchWidgetDataAffilid": "acquisition_hmc",
   "searchWidgetDataLocation": "DPS",
   "videoYoutubeUrl": null,

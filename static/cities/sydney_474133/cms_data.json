@@ -1,7 +1,7 @@
 {
   "id": "474133",
   "itemType": "city",
-  "updatedAt": "2018-12-03T08:50:44.861Z",
+  "updatedAt": "2018-12-18T15:46:43.719Z",
   "createdAt": "2018-11-21T11:18:51.658Z",
   "otherMetaTags": {
     "474132": {
@@ -11,8 +11,24 @@
       "createdAt": "2018-11-21T11:18:51.296Z"
     }
   },
-  "photoForFacebookCard": null,
-  "photoForTwitterCard": null,
+  "photoForFacebookCard": {
+    "format": "jpg",
+    "size": 3232907,
+    "width": 4618,
+    "height": 3079,
+    "title": null,
+    "alt": null,
+    "url": "https://www.datocms-assets.com/7631/1545144352-sydneyauashwin-vaswani-1077803-unsplash.jpg"
+  },
+  "photoForTwitterCard": {
+    "format": "jpg",
+    "size": 3232907,
+    "width": 4618,
+    "height": 3079,
+    "title": null,
+    "alt": null,
+    "url": "https://www.datocms-assets.com/7631/1545144344-sydneyauashwin-vaswani-1077803-unsplash.jpg"
+  },
   "searchWidgetDataAffilid": "acquisition_hmc",
   "searchWidgetDataLocation": "SYD",
   "videoYoutubeUrl": null,

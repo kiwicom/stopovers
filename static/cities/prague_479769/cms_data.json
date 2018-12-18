@@ -1,7 +1,7 @@
 {
   "id": "479769",
   "itemType": "city",
-  "updatedAt": "2018-12-03T08:52:14.686Z",
+  "updatedAt": "2018-12-18T15:37:28.464Z",
   "createdAt": "2018-11-21T15:13:34.802Z",
   "otherMetaTags": {
     "479767": {
@@ -11,8 +11,24 @@
       "createdAt": "2018-11-21T15:13:34.523Z"
     }
   },
-  "photoForFacebookCard": null,
-  "photoForTwitterCard": null,
+  "photoForFacebookCard": {
+    "format": "jpg",
+    "size": 8730984,
+    "width": 4000,
+    "height": 2667,
+    "title": null,
+    "alt": null,
+    "url": "https://www.datocms-assets.com/7631/1545145395-pragueczechrepubliccharles-bridge-towers-prague-at-night-picjumbo-com.jpg"
+  },
+  "photoForTwitterCard": {
+    "format": "jpg",
+    "size": 8730984,
+    "width": 4000,
+    "height": 2667,
+    "title": null,
+    "alt": null,
+    "url": "https://www.datocms-assets.com/7631/1545145388-pragueczechrepubliccharles-bridge-towers-prague-at-night-picjumbo-com.jpg"
+  },
   "searchWidgetDataAffilid": "acquisition_hmc",
   "searchWidgetDataLocation": "PRG",
   "videoYoutubeUrl": null,

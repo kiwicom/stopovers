@@ -1,7 +1,7 @@
 {
   "id": "481964",
   "itemType": "city",
-  "updatedAt": "2018-12-03T08:49:41.647Z",
+  "updatedAt": "2018-12-18T15:48:59.819Z",
   "createdAt": "2018-11-21T15:34:57.672Z",
   "otherMetaTags": {
     "481963": {
@@ -11,8 +11,24 @@
       "createdAt": "2018-11-21T15:34:57.341Z"
     }
   },
-  "photoForFacebookCard": null,
-  "photoForTwitterCard": null,
+  "photoForFacebookCard": {
+    "format": "jpg",
+    "size": 2471921,
+    "width": 4460,
+    "height": 2975,
+    "title": null,
+    "alt": null,
+    "url": "https://www.datocms-assets.com/7631/1545146039-lisbonportugalview-of-lisbon-hillside4460x4460.jpg"
+  },
+  "photoForTwitterCard": {
+    "format": "jpg",
+    "size": 2471921,
+    "width": 4460,
+    "height": 2975,
+    "title": null,
+    "alt": null,
+    "url": "https://www.datocms-assets.com/7631/1545146021-lisbonportugalview-of-lisbon-hillside4460x4460.jpg"
+  },
   "searchWidgetDataAffilid": "acquisition_hmc",
   "searchWidgetDataLocation": "LIS",
   "videoYoutubeUrl": null,

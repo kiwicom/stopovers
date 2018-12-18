@@ -1,7 +1,7 @@
 {
   "id": "481205",
   "itemType": "city",
-  "updatedAt": "2018-12-03T08:37:35.574Z",
+  "updatedAt": "2018-12-18T15:40:16.492Z",
   "createdAt": "2018-11-21T15:27:44.900Z",
   "otherMetaTags": {
     "481203": {
@@ -11,8 +11,24 @@
       "createdAt": "2018-11-21T15:27:44.534Z"
     }
   },
-  "photoForFacebookCard": null,
-  "photoForTwitterCard": null,
+  "photoForFacebookCard": {
+    "format": "jpg",
+    "size": 3436559,
+    "width": 5616,
+    "height": 3744,
+    "title": null,
+    "alt": null,
+    "url": "https://www.datocms-assets.com/7631/1545144662-londongbcharles-postiaux-774486-unsplash.jpg"
+  },
+  "photoForTwitterCard": {
+    "format": "jpg",
+    "size": 3436559,
+    "width": 5616,
+    "height": 3744,
+    "title": null,
+    "alt": null,
+    "url": "https://www.datocms-assets.com/7631/1545144644-londongbcharles-postiaux-774486-unsplash.jpg"
+  },
   "searchWidgetDataAffilid": "acquisition_hmc",
   "searchWidgetDataLocation": "LGW,STN,LTN,LHR,SEN,LCY",
   "videoYoutubeUrl": null,

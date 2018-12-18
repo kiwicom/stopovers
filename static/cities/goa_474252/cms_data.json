@@ -1,7 +1,7 @@
 {
   "id": "474252",
   "itemType": "city",
-  "updatedAt": "2018-12-03T08:49:27.653Z",
+  "updatedAt": "2018-12-18T15:48:04.470Z",
   "createdAt": "2018-11-21T13:21:39.622Z",
   "otherMetaTags": {
     "474251": {
@@ -11,8 +11,24 @@
       "createdAt": "2018-11-21T13:21:39.007Z"
     }
   },
-  "photoForFacebookCard": null,
-  "photoForTwitterCard": null,
+  "photoForFacebookCard": {
+    "format": "jpg",
+    "size": 16192442,
+    "width": 3992,
+    "height": 2992,
+    "title": null,
+    "alt": null,
+    "url": "https://www.datocms-assets.com/7631/1545146092-goainshutterstock1019213788.jpg"
+  },
+  "photoForTwitterCard": {
+    "format": "jpg",
+    "size": 16192442,
+    "width": 3992,
+    "height": 2992,
+    "title": null,
+    "alt": null,
+    "url": "https://www.datocms-assets.com/7631/1545146066-goainshutterstock1019213788.jpg"
+  },
   "searchWidgetDataAffilid": "acquisition_hmc",
   "searchWidgetDataLocation": "GOI",
   "videoYoutubeUrl": null,

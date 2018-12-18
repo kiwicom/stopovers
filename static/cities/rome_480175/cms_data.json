@@ -1,7 +1,7 @@
 {
   "id": "480175",
   "itemType": "city",
-  "updatedAt": "2018-12-03T08:52:34.814Z",
+  "updatedAt": "2018-12-18T15:37:50.058Z",
   "createdAt": "2018-11-21T15:17:52.459Z",
   "otherMetaTags": {
     "480174": {
@@ -11,8 +11,24 @@
       "createdAt": "2018-11-21T15:17:51.951Z"
     }
   },
-  "photoForFacebookCard": null,
-  "photoForTwitterCard": null,
+  "photoForFacebookCard": {
+    "format": "jpg",
+    "size": 5357549,
+    "width": 2400,
+    "height": 1812,
+    "title": null,
+    "alt": null,
+    "url": "https://www.datocms-assets.com/7631/1545145320-romeitshutterstock122893927.jpg"
+  },
+  "photoForTwitterCard": {
+    "format": "jpg",
+    "size": 5357549,
+    "width": 2400,
+    "height": 1812,
+    "title": null,
+    "alt": null,
+    "url": "https://www.datocms-assets.com/7631/1545145308-romeitshutterstock122893927.jpg"
+  },
   "searchWidgetDataAffilid": "acquisition_hmc",
   "searchWidgetDataLocation": "FCO,CIA",
   "videoYoutubeUrl": null,
