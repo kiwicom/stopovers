@@ -40,9 +40,12 @@ const generateScript = ({ langId, location, isStopover, affilid }: Props) => {
   const { from, to, passengers, departure, returnDate, promocode } = getCurrentUrlParams();
 
   const userId = getUserId();
-  const dateFrom = DateTime.local()
+  const now = DateTime.local();
+  const today = now.toFormat("dd-MM-yyyy");
+  const plusSixMonths = DateTime.local()
     .plus({ months: 6 })
     .toFormat("dd-MM-yyyy");
+  const dateFrom = `${today}_${plusSixMonths}`;
   const script = document.createElement("script");
   script.src = "https://widget.kiwi.com/scripts/widget-stopover-iframe.js";
   script.setAttribute("data-width", "100%");
