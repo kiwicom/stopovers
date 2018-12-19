@@ -245,7 +245,7 @@ export default class Index extends React.Component<Props, State> {
                 <Hero
                   logo={cityData.cityLogo}
                   photo={cityData.mainPhoto}
-                  isPriceLoaderShown={!this.state.isPriceLoaded}
+                  isPriceLoaderShown={!cityData.isStopover && !this.state.isPriceLoaded}
                 />
                 <StickyAction />
                 <Element name="slider">
