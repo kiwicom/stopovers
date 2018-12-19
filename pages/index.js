@@ -277,7 +277,7 @@ export default class Index extends React.Component<Props, State> {
                   />
                 </Element>
                 <Footer langId={langId} />
-                <Banner />
+                {cityData.isStopover && <Banner />}
               </IntlProvider>
             );
           }}
