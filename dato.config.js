@@ -119,6 +119,7 @@ module.exports = (dato, root) => {
             otherMetaTags: listToObj(nonTranslatedData.otherMetaTags, translatedTagFields, false),
             sliderPhotos: formatImages(nonTranslatedData.sliderPhotos, false, photo => photo),
             mainPhoto: formatImage(nonTranslatedData, false, data => data.mainPhoto),
+            name: translatedData.name,
           },
         },
       };

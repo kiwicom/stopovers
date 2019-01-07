@@ -166,6 +166,23 @@ export default class MyDocument extends Document {
           `,
             }}
           />
+          <script
+            dangerouslySetInnerHTML={{
+              __html: `(function(d,b){if(!d.infinario){var a=function(a,g){function k(c){return function(){var e=arguments;""==a&&"initialize"==c&&e&&e[0].modify&&e[0].modify.overlay&&"loading"==b.readyState&&(b.write('<div id="__inf__overlay__" style="position:absolute;background:#fff;left:0;top:0;width:100%;height:100%;z-index:1000000"></div>'),setTimeout(function(){var a=b.getElementById("__inf__overlay__");a&&b.body.removeChild(a);res.__=!0},e[0].modify.delay||500));d.infinario._.push([a+c,arguments])}}var h=g.split(" "),f,c;res={_:[]};for(c=0;c<h.length;c++)f=h[c],res[f]=k(f);return res};d.infinario=a("","initialize identify update track trackLink trackEnhancedEcommerce getHtml showHtml showBanner showForm ping getAbTest");d.infinario.notifications=a("notifications.","isAvailable isSubscribed subscribe unsubscribe");var a=b.createElement("script"),g="https:"===b.location.protocol?"https:":"http:";a.type="text/javascript";a.async=!0;a.src=g+"//skypicker-api.infinario.com/js/infinario.min.js";b.getElementsByTagName("head")[0].appendChild(a)}})(window,document);`,
+            }}
+          />
+          <script
+            dangerouslySetInnerHTML={{
+              __html: `
+              infinario.initialize({
+                token: "5072b5a0-3fcf-11e5-9a77-b083fedeedd8",
+                track: {
+                  visits: true,
+                },
+              });
+          `,
+            }}
+          />
         </Head>
         <body>
           <Main />

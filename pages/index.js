@@ -74,6 +74,7 @@ export default class Index extends React.Component<Props, State> {
   state = { areKeysShown: false, isMobile: false, lowestPrice: "", isPriceLoaded: false };
 
   async componentDidMount() {
+    const { cityData } = this.props;
     this.detectMobile();
     window.addEventListener("resize", this.detectMobile);
     window.document.addEventListener("keydown", this.handleKeyDown.bind(this));
@@ -91,9 +92,15 @@ export default class Index extends React.Component<Props, State> {
       send_page_view: isProd,
     });
     sendEvent("pageLoaded");
+
+    const cityType = cityData.isStopover ? "stopovers" : "destinations";
+    window.infinario.track("mktLandingPage", {
+      category: cityType,
+      name: cityData.name.toLowerCase(),
+    });
+
     const lowestPrice =
-      !this.props.cityData.isStopover &&
-      (await fetchLowestPrice(this.props.cityData.searchWidgetDataLocation));
+      !cityData.isStopover && (await fetchLowestPrice(cityData.searchWidgetDataLocation));
     if (lowestPrice) this.setState({ isPriceLoaded: true, lowestPrice });
   }
 
