@@ -9,6 +9,7 @@ import { type Fetched, fetchedDefault } from "@kiwicom/nitro/lib/records/Fetched
 import { type Translations } from "@kiwicom/nitro/lib/services/intl/translate";
 import { Provider as FetchedProvider } from "@kiwicom/nitro/lib/services/fetched/context";
 import cookies from "js-cookie";
+import Router from "next/router";
 import "isomorphic-unfetch";
 
 import { GA_TRACKING_ID } from "../etc/gtag";
@@ -107,17 +108,30 @@ export default class Index extends React.Component<Props, State> {
   };
 
   static async getInitialProps({
-    query: { langId, usedLocales, cityTag },
+    query: { langId = "en", usedLocales, cityTag },
     req,
+    res,
     asPath,
   }: {
     query: Query,
     req: any,
+    res: any,
     asPath: string,
   }) {
+    if (!cityTag || !usedLocales) {
+      // dirty redirect to default page
+      if (res) {
+        res.writeHead(302, {
+          Location: "/en/stopovers/dubai/",
+        });
+        res.end();
+      } else {
+        Router.push("/en/stopovers/dubai/");
+      }
+      return {};
+    }
     const supportedLangs = filterLanguages(usedLocales);
-
-    const currentLang = getLanguage(langId);
+    const currentLang = getLanguage(langId, supportedLangs);
     const currentBrandLang = getBrandLanguage(langId, supportedLangs);
 
     // This string is in the same format as ISO locale, but does not always

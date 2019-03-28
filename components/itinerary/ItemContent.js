@@ -87,7 +87,7 @@ const ItemContent = ({ isOdd, title, time, description }: Props) => (
       <Wrapper isOdd={isOdd}>
         <Circle />
         <div>
-          <Time>{getIntlTime(time, intl.language ? intl.language.id : "en")}</Time>
+          {time && <Time>{getIntlTime(time, intl.language ? intl.language.id : "en")}</Time>}
           <ItineraryTitle fontSize={20}>
             <Translate t={title} />
           </ItineraryTitle>

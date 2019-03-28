@@ -25,8 +25,16 @@ export function filterLanguages(usedLocales: string[]): LangInfos {
   return pick(languages, usedLocales, "iso");
 }
 
-export function getLanguage(langId: string): LangInfo {
-  const language = languages[langId] || languages.en;
+export function getLanguage(langId: string, supportedLangs: LangInfos): LangInfo {
+  const initialLang = languages[langId];
+  const supportedLangIds = Object.keys(supportedLangs);
+  const isLangSupported = supportedLangIds.includes(langId);
+  const fallbackLangId = initialLang && initialLang.translations;
+  const isFallbackSupported = fallbackLangId && supportedLangIds.includes(fallbackLangId);
+  const language =
+    (isLangSupported && initialLang) ||
+    (isFallbackSupported && languages[fallbackLangId]) ||
+    languages.en;
   return {
     ...language,
     name: language.displayName,

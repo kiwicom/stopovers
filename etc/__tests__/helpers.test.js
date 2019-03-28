@@ -27,10 +27,17 @@ describe("helpers", () => {
   });
 
   it("gets correct language data", () => {
-    expect(Helpers.getLanguage("non existing language")).toEqual(languages.en);
-    expect(Helpers.getLanguage("ca")).toEqual({
+    expect(
+      Helpers.getLanguage("non existing language", Helpers.filterLanguages(["en-GB"])),
+    ).toEqual(languages.en);
+    expect(Helpers.getLanguage("ca", Helpers.filterLanguages(["en-GB", "en-CA"]))).toEqual({
       ...languages.ca,
       name: languages.ca.displayName,
+    });
+    expect(Helpers.getLanguage("ca", Helpers.filterLanguages(["en-GB"]))).toEqual(languages.en);
+    expect(Helpers.getLanguage("be", Helpers.filterLanguages(["en-GB", "fr-FR"]))).toEqual({
+      ...languages.fr,
+      name: languages.fr.displayName,
     });
   });
 
